@@ -1,0 +1,24 @@
+{
+  "checkedAtTaipei": "2026-11-14T17:34:43",
+  "originalFiles": 133,
+  "missing": [],
+  "changed": [
+    "native/LN_Preference/com.pinterest.PINDiskCache.JSStore/VerseLyrics%2Ev1%2Ecache",
+    "native/loonmmkv/mmkv/ff33342dd4270b8785a0065db1bbc7de_selectedPolicys",
+    "native/loonmmkv/mmkv/ff33342dd4270b8785a0065db1bbc7de_selectedPolicys.crc"
+  ],
+  "finalCheckedAtTaipei": "2026-11-14T17:35:20",
+  "sharedLyricsCacheRestoredToImmediateT0": true,
+  "finalMissing": [],
+  "finalChanged": [
+    "native/loonmmkv/mmkv/ff33342dd4270b8785a0065db1bbc7de_selectedPolicys",
+    "native/loonmmkv/mmkv/ff33342dd4270b8785a0065db1bbc7de_selectedPolicys.crc"
+  ],
+  "configsAllThreeSHA256Match": true,
+  "originalScriptsAll43SHA256Match": true,
+  "originalRemotePluginsAll15SHA256Match": true,
+  "temporaryPortClosed": true,
+  "selectedPolicyMMKVTwoFilesDifferPreserved": true,
+  "selectedPolicyMMKVDifferenceCause": "not established; not overwritten",
+  "restoreScope": "Configs, original scripts, remote plugins and shared lyrics cache verified. Two host selected-policy MMKV files differ; semantic equivalence was not established."
+}

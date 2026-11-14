@@ -1,0 +1,1331 @@
+[
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "227ed261249a052c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "227ed261249a052c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "8905e7f5604188d6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "8905e7f5604188d6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ae61c919e6189fea",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ae61c919e6189fea",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "56e7f4a533f77c97",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "56e7f4a533f77c97",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ccf1e8278b22bb48",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ccf1e8278b22bb48",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "0845b793bb07059b",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "0845b793bb07059b",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "27bc1f4d92a99ef0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "27bc1f4d92a99ef0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "fdfe8f6b99eb78b4",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "fdfe8f6b99eb78b4",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "bc00997e08c3f013",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "omitted"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "bc00997e08c3f013",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "82e9432a44598229",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "82e9432a44598229",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "9bc9548add0fe0e1",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "9bc9548add0fe0e1",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "284174f83d1e7fdc",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "284174f83d1e7fdc",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "98f5d01018732492",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "5fc54eb7056a3359",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "c9a5a4541263993d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "98f5d01018732492",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "5fc54eb7056a3359",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "c9a5a4541263993d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "32321cc0f42e8257",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "326d441cc693faf9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "32321cc0f42e8257",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "326d441cc693faf9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "27c8432b1b1dbac4",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "27c8432b1b1dbac4",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4127bec0c2646534",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4127bec0c2646534",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ab2b8a000a7e620c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "25d64f86085c4162",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "9e1c7b39346b781d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ab2b8a000a7e620c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "25d64f86085c4162",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "484b6b51e89ea13f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "9e1c7b39346b781d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "9f03cc324c4f9787",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "2dc3b37b50ca67b8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "b43b8ae64701a9aa",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "296054ee942e8ef6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "9f03cc324c4f9787",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "484b6b51e89ea13f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "2dc3b37b50ca67b8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "b43b8ae64701a9aa",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "296054ee942e8ef6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ead461636b39d598",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4c561e6098d3a52c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ead461636b39d598",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "f7005df4d0fcf8b8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4c561e6098d3a52c",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "737b66dda52c41c3",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "f7005df4d0fcf8b8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ae14222bf7bb595e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "737b66dda52c41c3",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "73a49f05088a33b9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "6784305aa097530f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "5a6de34f2a548758",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ae14222bf7bb595e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "73a49f05088a33b9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "6784305aa097530f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "5a6de34f2a548758",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "d775d3139d674da6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "df3176943ef05808",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "6e6da0a3c2b79967",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "d775d3139d674da6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "3143c88432a365bd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "df3176943ef05808",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "6e6da0a3c2b79967",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "78640e6304964c32",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "3143c88432a365bd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "1a5acca0c7e7914d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ff1d6c9cd5ef10dd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "78640e6304964c32",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "1a5acca0c7e7914d",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "394f1a7e739089d9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "244c1c3dd833b385",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ff1d6c9cd5ef10dd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "7c8b8517113bd32f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "394f1a7e739089d9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "244c1c3dd833b385",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "448768665286c7ae",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "7c8b8517113bd32f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "69308d56280fa2af",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "448768665286c7ae",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4931c9fc6f7dd022",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "69308d56280fa2af",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "ae48519d1376b5c8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true,
+      "omitted",
+      "omitted"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4931c9fc6f7dd022",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "1c82201c7b21cd3f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "106b0d220db6e399",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "omitted",
+      true,
+      "omitted"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "ae48519d1376b5c8",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "1c82201c7b21cd3f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "2d7c55e9308b9ae5",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "106b0d220db6e399",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "5d6dfef80747dec3",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "2d7c55e9308b9ae5",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "5d6dfef80747dec3",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4a4832247299e354",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4a4832247299e354",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "dd3af08019263fb1",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "omitted"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "dd3af08019263fb1",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "d765d7a7d860882a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "d765d7a7d860882a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4a9e5b206463240f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "omitted",
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4a9e5b206463240f",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "df14c0503b769208",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "omitted",
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "df14c0503b769208",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "25943acdcc8f298e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "25943acdcc8f298e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "70539bd540f19b77",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "70539bd540f19b77",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "42213b81c7c0352e",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "42213b81c7c0352e",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "cddaafc7831717d9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "cddaafc7831717d9",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "749161dbaf064652",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "749161dbaf064652",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "f1c48ece3079840a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "f1c48ece3079840a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "88d8687121468c93",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "88d8687121468c93",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "f0fc966c665d91f5",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "f0fc966c665d91f5",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "3eccb6fe11275581",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "4a3f639bd748a679",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "3eccb6fe11275581",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "f2c438e49bd98674",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "4a3f639bd748a679",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "before",
+    "pair": "7dcd6bf2b5b76d3e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "f2c438e49bd98674",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "extended-metadata",
+    "stage": "after",
+    "pair": "7dcd6bf2b5b76d3e",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "6c86daed4c8b8b98",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "6c86daed4c8b8b98",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "before",
+    "pair": "8b077430ceaea91e",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "connect-state",
+    "stage": "after",
+    "pair": "8b077430ceaea91e",
+    "publicTargetMatched": true,
+    "lyricsFlags": [
+      true,
+      true,
+      true,
+      true
+    ]
+  }
+]

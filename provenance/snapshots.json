@@ -1,0 +1,966 @@
+{
+  "repository": "https://github.com/hhhoratioxu/Proxy",
+  "revisions": {
+    "10049053ce86bd992e3ebb6511ffb28312ba86fb": {
+      "Egern/script/SpotifyLyrics.yaml": {
+        "bytes": 7668,
+        "sha256": "1f959439c97403c2e10ef236e58ad3a4edd3d33769e62a81562943db36709803",
+        "object": "objects/1f959439c97403c2e10ef236e58ad3a4edd3d33769e62a81562943db36709803.txt"
+      },
+      "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt": {
+        "bytes": 1995,
+        "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+        "object": "objects/e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96.txt"
+      },
+      "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js": {
+        "bytes": 27122,
+        "sha256": "d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e",
+        "object": "objects/d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e.txt"
+      },
+      "Egern/script/SpotifyLyrics/spotify-lyrics-request.js": {
+        "bytes": 2931,
+        "sha256": "d5531a4ce9555006e2f5aef54d0fe6e1df0074bea75f44a193ac23c6ee75a1bd",
+        "object": "objects/d5531a4ce9555006e2f5aef54d0fe6e1df0074bea75f44a193ac23c6ee75a1bd.txt"
+      },
+      "Egern/script/SpotifyLyrics/spotify-lyrics.js": {
+        "bytes": 86686,
+        "sha256": "8a0b541538d262e920f12155b7d7c7c3c1115b2b2529139ae86b4c0cd9826461",
+        "object": "objects/8a0b541538d262e920f12155b7d7c7c3c1115b2b2529139ae86b4c0cd9826461.txt"
+      },
+      "Loon/script/SpotifyLyrics.Entry.js": {
+        "bytes": 29689,
+        "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64",
+        "object": "objects/961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64.txt"
+      },
+      "Loon/script/SpotifyLyrics.js": {
+        "bytes": 90747,
+        "sha256": "8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94",
+        "object": "objects/8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94.txt"
+      },
+      "Loon/script/SpotifyLyrics.lpx": {
+        "bytes": 8170,
+        "sha256": "36ab27d104cb49a6e192424899e48c8d2f82e6b41c4d185b052164d488ed3017",
+        "object": "objects/36ab27d104cb49a6e192424899e48c8d2f82e6b41c4d185b052164d488ed3017.txt"
+      },
+      "QuantumultX/script/SpotifyLyrics.Entry.js": {
+        "bytes": 30320,
+        "sha256": "1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3",
+        "object": "objects/1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3.txt"
+      },
+      "QuantumultX/script/SpotifyLyrics.Request.js": {
+        "bytes": 4853,
+        "sha256": "f9615506ff41006f6109c480c2314e0e921465c95122b53f4f9aa9ddabb93f40",
+        "object": "objects/f9615506ff41006f6109c480c2314e0e921465c95122b53f4f9aa9ddabb93f40.txt"
+      },
+      "QuantumultX/script/SpotifyLyrics.conf": {
+        "bytes": 2998,
+        "sha256": "6a68573af3bfb7948a5ef1ff50a4d235941501e20c18ca401f0401c4458039a5",
+        "object": "objects/6a68573af3bfb7948a5ef1ff50a4d235941501e20c18ca401f0401c4458039a5.txt"
+      },
+      "QuantumultX/script/SpotifyLyrics.js": {
+        "bytes": 91522,
+        "sha256": "f09d17caeb812fb43f3edfd04d3e2a5dd600a608ba9216d2ea74a1689fa347ae",
+        "object": "objects/f09d17caeb812fb43f3edfd04d3e2a5dd600a608ba9216d2ea74a1689fa347ae.txt"
+      },
+      "Shadowrocket/script/SpotifyLyrics.Entry.js": {
+        "bytes": 29697,
+        "sha256": "64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159",
+        "object": "objects/64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159.txt"
+      },
+      "Shadowrocket/script/SpotifyLyrics.Request.js": {
+        "bytes": 4697,
+        "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d",
+        "object": "objects/5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d.txt"
+      },
+      "Shadowrocket/script/SpotifyLyrics.js": {
+        "bytes": 90727,
+        "sha256": "0ce686dc47f9aa327189af0763f58148352c684edb977a4aa74a2a39c8ad8b9d",
+        "object": "objects/0ce686dc47f9aa327189af0763f58148352c684edb977a4aa74a2a39c8ad8b9d.txt"
+      },
+      "Shadowrocket/script/SpotifyLyrics.sgmodule": {
+        "bytes": 3283,
+        "sha256": "f23488aa8feb84358d2f982bf930b046885af402da17d9e4e0c55051b56a6de4",
+        "object": "objects/f23488aa8feb84358d2f982bf930b046885af402da17d9e4e0c55051b56a6de4.txt"
+      },
+      "Surge/Development/VerseLyrics322/CLIENT-CONTRACTS.md": {
+        "bytes": 3102,
+        "sha256": "64b3f3cea7af975148bd5a50a8b41593a6da5b90cf00afa2e6a78cdbd75a0829",
+        "object": "objects/64b3f3cea7af975148bd5a50a8b41593a6da5b90cf00afa2e6a78cdbd75a0829.txt"
+      },
+      "Surge/Development/VerseLyrics322/MEASUREMENTS.md": {
+        "bytes": 10016,
+        "sha256": "8724777102869bde1cdf61967d1c86f689e2b68467b8ffd9ed9fa6fddebe22ac",
+        "object": "objects/8724777102869bde1cdf61967d1c86f689e2b68467b8ffd9ed9fa6fddebe22ac.txt"
+      },
+      "Surge/Development/VerseLyrics322/README.md": {
+        "bytes": 5447,
+        "sha256": "064951f83ad95bdab6ac1e2f7d224275187177b730fc5e2c7daf2d56a7407668",
+        "object": "objects/064951f83ad95bdab6ac1e2f7d224275187177b730fc5e2c7daf2d56a7407668.txt"
+      },
+      "Surge/Development/VerseLyrics322/SOURCE-EVIDENCE.md": {
+        "bytes": 4421,
+        "sha256": "92886089189694e1429715ed0fb910d81e839aa3594340f596707360003b7a7a",
+        "object": "objects/92886089189694e1429715ed0fb910d81e839aa3594340f596707360003b7a7a.txt"
+      },
+      "Surge/Development/VerseLyrics322/STARTUP-EVIDENCE.md": {
+        "bytes": 2459,
+        "sha256": "471b90892d59f852ec72dbedcd23f9de0dbec94419982cf7d67a7911f937df0a",
+        "object": "objects/471b90892d59f852ec72dbedcd23f9de0dbec94419982cf7d67a7911f937df0a.txt"
+      },
+      "Surge/Development/VerseLyrics322/base.json": {
+        "bytes": 114455,
+        "sha256": "90ddc54fed85c966a9ef0e2ba9a72b14c6e8ee16d17c6977c5fb83ce8ece8f45",
+        "object": "objects/90ddc54fed85c966a9ef0e2ba9a72b14c6e8ee16d17c6977c5fb83ce8ece8f45.txt"
+      },
+      "Surge/Development/VerseLyrics322/bench-runtime-sha256.json": {
+        "bytes": 3514,
+        "sha256": "88032e94ccef0b3e8fc972846816944c88ac10555fcff6d2049885421aab3693",
+        "object": "objects/88032e94ccef0b3e8fc972846816944c88ac10555fcff6d2049885421aab3693.txt"
+      },
+      "Surge/Development/VerseLyrics322/build.mjs": {
+        "bytes": 17056,
+        "sha256": "aa029963d9fec1ca6cfabe86d048049624980b5e91ed9a0bd5b87870749ff41f",
+        "object": "objects/aa029963d9fec1ca6cfabe86d048049624980b5e91ed9a0bd5b87870749ff41f.txt"
+      },
+      "Surge/Development/VerseLyrics322/client-contract.test.mjs": {
+        "bytes": 6266,
+        "sha256": "a55e42ab05db1a9af6585bb23becfbf75ee1b5c92209dcf47c0aca67d1cc4dad",
+        "object": "objects/a55e42ab05db1a9af6585bb23becfbf75ee1b5c92209dcf47c0aca67d1cc4dad.txt"
+      },
+      "Surge/Development/VerseLyrics322/config.test.mjs": {
+        "bytes": 6296,
+        "sha256": "48e06b7cfefc05b41b308b38e4d437b2320b888afb05121681a1eada3920c6fa",
+        "object": "objects/48e06b7cfefc05b41b308b38e4d437b2320b888afb05121681a1eada3920c6fa.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/NOTICE-UNICODE.txt": {
+        "bytes": 1995,
+        "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+        "object": "objects/e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/spotify-lyrics.js": {
+        "bytes": 175580,
+        "sha256": "bb3c9f0b18fd678ebbb8e912ea2bab00b4c09074db0802fdca12918664e6fda2",
+        "object": "objects/bb3c9f0b18fd678ebbb8e912ea2bab00b4c09074db0802fdca12918664e6fda2.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/bilingual-artists.test.mjs": {
+        "bytes": 7383,
+        "sha256": "362efbf4a3b9059c1ec5dc4a90415271e272f4ed04e677c7644ae353bb41ecc2",
+        "object": "objects/362efbf4a3b9059c1ec5dc4a90415271e272f4ed04e677c7644ae353bb41ecc2.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/cache-latency.test.mjs": {
+        "bytes": 10611,
+        "sha256": "4768993b77ef852dbb78dd6133285deb9a731b93863ac27cb27bd5604e7b63d1",
+        "object": "objects/4768993b77ef852dbb78dd6133285deb9a731b93863ac27cb27bd5604e7b63d1.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/cache-save-ranges.test.mjs": {
+        "bytes": 8325,
+        "sha256": "fa573b697e14922ace1552bd9cb154ae5b907ed6958d1bbf6d06e0388de90fd0",
+        "object": "objects/fa573b697e14922ace1552bd9cb154ae5b907ed6958d1bbf6d06e0388de90fd0.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/cache-work.test.mjs": {
+        "bytes": 4974,
+        "sha256": "96eae42ccabd63a4897cdb69f22ce2ba2bbdffc3b6f6177a97368a7d5f176d71",
+        "object": "objects/96eae42ccabd63a4897cdb69f22ce2ba2bbdffc3b6f6177a97368a7d5f176d71.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/chinese-conversion-output.test.mjs": {
+        "bytes": 9373,
+        "sha256": "111a937a8fb3a5b00329ae5dc40ef813f8880059b434ef1ad0d04b9fc6ba3fb9",
+        "object": "objects/111a937a8fb3a5b00329ae5dc40ef813f8880059b434ef1ad0d04b9fc6ba3fb9.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/coverage.test.mjs": {
+        "bytes": 8559,
+        "sha256": "3dceedec92df76013a9df0cb6f440f8704a27f2ed6491fb009e768de0208a71c",
+        "object": "objects/3dceedec92df76013a9df0cb6f440f8704a27f2ed6491fb009e768de0208a71c.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/decoder-memory.test.mjs": {
+        "bytes": 3044,
+        "sha256": "997ef9d277947c446075d8ed2b83483bc888eadb42d72904b844ff981eb7ad8d",
+        "object": "objects/997ef9d277947c446075d8ed2b83483bc888eadb42d72904b844ff981eb7ad8d.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/extended-identity.test.mjs": {
+        "bytes": 2364,
+        "sha256": "e745a986030ab13048e39f66af06ad649db3e4242c3291fca923dc1b8529dc8d",
+        "object": "objects/e745a986030ab13048e39f66af06ad649db3e4242c3291fca923dc1b8529dc8d.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fallback-offset.test.mjs": {
+        "bytes": 2890,
+        "sha256": "c61e4655c9a3dfd0bf2f7bf650434db4736daf1299c5e2e4112d965fa3168aba",
+        "object": "objects/c61e4655c9a3dfd0bf2f7bf650434db4736daf1299c5e2e4112d965fa3168aba.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/first-load.test.mjs": {
+        "bytes": 14353,
+        "sha256": "2b611cd335daa21ac6a1b16ad2c11dfaa04018e8f7f98347cd6389d99618b460",
+        "object": "objects/2b611cd335daa21ac6a1b16ad2c11dfaa04018e8f7f98347cd6389d99618b460.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/han-reference.json": {
+        "bytes": 43636,
+        "sha256": "0231dd32ea8f19310fa77138a09333618b32fcd4488854f0e5bc6b9e8b3908a9",
+        "object": "objects/0231dd32ea8f19310fa77138a09333618b32fcd4488854f0e5bc6b9e8b3908a9.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/player-entry-052-reference.js": {
+        "bytes": 5512,
+        "sha256": "93de025ab088db453b4dba46297e43e984f0b5fdd89d11c0425e3fa1936bae8a",
+        "object": "objects/93de025ab088db453b4dba46297e43e984f0b5fdd89d11c0425e3fa1936bae8a.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/source-services.mjs": {
+        "bytes": 1070,
+        "sha256": "6f7bd63633b4f08deb483fe6a0bc5586caa91cf84e2ac571ea1240173067e061",
+        "object": "objects/6f7bd63633b4f08deb483fe6a0bc5586caa91cf84e2ac571ea1240173067e061.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/target-palette.json": {
+        "bytes": 1526,
+        "sha256": "a5e617423cdf520e7ee377dab57667532d3ee83fd848e245c2c247e9484e277a",
+        "object": "objects/a5e617423cdf520e7ee377dab57667532d3ee83fd848e245c2c247e9484e277a.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/target-scroll.json": {
+        "bytes": 1133,
+        "sha256": "b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4",
+        "object": "objects/b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/fixtures/target-song.json": {
+        "bytes": 1501,
+        "sha256": "eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d",
+        "object": "objects/eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/indexed-cache.test.mjs": {
+        "bytes": 4121,
+        "sha256": "32f69f03c4af1453bc1504ee8ab3cef3ff0ed2b181bb31def4e81bda1549c495",
+        "object": "objects/32f69f03c4af1453bc1504ee8ab3cef3ff0ed2b181bb31def4e81bda1549c495.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/lrc-streaming.test.mjs": {
+        "bytes": 3146,
+        "sha256": "8cc347012634028801b754bc42c98d1fd8aad87fbec72b003141cbc226d31304",
+        "object": "objects/8cc347012634028801b754bc42c98d1fd8aad87fbec72b003141cbc226d31304.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/memory-preferences.test.mjs": {
+        "bytes": 2211,
+        "sha256": "1d9b20ac863cf45545cde68fe48745b7e42697effdff8866d93ed700f0d4198a",
+        "object": "objects/1d9b20ac863cf45545cde68fe48745b7e42697effdff8866d93ed700f0d4198a.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/metadata-selective.test.mjs": {
+        "bytes": 1991,
+        "sha256": "a7dc9260cb724a532e871d8991ab5c79ee0f16a5bd424a72ca8dd59a61f4b048",
+        "object": "objects/a7dc9260cb724a532e871d8991ab5c79ee0f16a5bd424a72ca8dd59a61f4b048.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/mixed-fragments.test.mjs": {
+        "bytes": 7583,
+        "sha256": "e6b5020c1bea180350fdc598da0fb8e56497442ea432c66b6982f456c1d0676c",
+        "object": "objects/e6b5020c1bea180350fdc598da0fb8e56497442ea432c66b6982f456c1d0676c.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/native-entry-packaged.test.mjs": {
+        "bytes": 9027,
+        "sha256": "801c21c63c9a1336da8fbf65549e701fc5bcf53ae0f49606fe14000affe24466",
+        "object": "objects/801c21c63c9a1336da8fbf65549e701fc5bcf53ae0f49606fe14000affe24466.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/native-entry.test.mjs": {
+        "bytes": 8805,
+        "sha256": "fdb6c1e4b75a5a95f1f38758eed369089b8ad4d862b6b161a0bdf90589e4cb2c",
+        "object": "objects/fdb6c1e4b75a5a95f1f38758eed369089b8ad4d862b6b161a0bdf90589e4cb2c.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/native-format.test.mjs": {
+        "bytes": 4763,
+        "sha256": "3669a0fd8b3576dd8bbfb25eb31e0cb24df2d22ceb8219484c0cbe504907a296",
+        "object": "objects/3669a0fd8b3576dd8bbfb25eb31e0cb24df2d22ceb8219484c0cbe504907a296.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/optimization.test.mjs": {
+        "bytes": 12173,
+        "sha256": "a87be9b56721929852565f6b43071377a04b19346554aabfba98744e01c03fc1",
+        "object": "objects/a87be9b56721929852565f6b43071377a04b19346554aabfba98744e01c03fc1.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/palette.test.mjs": {
+        "bytes": 11128,
+        "sha256": "afef3c7edab6dc094cd8f5d0a7395707272a4c7dce13fee1082b59efda233684",
+        "object": "objects/afef3c7edab6dc094cd8f5d0a7395707272a4c7dce13fee1082b59efda233684.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/parse-work.test.mjs": {
+        "bytes": 4589,
+        "sha256": "e8de916b9b77d141820d6c75c569487c7bf53d97492b5799abc61d4ed6ac4111",
+        "object": "objects/e8de916b9b77d141820d6c75c569487c7bf53d97492b5799abc61d4ed6ac4111.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/player-entry-packaged.test.mjs": {
+        "bytes": 7624,
+        "sha256": "44b7fbff52a873934872c6c68b41277f3ad6092fe01cf745f21b6e3069fcac90",
+        "object": "objects/44b7fbff52a873934872c6c68b41277f3ad6092fe01cf745f21b6e3069fcac90.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/player-entry.test.mjs": {
+        "bytes": 7402,
+        "sha256": "b1bf597fea9104aed32f2b188757b8b410c4dfddc80282dd15933a2f03323863",
+        "object": "objects/b1bf597fea9104aed32f2b188757b8b410c4dfddc80282dd15933a2f03323863.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/player-streaming.test.mjs": {
+        "bytes": 4639,
+        "sha256": "d266e31000932f97bfb735d44d7b08a4c4be19660c911dc798810dc29c040d99",
+        "object": "objects/d266e31000932f97bfb735d44d7b08a4c4be19660c911dc798810dc29c040d99.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/post-transport.test.mjs": {
+        "bytes": 2085,
+        "sha256": "261aa3580063e2bf6c9f50b02a8abf28563fb47c383ec701ef1c51fc83a43eca",
+        "object": "objects/261aa3580063e2bf6c9f50b02a8abf28563fb47c383ec701ef1c51fc83a43eca.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/provider-cache.test.mjs": {
+        "bytes": 2568,
+        "sha256": "da17ce5dc71ed18f5b3ffebaf6c85623c790537ea7ccc1a7c73272b12c7bcfc5",
+        "object": "objects/da17ce5dc71ed18f5b3ffebaf6c85623c790537ea7ccc1a7c73272b12c7bcfc5.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/responsiveness.test.mjs": {
+        "bytes": 11022,
+        "sha256": "47ada698a38c8b93bec3ec6203a1c333487ef1368b048c0f8429c5e5d04fe2e1",
+        "object": "objects/47ada698a38c8b93bec3ec6203a1c333487ef1368b048c0f8429c5e5d04fe2e1.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/source-progress.test.mjs": {
+        "bytes": 6609,
+        "sha256": "67da503fc5353a8f59b5abbc0cde1f7b4b446d1d4709636af367bdca04b74c1c",
+        "object": "objects/67da503fc5353a8f59b5abbc0cde1f7b4b446d1d4709636af367bdca04b74c1c.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/source-translations.test.mjs": {
+        "bytes": 9742,
+        "sha256": "ff86f7b40ab67f65db13ef37fe40716f7feaf346fc2273c55e1780461a616b33",
+        "object": "objects/ff86f7b40ab67f65db13ef37fe40716f7feaf346fc2273c55e1780461a616b33.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/sources.test.mjs": {
+        "bytes": 11668,
+        "sha256": "a22f23a9dfc9deb835d4004f70fead32775d6bd702d0c743a4044591f7278cf5",
+        "object": "objects/a22f23a9dfc9deb835d4004f70fead32775d6bd702d0c743a4044591f7278cf5.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/spotify-lyrics.test.mjs": {
+        "bytes": 59328,
+        "sha256": "11602ea4e2ded4bd53503486e1cf1b2078c4ce2e2d4b7c1551ed39f5f348e913",
+        "object": "objects/11602ea4e2ded4bd53503486e1cf1b2078c4ce2e2d4b7c1551ed39f5f348e913.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/static-source-repair.test.mjs": {
+        "bytes": 6781,
+        "sha256": "c447a767288f756ffb30e79990f80f73c3df4de0d2104747677dc04798af0e9d",
+        "object": "objects/c447a767288f756ffb30e79990f80f73c3df4de0d2104747677dc04798af0e9d.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/static-upgrade.test.mjs": {
+        "bytes": 4878,
+        "sha256": "df73f8debdf17e22ac30cb2e2fd2dc1562126573d5226a87ed623cd9c1b5446c",
+        "object": "objects/df73f8debdf17e22ac30cb2e2fd2dc1562126573d5226a87ed623cd9c1b5446c.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/translation-batch.test.mjs": {
+        "bytes": 2968,
+        "sha256": "a95dc766ca0ce4ab6988647d67b803139f019ecd083ca8d0cd5fa2a275cf0b58",
+        "object": "objects/a95dc766ca0ce4ab6988647d67b803139f019ecd083ca8d0cd5fa2a275cf0b58.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/translation-common-path.test.mjs": {
+        "bytes": 6199,
+        "sha256": "61d9672e08d903c4254fd74197d66404dcc961dcab920c84ed8661837f131876",
+        "object": "objects/61d9672e08d903c4254fd74197d66404dcc961dcab920c84ed8661837f131876.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/translation-recovery.test.mjs": {
+        "bytes": 6616,
+        "sha256": "b4189460047da862bbe7cad2aa2a92e8f9338611f62fafb356d648e4c69e9791",
+        "object": "objects/b4189460047da862bbe7cad2aa2a92e8f9338611f62fafb356d648e4c69e9791.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/translation-scope.test.mjs": {
+        "bytes": 4080,
+        "sha256": "714142f241776ca57c6db4a129fc76432a7ab6d12c657219c8481aeb81b75906",
+        "object": "objects/714142f241776ca57c6db4a129fc76432a7ab6d12c657219c8481aeb81b75906.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/translation-streaming.test.mjs": {
+        "bytes": 1428,
+        "sha256": "4bce42238c4736727c0aa927afdb88978d64a1fdc0e128d3204d6a35ed96d459",
+        "object": "objects/4bce42238c4736727c0aa927afdb88978d64a1fdc0e128d3204d6a35ed96d459.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/vocal-filter.test.mjs": {
+        "bytes": 4761,
+        "sha256": "28b915126344538d44ef973ef680d3f8f597728b03987e1f75a5185641aaf2c9",
+        "object": "objects/28b915126344538d44ef973ef680d3f8f597728b03987e1f75a5185641aaf2c9.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/vocal-language.test.mjs": {
+        "bytes": 5511,
+        "sha256": "3821f4f9ad71fc86ac7fde05b003ec309049358fbb401bbc4828c7a115293b18",
+        "object": "objects/3821f4f9ad71fc86ac7fde05b003ec309049358fbb401bbc4828c7a115293b18.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/wire-performance.test.mjs": {
+        "bytes": 9755,
+        "sha256": "46df371a300504d441906d4ee4555887a551d231891e4cb1a8848465fdaab424",
+        "object": "objects/46df371a300504d441906d4ee4555887a551d231891e4cb1a8848465fdaab424.txt"
+      },
+      "Surge/Development/VerseLyrics322/core/test/working-set.test.mjs": {
+        "bytes": 8672,
+        "sha256": "69aefcea8b6a4c4430ae42d8af7db4b2aef20ddb6d5d3b0e4878146c1282a918",
+        "object": "objects/69aefcea8b6a4c4430ae42d8af7db4b2aef20ddb6d5d3b0e4878146c1282a918.txt"
+      },
+      "Surge/Development/VerseLyrics322/egern-package.test.mjs": {
+        "bytes": 8253,
+        "sha256": "2487afcaaadc0315cbaa3fc8ef005353ba49d1b6d031771278b326fd2badaedc",
+        "object": "objects/2487afcaaadc0315cbaa3fc8ef005353ba49d1b6d031771278b326fd2badaedc.txt"
+      },
+      "Surge/Development/VerseLyrics322/feature-check.mjs": {
+        "bytes": 4445,
+        "sha256": "9fbd7e4e0d0eeffb82da7b77f80a439fb0be34a9b6e9e1f1aa57d3f054f6fa9b",
+        "object": "objects/9fbd7e4e0d0eeffb82da7b77f80a439fb0be34a9b6e9e1f1aa57d3f054f6fa9b.txt"
+      },
+      "Surge/Development/VerseLyrics322/feature-host.mjs": {
+        "bytes": 4578,
+        "sha256": "c656cac77fcebeb646d3cb7f3ce47cb27d9a8bb4ef6658c4ab2c4cedd12c7199",
+        "object": "objects/c656cac77fcebeb646d3cb7f3ce47cb27d9a8bb4ef6658c4ab2c4cedd12c7199.txt"
+      },
+      "Surge/Development/VerseLyrics322/feature-results.json": {
+        "bytes": 5326,
+        "sha256": "706761a249104dd1c9365724c37ed30e2df6db69eebf06e049e00f2a587e49d2",
+        "object": "objects/706761a249104dd1c9365724c37ed30e2df6db69eebf06e049e00f2a587e49d2.txt"
+      },
+      "Surge/Development/VerseLyrics322/generate-han-blocks.mjs": {
+        "bytes": 2192,
+        "sha256": "e9dd0be41341a020c5fac1343455b472ac1755556d95005482d8a4a6e99f6ae7",
+        "object": "objects/e9dd0be41341a020c5fac1343455b472ac1755556d95005482d8a4a6e99f6ae7.txt"
+      },
+      "Surge/Development/VerseLyrics322/jsc-startup-runner.c": {
+        "bytes": 2643,
+        "sha256": "9b4f69b30fdc2c8eaeb18e5ae60cfdd40a97442ef52b420f45e31c696538c92c",
+        "object": "objects/9b4f69b30fdc2c8eaeb18e5ae60cfdd40a97442ef52b420f45e31c696538c92c.txt"
+      },
+      "Surge/Development/VerseLyrics322/loon-rewrite.test.mjs": {
+        "bytes": 7590,
+        "sha256": "2e1a419f93894eb644749f2037babea24cd3304cbb94399c92403545f37c39bf",
+        "object": "objects/2e1a419f93894eb644749f2037babea24cd3304cbb94399c92403545f37c39bf.txt"
+      },
+      "Surge/Development/VerseLyrics322/lyric-jsc-fixtures.mjs": {
+        "bytes": 2596,
+        "sha256": "2dd731aa99178bbf3ffee6cc794b72ee73788d5770d260da2646ad238dc319d5",
+        "object": "objects/2dd731aa99178bbf3ffee6cc794b72ee73788d5770d260da2646ad238dc319d5.txt"
+      },
+      "Surge/Development/VerseLyrics322/lyric-jsc-results.json": {
+        "bytes": 77746,
+        "sha256": "ee3448fe2b15a5c5b80ab8ef9be82218244dd6833426e871f82d45628f3325d0",
+        "object": "objects/ee3448fe2b15a5c5b80ab8ef9be82218244dd6833426e871f82d45628f3325d0.txt"
+      },
+      "Surge/Development/VerseLyrics322/lyric-startup-bench.mjs": {
+        "bytes": 3714,
+        "sha256": "2f27985494d39558734ff8267dfbce3b6cd97c7fa13670bdc9eac1a691598775",
+        "object": "objects/2f27985494d39558734ff8267dfbce3b6cd97c7fa13670bdc9eac1a691598775.txt"
+      },
+      "Surge/Development/VerseLyrics322/lyric-startup-fixture.mjs": {
+        "bytes": 4969,
+        "sha256": "ecf04681f0c95f0a54074312770e126a763f3a8bee095907ddaa04f913c8e5b6",
+        "object": "objects/ecf04681f0c95f0a54074312770e126a763f3a8bee095907ddaa04f913c8e5b6.txt"
+      },
+      "Surge/Development/VerseLyrics322/lyric-startup-results.json": {
+        "bytes": 177948,
+        "sha256": "08d9c5249aa59ead9e47fbe7fede6d167b43f27393a9232b46b0f60e2e6db234",
+        "object": "objects/08d9c5249aa59ead9e47fbe7fede6d167b43f27393a9232b46b0f60e2e6db234.txt"
+      },
+      "Surge/Development/VerseLyrics322/manifest.py": {
+        "bytes": 2155,
+        "sha256": "8c84e26dda3f7762cc6b9378d2035899ff8ea1561b298ab5c9466482b2af01cc",
+        "object": "objects/8c84e26dda3f7762cc6b9378d2035899ff8ea1561b298ab5c9466482b2af01cc.txt"
+      },
+      "Surge/Development/VerseLyrics322/mixed-native-churn-results.json": {
+        "bytes": 13135,
+        "sha256": "64c033b845cf66aae597c37265c4e02fc365df1b908d167faeb5fb000946fc0c",
+        "object": "objects/64c033b845cf66aae597c37265c4e02fc365df1b908d167faeb5fb000946fc0c.txt"
+      },
+      "Surge/Development/VerseLyrics322/mixed-playlist-bench.mjs": {
+        "bytes": 5152,
+        "sha256": "7f23c025aabe1ecbddf4e091a6baca82b7719605feda34093350c4f000b70712",
+        "object": "objects/7f23c025aabe1ecbddf4e091a6baca82b7719605feda34093350c4f000b70712.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-adapter.js": {
+        "bytes": 10087,
+        "sha256": "6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670",
+        "object": "objects/6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-adapter.test.mjs": {
+        "bytes": 23727,
+        "sha256": "fd7e961906b8dfbdf8c327afdde2ea2b6474123add3d8cb4dd682568fae2b64a",
+        "object": "objects/fd7e961906b8dfbdf8c327afdde2ea2b6474123add3d8cb4dd682568fae2b64a.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-bilingual-artists.test.mjs": {
+        "bytes": 5656,
+        "sha256": "ab6f5c5886805aaa0834ef829fb842a09ad225947e20faa4a229e445de3a0c2a",
+        "object": "objects/ab6f5c5886805aaa0834ef829fb842a09ad225947e20faa4a229e445de3a0c2a.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-burst.test.mjs": {
+        "bytes": 4457,
+        "sha256": "c7ac8eb34e724522fa6662fea20ce6b0711f14109078ea8ad5b109750a1f84d5",
+        "object": "objects/c7ac8eb34e724522fa6662fea20ce6b0711f14109078ea8ad5b109750a1f84d5.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-cache-mode.test.mjs": {
+        "bytes": 6097,
+        "sha256": "532aee58437901f9c896fb9267ffe0eb7385f1721bcdc4339076ad6ce4bca262",
+        "object": "objects/532aee58437901f9c896fb9267ffe0eb7385f1721bcdc4339076ad6ce4bca262.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-chinese-output.test.mjs": {
+        "bytes": 3370,
+        "sha256": "39c1eb2ecec5ecdb3bebfb30cdde7f8fbffaf00939417dbe8afc6c80cc70c30c",
+        "object": "objects/39c1eb2ecec5ecdb3bebfb30cdde7f8fbffaf00939417dbe8afc6c80cc70c30c.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-chinese-sync.test.mjs": {
+        "bytes": 9099,
+        "sha256": "10c8e7c6dfc7e3c4f16763399e0bdcb32eb9542b64c2f598721760334dcf0633",
+        "object": "objects/10c8e7c6dfc7e3c4f16763399e0bdcb32eb9542b64c2f598721760334dcf0633.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-coalescing.test.mjs": {
+        "bytes": 5533,
+        "sha256": "2d63307a26f8cccc6f2391fa40f1749a554cffc765bbe0442f82039963fbf0da",
+        "object": "objects/2d63307a26f8cccc6f2391fa40f1749a554cffc765bbe0442f82039963fbf0da.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-color-migration.test.mjs": {
+        "bytes": 3661,
+        "sha256": "c87e4b95ab51601294f1119e094f33fcab3338978568a735f4e82c3ca51a51cc",
+        "object": "objects/c87e4b95ab51601294f1119e094f33fcab3338978568a735f4e82c3ca51a51cc.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-entry-cache-profile.test.mjs": {
+        "bytes": 2043,
+        "sha256": "4239121170b4de5914650b182670239af3b618822db5445356defa045efa98fe",
+        "object": "objects/4239121170b4de5914650b182670239af3b618822db5445356defa045efa98fe.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-fast-mode.test.mjs": {
+        "bytes": 3211,
+        "sha256": "b7b496d5e62c021c47df95a1cb7161dd745680104721a3c3ed3bf0e7fb329786",
+        "object": "objects/b7b496d5e62c021c47df95a1cb7161dd745680104721a3c3ed3bf0e7fb329786.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-filled-first-load-results.json": {
+        "bytes": 124062,
+        "sha256": "974185960c7e54f91d355e42a1c4ca13b433711aff2582b5212f1092f4b40363",
+        "object": "objects/974185960c7e54f91d355e42a1c4ca13b433711aff2582b5212f1092f4b40363.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-first-load-bench.mjs": {
+        "bytes": 10445,
+        "sha256": "e0cb6c0f7069e307d7108f11dee700d01f204c6c32e981c4deef02e8d40684fa",
+        "object": "objects/e0cb6c0f7069e307d7108f11dee700d01f204c6c32e981c4deef02e8d40684fa.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-first-load-results.json": {
+        "bytes": 124213,
+        "sha256": "edb50936187c8ccd7aa3f23c2e4f00d9c31d6c1aaf7891eeb124ed5eafb921d6",
+        "object": "objects/edb50936187c8ccd7aa3f23c2e4f00d9c31d6c1aaf7891eeb124ed5eafb921d6.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-flow.mjs": {
+        "bytes": 3847,
+        "sha256": "d88b432395b5db0bc22ee652ffd06f37f0419b8a4e595d4681208a4ee9d39e0f",
+        "object": "objects/d88b432395b5db0bc22ee652ffd06f37f0419b8a4e595d4681208a4ee9d39e0f.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-flow.test.mjs": {
+        "bytes": 1566,
+        "sha256": "e52c0e35786da9ec85063eaa3ea4f1f3d27989951d7ef3185e61bb8b0ad4b8a2",
+        "object": "objects/e52c0e35786da9ec85063eaa3ea4f1f3d27989951d7ef3185e61bb8b0ad4b8a2.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-json-backoff.test.mjs": {
+        "bytes": 3977,
+        "sha256": "37e7a185894a3512d7b968056cb26b42b181fcbbacf00ac69726df23b46860d9",
+        "object": "objects/37e7a185894a3512d7b968056cb26b42b181fcbbacf00ac69726df23b46860d9.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-local-flow.test.mjs": {
+        "bytes": 2045,
+        "sha256": "a8b9460a6cffd2518be4f3a79b44165e49ecaee96c38eb3c4f323ecfc11cced8",
+        "object": "objects/a8b9460a6cffd2518be4f3a79b44165e49ecaee96c38eb3c4f323ecfc11cced8.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-memory-preferences.test.mjs": {
+        "bytes": 1502,
+        "sha256": "aea17850ca0811d22b8780a964a0b0f81f38df2ac32445cc41494dbab6f44d56",
+        "object": "objects/aea17850ca0811d22b8780a964a0b0f81f38df2ac32445cc41494dbab6f44d56.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-memory.test.mjs": {
+        "bytes": 3774,
+        "sha256": "761eaa92288fccb8ca2c99c1b34aedf828765bd5a31867eceeb9d706f13db426",
+        "object": "objects/761eaa92288fccb8ca2c99c1b34aedf828765bd5a31867eceeb9d706f13db426.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-missing-retry.test.mjs": {
+        "bytes": 2757,
+        "sha256": "a1e9cca0a4aeddc50eef9b1d338c912fbc8e2e4c4f7382e36429ff23b448f895",
+        "object": "objects/a1e9cca0a4aeddc50eef9b1d338c912fbc8e2e4c4f7382e36429ff23b448f895.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-offset.test.mjs": {
+        "bytes": 1535,
+        "sha256": "2a999206d763627f59e1643bc0229c102fba39bb15eedc91b9a668f6f79525aa",
+        "object": "objects/2a999206d763627f59e1643bc0229c102fba39bb15eedc91b9a668f6f79525aa.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-player-streaming.test.mjs": {
+        "bytes": 2541,
+        "sha256": "b883a3524b4594702bc6a69d75a8a5dab674d8b64a62258b49f8d5ccd69ed1ad",
+        "object": "objects/b883a3524b4594702bc6a69d75a8a5dab674d8b64a62258b49f8d5ccd69ed1ad.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-preferences.test.mjs": {
+        "bytes": 1344,
+        "sha256": "b5f0f95e05fd4d32b87731cf7b392def805ee40703542f583b8c15d7bc7f3774",
+        "object": "objects/b5f0f95e05fd4d32b87731cf7b392def805ee40703542f583b8c15d7bc7f3774.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-pressure-bench.mjs": {
+        "bytes": 5100,
+        "sha256": "e19b9a357d4f85fc4629ec0c68a56caa80a53339ddaaf1642e9a5cf02d89a26f",
+        "object": "objects/e19b9a357d4f85fc4629ec0c68a56caa80a53339ddaaf1642e9a5cf02d89a26f.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-pressure-results.json": {
+        "bytes": 9429,
+        "sha256": "b666eaf21abf38208aa1e10d788e519f4c7cf3b2981646b932aad03b56dae5fc",
+        "object": "objects/b666eaf21abf38208aa1e10d788e519f4c7cf3b2981646b932aad03b56dae5fc.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-source-translations.test.mjs": {
+        "bytes": 3067,
+        "sha256": "c64e72bcef8ed228d5f6a17cad515cc878ca14193ccda2b7687ad6aeffc9bb98",
+        "object": "objects/c64e72bcef8ed228d5f6a17cad515cc878ca14193ccda2b7687ad6aeffc9bb98.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-startup-entry.test.mjs": {
+        "bytes": 5417,
+        "sha256": "a066b3022ad4e71cbd2437e2367252fbd5c5005ae033bfc92ab08ffcb805076a",
+        "object": "objects/a066b3022ad4e71cbd2437e2367252fbd5c5005ae033bfc92ab08ffcb805076a.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-static-repair.test.mjs": {
+        "bytes": 2593,
+        "sha256": "97585b506ddec219aa61d59068435c908c812bcf6f4f48a2472287640691c9b6",
+        "object": "objects/97585b506ddec219aa61d59068435c908c812bcf6f4f48a2472287640691c9b6.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-static-switch.test.mjs": {
+        "bytes": 7209,
+        "sha256": "07b60f85b321391b08ae756b1b25bacf76b007408b3f170c1205356ea8befb6d",
+        "object": "objects/07b60f85b321391b08ae756b1b25bacf76b007408b3f170c1205356ea8befb6d.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-translation-recovery.test.mjs": {
+        "bytes": 6078,
+        "sha256": "5649cb1ccd6fab23396e05c10a8c34445845e6ef0d089a216566085acb3c7da4",
+        "object": "objects/5649cb1ccd6fab23396e05c10a8c34445845e6ef0d089a216566085acb3c7da4.txt"
+      },
+      "Surge/Development/VerseLyrics322/native-vocal-language.test.mjs": {
+        "bytes": 2905,
+        "sha256": "08ecf50ef106d26301120f0fd783146a4667db7e71449e339edc5c83231942a4",
+        "object": "objects/08ecf50ef106d26301120f0fd783146a4667db7e71449e339edc5c83231942a4.txt"
+      },
+      "Surge/Development/VerseLyrics322/options.py": {
+        "bytes": 1960,
+        "sha256": "f30cadf4decd9df7dee8b5daa4f092cc207610c73ea6a8b0286ad3f2e8b282dd",
+        "object": "objects/f30cadf4decd9df7dee8b5daa4f092cc207610c73ea6a8b0286ad3f2e8b282dd.txt"
+      },
+      "Surge/Development/VerseLyrics322/package.json": {
+        "bytes": 146,
+        "sha256": "1cc84b8a93b8cd8bdb0c2f06152791a6c7d22604d59319e1f04f198952393d22",
+        "object": "objects/1cc84b8a93b8cd8bdb0c2f06152791a6c7d22604d59319e1f04f198952393d22.txt"
+      },
+      "Surge/Development/VerseLyrics322/package.py": {
+        "bytes": 5351,
+        "sha256": "07e0a993c2d8ac6344441e4ffbb85cf587f101b0c112424b18bade461ed01629",
+        "object": "objects/07e0a993c2d8ac6344441e4ffbb85cf587f101b0c112424b18bade461ed01629.txt"
+      },
+      "Surge/Development/VerseLyrics322/pnpm-lock.yaml": {
+        "bytes": 2906,
+        "sha256": "b8e3d583c42567a0ce9c4ffa5f4bb159265f1aed8dd78ecbbe5244b67b600159",
+        "object": "objects/b8e3d583c42567a0ce9c4ffa5f4bb159265f1aed8dd78ecbbe5244b67b600159.txt"
+      },
+      "Surge/Development/VerseLyrics322/pressure.test.mjs": {
+        "bytes": 5931,
+        "sha256": "78fd8cc4b1641b91e1d9808ab20e103b29257fae3e75858c854be2bcd131c34f",
+        "object": "objects/78fd8cc4b1641b91e1d9808ab20e103b29257fae3e75858c854be2bcd131c34f.txt"
+      },
+      "Surge/Development/VerseLyrics322/provider-scope.test.mjs": {
+        "bytes": 1129,
+        "sha256": "25154dacc9fa253d5dae4a06765275e49ddcdb7bc137e1ec7428045c0f8b79b4",
+        "object": "objects/25154dacc9fa253d5dae4a06765275e49ddcdb7bc137e1ec7428045c0f8b79b4.txt"
+      },
+      "Surge/Development/VerseLyrics322/reference/AGENTS.md": {
+        "bytes": 1287,
+        "sha256": "a2ecce301f4697dbc58044b3e7c7e093a618cf78913088c4c68cd7e105ac0988",
+        "object": "objects/a2ecce301f4697dbc58044b3e7c7e093a618cf78913088c4c68cd7e105ac0988.txt"
+      },
+      "Surge/Development/VerseLyrics322/reference/Loon/Docs/OfficialReference.md": {
+        "bytes": 35255,
+        "sha256": "d468c1edefe7ff40b84c179f65e286681491573992d3c1154e298c91d3545547",
+        "object": "objects/d468c1edefe7ff40b84c179f65e286681491573992d3c1154e298c91d3545547.txt"
+      },
+      "Surge/Development/VerseLyrics322/release.json": {
+        "bytes": 3514,
+        "sha256": "e08825c2d432e00c69e7762b97a7d8270b6325fe93c51dd25a08fa73003758fe",
+        "object": "objects/e08825c2d432e00c69e7762b97a7d8270b6325fe93c51dd25a08fa73003758fe.txt"
+      },
+      "Surge/Development/VerseLyrics322/run-measurements-322.py": {
+        "bytes": 3567,
+        "sha256": "1c1423fe5d285a2054b21e99f1ce88d15b5d3905ca838ca87ca550339359ee5a",
+        "object": "objects/1c1423fe5d285a2054b21e99f1ce88d15b5d3905ca838ca87ca550339359ee5a.txt"
+      },
+      "Surge/Development/VerseLyrics322/runtime-manifest.json": {
+        "bytes": 3728,
+        "sha256": "661339af3460a2d3019a608ef0067921bbda34f29b08a7c549e432a565b0b8d9",
+        "object": "objects/661339af3460a2d3019a608ef0067921bbda34f29b08a7c549e432a565b0b8d9.txt"
+      },
+      "Surge/Development/VerseLyrics322/startup-fixtures.mjs": {
+        "bytes": 2507,
+        "sha256": "900e8746c54665c43703238aeda5a38813d641c82af14d7fb4553b2200ebc860",
+        "object": "objects/900e8746c54665c43703238aeda5a38813d641c82af14d7fb4553b2200ebc860.txt"
+      },
+      "Surge/Development/VerseLyrics322/summarize-322.py": {
+        "bytes": 10801,
+        "sha256": "14d656447b683b98d0ed790f7372d906d9804d1617ef9d6a5eb2123c906433fb",
+        "object": "objects/14d656447b683b98d0ed790f7372d906d9804d1617ef9d6a5eb2123c906433fb.txt"
+      },
+      "Surge/Development/VerseLyrics322/sync-local.py": {
+        "bytes": 1741,
+        "sha256": "f8955b4c24a2eebfc7a62090215d64d798fd39a257a51e28cd524928c43dc10f",
+        "object": "objects/f8955b4c24a2eebfc7a62090215d64d798fd39a257a51e28cd524928c43dc10f.txt"
+      },
+      "Surge/Development/VerseLyrics322/tests.log": {
+        "bytes": 526264,
+        "sha256": "917d4eeb9d3f91f7731b86cb05cd85d40fa8db6e21eadc85f55a0bc643f3063f",
+        "object": "objects/917d4eeb9d3f91f7731b86cb05cd85d40fa8db6e21eadc85f55a0bc643f3063f.txt"
+      },
+      "Surge/Development/VerseLyrics322/validate-egern.rb": {
+        "bytes": 3010,
+        "sha256": "a4c7900bb74dc698bd1a840f9fba6792e178feb1d3e079ba4b540a1833fd25b7",
+        "object": "objects/a4c7900bb74dc698bd1a840f9fba6792e178feb1d3e079ba4b540a1833fd25b7.txt"
+      },
+      "Surge/Development/VerseLyrics322/validation-summary.json": {
+        "bytes": 4220,
+        "sha256": "5d1857e93f76980c1227c3e8bd5e119dcde410d2c54ba7f07020c20ab36bc3ab",
+        "object": "objects/5d1857e93f76980c1227c3e8bd5e119dcde410d2c54ba7f07020c20ab36bc3ab.txt"
+      },
+      "Surge/Development/VerseLyrics322/verify-public.py": {
+        "bytes": 2324,
+        "sha256": "11d5f9948d70e89ae6db17172f612ca4a2c0e9dadbf943edafbacd4778037037",
+        "object": "objects/11d5f9948d70e89ae6db17172f612ca4a2c0e9dadbf943edafbacd4778037037.txt"
+      },
+      "Surge/script/SpotifyLyrics.Entry.js": {
+        "bytes": 29690,
+        "sha256": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584",
+        "object": "objects/f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584.txt"
+      },
+      "Surge/script/SpotifyLyrics.Request.js": {
+        "bytes": 4697,
+        "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d",
+        "object": "objects/5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d.txt"
+      },
+      "Surge/script/SpotifyLyrics.js": {
+        "bytes": 90720,
+        "sha256": "c5c5e1692677229c18b6050882e653f3c1a28711ca58c12fb50f7eafdffc96d3",
+        "object": "objects/c5c5e1692677229c18b6050882e653f3c1a28711ca58c12fb50f7eafdffc96d3.txt"
+      },
+      "Surge/script/SpotifyLyrics.sgmodule": {
+        "bytes": 3207,
+        "sha256": "074c2be3c73de1384b2c97816beeaa01f460389b2460869e9f18720d3f0ebab1",
+        "object": "objects/074c2be3c73de1384b2c97816beeaa01f460389b2460869e9f18720d3f0ebab1.txt"
+      }
+    },
+    "9f7399dda1279689d2436e981a547b1ea45513b3": {
+      "Loon/Development/SpotifyMac20261114/.gitignore": {
+        "bytes": 27,
+        "sha256": "2f21d2245886c2ee7c64b5b515976d29bad0baed47b5fb9e23ff8779179a4393",
+        "object": "objects/2f21d2245886c2ee7c64b5b515976d29bad0baed47b5fb9e23ff8779179a4393.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/CacheProbe.lpx": {
+        "bytes": 7222,
+        "sha256": "7cfd6f2bddc99db9a9fa852a8e477ef1aedb309c03aca1055aef59e240b08ed3",
+        "object": "objects/7cfd6f2bddc99db9a9fa852a8e477ef1aedb309c03aca1055aef59e240b08ed3.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/DebugMac.lpx": {
+        "bytes": 6340,
+        "sha256": "598a4d9e4c6bb0eec56bdf2a5d685ca390a73a1f89e7e8140024165009bd9148",
+        "object": "objects/598a4d9e4c6bb0eec56bdf2a5d685ca390a73a1f89e7e8140024165009bd9148.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/DisplayMac.lpx": {
+        "bytes": 6355,
+        "sha256": "f7760af9fd15d75edfd7f5a341bdcc93ee4b1cb24295cf6710cde012cd44756d",
+        "object": "objects/f7760af9fd15d75edfd7f5a341bdcc93ee4b1cb24295cf6710cde012cd44756d.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/Mac.lpx": {
+        "bytes": 6313,
+        "sha256": "ee00621ac715cba52b8365283da37b04ae28e9ba1af2ee8cf420da54d1a5ed76",
+        "object": "objects/ee00621ac715cba52b8365283da37b04ae28e9ba1af2ee8cf420da54d1a5ed76.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/Observe.lpx": {
+        "bytes": 1107,
+        "sha256": "df0b531e50da344a9d5246a6f5e7c3d38428d0d8525472e07b868d244da96f23",
+        "object": "objects/df0b531e50da344a9d5246a6f5e7c3d38428d0d8525472e07b868d244da96f23.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/README.md": {
+        "bytes": 8645,
+        "sha256": "6cbd8b6ed42e4d2fed3ba760cc1bf47d90b71ed40336fed3d93198616955ba9c",
+        "object": "objects/6cbd8b6ed42e4d2fed3ba760cc1bf47d90b71ed40336fed3d93198616955ba9c.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/build-mac.mjs": {
+        "bytes": 10408,
+        "sha256": "7d5adfe226d96607484098c48b0143f9f1047954543b65ca506b0d4692ef6721",
+        "object": "objects/7d5adfe226d96607484098c48b0143f9f1047954543b65ca506b0d4692ef6721.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/build-manifest.json": {
+        "bytes": 2046,
+        "sha256": "83a3961f6a179267c5d4ed62efe6ac029dd965a3f3a2f9cb7369a0ab2e4b3faa",
+        "object": "objects/83a3961f6a179267c5d4ed62efe6ac029dd965a3f3a2f9cb7369a0ab2e4b3faa.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/cache-probe.mjs": {
+        "bytes": 2430,
+        "sha256": "3bc881b0fbf7173038eb9737a71096ffbd97a047ffb9b7aa4bfef2cdab4218bb",
+        "object": "objects/3bc881b0fbf7173038eb9737a71096ffbd97a047ffb9b7aa4bfef2cdab4218bb.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/cache-probe.test.mjs": {
+        "bytes": 3960,
+        "sha256": "ce1743b21f230d4e2576245a30ec6d2143f85725226b5059ed4ce734b04f6ded",
+        "object": "objects/ce1743b21f230d4e2576245a30ec6d2143f85725226b5059ed4ce734b04f6ded.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/debug-wrap.mjs": {
+        "bytes": 3145,
+        "sha256": "9e3891cf6beeb4c6313d3a3394fa2e9bf09105f326a57127b81637f3013fc694",
+        "object": "objects/9e3891cf6beeb4c6313d3a3394fa2e9bf09105f326a57127b81637f3013fc694.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/debug.test.mjs": {
+        "bytes": 972,
+        "sha256": "03a1f800cf33ffb43d0e969a7f2f1ab0e9959c9b69e9354f8caa876f165da2be",
+        "object": "objects/03a1f800cf33ffb43d0e969a7f2f1ab0e9959c9b69e9354f8caa876f165da2be.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/display.test.mjs": {
+        "bytes": 5234,
+        "sha256": "193369ad9e5666da573f060e551feb0ab1590e3f74ccec073d505e5530044abe",
+        "object": "objects/193369ad9e5666da573f060e551feb0ab1590e3f74ccec073d505e5530044abe.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/entry-after.json": {
+        "bytes": 2474,
+        "sha256": "ff43e4799fb0898608bfef0d1c43ebea05c84309babce8d9c5da577820993f38",
+        "object": "objects/ff43e4799fb0898608bfef0d1c43ebea05c84309babce8d9c5da577820993f38.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/entry-before.json": {
+        "bytes": 5728,
+        "sha256": "874928529f21f7b762b19e1b9c752f7ef8c9bab7182c4d2b149ba367e26839c3",
+        "object": "objects/874928529f21f7b762b19e1b9c752f7ef8c9bab7182c4d2b149ba367e26839c3.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/installed-protocol-facts.json": {
+        "bytes": 2417,
+        "sha256": "92088ea670a47e6703303f8c0cc5f6ae918d0bfaf0de20dbb7a8c85b33438b9e",
+        "object": "objects/92088ea670a47e6703303f8c0cc5f6ae918d0bfaf0de20dbb7a8c85b33438b9e.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/mac-tests.log": {
+        "bytes": 4969,
+        "sha256": "fc8b33806058e35aae9d300341c33264f70be7f1a224202ffd5d4c9185f257a7",
+        "object": "objects/fc8b33806058e35aae9d300341c33264f70be7f1a224202ffd5d4c9185f257a7.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/request-api-probe.json": {
+        "bytes": 887,
+        "sha256": "79482ae764e8b166b904d2be7eb118cf0e5d1837c68b5ffe7686dcd81e805e44",
+        "object": "objects/79482ae764e8b166b904d2be7eb118cf0e5d1837c68b5ffe7686dcd81e805e44.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/evidence/verification.json": {
+        "bytes": 1120,
+        "sha256": "5d18ba5c8712c3d79945de32bd07e55f90cc4fbacd580d5e5a7d892c718b350b",
+        "object": "objects/5d18ba5c8712c3d79945de32bd07e55f90cc4fbacd580d5e5a7d892c718b350b.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/inspect-protocol.py": {
+        "bytes": 4086,
+        "sha256": "ff74f4e0a002294df832c1ad32b162b09cbcb55ce66f2732708e76de17b8ac59",
+        "object": "objects/ff74f4e0a002294df832c1ad32b162b09cbcb55ce66f2732708e76de17b8ac59.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/mac-display.mjs": {
+        "bytes": 2373,
+        "sha256": "4fdcf7a8bd451e59cae4c1af649ea1357a836ee2f241f620c560ad5893ee34ea",
+        "object": "objects/4fdcf7a8bd451e59cae4c1af649ea1357a836ee2f241f620c560ad5893ee34ea.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/mac-entry.test.mjs": {
+        "bytes": 3109,
+        "sha256": "be82e822274b3ebc7c8c30b0576bb841487f0545aa2f124688d8ad111550e9a3",
+        "object": "objects/be82e822274b3ebc7c8c30b0576bb841487f0545aa2f124688d8ad111550e9a3.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/mac.test.mjs": {
+        "bytes": 4665,
+        "sha256": "21e1bec186d512cf58221982f31c2c8117f4f2423f92d54d7595feaf26768c48",
+        "object": "objects/21e1bec186d512cf58221982f31c2c8117f4f2423f92d54d7595feaf26768c48.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/metadata-shape.mjs": {
+        "bytes": 2624,
+        "sha256": "905f841a021b4fb829755f8b60e5d3c8b97089896ee41da7d54f5f3de452f2fb",
+        "object": "objects/905f841a021b4fb829755f8b60e5d3c8b97089896ee41da7d54f5f3de452f2fb.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/metadata-shape.test.mjs": {
+        "bytes": 1278,
+        "sha256": "0db50bb35d30b42cf285f420212f6b69f96168687186b806a6729140c3657e12",
+        "object": "objects/0db50bb35d30b42cf285f420212f6b69f96168687186b806a6729140c3657e12.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/observe.js": {
+        "bytes": 2839,
+        "sha256": "0857406ea6405f3373d2e2756f0b5c7d9aa1051ea372d5d382800272c0f11792",
+        "object": "objects/0857406ea6405f3373d2e2756f0b5c7d9aa1051ea372d5d382800272c0f11792.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/observe.test.mjs": {
+        "bytes": 3926,
+        "sha256": "3fbf6cadb58b34efa51ddde6a90eed2d0d56ec0e2d6a862c55ebbf67e33581dd",
+        "object": "objects/3fbf6cadb58b34efa51ddde6a90eed2d0d56ec0e2d6a862c55ebbf67e33581dd.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/package-lock.json": {
+        "bytes": 4824,
+        "sha256": "026ebf80027f06d8c0a2b34db6cc9991ab0a85b819300552714b0a76bf86d4c4",
+        "object": "objects/026ebf80027f06d8c0a2b34db6cc9991ab0a85b819300552714b0a76bf86d4c4.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/package.json": {
+        "bytes": 228,
+        "sha256": "45e0aafd44fc5626e997411bb615a5568c2d2b6966d2c56b30c55f5ead0463f0",
+        "object": "objects/45e0aafd44fc5626e997411bb615a5568c2d2b6966d2c56b30c55f5ead0463f0.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/protocol-shape.mjs": {
+        "bytes": 2146,
+        "sha256": "0ca71cc0939664f9b6782f8c2d9f3c29fde35c19f5d4f2c102a7cb3bdc759400",
+        "object": "objects/0ca71cc0939664f9b6782f8c2d9f3c29fde35c19f5d4f2c102a7cb3bdc759400.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/protocol.test.mjs": {
+        "bytes": 1258,
+        "sha256": "94e43368b726f5f2516f9a74a0abb560ce6aef4c17a67b0bd0fa09107634853c",
+        "object": "objects/94e43368b726f5f2516f9a74a0abb560ce6aef4c17a67b0bd0fa09107634853c.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.CacheProbe2.js": {
+        "bytes": 15145,
+        "sha256": "a1c6a9344aee3c596c28ca526f0df545bba1a4b6b59687d9f884979e57b39cd2",
+        "object": "objects/a1c6a9344aee3c596c28ca526f0df545bba1a4b6b59687d9f884979e57b39cd2.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Debug.js": {
+        "bytes": 98028,
+        "sha256": "3491c5055c67a48ec07545160039c9a7d6c5a7f827f232bbeacb46d5e8280663",
+        "object": "objects/3491c5055c67a48ec07545160039c9a7d6c5a7f827f232bbeacb46d5e8280663.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.TypesDebug.js": {
+        "bytes": 36976,
+        "sha256": "d3aac47c3cdf824b73809653dd2c9553f4e524df4b130bfb11f19036339f1f86",
+        "object": "objects/d3aac47c3cdf824b73809653dd2c9553f4e524df4b130bfb11f19036339f1f86.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.js": {
+        "bytes": 29698,
+        "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+        "object": "objects/82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.js": {
+        "bytes": 29689,
+        "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64",
+        "object": "objects/961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Mac.js": {
+        "bytes": 96763,
+        "sha256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+        "object": "objects/df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Request.js": {
+        "bytes": 4772,
+        "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+        "object": "objects/3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.js": {
+        "bytes": 90747,
+        "sha256": "8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94",
+        "object": "objects/8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94.txt"
+      },
+      "Loon/Development/SpotifyMac20261114/serve.py": {
+        "bytes": 2507,
+        "sha256": "43fe6a5a8e1c492358f2ebfa2d5bc903baaac3da829af5fca423439b9298ed34",
+        "object": "objects/43fe6a5a8e1c492358f2ebfa2d5bc903baaac3da829af5fca423439b9298ed34.txt"
+      },
+      "Loon/script/SpotifyLyrics.lpx": {
+        "bytes": 8203,
+        "sha256": "030d7228bdae11161ebe06b01e50e7f1c15e9bfcf3ef856433afc2c56184ac6c",
+        "object": "objects/030d7228bdae11161ebe06b01e50e7f1c15e9bfcf3ef856433afc2c56184ac6c.txt"
+      }
+    },
+    "795c677b0d115cab5eb8e4f959424d905a98e3ff": {
+      "Loon/script/SpotifyLyrics.Entry.Mac.js": {
+        "bytes": 29698,
+        "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+        "object": "objects/82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f.txt"
+      },
+      "Loon/script/SpotifyLyrics.Mac.js": {
+        "bytes": 96763,
+        "sha256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+        "object": "objects/df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4.txt"
+      },
+      "Loon/script/SpotifyLyrics.Request.Mac.js": {
+        "bytes": 4772,
+        "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+        "object": "objects/3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2.txt"
+      },
+      "Loon/script/SpotifyLyrics.lpx": {
+        "bytes": 8203,
+        "sha256": "030d7228bdae11161ebe06b01e50e7f1c15e9bfcf3ef856433afc2c56184ac6c",
+        "object": "objects/030d7228bdae11161ebe06b01e50e7f1c15e9bfcf3ef856433afc2c56184ac6c.txt"
+      }
+    }
+  }
+}

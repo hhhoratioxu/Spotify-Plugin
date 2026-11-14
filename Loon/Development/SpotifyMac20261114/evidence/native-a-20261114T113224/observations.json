@@ -1,0 +1,152 @@
+{
+  "scope": "Real Spotify macOS and formal Loon plugin, authorized plan A only",
+  "productionMacCommit": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+  "nativeObservations": {
+    "preExistingLyricsBeforeEnable": {
+      "track": "Sweet Child O' Mine",
+      "artist": "Guns N' Roses",
+      "status": "visible in existing native lyric view while plugin disabled; cached/native response not distinguished"
+    },
+    "bilingual": {
+      "track": "Take on Me",
+      "artist": "a-ha",
+      "uri": "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+      "status": "English original and Chinese translation visually observed in the native lyrics view",
+      "rowCount": "not measured; accessibility tree unavailable",
+      "timingAccuracy": "not measured"
+    },
+    "seekForward": {
+      "status": "PAUSED",
+      "item": "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+      "progress": 90000,
+      "volume": 0
+    },
+    "seekBackward": {
+      "status": "PAUSED",
+      "item": "spotify:track:2WfaOiMkCvy7F5fcp2zZ8L",
+      "progress": 10000,
+      "volume": 0
+    },
+    "seekVisual": "Native progress bar showed 1:30 then 0:10; bilingual view remained visible. Paused viewport did not visibly return to the first line; exact highlight/auto-scroll synchronization not accepted.",
+    "missing": {
+      "track": "那页夏天",
+      "artist": "王俊凱",
+      "uri": "spotify:track:76XUZSb13QUuj1HECY4Hvo",
+      "playback": {
+        "status": "PLAYING",
+        "item": "spotify:track:76XUZSb13QUuj1HECY4Hvo",
+        "progress": 12193,
+        "deviceType": "COMPUTER",
+        "volume": 0
+      },
+      "result": "NOT PASSED",
+      "visual": "Cover art shown; standard-player lyrics icon grey; clicking did not open lyrics or show fallback words"
+    },
+    "requestEvidence": "Visible contiguous script record interval 1659-1682 showed no new VerseLyrics Lyrics execution after the target playback switch. This is not a complete HTTP request capture and does not prove no lyric request was sent."
+  },
+  "scriptRecordObservations": [
+    {
+      "recordId": 1660,
+      "script": "VerseLyrics Mac Request",
+      "type": "REQUEST",
+      "state": "已完成",
+      "at": "11-14 11:37:54.200",
+      "duration": "5ms",
+      "method": "GET",
+      "routeCategory": "color-lyrics"
+    },
+    {
+      "recordId": 1663,
+      "script": "VerseLyrics Lyrics",
+      "type": "RESPONSE",
+      "state": "已完成",
+      "at": "11-14 11:37:56.784",
+      "duration": "3.66s",
+      "method": "GET",
+      "routeCategory": "color-lyrics"
+    },
+    {
+      "recordId": 1665,
+      "script": "VerseLyrics Mac Request",
+      "type": "REQUEST",
+      "state": "已完成",
+      "at": "11-14 11:39:43.568",
+      "duration": "3ms",
+      "method": "PUT",
+      "routeCategory": "connect-state"
+    },
+    {
+      "recordId": 1666,
+      "script": "VerseLyrics Entry",
+      "type": "RESPONSE",
+      "state": "已完成",
+      "at": "11-14 11:39:43.771",
+      "duration": "9ms",
+      "method": "PUT",
+      "routeCategory": "connect-state"
+    },
+    {
+      "recordId": 1679,
+      "script": "VerseLyrics Entry",
+      "type": "RESPONSE",
+      "state": "已完成",
+      "at": "11-14 11:40:57.153",
+      "duration": "2ms",
+      "method": "POST",
+      "routeCategory": "extended-metadata"
+    },
+    {
+      "recordId": 1680,
+      "script": "VerseLyrics Entry",
+      "type": "RESPONSE",
+      "state": "已完成",
+      "at": "11-14 11:40:57.154",
+      "duration": "2ms",
+      "method": "POST",
+      "routeCategory": "extended-metadata"
+    },
+    {
+      "recordId": 1681,
+      "script": "VerseLyrics Entry",
+      "type": "RESPONSE",
+      "state": "已完成",
+      "at": "11-14 11:40:57.155",
+      "duration": "4ms",
+      "method": "POST",
+      "routeCategory": "extended-metadata"
+    }
+  ],
+  "recordLimitations": "Copied sanitized metadata from the visible Script Records table; route category only. Request headers, request details, raw responses and credentials were not opened or exported. Records are correlated by time, not proof of target URI inside Entry bodies.",
+  "restoration": {
+    "formalPlugin": "Disabled",
+    "CLIENT_PLATFORM": "mobile",
+    "MEMORY_MODE": "standard",
+    "otherOriginalParameters": "visually rechecked unchanged",
+    "loonUI": "Connected",
+    "runtimeOrSubscriptionUpdated": false,
+    "additionalPluginImportedOrEnabled": false,
+    "otherPluginsChanged": false,
+    "vpnCommandIssued": false,
+    "nodesProxyCertificateGlobalMITMChanged": false,
+    "spotify": {
+      "status": "PAUSED",
+      "item": "spotify:track:76XUZSb13QUuj1HECY4Hvo",
+      "progress": 116693,
+      "deviceType": "COMPUTER",
+      "volume": 0
+    },
+    "oldManualMemoryPlugin": "left unchanged; not executed"
+  },
+  "acceptance": {
+    "nativeBilingualSample": "observed",
+    "progressSeeks": "90s and 10s confirmed",
+    "exactHighlightTiming": "not verified",
+    "missingLyrics": "not passed",
+    "wordTimeline": "not verified",
+    "longDurationStability": "not verified",
+    "iOSPeakBelow50000000": "not verified",
+    "nativeFixtureStress": "not executed",
+    "readyToPush": false,
+    "pushed": false
+  }
+}

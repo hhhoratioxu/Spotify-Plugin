@@ -1,0 +1,27 @@
+{
+  "timeTaipei": "2026-11-14T17:33:44",
+  "profileSHA256": "160b564ddfcc0e117f8d732215789980d7e6e5a8f56dd0d866ae7a1657c2cf37",
+  "takeOnMe": {
+    "exactSearchTrackURIConfirmed": true,
+    "nowPlayingPublicTitleArtistConfirmed": true,
+    "nativeLyricsPageOpened": true,
+    "preciseSyncVerified": false,
+    "showLyricsRadioSelectedObserved": true,
+    "wholeViewTextNodeCount": 45,
+    "fullLyricsContentAndSyncValidation": "not performed"
+  },
+  "nayeXiatian": {
+    "publicURIEntered": true,
+    "nowPlayingPublicTitleArtistConfirmed": true,
+    "lyricsToggleOpened": true,
+    "showLyricsRadioDisabled": true,
+    "fallbackSuccess": false
+  },
+  "notDeployed": [
+    "metadata JSON fix candidate",
+    "previewLines candidate",
+    "C0 observer"
+  ],
+  "formalPluginEnabled": false,
+  "note": "Only approved five-field records saved. Unknown and unmatched do not prove wire format or absence of public target."
+}

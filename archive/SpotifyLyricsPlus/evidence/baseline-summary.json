@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-13",
+  "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+  "restoredFiles": 125,
+  "tests": 2248,
+  "passed": 2248,
+  "failed": 0,
+  "isHistoricalBaseline": true,
+  "liveSpotify": false
+}

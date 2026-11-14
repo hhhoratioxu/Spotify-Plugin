@@ -1,0 +1,56 @@
+{
+  "scope": "Local Mac repair verification only; not installed or published",
+  "production": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+  "changes": [
+    "strict metadata JSON false token only with complete verified identity and no access restrictions",
+    "empty previewLines only for owned successful fallback after 404 or recognized empty 200",
+    "five-field diagnostics with fixed public request or response target match"
+  ],
+  "fields": [
+    "route",
+    "stage",
+    "pair",
+    "publicTargetMatched",
+    "lyricsFlags"
+  ],
+  "identityFieldType": "boolean; exact public request OR known response identity; false is unconfirmed",
+  "mobileRuntimeChanged": false,
+  "formalSubscriptionChanged": false,
+  "parametersRulesDomainsChanged": false,
+  "nativeAcceptance": false,
+  "files": [
+    {
+      "kind": "request",
+      "file": "SpotifyLyrics.Repair.request.518d681ff9eb3b4c.js",
+      "sha256": "518d681ff9eb3b4c4d9f0975d15a310d6f85e862f957fcc4cd8631ab95b512a0",
+      "bytes": 4826,
+      "productionSource": "SpotifyLyrics.Request.Mac.js",
+      "productionSHA256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "pinnedCorePreserved": true
+    },
+    {
+      "kind": "lyrics",
+      "file": "SpotifyLyrics.Repair.lyrics.1801bed359942492.js",
+      "sha256": "1801bed3599424922149d72b703e56402c8d94998963a5ef9b6b118b19e62468",
+      "bytes": 125249,
+      "productionSource": "SpotifyLyrics.Mac.js",
+      "productionSHA256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+      "pinnedCorePreserved": true
+    },
+    {
+      "kind": "entry",
+      "file": "SpotifyLyrics.Repair.entry.fd9d1d020ff31e36.js",
+      "sha256": "fd9d1d020ff31e36710e15a3d99fb0711b3c8a3bf43111ffd298db263e1da621",
+      "bytes": 59130,
+      "productionSource": "SpotifyLyrics.Entry.Mac.js",
+      "productionSHA256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "pinnedCorePreserved": true
+    },
+    {
+      "kind": "profile",
+      "file": "RepairMac.lpx",
+      "sha256": "b12238b55ad9b83d7248660be34f15c0986812e050f5f199a166220961a34e79",
+      "bytes": 6403
+    }
+  ]
+}

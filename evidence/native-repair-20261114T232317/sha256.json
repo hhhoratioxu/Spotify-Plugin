@@ -1,0 +1,15 @@
+{
+  "t0.json": "41088916469c902f87cbdd1dcbc0c96eb35589650fba51f196b8fe28c7f70293",
+  "restore.json": "2150fd35e4fe2a0c80045a0934180c06169da667dcd42ce92814fefb56980652",
+  "events.json": "f9d0a8119635d3710ad306d689c62a3bb30f5725be0b6dda237add4e59704725",
+  "observation.json": "22b61a19d806a10d269c28150e9792330ce59a00fe2f07ecff6e7ec00c7e1395",
+  "memory-summary.json": "995a7bf3c0b0b3d5fbd1601f0eab4c8ca5b8d51a830d8288d7a8813b5298d2ea",
+  "process-memory.jsonl": "62aab3eccdb018611f92d38228a1883d656742362edc36575d10adc00c05b476",
+  "monitor.stop": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "phase.json": "7ef5d4cfdfc08508f899ac4ffd44f38c34a490e5bfdcd57acdbfc3a483ce99eb",
+  "artifacts/SpotifyLyrics.Repair.lyrics.1801bed359942492.js": "1801bed3599424922149d72b703e56402c8d94998963a5ef9b6b118b19e62468",
+  "artifacts/SpotifyLyrics.Repair.entry.fd9d1d020ff31e36.js": "fd9d1d020ff31e36710e15a3d99fb0711b3c8a3bf43111ffd298db263e1da621",
+  "artifacts/SpotifyLyrics.Repair.request.518d681ff9eb3b4c.js": "518d681ff9eb3b4c4d9f0975d15a310d6f85e862f957fcc4cd8631ab95b512a0",
+  "artifacts/manifest.json": "de9c663d79baaba5e0eb840af56aa82d6342cabb00b64399d6b7274e369f106a",
+  "artifacts/RepairMac.lpx": "b12238b55ad9b83d7248660be34f15c0986812e050f5f199a166220961a34e79"
+}

@@ -1,0 +1,23 @@
+{
+  "takeOnMe": {
+    "lyricsRadioSelected": true,
+    "textNodeCount": 45,
+    "volume": 0
+  },
+  "nayeXiatian": {
+    "nowPlayingTitleArtistConfirmed": true,
+    "exactPublicURIEntered": true,
+    "lyricsControlDisabled": true,
+    "messageCategory": "no-lyrics",
+    "fallbackPassed": false
+  },
+  "publicTargetAttribution": "No diagnostic record confirmed target identity; do not attribute recognized metadata flags to this song",
+  "newFunctionalCandidatesDeployed": false,
+  "endSpotifyPausedVerified": true,
+  "endSpotifyVolumeVerified": 1,
+  "endSystemVolumeVerified": 0,
+  "endSystemMuteVerified": true,
+  "endLoonConnectedVerified": true,
+  "endPluginCount": 14,
+  "endEnabledPluginCount": 5
+}

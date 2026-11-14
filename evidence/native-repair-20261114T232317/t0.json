@@ -1,0 +1,17 @@
+{
+  "createdAtTaipei": "20261114T232317",
+  "privateBackup": ".migration-backup/native-repair-20261114T232317",
+  "filesBackedUp": 134,
+  "profileSHA256": "b12238b55ad9b83d7248660be34f15c0986812e050f5f199a166220961a34e79",
+  "backupAndPrivateReconstructionVerified": true,
+  "formalPluginEnabled": false,
+  "pluginCount": 14,
+  "enabledPluginCount": 5,
+  "initialAudio": {
+    "systemVolume": 0,
+    "systemMute": true,
+    "spotifyVolume": 1,
+    "spotifyPaused": true
+  },
+  "scope": "Mac-only repair test; phone runtime and user settings unchanged"
+}

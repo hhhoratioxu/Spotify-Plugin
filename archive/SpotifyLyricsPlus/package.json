@@ -1,0 +1,13 @@
+{
+  "name": "spotify-lyricsplus",
+  "version": "3.2.2-local.20261113",
+  "private": true,
+  "type": "module",
+  "author": "Horatio",
+  "scripts": {
+    "build": "node build.mjs && node tools/generate-imports.mjs",
+    "test": "node tools/test.mjs",
+    "test:baseline": "node tools/test-baseline.mjs"
+  },
+  "devDependencies": { "terser": "5.51.2" }
+}

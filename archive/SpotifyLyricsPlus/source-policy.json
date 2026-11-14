@@ -1,0 +1,12 @@
+{
+  "reviewedOn": "2026-11-13",
+  "scope": "API access and permission to display the supplied lyrics in Spotify must both be established. No credentials belong in this file.",
+  "providers": {
+    "lrclib": { "enabled": false, "apiAuthorization": "https://lrclib.net/docs", "displayAuthorization": null, "reviewedOn": "2026-11-13" },
+    "qq": { "enabled": false, "apiAuthorization": null, "displayAuthorization": null, "reviewedOn": "2026-11-13" },
+    "netease": { "enabled": false, "apiAuthorization": null, "displayAuthorization": null, "reviewedOn": "2026-11-13" },
+    "kugou": { "enabled": false, "apiAuthorization": null, "displayAuthorization": null, "reviewedOn": "2026-11-13" },
+    "kuwo": { "enabled": false, "apiAuthorization": null, "displayAuthorization": null, "reviewedOn": "2026-11-13" },
+    "lyricsovh": { "enabled": false, "apiAuthorization": null, "displayAuthorization": null, "reviewedOn": "2026-11-13" }
+  }
+}

@@ -1,0 +1,1540 @@
+{
+  "recordedAt": "2026-11-14T15:38:05.106Z",
+  "scope": "macOS-JSC-mobile-runtime-screen",
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "release": "27.3.0"
+  },
+  "mode": "independent context groups held live, synthetic callbacks stepped round-robin",
+  "sharedStorage": true,
+  "waves": 1,
+  "provenance": {
+    "pin": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+    "sha256": {
+      "Surge/Development/VerseLyrics322/core/spotify-lyrics.js": "bb3c9f0b18fd678ebbb8e912ea2bab00b4c09074db0802fdca12918664e6fda2",
+      "Surge/Development/VerseLyrics322/lyric-startup-fixture.mjs": "ecf04681f0c95f0a54074312770e126a763f3a8bee095907ddaa04f913c8e5b6",
+      "Surge/Development/VerseLyrics322/startup-fixtures.mjs": "900e8746c54665c43703238aeda5a38813d641c82af14d7fb4553b2200ebc860",
+      "Loon/script/SpotifyLyrics.js": "8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94",
+      "Loon/script/SpotifyLyrics.Entry.js": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64",
+      "Surge/script/SpotifyLyrics.js": "c5c5e1692677229c18b6050882e653f3c1a28711ca58c12fb50f7eafdffc96d3",
+      "Surge/script/SpotifyLyrics.Entry.js": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584"
+    },
+    "runnerSHA256": "30e0b11e0f8116350dc7e1158bac126dfeb4537b5ebf2d421be2c75e5f772299"
+  },
+  "limits": [
+    "not an iOS proxy extension",
+    "no native TLS/HTTP buffers or other plugins",
+    "8 contexts is a screening workload, not a documented Loon concurrency limit",
+    "holding completed contexts live is deliberate and may differ from native disposal",
+    "shared native strings exercise existing advisory admission; cooperative scheduling does not prove atomicity under native races"
+  ],
+  "performed": {
+    "ui": false,
+    "playback": false,
+    "listener": false,
+    "network": false,
+    "productionChange": false
+  },
+  "runs": [
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8684120,
+        "peakResidentBytes": 12992512,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 8667736,
+        "milliseconds": 11.878,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 0,
+        "result": {
+          "hash": 2786592583,
+          "bytes": 2903,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 1,
+          "peakActive": 1,
+          "cacheCharacters": 63966,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15647320,
+        "peakResidentBytes": 21512192,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 15581784,
+        "milliseconds": 34.042,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 3,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63966,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 25412184,
+        "peakResidentBytes": 33210368,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 25231960,
+        "milliseconds": 57.441,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 7,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63966,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 9159256,
+        "peakResidentBytes": 13467648,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 9142872,
+        "milliseconds": 15.647,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 0,
+        "result": {
+          "hash": 2587151776,
+          "bytes": 2905,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 2,
+          "peakActive": 1,
+          "cacheCharacters": 63833,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15483504,
+        "peakResidentBytes": 21364736,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 15417968,
+        "milliseconds": 26.735,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 3,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63833,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 24822360,
+        "peakResidentBytes": 31948800,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 24691288,
+        "milliseconds": 44.322,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 7,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63833,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 11747952,
+        "peakResidentBytes": 16646144,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 11731568,
+        "milliseconds": 78.389,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 0,
+        "result": {
+          "hash": 3989649100,
+          "bytes": 115724,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 21,
+          "peakActive": 1,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 20546136,
+        "peakResidentBytes": 28327936,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 20464216,
+        "milliseconds": 320.117,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 3,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 32735832,
+        "peakResidentBytes": 44056576,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 30360152,
+        "milliseconds": 658.894,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 7,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 7668264,
+        "peakResidentBytes": 12369920,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 7651880,
+        "milliseconds": 75.843,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 13288000,
+        "peakResidentBytes": 20267008,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 12730944,
+        "milliseconds": 297.364,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 21103144,
+        "peakResidentBytes": 30900224,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 20283944,
+        "milliseconds": 597.781,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8569432,
+        "peakResidentBytes": 12877824,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 8553048,
+        "milliseconds": 11.33,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 0,
+        "result": {
+          "hash": 2786592583,
+          "bytes": 2903,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 1,
+          "peakActive": 1,
+          "cacheCharacters": 31754,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15204976,
+        "peakResidentBytes": 20774912,
+        "beforeFootprintBytes": 1999280,
+        "endFootprintBytes": 15073904,
+        "milliseconds": 31.125,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 3,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31754,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 24674904,
+        "peakResidentBytes": 32210944,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 24543832,
+        "milliseconds": 56.753,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 7,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31754,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8782448,
+        "peakResidentBytes": 13074432,
+        "beforeFootprintBytes": 1982896,
+        "endFootprintBytes": 8766064,
+        "milliseconds": 12.08,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 0,
+        "result": {
+          "hash": 2587151776,
+          "bytes": 2905,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 2,
+          "peakActive": 1,
+          "cacheCharacters": 31669,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 14860888,
+        "peakResidentBytes": 20398080,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 14795352,
+        "milliseconds": 27,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 3,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31669,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 23822960,
+        "peakResidentBytes": 30752768,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 23691888,
+        "milliseconds": 44.057,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 7,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31669,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 11682416,
+        "peakResidentBytes": 16580608,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 11666032,
+        "milliseconds": 77.95,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 0,
+        "result": {
+          "hash": 3989649100,
+          "bytes": 115724,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 21,
+          "peakActive": 1,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 20349552,
+        "peakResidentBytes": 28229632,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 20251248,
+        "milliseconds": 323.811,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 3,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 32686680,
+        "peakResidentBytes": 44072960,
+        "beforeFootprintBytes": 2179504,
+        "endFootprintBytes": 29033048,
+        "milliseconds": 697.157,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 7,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 7619136,
+        "peakResidentBytes": 12304384,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 7602752,
+        "milliseconds": 78.515,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 13369920,
+        "peakResidentBytes": 20348928,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 12321344,
+        "milliseconds": 305.641,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Loon",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 21119576,
+        "peakResidentBytes": 30949376,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 20267584,
+        "milliseconds": 623.351,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8733272,
+        "peakResidentBytes": 13041664,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 8716888,
+        "milliseconds": 14.633,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 0,
+        "result": {
+          "hash": 2786592583,
+          "bytes": 2903,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 1,
+          "peakActive": 1,
+          "cacheCharacters": 63966,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15614576,
+        "peakResidentBytes": 21495808,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 15549040,
+        "milliseconds": 38.727,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 3,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63966,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "english-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 25395824,
+        "peakResidentBytes": 33226752,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 25264752,
+        "milliseconds": 63.042,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 7,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63966,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 9192024,
+        "peakResidentBytes": 13500416,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 9175640,
+        "milliseconds": 14.197,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 0,
+        "result": {
+          "hash": 2587151776,
+          "bytes": 2905,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 2,
+          "peakActive": 1,
+          "cacheCharacters": 63833,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15450712,
+        "peakResidentBytes": 21299200,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 15385176,
+        "milliseconds": 27.698,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 3,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63833,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "missing-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 24789592,
+        "peakResidentBytes": 32014336,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 24625752,
+        "milliseconds": 43.944,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 7,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 63833,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 11960944,
+        "peakResidentBytes": 16891904,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 11666032,
+        "milliseconds": 78.061,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 0,
+        "result": {
+          "hash": 3989649100,
+          "bytes": 115724,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 21,
+          "peakActive": 1,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 20677232,
+        "peakResidentBytes": 28393472,
+        "beforeFootprintBytes": 2163120,
+        "endFootprintBytes": 20611696,
+        "milliseconds": 323.036,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 3,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "600-english-translation",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 32686704,
+        "peakResidentBytes": 44105728,
+        "beforeFootprintBytes": 2179504,
+        "endFootprintBytes": 29393520,
+        "milliseconds": 655.502,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 7,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 7733824,
+        "peakResidentBytes": 12419072,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 7717440,
+        "milliseconds": 77.166,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 13255208,
+        "peakResidentBytes": 20201472,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 12288552,
+        "milliseconds": 299.397,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "standard",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 21152320,
+        "peakResidentBytes": 31014912,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 20365888,
+        "milliseconds": 663.243,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8487512,
+        "peakResidentBytes": 12795904,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 8471128,
+        "milliseconds": 11.901,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 0,
+        "result": {
+          "hash": 2786592583,
+          "bytes": 2903,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 1,
+          "peakActive": 1,
+          "cacheCharacters": 31754,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 15188592,
+        "peakResidentBytes": 20840448,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 15123056,
+        "milliseconds": 32.177,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 3,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31754,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "english-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 24691312,
+        "peakResidentBytes": 32210944,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 24560240,
+        "milliseconds": 55.363,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 1,
+        "coalesced": 7,
+        "result": {
+          "hash": 4001619538,
+          "bytes": 1799,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31754,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 8864368,
+        "peakResidentBytes": 13156352,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 8847984,
+        "milliseconds": 13.575,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 0,
+        "result": {
+          "hash": 2587151776,
+          "bytes": 2905,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 2,
+          "peakActive": 1,
+          "cacheCharacters": 31669,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 14795376,
+        "peakResidentBytes": 20283392,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 14729840,
+        "milliseconds": 27.192,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 3,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31669,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "missing-cold-filled",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 23806576,
+        "peakResidentBytes": 30720000,
+        "beforeFootprintBytes": 1966512,
+        "endFootprintBytes": 23675504,
+        "milliseconds": 43.9,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 2,
+        "coalesced": 7,
+        "result": {
+          "hash": 3069444615,
+          "bytes": 7,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 31669,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 11862616,
+        "peakResidentBytes": 16809984,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 11567704,
+        "milliseconds": 79.46,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 0,
+        "result": {
+          "hash": 3989649100,
+          "bytes": 115724,
+          "synchronous": false,
+          "completions": 1,
+          "calls": 21,
+          "peakActive": 1,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 20562520,
+        "peakResidentBytes": 28327936,
+        "beforeFootprintBytes": 2130352,
+        "endFootprintBytes": 19415640,
+        "milliseconds": 323.888,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 3,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "600-english-translation",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 33358424,
+        "peakResidentBytes": 44187648,
+        "beforeFootprintBytes": 2146736,
+        "endFootprintBytes": 29803096,
+        "milliseconds": 656.408,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 1,
+        "sharedStorage": true,
+        "totalCalls": 21,
+        "coalesced": 7,
+        "result": {
+          "hash": 862395493,
+          "bytes": 107314,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": true
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 1,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 7701032,
+        "peakResidentBytes": 12402688,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 7684648,
+        "milliseconds": 77.622,
+        "repeats": 1,
+        "concurrency": 1,
+        "invocations": 1,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 4,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 13288000,
+        "peakResidentBytes": 20185088,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 12730944,
+        "milliseconds": 300.783,
+        "repeats": 1,
+        "concurrency": 4,
+        "invocations": 4,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    },
+    {
+      "client": "Surge",
+      "memoryMode": "compact",
+      "scenario": "large-entry-connect-json",
+      "concurrency": 8,
+      "measurement": {
+        "peakFootprintSupported": true,
+        "peakFootprintBytes": 20988456,
+        "peakResidentBytes": 31014912,
+        "beforeFootprintBytes": 1933744,
+        "endFootprintBytes": 20202024,
+        "milliseconds": 634.056,
+        "repeats": 1,
+        "concurrency": 8,
+        "invocations": 8,
+        "maxPendingContexts": 0,
+        "sharedStorage": true,
+        "totalCalls": 0,
+        "coalesced": 0,
+        "result": {
+          "hash": 930999602,
+          "bytes": 120133,
+          "synchronous": true,
+          "completions": 1,
+          "calls": 0,
+          "peakActive": 0,
+          "cacheCharacters": 40,
+          "coalesced": false
+        }
+      }
+    }
+  ],
+  "summary": {
+    "processes": 48,
+    "invocations": 208,
+    "maxFootprintBytes": 33358424,
+    "maxResidentBytes": 44187648,
+    "assessment": {
+      "screen": "below-mobile-reference",
+      "mobileAcceptance": "unverified-needs-native-iOS-evidence",
+      "releaseEligible": false
+    }
+  }
+}

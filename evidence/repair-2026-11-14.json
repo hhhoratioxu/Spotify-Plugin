@@ -1,0 +1,45 @@
+{
+  "recordedAt": "2026-11-14T15:53:03.972429+00:00",
+  "scope": "Mac repair verification and desktop iPhone-runtime screening; incomplete native acceptance",
+  "offline": {
+    "node": {
+      "tests": 385,
+      "passed": 385,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0
+    },
+    "pythonPassed": 18,
+    "baselinePassed": 2248,
+    "bridgeMatched": 72,
+    "independentBuild": true
+  },
+  "nativeMac": {
+    "bilingualDisplay": "observed",
+    "missingTargetLyrics": "failed",
+    "temporaryItemsRemoved": true,
+    "bothCurrentSnapshotsRestored": true,
+    "finalMusicPaused": true,
+    "systemVolume": 0,
+    "systemMuted": true,
+    "spotifyVolumeRestored": 1,
+    "vpnConnected": true,
+    "completeFinalDiagnosticBuffer": false
+  },
+  "mobile": {
+    "productionRuntimeChanged": false,
+    "sharedDesktopScreen": {
+      "processes": 48,
+      "invocations": 208,
+      "maxFootprintBytes": 33358424,
+      "maxResidentBytes": 44187648,
+      "assessment": {
+        "screen": "below-mobile-reference",
+        "mobileAcceptance": "unverified-needs-native-iOS-evidence",
+        "releaseEligible": false
+      }
+    },
+    "nativeIOSAcceptance": "unverified; no device connection; user unable to set up Mirroring now"
+  },
+  "published": false
+}

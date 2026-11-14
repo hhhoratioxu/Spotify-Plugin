@@ -1,0 +1,13 @@
+import {writeFileSync,mkdirSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {sourceBuffer} from '../../../tools/source-snapshot.mjs';
+import {candidateCodec} from './candidate-codec.mjs';
+import {macFallbackCompat} from './mac-fallback-compat.mjs';
+const production='795c677b0d115cab5eb8e4f959424d905a98e3ff';
+const original=sourceBuffer(production,'Loon/script/SpotifyLyrics.Mac.js');
+const code='(function(hostDone){\n'+candidateCodec(262144)+macFallbackCompat.toString()+'\nconst $done=output=>hostDone(macFallbackCompat($response,output,{utf8Size,utf8,text,scanJSON:boundedJSON,providers:Object.keys(SOURCES)}));\n'+original+'\n})($done);\n';
+const here=new URL('.',import.meta.url),sha=b=>createHash('sha256').update(b).digest('hex');
+mkdirSync(new URL('runtime/',here),{recursive:true});mkdirSync(new URL('evidence/',here),{recursive:true});
+writeFileSync(new URL('runtime/SpotifyLyrics.Mac.Fallback.Candidate.js',here),code);
+writeFileSync(new URL('evidence/fallback-candidate.json',here),JSON.stringify({scope:'Isolated Mac fallback previewLines compatibility candidate; not deployed',production,originalSHA256:sha(original),bytes:Buffer.byteLength(code),sha256:sha(code),nativeAcceptance:false,subscriptionChanged:false},null,2)+'\n');
+console.log(JSON.stringify({bytes:Buffer.byteLength(code),deployed:false}));

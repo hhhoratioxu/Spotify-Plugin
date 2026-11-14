@@ -1,0 +1,31 @@
+{
+  "scope": "Prepared read-only observer; not imported/enabled",
+  "port": 18767,
+  "consolePrefix": "SpotifyLyricsMeta ",
+  "maxConsoleCharactersPerRequest": 2048,
+  "files": [
+    {
+      "kind": "body",
+      "path": "runtime/SpotifyLyrics.MetadataObserve.body.4f4d865be5540f58.js",
+      "bytes": 16828,
+      "sha256": "4f4d865be5540f5810ff7ca9b38d4c161e76520da977ceab62788bf6e28f52dc"
+    },
+    {
+      "kind": "header",
+      "path": "runtime/SpotifyLyrics.MetadataObserve.header.d1b0d8f87a7474ce.js",
+      "bytes": 16829,
+      "sha256": "d1b0d8f87a7474ce0ce47256971feeb6d3554cb8e93d0359d977850d6831b105"
+    },
+    {
+      "kind": "profile",
+      "path": "MetadataObserveMac.lpx",
+      "bytes": 1991,
+      "sha256": "eba8916c1a9186a08ca31b4fb6359861a80f0cdbfe13ee7d4bc4c12c6a505391"
+    }
+  ],
+  "requestScripts": 0,
+  "candidateDeployed": false,
+  "networkReportRequests": 0,
+  "storageAccess": false,
+  "nativeAcceptance": false
+}

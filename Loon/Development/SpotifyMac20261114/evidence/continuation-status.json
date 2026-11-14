@@ -1,0 +1,109 @@
+{
+  "recordedAt": "2026-11-14T11:49:27.053179+08:00",
+  "scope": "Offline diagnostic continuation followed by authorized native plan A; restored original configuration",
+  "localCheckoutHEAD": "a872cc55db5dcd48266c01e23a4a8f82008a177e",
+  "productionMobileCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+  "productionMacCommit": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+  "originalArtifactsUnchanged": 9,
+  "historyFilesVerified": 125,
+  "sourceSHA256": {
+    "debug-wrap.mjs": "d1e0efec80cf24ff1cafb1084f4d2494535286a0563fcd16cb32104b31b69bc7",
+    "diagnostic-route.mjs": "e2ac48d94e1fdd2b8fe1e35fa340f8cef9795b5803b792cd71d917529b987a0f",
+    "protocol-shape.mjs": "510571c5f97aee1a3ccff0ab560a4d7420c5bd449e2a8ca7c26638a928fac2f6",
+    "metadata-shape.mjs": "617052c2e90af8b1c240e8e047bb768dd900f494bc9578939376d958989ed799",
+    "build-diagnosis.mjs": "8985c47c281d47fbd160c395ac3a310328e0d896e7eaf67b95fa04b86989112a",
+    "serve.py": "72c463a15f5b1e8eb2513b59b23eb5c7fd7eaa6df21ced828596e27cc7e045e4",
+    "inspect-desktop.py": "97a86653d197588e1a42d8092f42ecc36d48846bdf73d7f12e1b04bea44e2039",
+    "diagnostic-flow.test.mjs": "4cdf070def297335644a8028ff020682b5e8516f2d0927f86dd26707134a1406",
+    "diagnostic-route.test.mjs": "92b5e3150d2b8e1887bc6e53d1ec397b3946a2bfe5e788ec41c1ee2aa4028375",
+    "diagnosis-artifacts.test.mjs": "3703b9e2735b1a9697582668d22325c22c76f79743dc56912fc506e9c134fd8a",
+    "diagnostic_server_test.py": "7289bdd97b1e7b4607b92289b219de7a48e079f191e741b92d802e652ef4f553",
+    "missing-lyrics.test.mjs": "b4ea6e37fe2dd46b61357ac2b82598c1ce066cbadef944c2892e5dce5fcaf71a"
+  },
+  "automated": {
+    "macNodeTests": {
+      "tests": 99,
+      "passed": 99,
+      "failed": 0,
+      "skipped": 0
+    },
+    "subscriptionNodeTests": {
+      "tests": 12,
+      "passed": 12,
+      "failed": 0
+    },
+    "serverWithoutListeningSocket": {
+      "tests": 3,
+      "passed": 3,
+      "failed": 0
+    },
+    "targetMissingLyricsCases": {
+      "tests": 11,
+      "passed": 11,
+      "scope": "Node VM; prerecorded public Spotify metadata; self-written QQ/NetEase replies; no actual service or UI acceptance"
+    }
+  },
+  "readOnlyUI": {
+    "loon": "Connected",
+    "formalPlugin": "Disabled",
+    "CLIENT_PLATFORM": "mobile",
+    "MEMORY_MODE": "standard",
+    "originalMacDiagnostics": "Disabled",
+    "oldManualMemoryPlugin": "Enabled, unchanged; GENERIC not run"
+  },
+  "performed": {
+    "playback": true,
+    "networkConfigurationChange": true,
+    "pluginUpdate": false,
+    "localServerStarted": false,
+    "newDiagnosticImported": false,
+    "cacheCleared": false,
+    "vpnRestartedOrDisconnected": false,
+    "pushed": false,
+    "configurationRestored": true
+  },
+  "acceptance": {
+    "macMissingLyrics": "Native A not passed; grey lyrics control, no fallback display",
+    "rootCause": "Unresolved",
+    "macBilingualAndSeek": "Native A bilingual display and 90s/10s progress confirmed; exact highlight timing unverified",
+    "wordTimeline": "Unverified",
+    "longDurationStability": "Unverified",
+    "surgeMac": "Not verified; absent in prior check",
+    "iOSUnder50000000Bytes": "Unverified",
+    "nativeFixtureStress": "Not run",
+    "readyToPush": false
+  },
+  "confirmation": {
+    "status": "Authorized plan A completed and restored; plan B remains unauthorized",
+    "minimalChanges": {
+      "formalPlugin": [
+        "Disabled",
+        "Enabled",
+        "restore Disabled"
+      ],
+      "CLIENT_PLATFORM": [
+        "mobile",
+        "macOS",
+        "restore mobile"
+      ]
+    },
+    "unchanged": [
+      "MEMORY_MODE=standard",
+      "other 11 original settings",
+      "no subscription/runtime update",
+      "VPN",
+      "nodes",
+      "system proxy",
+      "certificate",
+      "global MITM",
+      "other plugins",
+      "all caches"
+    ],
+    "optionalDiagnostic": "Plan B not authorized; do not import, enable or update diagnostic scripts",
+    "authorized": "Formal plugin Disabled/mobile -> Enabled/macOS; standard and other settings unchanged; no update; restore Disabled/mobile",
+    "uiWindow": "Native A ended; Mac UI released"
+  },
+  "report": "CONTINUATION.md",
+  "nativeAReport": "NATIVE-A.md",
+  "nativeAEvidence": "evidence/native-a-20261114T113224/observations.json"
+}

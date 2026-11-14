@@ -1,0 +1,53 @@
+{
+  "recordedAt": "2026-11-14T04:35:32.160Z",
+  "scope": "Copy outside Proxy with no Git database and freshly installed locked dependencies; build and fixture tests only",
+  "parentGitAvailable": false,
+  "commands": [
+    {
+      "label": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0,
+      "durationMs": 284,
+      "tail": "\nadded 11 packages in 210ms\n\n"
+    },
+    {
+      "label": "build",
+      "command": [
+        "node",
+        "tools/build.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 4469,
+      "tail": "{\"built\":15,\"core\":\"3.2.2\",\"published\":false}\n\n"
+    },
+    {
+      "label": "memory-fixture-build",
+      "command": [
+        "node",
+        "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 901,
+      "tail": "{\"path\":\"/verselyrics-native-0b74c82894\",\"cases\":18,\"productionStorageAccessed\":false}\n\n"
+    },
+    {
+      "label": "memory-fixture-preflight",
+      "command": [
+        "node",
+        "Loon/Development/SpotifyNativeMemory20261114/preflight.mjs"
+      ],
+      "exitCode": 1,
+      "durationMs": 61,
+      "tail": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 36\n\n    at file:///private/var/folders/jw/4xxjcsq945q6rm1vkd_l1kv80000gn/T/spotifylyrics-independent-rxveyV/Loon/Development/SpotifyNativeMemory20261114/preflight.mjs:25:64\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {\n  generatedMessage: true,\n  code: 'ERR_ASSERTION',\n  actual: 0,\n  expected: 36,\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n\nNode.js v24.22.3\n"
+    }
+  ],
+  "success": false,
+  "nativeAcceptance": false,
+  "error": "Independent memory-fixture-preflight failed"
+}

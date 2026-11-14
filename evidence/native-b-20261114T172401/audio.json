@@ -1,0 +1,21 @@
+{
+  "systemInitial": {
+    "volume": 0.4375,
+    "mute": false,
+    "output": "MacBook Pro Speakers"
+  },
+  "systemTest": {
+    "volume": 0,
+    "mute": true
+  },
+  "spotifyInitialVolume": 1,
+  "spotifyTestVolume": 0,
+  "deviceObserved": "This computer",
+  "note": "AX volume setValue and paste did not take effect; typeText works. A coordinate click briefly started an unrelated track while system mute+0; it was paused immediately after detection. No unrelated title or URI retained.",
+  "spotifyPausedAtEndObserved": true,
+  "spotifyFinalVolumeObserved": 1,
+  "systemFinalVolumeObserved": 0.4375,
+  "systemFinalMuteObserved": false,
+  "systemMuteNote": "Mute tickbox was off when re-read at restoration, while output volume remained zero throughout playback.",
+  "protocolDeviation": "A coordinate click briefly played an unrelated track before Spotify mute took effect. System output remained zero; stopped after detection. System mute checkbox was off at cleanup, so continuous checkbox-mute status is not proven. This run is not a full strict-protocol pass."
+}

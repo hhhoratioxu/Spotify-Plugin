@@ -1,4 +1,4 @@
-#!name = Spotify 双语歌词 · VerseLyrics
+#!name = SpotifyLyrics
 #!desc = 核心 3.2.2 · 适配 18。备用源按需初始化，减少英语歌词重复检查；临时无词响应不长期缓存。保留六源补词，中文目标仅翻译英语歌曲。 保留补词、翻译与原生高亮。需 HTTPS 解密。
 #!author = Horatio Xu
 #!homepage = https://github.com/hhhoratioxu/Proxy/blob/main/Surge/Docs/SpotifyLyrics.md

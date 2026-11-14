@@ -1,0 +1,14 @@
+#!name = SpotifyLyrics Mac Metadata 观察（临时）
+#!desc = 只观察一个公开测试曲目的元数据形状和歌词请求状态；不改正文/请求头，不补词，不联网报告。需另获许可才可启用。
+#!author = Horatio
+#!system = macOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-11-14
+
+[Script]
+response if ${request.method} == "GET" && ${url} ~= /^https:\/\/(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?\/metadata\/4\/track\/e9b099ff35ac4a9ab73e0e14d20b67a6(?:\?[^#\s]*)?$/ && (${request.header['x-verselyrics-internal']} == null || ${request.header['x-verselyrics-internal']} == "") && ${response.status} == 200 && (${response.header['Content-Length']} == null || ${response.header['Content-Length']} ~= /^(?:[0-9]{1,5}|1[0-2][0-9]{4}|130[0-9]{3}|1310[0-6][0-9]|13107[0-2])$/) then script("http://127.0.0.1:18767/SpotifyLyrics.MetadataObserve.body.4f4d865be5540f58.js") with tag="SpotifyLyrics Metadata Shape", timeout=1, requires_body=true, binary_body_mode=true
+response if ${request.method} == "GET" && ${url} ~= /^https:\/\/(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?\/metadata\/4\/track\/e9b099ff35ac4a9ab73e0e14d20b67a6(?:\?[^#\s]*)?$/ && (${request.header['x-verselyrics-internal']} == null || ${request.header['x-verselyrics-internal']} == "") then script("http://127.0.0.1:18767/SpotifyLyrics.MetadataObserve.header.d1b0d8f87a7474ce.js") with tag="SpotifyLyrics Metadata Status", timeout=1
+response if ${request.method} == "GET" && ${url} ~= /^https:\/\/(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?\/color-lyrics\/v2\/track\/76XUZSb13QUuj1HECY4Hvo(?:\/image\/[^?#\s]+)?\/?(?:\?[^#\s]*)?$/ && (${request.header['x-verselyrics-internal']} == null || ${request.header['x-verselyrics-internal']} == "") then script("http://127.0.0.1:18767/SpotifyLyrics.MetadataObserve.header.d1b0d8f87a7474ce.js") with tag="SpotifyLyrics Lyrics Status", timeout=1
+
+[Mitm]
+hostname = spclient.wg.spotify.com, *-spclient.spotify.com

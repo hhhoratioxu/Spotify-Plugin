@@ -1,0 +1,26 @@
+import {spawnSync} from 'node:child_process';
+import {readdirSync,readFileSync,writeFileSync,mkdtempSync,mkdirSync,symlinkSync,rmSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {tmpdir} from 'node:os';
+import {join,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=new URL('../',import.meta.url), history=new URL('history/3.2.2/',root);
+const manifest=JSON.parse(readFileSync(new URL('recovery-manifest.json',root)));
+for(const f of manifest.files){
+  const actual=createHash('sha256').update(readFileSync(new URL(f.path,history))).digest('hex');
+  if(actual!==f.sha256)throw Error('Historical source changed: '+f.path);
+}
+const scratch=mkdtempSync(join(tmpdir(),'spotify-lyricsplus-baseline-'));
+try{
+  for(const f of manifest.files){const target=join(scratch,f.path);mkdirSync(dirname(target),{recursive:true});writeFileSync(target,readFileSync(new URL(f.path,history)));}
+  symlinkSync(fileURLToPath(new URL('node_modules',root)),join(scratch,'node_modules'),'dir');
+  function command(binary,args){const r=spawnSync(binary,args,{cwd:scratch,encoding:'utf8',maxBuffer:8*1024*1024});if(r.status!==0)throw Error(r.stderr||r.stdout||'Baseline command failed');return r;}
+  command(process.execPath,['build.mjs']);
+  command('python3',['package.py',manifest.sourceCommit,'2248']);
+  const tests=[...readdirSync(scratch).filter(n=>n.endsWith('.test.mjs')),...readdirSync(join(scratch,'core/test')).filter(n=>n.endsWith('.test.mjs')).map(n=>'core/test/'+n)];
+  const out=command(process.execPath,['--test','--test-reporter=tap',...tests]);
+  writeFileSync(new URL('evidence/baseline-tests.tap',root),out.stdout);
+  const summary={date:'2026-11-13',sourceCommit:manifest.sourceCommit,restoredFiles:manifest.files.length,tests:Number(out.stdout.match(/# tests (\d+)/)?.[1]),passed:Number(out.stdout.match(/# pass (\d+)/)?.[1]),failed:Number(out.stdout.match(/# fail (\d+)/)?.[1]),isHistoricalBaseline:true,liveSpotify:false};
+  writeFileSync(new URL('evidence/baseline-summary.json',root),JSON.stringify(summary,null,2)+'\n');
+  console.log(out.stdout.split('\n').slice(-10).join('\n'));
+}finally{rmSync(scratch,{recursive:true,force:true});}

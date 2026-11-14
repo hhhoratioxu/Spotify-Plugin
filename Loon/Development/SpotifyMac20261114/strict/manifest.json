@@ -1,0 +1,62 @@
+{
+  "scope": "Original B with strictly reduced logging; not installed or enabled",
+  "originalBProfileSHA256": "2482841b803db9b70b99f8f9eedd8dd5679419e19892358144c61010c4fb4c6b",
+  "productionMacCommit": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+  "fields": [
+    "route",
+    "stage",
+    "pair",
+    "publicTargetMatched",
+    "lyricsFlags"
+  ],
+  "identityFieldType": "boolean; exact fixed public request OR known response identity; false means unconfirmed, not proven non-target",
+  "inputCompatibility": "Read-only 131072-byte normalization; cross-realm ArrayBuffer/views; strict UTF8 JSON strings; known metadata.Track/player/context JSON only",
+  "removed": [
+    "HTTP status",
+    "request method",
+    "body/output sizes",
+    "format/MIME/encoding",
+    "schema paths/type names",
+    "duration and field counts",
+    "timestamps"
+  ],
+  "productionCoreChanged": false,
+  "requestDifference": "Leading diagnostic comment only, to avoid production cache content hash reuse",
+  "newFixCandidatesIncluded": false,
+  "profileRulesChanged": false,
+  "files": [
+    {
+      "kind": "request",
+      "file": "SpotifyLyrics.Diagnosis.Strict.request.28d22ba4ac95222f.js",
+      "bytes": 4825,
+      "sha256": "28d22ba4ac95222fa098dfda3f0ec033e2f49fb9d83c0654c46087ed82ed6f5c",
+      "productionSource": "SpotifyLyrics.Request.Mac.js",
+      "productionSHA256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "cacheContentIsolated": true
+    },
+    {
+      "kind": "lyrics",
+      "file": "SpotifyLyrics.Diagnosis.Strict.lyrics.01c95ec3afafa493.js",
+      "bytes": 114149,
+      "sha256": "01c95ec3afafa4936ef577fec1a8189fc6e691ce429faeaa56a6f0c0abb5a4d9",
+      "productionSource": "SpotifyLyrics.Mac.js",
+      "productionSHA256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+      "cacheContentIsolated": true
+    },
+    {
+      "kind": "entry",
+      "file": "SpotifyLyrics.Diagnosis.Strict.entry.0a0be9945f511558.js",
+      "bytes": 47084,
+      "sha256": "0a0be9945f511558c359aec09777353aec6a5b8d2efe3e30217ffe3fc79e677f",
+      "productionSource": "SpotifyLyrics.Entry.Mac.js",
+      "productionSHA256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "cacheContentIsolated": true
+    },
+    {
+      "kind": "profile",
+      "file": "DiagnosisMac.lpx",
+      "bytes": 6424,
+      "sha256": "04d6c9c35feec1f0c68fc3b3e97d101d1054372190f603085be16e16f293f43d"
+    }
+  ]
+}

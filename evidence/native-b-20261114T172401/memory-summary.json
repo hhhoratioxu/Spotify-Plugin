@@ -1,0 +1,33 @@
+{
+  "scope": "Mac whole-process sampled rounded physical footprint during strict B with diagnostic overhead and other active plugins; not plugin-only and not iOS acceptance",
+  "seconds": 130.931753,
+  "sampleRows": 4197,
+  "limitBytesExclusive": 50000000,
+  "nativeIOSAcceptance": "unverified",
+  "processes": [
+    {
+      "name": "com.loon.Loon.LoonTunnelExtension",
+      "samples": 1399,
+      "windowMaximumDisplay": "53M+",
+      "estimateBytes": 55574528,
+      "conservativeLowerBytes": 54525952,
+      "conservativeUpperBytes": 56623104
+    },
+    {
+      "name": "Loon",
+      "samples": 1399,
+      "windowMaximumDisplay": "189M+",
+      "estimateBytes": 198180864,
+      "conservativeLowerBytes": 197132288,
+      "conservativeUpperBytes": 199229440
+    },
+    {
+      "name": "com.loon.Loon.LoonHelper",
+      "samples": 1399,
+      "windowMaximumDisplay": "5072K",
+      "estimateBytes": 5193728,
+      "conservativeLowerBytes": 5192704,
+      "conservativeUpperBytes": 5194752
+    }
+  ]
+}

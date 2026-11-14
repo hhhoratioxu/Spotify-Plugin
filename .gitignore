@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+__pycache__/
+.venv/
+.migration-backup/
+build/
+*.local.yaml
+*.local.yml
+evidence/*.tap
+archive/SpotifyLyricsPlus/test-runtime/
+archive/SpotifyLyricsPlus/history/3.2.2/runtime/
+archive/SpotifyLyricsPlus/history/3.2.2/publish/
+archive/SpotifyLyricsPlus/history/3.2.2/request-core.js
+archive/SpotifyLyricsPlus/history/3.2.2/production-files.json
+Loon/Development/SpotifyNativeMemory20261114/runtime/

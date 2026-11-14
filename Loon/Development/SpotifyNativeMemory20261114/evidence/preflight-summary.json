@@ -1,0 +1,21 @@
+{
+  "scope": "Node bridge preflight, not native Loon or memory acceptance",
+  "results": [
+    {
+      "executionHost": "Node-preflight",
+      "variant": "mobile",
+      "completed": 36,
+      "expected": 36,
+      "error": null,
+      "matched": 36
+    },
+    {
+      "executionHost": "Node-preflight",
+      "variant": "macos",
+      "completed": 36,
+      "expected": 36,
+      "error": null,
+      "matched": 36
+    }
+  ]
+}

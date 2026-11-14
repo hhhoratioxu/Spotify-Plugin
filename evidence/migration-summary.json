@@ -1,0 +1,96 @@
+{
+  "recordedAt": "2026-11-14T04:41:34.977966+00:00",
+  "localProject": "/Users/hhhoratioxu/Documents/CodeX/Proxy/Spotify",
+  "parentFilesMovedOrDeleted": 0,
+  "parentIndexModified": false,
+  "copiedSourceRecords": 191,
+  "historyFilesUnchanged": 125,
+  "backupFileCount": 888,
+  "backupSymlinkCount": 4,
+  "git": {
+    "branch": "codex/spotifylyrics-migration",
+    "localCommits": 0,
+    "remote": {
+      "verifiedAt": "2026-11-14T04:41:34.977966+00:00",
+      "repository": "hhhoratioxu/SpotifyLyrics",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics",
+      "visibility": "PUBLIC",
+      "isEmpty": true,
+      "creation": "Empty repository only; no initial README, license, commit, branch or source upload",
+      "origin": "https://github.com/hhhoratioxu/SpotifyLyrics.git"
+    },
+    "pushed": false
+  },
+  "entryChanges": [
+    {
+      "path": "Loon/script/SpotifyLyrics.lpx",
+      "change": "display-name only",
+      "sha256": "386b65b047b44abb725753bfb6a38a2cbe269c716e243bcb6cfaec9b2aab5021",
+      "allURLsAndOtherTextPreserved": true
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.sgmodule",
+      "change": "display-name only",
+      "sha256": "ca6ca46cf97ae1a25669128392412bcad48613b90811a5503ffceb5d23c20986",
+      "allURLsAndOtherTextPreserved": true
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics.yaml",
+      "change": "display-name only",
+      "sha256": "6df0a8ca2bc30ad6df8faeff079b48df25f3d9687a87dadfe04fe04d82a02937",
+      "allURLsAndOtherTextPreserved": true
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.conf",
+      "change": "display-name only",
+      "sha256": "a1bc935b0557774695ffe25ea0f38513c488cfc1b20564ffec89807dc9dac773",
+      "allURLsAndOtherTextPreserved": true
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.sgmodule",
+      "change": "display-name only",
+      "sha256": "19df3db39179a6885947e82be783a90eaddea6db62af8a4fdfd520b611192082",
+      "allURLsAndOtherTextPreserved": true
+    }
+  ],
+  "tests": {
+    "node": {
+      "tests": 183,
+      "passed": 183,
+      "failed": 0
+    },
+    "python": {
+      "passed": 9
+    },
+    "historicalBaseline": {
+      "recordedAt": "2026-11-14T04:39:24.407Z",
+      "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+      "restoredFiles": 125,
+      "tests": 2248,
+      "passed": 2248,
+      "failed": 0,
+      "scope": "Historical source in a temporary directory; synthetic transport; not native Spotify acceptance"
+    },
+    "memoryBridge": {
+      "scope": "Node VM bridge with in-memory fixture transport; not a native Loon run or memory measurement",
+      "listenerStarted": false,
+      "networkRequests": 0,
+      "completed": 72,
+      "matched": 72
+    },
+    "candidate": {
+      "tests": 58,
+      "scope": "Self-written JSON and prerecorded public protobuf in Node VM",
+      "deployed": false
+    }
+  },
+  "acceptance": {
+    "macMissingLyrics": "not-passed",
+    "preciseSync": "unverified",
+    "iOSUnder50000000Bytes": "unverified",
+    "readyToPush": false
+  },
+  "networkAndClientSettingsChanged": false,
+  "playback": false,
+  "sidebarChanged": false
+}

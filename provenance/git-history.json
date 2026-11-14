@@ -1,0 +1,516 @@
+{
+  "schema": 1,
+  "sourceRepository": "hhhoratioxu/Proxy",
+  "sourceMain": "823e6a8cbc89f4e6b697bea17a2f43820a632b86",
+  "method": "Git fast-export/import with literal Spotify-only path selection; original author, dates and messages preserved; commit IDs change with filtered trees",
+  "historyBranch": "archive/proxy-history",
+  "migratedHead": "359c8021326914235815a8e8f73f96b262473137",
+  "commits": 101,
+  "historicalPaths": 3179,
+  "pathSelectors": [
+    "Clash/Docs/SpotifyLyrics.md",
+    "Egern/Docs/SpotifyLyrics.md",
+    "Egern/script/SpotifyLyrics",
+    "Egern/script/SpotifyLyrics.yaml",
+    "Egern/script/SpotifyLyricsDiagnostics",
+    "Egern/script/VerseLyrics-Egern-0.1.0.zip",
+    "Egern/script/VerseLyrics-Egern-0.1.0.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.2.0.zip",
+    "Egern/script/VerseLyrics-Egern-0.2.0.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.3.0.zip",
+    "Egern/script/VerseLyrics-Egern-0.3.0.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.3.1.zip",
+    "Egern/script/VerseLyrics-Egern-0.3.1.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.3.2.zip",
+    "Egern/script/VerseLyrics-Egern-0.3.2.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.3.3.zip",
+    "Egern/script/VerseLyrics-Egern-0.3.3.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.4.0.zip",
+    "Egern/script/VerseLyrics-Egern-0.4.0.zip.sha256",
+    "Egern/script/VerseLyrics-Egern-0.4.1.zip",
+    "Egern/script/VerseLyrics-Egern-0.4.1.zip.sha256",
+    "Egern/script/VerseLyrics-Egern.zip",
+    "Egern/script/VerseLyrics-Egern.zip.sha256",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.CacheProbe2.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Debug.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.TypesDebug.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Mac.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Request.js",
+    "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.js",
+    "Loon/Development/VerseLyricsColors",
+    "Loon/Docs/SpotifyLyrics.md",
+    "Loon/script/SpotifyLyrics.Entry.Mac.js",
+    "Loon/script/SpotifyLyrics.Entry.js",
+    "Loon/script/SpotifyLyrics.Mac.js",
+    "Loon/script/SpotifyLyrics.Request.Mac.js",
+    "Loon/script/SpotifyLyrics.Request.js",
+    "Loon/script/SpotifyLyrics.js",
+    "Loon/script/SpotifyLyrics.lpx",
+    "Loon/script/SpotifyLyrics.plugin",
+    "QuantumultX/Docs/SpotifyLyrics.md",
+    "QuantumultX/script/SpotifyLyrics.Entry.js",
+    "QuantumultX/script/SpotifyLyrics.Request.js",
+    "QuantumultX/script/SpotifyLyrics.conf",
+    "QuantumultX/script/SpotifyLyrics.js",
+    "Shadowrocket/Docs/SpotifyLyrics.md",
+    "Shadowrocket/script/SpotifyLyrics.Entry.js",
+    "Shadowrocket/script/SpotifyLyrics.Request.js",
+    "Shadowrocket/script/SpotifyLyrics.js",
+    "Shadowrocket/script/SpotifyLyrics.sgmodule",
+    "Surge/Development/VerseLyrics0410",
+    "Surge/Development/VerseLyrics0411",
+    "Surge/Development/VerseLyrics0412",
+    "Surge/Development/VerseLyrics0413",
+    "Surge/Development/VerseLyrics0414",
+    "Surge/Development/VerseLyrics0415",
+    "Surge/Development/VerseLyrics0416",
+    "Surge/Development/VerseLyrics042",
+    "Surge/Development/VerseLyrics043",
+    "Surge/Development/VerseLyrics044",
+    "Surge/Development/VerseLyrics045",
+    "Surge/Development/VerseLyrics046",
+    "Surge/Development/VerseLyrics047",
+    "Surge/Development/VerseLyrics048",
+    "Surge/Development/VerseLyrics049",
+    "Surge/Development/VerseLyrics050",
+    "Surge/Development/VerseLyrics051",
+    "Surge/Development/VerseLyrics052",
+    "Surge/Development/VerseLyrics053",
+    "Surge/Development/VerseLyrics054",
+    "Surge/Development/VerseLyrics060",
+    "Surge/Development/VerseLyrics061",
+    "Surge/Development/VerseLyrics070",
+    "Surge/Development/VerseLyrics071",
+    "Surge/Development/VerseLyrics100",
+    "Surge/Development/VerseLyrics300",
+    "Surge/Development/VerseLyrics310",
+    "Surge/Development/VerseLyrics311",
+    "Surge/Development/VerseLyrics312",
+    "Surge/Development/VerseLyrics313",
+    "Surge/Development/VerseLyrics314",
+    "Surge/Development/VerseLyrics315",
+    "Surge/Development/VerseLyrics316",
+    "Surge/Development/VerseLyrics317",
+    "Surge/Development/VerseLyrics318",
+    "Surge/Development/VerseLyrics319",
+    "Surge/Development/VerseLyrics320",
+    "Surge/Development/VerseLyrics321",
+    "Surge/Development/VerseLyrics322",
+    "Surge/Development/VerseLyricsPorts",
+    "Surge/Docs/SpotifyLyrics.md",
+    "Surge/script/SpotifyLyrics.Entry.js",
+    "Surge/script/SpotifyLyrics.Request.js",
+    "Surge/script/SpotifyLyrics.js",
+    "Surge/script/SpotifyLyrics.sgmodule"
+  ],
+  "commitMap": [
+    {
+      "original": "472b642c3813bed3622246ffd9bc3f77ff500a5e",
+      "migrated": "da2a688d7035c4a2270eef7895fc55949984d28d"
+    },
+    {
+      "original": "049907b51ce3fa99d5dddbb75f628a56f9f8c4ba",
+      "migrated": "7976cc8d176ac0d058a91277d23b1216b9fb37d0"
+    },
+    {
+      "original": "d961cedef138133a3179696c675f0f6696a1e42d",
+      "migrated": "a8b6066edf6d7154ad1a82d6268971f0ba02ba45"
+    },
+    {
+      "original": "cdbe2470156953d7ca91cf9db7c57a0d5bdf5ba0",
+      "migrated": "bd76bc0c38ba96c21b7d9b99703e0f4218b76af1"
+    },
+    {
+      "original": "b237806470a5ca874e6c168b42c2998815212145",
+      "migrated": "98d5443c9ca5f03ba2ae501259c60fe09bda6806"
+    },
+    {
+      "original": "1713d81f53747c0e750230a3688b597588dc95e2",
+      "migrated": "7f21ebd1ec9a967382ff496c3812f14a6953114f"
+    },
+    {
+      "original": "81742748e190910afd3733e63f298c9c13d54a76",
+      "migrated": "0bab6088600a0dd2341e5465e6136a90d8b605b7"
+    },
+    {
+      "original": "ea770b61e11392e371a8dbb74f0d3379e69b7b09",
+      "migrated": "d246731ba04a424d5246661be3d676f62bf8feb2"
+    },
+    {
+      "original": "d6421c52d1b11f6441feb238e2ab8d659e640a9d",
+      "migrated": "59b760300afb833e55e1198c10e74981f98c11db"
+    },
+    {
+      "original": "5f8e1b36cafe1fdf52b9a5100efea22ac4a6c52e",
+      "migrated": "8b11a7269d1cb3a187039215b01cb8693728a2ec"
+    },
+    {
+      "original": "143b5ad6325baaafeb2fcffc8d09b2f23e07f14f",
+      "migrated": "d341b4979d19ab7c2ecc5f9334c672f8379b6889"
+    },
+    {
+      "original": "21c3b90fac928db87411ead0d907e3ece1850d72",
+      "migrated": "2f9060cb190c92df6452eb4e8edcf8287b4ac505"
+    },
+    {
+      "original": "0254972759e337336ea0ee1c537b0f2a1d3e044b",
+      "migrated": "1aed290dfc906950f5ab26187d788dee69373f84"
+    },
+    {
+      "original": "65bde60ebb01118b685c0c088029708f75a6a2b6",
+      "migrated": "9cf8d41272e0e253c2e2fdd685a4525130713d31"
+    },
+    {
+      "original": "aa6e7192554cd62f469a20158b84ae62063de150",
+      "migrated": "214f230e604b0439f2befa0d309ce9fcfdbf5689"
+    },
+    {
+      "original": "dd1f6eed94c254cb70b8459e8d6ee0976cb8fd7d",
+      "migrated": "653b00f4f787bdf10148f46fbcb009d0ae2d7a1b"
+    },
+    {
+      "original": "f24681bc9c410eb030cc0700c8f890fa3eddc1be",
+      "migrated": "f66b2d565700c4eead0a7b65cb178cf679881aa9"
+    },
+    {
+      "original": "c732023f44cc0a7cdbae28d45c581e9ad56950a4",
+      "migrated": "c4248b3158798818a416ff25106267f627183587"
+    },
+    {
+      "original": "c5e05357633ea4d78bbd023f080388ea1d901b25",
+      "migrated": "bae4b33455734b9cd70cdc718e7fad159595c1be"
+    },
+    {
+      "original": "4a74064675bf7224fdd45859dc0b513ffa074c6c",
+      "migrated": "243a73485ce195bcd799ee11c635dde8724c00d2"
+    },
+    {
+      "original": "6392d31a69b9c6f5044827d24055ac4dd6222319",
+      "migrated": "3cde6f885536d9736725c6f6fd180af10eb25b80"
+    },
+    {
+      "original": "08f79744483933d59121f6739edc28cd6a871a5e",
+      "migrated": "8a1c3439dc0332930d14f1b83e31e80a3157e6d1"
+    },
+    {
+      "original": "f782e75afe834be7c796f3ce1ec8d2e7939e312a",
+      "migrated": "b42af5d6006bfad7c69a5b6ffa42a4483fe30656"
+    },
+    {
+      "original": "94c6466923f6dc2fb67a06e9722f28894eede68a",
+      "migrated": "dea9fc1ebcf12fb5b3f306e76fce2d0e3d8ad5dc"
+    },
+    {
+      "original": "ec0a3562c53b3b46fb8e510244cf401509620b23",
+      "migrated": "9f2299ee90ba4a0e3d10931d659e964c45b4d78d"
+    },
+    {
+      "original": "ae2ed2b9b3c5ae2a7922bfa003c2687c8c0310f3",
+      "migrated": "128091a40162f7a3176b55051b8efda0155d90df"
+    },
+    {
+      "original": "98a52b50d12b53670cb5f1e7d96003a4715f9406",
+      "migrated": "91b35b69bef87c545b5108d854d2b0032389a6e8"
+    },
+    {
+      "original": "6214b6d5e3a1cb3cadccfdfc1af242bc63310c0f",
+      "migrated": "edc2fd9523e39a2eeb0da3e208b601f3c03b00b3"
+    },
+    {
+      "original": "245f5886fade93ca669f919b8014348674470acd",
+      "migrated": "a60b99eef4b4670c729019ec89a08d921d40bd73"
+    },
+    {
+      "original": "dd5315871e1a0da4713c2f8e5da7d72d81a859ab",
+      "migrated": "6350ede61db6834a5e07a9b34ad23eb3ee682f17"
+    },
+    {
+      "original": "958dfccf6c25718da5a29e548324310b4342f80d",
+      "migrated": "75f3aca5ccff79d92c0c9bfe7779cf3a33cf7796"
+    },
+    {
+      "original": "f58590b91003d5d887f556f74850faa63ccf4d59",
+      "migrated": "c08a842f4ec2c794d8f44e09d7b0c4f76a522cba"
+    },
+    {
+      "original": "43fd04239ba8d0531a6a48ac5914760b01664fcf",
+      "migrated": "a6e13fde282135c3fa84f224f1e8a86856f1da23"
+    },
+    {
+      "original": "23882dec0d86280c1124973e60dca80c05278463",
+      "migrated": "6c89d921dc6c317d5766b07a32dbd864b7e9b53c"
+    },
+    {
+      "original": "d0bfd0e3b0d42dbee0e813a22aece7747fbb1d33",
+      "migrated": "7d04448b87cf4346a319dd2a59c7d027b488037a"
+    },
+    {
+      "original": "37f5b58fcd2a95489dec1409b0b19d1baf7e71b4",
+      "migrated": "ae1f3a379abb5d22d4872199787975eb6a55fdd2"
+    },
+    {
+      "original": "cf97978eef7861c5e99acd01b2f1303280c96ec6",
+      "migrated": "66d2448de25285448172be1179b8f901a1b9fe6e"
+    },
+    {
+      "original": "50b2adf2bc8d36d43d9999302af4ab1b8d3a9e95",
+      "migrated": "b2cbffcf389847627c54567d696510aeaf1b785b"
+    },
+    {
+      "original": "2c05e6401cdc3d1e6732e62de02fee9cd6f9fc79",
+      "migrated": "d78fccc1a1874dfe9a7dd01aea1aec13053295d5"
+    },
+    {
+      "original": "a6eb890e3bac36d10dd1085fc91c81ccc6075314",
+      "migrated": "3d45396faa130c1e654428e18396a28ac1419e82"
+    },
+    {
+      "original": "3dcd36e6d30166b2e4a0bef397e43170098fbc94",
+      "migrated": "f45fa79ede74d52e0ad5833e0206153d578e1635"
+    },
+    {
+      "original": "298c9ad7228dace6e50475f9bc7c00395eb3bb6f",
+      "migrated": "82756253d279a99199d3e5f269f2031a9be6d449"
+    },
+    {
+      "original": "164163b4ecc72c04a6a1aa608703f3b9e6e3520e",
+      "migrated": "2bb27ba3db999c7f85a162f90f6a9a43ecabb9c2"
+    },
+    {
+      "original": "4f5d87583a44364de3495a4f9902a5abb4756ae6",
+      "migrated": "74ba3160a9bf9c4b11842785da47a0ee73059eb3"
+    },
+    {
+      "original": "73e99eb3e2c36920768328b65bbf60b8eed3281f",
+      "migrated": "11280b04c302c78daf37796a72e16a8bb7120570"
+    },
+    {
+      "original": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+      "migrated": "242d29a443d88939dec3760e19c3dac6fb1c213d"
+    },
+    {
+      "original": "9df1374921e4fd516ad803c4674b05be40bbd5bd",
+      "migrated": "06e3104ed25692b49f4a6c8555f3a87902de1481"
+    },
+    {
+      "original": "9f7399dda1279689d2436e981a547b1ea45513b3",
+      "migrated": "bd31cba85101901b226e954282680568a23a974a"
+    },
+    {
+      "original": "0cbda83aac3fe0a373d006e061282be9a2609279",
+      "migrated": "08806892c3b3062b3ef8b051e6682a82b27dac58"
+    },
+    {
+      "original": "723fb4ad311c1fd799b47402165c8fd96a809d87",
+      "migrated": "f5de8174b100720d823907f3d14f7817bc6a8151"
+    },
+    {
+      "original": "2e617eb2b50e969d9117fb334e98095cbc7614d7",
+      "migrated": "7f248f230f3397269f544899338f961c4bf6bf1a"
+    },
+    {
+      "original": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+      "migrated": "3b83d19b35a2be92eae8426d57312d5083bdc5e0"
+    },
+    {
+      "original": "30e893b2647f26f2cf1d34f169e3a97f18df0a15",
+      "migrated": "dcfda6c4b2784201fcda26a020d56707fefc4b0f"
+    },
+    {
+      "original": "c6ccfb93c1fb8e1140d5bd69d3b54f0a9f6e9e78",
+      "migrated": "af7558f9784ff170fcb207d917cb4edad4c3210f"
+    },
+    {
+      "original": "898570540494794a4fc7efa0f97037b6049fd590",
+      "migrated": "5b3d829030f30dbc9e2bc94d090c2424e5a6921d"
+    },
+    {
+      "original": "33e23c1cb4a389b7925801cb85310d1ee60ab1a4",
+      "migrated": "5495fe9b2efbd67ba881faace7b108d6fac5a0c7"
+    },
+    {
+      "original": "c9eda7c3424f9a446db886cfac08a6e1509c6347",
+      "migrated": "2003926190764307591992c2a4db8921050a20ac"
+    },
+    {
+      "original": "f16d091bf7e392ba18b4cd6c8ab461b63d525f6a",
+      "migrated": "494634ebd4d57446981b38b3c0c424d278a2bb88"
+    },
+    {
+      "original": "d485cd3194964a92017967f7d7bcdf2f6fe7df0e",
+      "migrated": "9ab6fe7fbf83b259d0b5759a7d327858bed2e7b4"
+    },
+    {
+      "original": "6f9a12d5ba80ea5bb9ec2e4f195f2ab84a2587f8",
+      "migrated": "84a90c6e6fcfd342623ea09c7c58a38dc6ae8675"
+    },
+    {
+      "original": "e4c5a5259d62a9fe67e6629815e76d6bd9a237aa",
+      "migrated": "65ba53dea0e8ace7b35adf698eae3d2be8338293"
+    },
+    {
+      "original": "eb45d9ea239fdd649d4d22c0695435531f986de3",
+      "migrated": "9db339350f3ba156067bc1342cba08e5b53b498c"
+    },
+    {
+      "original": "49ae0d505c4b9dd32caa8a7d270d6a608f0b7439",
+      "migrated": "6152391c96ef74c86b803f8cd96b17c0f9384ebe"
+    },
+    {
+      "original": "c0faa0e4bb0eb11b5c3da0aa34ffc11e67a044ac",
+      "migrated": "a95da1df62076ced6c05a8c5a6c471c81462f637"
+    },
+    {
+      "original": "dce3a071f048bd3a58711dc0440aa10c8c0b5401",
+      "migrated": "f277368d09f5d3da0c9eab07aa12f4b12c01ee1c"
+    },
+    {
+      "original": "1cc864babf5204490c4108e849ed25300a0af2ba",
+      "migrated": "cfed3aead0b764a744247db90159211acbe225c1"
+    },
+    {
+      "original": "86a6f4f3e28d4819ad3e820f2a8d3e3ac562fb91",
+      "migrated": "0938569f71eb540f2b69979166a85a04fee1cc68"
+    },
+    {
+      "original": "1e76330ca4427bd966f17471196a1b1f41f1cac5",
+      "migrated": "e9d6380500d93fe5da2433413f6708d14d33bd68"
+    },
+    {
+      "original": "333187c2e434825c9080b327368d037806c8ef8b",
+      "migrated": "0a6f81ba58622d40a9cb7ec5aaf22a10aa93eb9a"
+    },
+    {
+      "original": "9031436e2e6ad7a70a69eaaa00ffffeb848eeb65",
+      "migrated": "7f3a3c1b93b4098232ef6f660903676c1fabeb48"
+    },
+    {
+      "original": "28dd199f61b8dc21bc557ace2aef3ebf1331f107",
+      "migrated": "ea6da903815ded4f7b06b9031e1da3e0272cb2f3"
+    },
+    {
+      "original": "48bca8c7e15b0ff08bb6e202a1832a04b11d566e",
+      "migrated": "be6b1032584e63c904b4360ef2a0257cc43e65d7"
+    },
+    {
+      "original": "c35a07c9a851cba4c9f33c9d421cb68cf36b0784",
+      "migrated": "30018fe54806d1a9d62ce2e8e01d4bdf6276d2ba"
+    },
+    {
+      "original": "d76f8aa7785e023b9901dbf97e44e274295a0ed8",
+      "migrated": "bf9fd6103e2f034108f7c075aadbfb90ca837d18"
+    },
+    {
+      "original": "db1554dcfc04098b515988533033af06811fc336",
+      "migrated": "3e607ab59ce1e6fd6594cebb307e2b8174562f4c"
+    },
+    {
+      "original": "5c5939ae25111f4d0184d54461666c0f5a662f6e",
+      "migrated": "6d6f3ce59c9dd8e1771792a36f4882e51b300a5b"
+    },
+    {
+      "original": "6d0ead42e9b002dcd9d2424b2722fed64b0d3d4f",
+      "migrated": "0bd8c1817c71826782725c23af30a9a7588d8d61"
+    },
+    {
+      "original": "7e57245e823f85803c60471e1e40bd7f2641e105",
+      "migrated": "96a9057b319db1aa7d2f2525f0208ac2cf10b89a"
+    },
+    {
+      "original": "5641cd119798b09ae6d0379dcf679d2f127674ad",
+      "migrated": "031a19a68078e4b210001f5f3abd93a748485e88"
+    },
+    {
+      "original": "823e6a8cbc89f4e6b697bea17a2f43820a632b86",
+      "migrated": "359c8021326914235815a8e8f73f96b262473137"
+    },
+    {
+      "original": "661010d356abacfad6f2bfb910db65958b357315",
+      "migrated": "2301d26194dece2a18362b669d88fa06dffab0b2"
+    },
+    {
+      "original": "ca6b60dad61266c4de60b22816af614f7f69ac74",
+      "migrated": "a9724745772e6aa3949607df2678ef6ed1e4b2b5"
+    },
+    {
+      "original": "181022e2f3275228df06447df3531e36998b6859",
+      "migrated": "e70caed8ae939e8d2aceb2251c3d242aede20807"
+    },
+    {
+      "original": "30d1e3b1e3331d580f13a6925aad611105e23c46",
+      "migrated": "5538799b0f22fe339ae916f1377ade5177c82756"
+    },
+    {
+      "original": "c9cc6109595795dd669a30ae1d7e0b2bdd412ce1",
+      "migrated": "b1f9c5e12e86b774ea1f00e2323e41f0703c2667"
+    },
+    {
+      "original": "23a113205e6acad97032319a6e70d44a6358fe69",
+      "migrated": "1671e8143cfd1b1c3ab6b7c60d6b4cf5282dbc86"
+    },
+    {
+      "original": "6c0c30e4e7dced3c86b0ae07124db1dc52b27e23",
+      "migrated": "e345d1e31694aab7cb28d0ec33df6af0e9745a53"
+    },
+    {
+      "original": "38e121fa2441fd0f03478d08e6303d8eb9ddde58",
+      "migrated": "f46763481face2a10bc1d1545f4ff77547e1e895"
+    },
+    {
+      "original": "aa21549b4f72f62b4a616a7d1ec4a1d048c3b423",
+      "migrated": "791b9992c69c210d8e7e48c052523f3149fcbd41"
+    },
+    {
+      "original": "9cc578381e45abd0844d7002422f995baddcc28f",
+      "migrated": "2da15597a0f8b3ce42e8888636634dcbb5936e18"
+    },
+    {
+      "original": "1790055a2206cf320e324ec1030d58429bdcb75d",
+      "migrated": "d7262ec29fd4e6b19266c2a356e5b4a6b524ac42"
+    },
+    {
+      "original": "fd3a0400d50488f23160d42a3d2369e47d216ba3",
+      "migrated": "b2b0e5b9e0bd4b4287bc2eeaa5bb148b11e603f9"
+    },
+    {
+      "original": "b5aba2b016b4049ded282b1909f1502ba78a63c1",
+      "migrated": "e7524251c24a61d935e72003c098fd2579b76586"
+    },
+    {
+      "original": "78f4484922e925ee704b65dcf18aeb0f7c94a23d",
+      "migrated": "6eddadb3ba30a33fc6b0a348cf277f85d27c272a"
+    },
+    {
+      "original": "3f3767f968aa428bbf6b89a884f74138524cb0fd",
+      "migrated": "314334ba67267d53acd8356d42c10b6c1a749d9a"
+    },
+    {
+      "original": "a3a2314449c54404f14fd70050b5bc12abda3060",
+      "migrated": "49a79f5b08435c734e9d4f55118119cfae2376b7"
+    },
+    {
+      "original": "96b42bfbf0bb3f879345d9a9763ef2a81a353925",
+      "migrated": "8f424b9b2b89694309bb2924db449ffc80525309"
+    },
+    {
+      "original": "41cadc7d0fe005932fa9f80e28ec439ca2e2a466",
+      "migrated": "ec7e2e5c26fbf5e0cc9e0f315c35f252e1879eb9"
+    },
+    {
+      "original": "d67194ad204b6545997d2d07a5785323ff7e3e10",
+      "migrated": "a971a84860bd1e3944f097f3fd10c8123896b1db"
+    },
+    {
+      "original": "2be05b3f7d55a04e6dc62432805e6f5b9894a5cc",
+      "migrated": "418e93c0016be422c96ff7b9c3df6befa4b682c3"
+    },
+    {
+      "original": "007612ab96fda97c0842627403fb771774684aee",
+      "migrated": "7ff3af22a585fa6c7e8db554993209188b01d851"
+    }
+  ],
+  "unrelatedProjectFilesIncluded": false,
+  "originalRepositoryChanged": false
+}

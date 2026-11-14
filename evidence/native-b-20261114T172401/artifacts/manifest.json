@@ -1,0 +1,29 @@
+{
+  "scope": "Historical B actually tested and removed on 2026-11-14; profile reconstructed from the new profile filenames and hash-verified against contemporaneous T0; script bytes retained unchanged",
+  "files": [
+    {
+      "kind": "request",
+      "file": "SpotifyLyrics.Diagnosis.Strict.request.28d22ba4ac95222f.js",
+      "sha256": "28d22ba4ac95222fa098dfda3f0ec033e2f49fb9d83c0654c46087ed82ed6f5c",
+      "bytes": 4825
+    },
+    {
+      "kind": "lyrics",
+      "file": "SpotifyLyrics.Diagnosis.Strict.lyrics.d0a36b83c1fcb4c8.js",
+      "sha256": "d0a36b83c1fcb4c8f245e9b53b4d8b819d740fea5b2465c971c8719a245fd16f",
+      "bytes": 106536
+    },
+    {
+      "kind": "entry",
+      "file": "SpotifyLyrics.Diagnosis.Strict.entry.4a1a2d5b4e73d139.js",
+      "sha256": "4a1a2d5b4e73d139a526440d010c936d03a2cb9f910ccb3c2cefc2431af30b9a",
+      "bytes": 39471
+    },
+    {
+      "kind": "profile",
+      "file": "DiagnosisMac.lpx",
+      "sha256": "160b564ddfcc0e117f8d732215789980d7e6e5a8f56dd0d866ae7a1657c2cf37",
+      "bytes": 6424
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+#!name = Spotify Lyrics+ · 本地候选（未发布）
+#!desc = 恢复自 VerseLyrics 3.2.2；只补充缺失歌词，保留全部原生歌词。未核实授权的来源关闭；未完成实机验收。
+#!author = Horatio
+#!homepage = https://github.com/hhhoratioxu/Proxy/blob/main/Surge/Docs/SpotifyLyrics.md
+# 建议 Surge iOS 5.9.0+ / Mac 5.5.0+。
+# 改设置时同步修改三条 Script 的 argument；本地候选只补无词，不翻译或替换原生歌词。
+
+[Script]
+VerseLyrics-Request = type=http-request,pattern=^https://(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?/(?:color-lyrics/v2/track/[0-9A-Za-z]{22}(?:/image/[^?#\s]+)?/?|metadata/4/track/[0-9a-f]{32}|extended-metadata/v0/extended-metadata/?|scrollsita/v1/scroll/spotify(?::|%3[aA])track(?::|%3[aA])[0-9A-Za-z]{22}/?|user-customization-service/v1/customize/?|bootstrap/v1/bootstrap/?|v1/customize/?|context-resolve/v1/spotify(?::|%3[aA])[^?#\s/]+/?|connect-state/v1/devices/[0-9A-Za-z_-]{16}[0-9A-Za-z_-]*/?)(?:\?.*)?$,script-path=http://127.0.0.1:8765/Surge/script/SpotifyLyrics.Request.js,timeout=3,argument=FALLBACK_PROVIDER=off&DISCOVER_MISSING=true&MEMORY_MODE=compact&FALLBACK_OFFSET_MS=0&FALLBACK_MODE=synced&NETWORK_MODE=online,engine=jsc
+VerseLyrics-Lyrics = type=http-response,pattern=^https://(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?/color-lyrics/v2/track/[0-9A-Za-z]{22}(?:/image/[^?#\s]+)?/?(?:\?.*)?$,script-path=http://127.0.0.1:8765/Surge/script/SpotifyLyrics.js,requires-body=true,binary-body-mode=true,max-size=262144,timeout=12,argument=FALLBACK_PROVIDER=off&DISCOVER_MISSING=true&MEMORY_MODE=compact&FALLBACK_OFFSET_MS=0&FALLBACK_MODE=synced&NETWORK_MODE=online,engine=webview
+VerseLyrics-Entry = type=http-response,pattern=^https://(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?/(?:metadata/4/track/[0-9a-f]{32}|extended-metadata/v0/extended-metadata/?|scrollsita/v1/scroll/spotify(?::|%3[aA])track(?::|%3[aA])[0-9A-Za-z]{22}/?|user-customization-service/v1/customize/?|bootstrap/v1/bootstrap/?|v1/customize/?|context-resolve/v1/spotify(?::|%3[aA])[^?#\s/]+/?|connect-state/v1/devices/[0-9A-Za-z_-]{16}[0-9A-Za-z_-]*/?)(?:\?.*)?$,script-path=http://127.0.0.1:8765/Surge/script/SpotifyLyrics.Entry.js,requires-body=true,binary-body-mode=true,max-size=131072,timeout=3,argument=FALLBACK_PROVIDER=off&DISCOVER_MISSING=true&MEMORY_MODE=compact&FALLBACK_OFFSET_MS=0&FALLBACK_MODE=synced&NETWORK_MODE=online,engine=webview
+
+[MITM]
+hostname = %APPEND% spclient.wg.spotify.com, *-spclient.spotify.com

@@ -1,0 +1,199 @@
+{
+  "scope": "Whole Mac process sampled rounded physical footprint; not plugin-only, not iOS acceptance or a controlled A/B",
+  "method": {
+    "kind": "method",
+    "startedAtUTC": "2026-11-14T03:32:24.429521+00:00",
+    "source": "Apple top MEM / physical footprint",
+    "pids": {
+      "574": "com.loon.Loon.LoonHelper",
+      "1229": "Loon",
+      "1238": "com.loon.Loon.LoonTunnelExtension"
+    },
+    "peakKind": "sampled-window-maximum",
+    "rounded": true,
+    "nativeIOSAcceptance": "unverified",
+    "limitBytesExclusive": 50000000,
+    "command": [
+      "/usr/bin/top",
+      "-F",
+      "-R",
+      "-l",
+      "0",
+      "-s",
+      "0",
+      "-stats",
+      "pid,mem",
+      "-pid",
+      "1238",
+      "-pid",
+      "1229",
+      "-pid",
+      "574"
+    ]
+  },
+  "sha256": "a060edfa84bf991b5b6d77ce060aa4ebc1ea033751c963baabe8f1f1b73015e2",
+  "groups": [
+    {
+      "phase": "mac-a-pre-enable",
+      "pid": 1238,
+      "samples": 583,
+      "firstSecond": 0.542175,
+      "lastSecond": 53.020703,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 0.805586,
+        "pid": 1238,
+        "phase": "mac-a-pre-enable",
+        "display": "52M+",
+        "estimateBytes": 54525952,
+        "conservativeLowerBytes": 53477376,
+        "conservativeUpperBytes": 55574528
+      },
+      "durationSeconds": 52.479
+    },
+    {
+      "phase": "mac-a-pre-enable",
+      "pid": 1229,
+      "samples": 583,
+      "firstSecond": 0.542532,
+      "lastSecond": 53.020483,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 0.542532,
+        "pid": 1229,
+        "phase": "mac-a-pre-enable",
+        "display": "193M",
+        "estimateBytes": 202375168,
+        "conservativeLowerBytes": 201326592,
+        "conservativeUpperBytes": 203423744
+      },
+      "durationSeconds": 52.478
+    },
+    {
+      "phase": "mac-a-pre-enable",
+      "pid": 574,
+      "samples": 583,
+      "firstSecond": 0.542736,
+      "lastSecond": 53.020799,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 0.542736,
+        "pid": 574,
+        "phase": "mac-a-pre-enable",
+        "display": "5072K",
+        "estimateBytes": 5193728,
+        "conservativeLowerBytes": 5192704,
+        "conservativeUpperBytes": 5194752
+      },
+      "durationSeconds": 52.478
+    },
+    {
+      "phase": "mac-a-macos-standard-native",
+      "pid": 1238,
+      "samples": 3215,
+      "firstSecond": 53.112666,
+      "lastSecond": 334.279266,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 187.584637,
+        "pid": 1238,
+        "phase": "mac-a-macos-standard-native",
+        "display": "54M+",
+        "estimateBytes": 56623104,
+        "conservativeLowerBytes": 55574528,
+        "conservativeUpperBytes": 57671680
+      },
+      "durationSeconds": 281.167
+    },
+    {
+      "phase": "mac-a-macos-standard-native",
+      "pid": 1229,
+      "samples": 3215,
+      "firstSecond": 53.112872,
+      "lastSecond": 334.279421,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 163.821723,
+        "pid": 1229,
+        "phase": "mac-a-macos-standard-native",
+        "display": "195M+",
+        "estimateBytes": 204472320,
+        "conservativeLowerBytes": 203423744,
+        "conservativeUpperBytes": 205520896
+      },
+      "durationSeconds": 281.167
+    },
+    {
+      "phase": "mac-a-macos-standard-native",
+      "pid": 574,
+      "samples": 3215,
+      "firstSecond": 53.112941,
+      "lastSecond": 334.279482,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 53.112941,
+        "pid": 574,
+        "phase": "mac-a-macos-standard-native",
+        "display": "5072K",
+        "estimateBytes": 5193728,
+        "conservativeLowerBytes": 5192704,
+        "conservativeUpperBytes": 5194752
+      },
+      "durationSeconds": 281.167
+    },
+    {
+      "phase": "mac-a-macos-standard-missing-track",
+      "pid": 1238,
+      "samples": 3018,
+      "firstSecond": 334.367898,
+      "lastSecond": 599.927853,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 547.973025,
+        "pid": 1238,
+        "phase": "mac-a-macos-standard-missing-track",
+        "display": "59M+",
+        "estimateBytes": 61865984,
+        "conservativeLowerBytes": 60817408,
+        "conservativeUpperBytes": 62914560
+      },
+      "durationSeconds": 265.56
+    },
+    {
+      "phase": "mac-a-macos-standard-missing-track",
+      "pid": 1229,
+      "samples": 3018,
+      "firstSecond": 334.368108,
+      "lastSecond": 599.928061,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 512.481251,
+        "pid": 1229,
+        "phase": "mac-a-macos-standard-missing-track",
+        "display": "195M+",
+        "estimateBytes": 204472320,
+        "conservativeLowerBytes": 203423744,
+        "conservativeUpperBytes": 205520896
+      },
+      "durationSeconds": 265.56
+    },
+    {
+      "phase": "mac-a-macos-standard-missing-track",
+      "pid": 574,
+      "samples": 3018,
+      "firstSecond": 334.368338,
+      "lastSecond": 599.928125,
+      "maximumSample": {
+        "kind": "sample",
+        "seconds": 334.368338,
+        "pid": 574,
+        "phase": "mac-a-macos-standard-missing-track",
+        "display": "5072K",
+        "estimateBytes": 5193728,
+        "conservativeLowerBytes": 5192704,
+        "conservativeUpperBytes": 5194752
+      },
+      "durationSeconds": 265.56
+    }
+  ]
+}

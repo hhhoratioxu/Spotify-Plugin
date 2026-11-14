@@ -1,0 +1,16 @@
+{
+  "checkedAtTaipei": "2026-11-14T23:10:07",
+  "missing": [],
+  "changed": [],
+  "newScriptOrPluginFiles": {
+    "scripts": [],
+    "remotePlugin": []
+  },
+  "sharedLyricsCacheRestoredFromThisT0": [
+    "native/LN_Preference/com.pinterest.PINDiskCache.JSStore/VerseLyrics%2Ev1%2Ecache"
+  ],
+  "configsAllThreeMatch": true,
+  "originalScriptsAll43Match": true,
+  "originalPluginsAllMatch": true,
+  "policyMMKVDifferences": "If present, cause/semantics unknown; preserved, not overwritten"
+}

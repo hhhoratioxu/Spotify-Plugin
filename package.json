@@ -1,0 +1,17 @@
+{
+  "name": "spotifylyrics",
+  "version": "3.2.2",
+  "private": true,
+  "type": "module",
+  "author": "Horatio",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "test": "node tools/test.mjs",
+    "test:baseline": "node tools/test-baseline.mjs",
+    "check:independent": "node tools/check-independent.mjs",
+    "check:parent": "node tools/check-parent.mjs"
+  },
+  "devDependencies": {
+    "terser": "5.51.2"
+  }
+}

@@ -1,5 +1,5 @@
-#!name = Spotify 双语歌词 · VerseLyrics
-#!desc = 配置 2026.11.14 · 核心 3.2.2。新增运行平台：手机沿用原补词与翻译；Mac 显示已有逐行双语歌词，完全无词入口仍在测试。保留六源、时间轴及原有参数。需 HTTPS 解密。
+#!name = SpotifyLyrics
+#!desc = iOS & iPadOS & macOS\n1.补充 iPhone、iPad 缺失歌词\n2.显示逐行同步歌词\n3.翻译歌词与选择目标语言\n4.选择歌词来源与缓存容量\n5.Mac 显示双语歌词（无词补全测试中）
 #!author = Horatio Xu
 #!homepage = https://github.com/hhhoratioxu/Proxy/blob/main/Loon/Docs/SpotifyLyrics.md
 #!loon_version = 3.5.1(983)

@@ -1,0 +1,205 @@
+{
+  "recordedAt": "2026-11-14T15:58:44.766Z",
+  "scope": "Copy outside Proxy with no Git database and freshly installed locked dependencies; build and fixture tests only",
+  "parentGitAvailable": false,
+  "commands": [
+    {
+      "label": "install",
+      "command": [
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exitCode": 0,
+      "durationMs": 602,
+      "tail": "\nadded 11 packages in 475ms\n\n"
+    },
+    {
+      "label": "build",
+      "command": [
+        "node",
+        "tools/build.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 5152,
+      "tail": "{\"built\":15,\"core\":\"3.2.2\",\"published\":false}\n\n"
+    },
+    {
+      "label": "memory-fixture-build",
+      "command": [
+        "node",
+        "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 959,
+      "tail": "{\"path\":\"/verselyrics-native-0b74c82894\",\"cases\":18,\"productionStorageAccessed\":false}\n\n"
+    },
+    {
+      "label": "memory-fixture-preflight",
+      "command": [
+        "node",
+        "Loon/Development/SpotifyNativeMemory20261114/preflight-offline.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 774,
+      "tail": "{\"completed\":72,\"matched\":72,\"networkRequests\":0,\"nativeAcceptance\":false}\n\n"
+    },
+    {
+      "label": "regression",
+      "command": [
+        "node",
+        "tools/test.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 1452,
+      "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "label": "baseline",
+      "command": [
+        "node",
+        "tools/test-baseline.mjs"
+      ],
+      "exitCode": 0,
+      "durationMs": 7858,
+      "tail": "1..2248\n# tests 2248\n# suites 0\n# pass 2248\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 4866.571458\n\n\n"
+    }
+  ],
+  "success": true,
+  "nativeAcceptance": false,
+  "regression": {
+    "recordedAt": "2026-11-14T15:58:53.892Z",
+    "node": {
+      "tests": 385,
+      "passed": 385,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0
+    },
+    "python": {
+      "tests": 18,
+      "passed": 18,
+      "groups": [
+        {
+          "directory": "Loon/Development/SpotifyMac20261114",
+          "tests": 9,
+          "success": true
+        },
+        {
+          "directory": "Loon/Development/SpotifyNativeMemory20261114",
+          "tests": 6,
+          "success": true
+        },
+        {
+          "directory": "Loon/Development/SpotifyMacMetadata20261114",
+          "tests": 3,
+          "success": true
+        }
+      ]
+    },
+    "success": true,
+    "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
+  },
+  "baseline": {
+    "recordedAt": "2026-11-14T15:59:02.000Z",
+    "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+    "restoredFiles": 125,
+    "tests": 2248,
+    "passed": 2248,
+    "failed": 0,
+    "scope": "Historical source in a temporary directory; synthetic transport; not native Spotify acceptance"
+  },
+  "build": {
+    "core": "3.2.2",
+    "displayName": "SpotifyLyrics",
+    "inputs": "local source snapshots and src; no parent Git lookup",
+    "network": "none",
+    "subscriptionURLsChanged": false,
+    "artifacts": [
+      {
+        "path": "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",
+        "bytes": 1995,
+        "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+      },
+      {
+        "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+        "bytes": 27122,
+        "sha256": "d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e"
+      },
+      {
+        "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
+        "bytes": 2931,
+        "sha256": "d5531a4ce9555006e2f5aef54d0fe6e1df0074bea75f44a193ac23c6ee75a1bd"
+      },
+      {
+        "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
+        "bytes": 86686,
+        "sha256": "8a0b541538d262e920f12155b7d7c7c3c1115b2b2529139ae86b4c0cd9826461"
+      },
+      {
+        "path": "Loon/script/SpotifyLyrics.Entry.js",
+        "bytes": 29689,
+        "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64"
+      },
+      {
+        "path": "Loon/script/SpotifyLyrics.js",
+        "bytes": 90747,
+        "sha256": "8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94"
+      },
+      {
+        "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
+        "bytes": 30320,
+        "sha256": "1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3"
+      },
+      {
+        "path": "QuantumultX/script/SpotifyLyrics.Request.js",
+        "bytes": 4853,
+        "sha256": "f9615506ff41006f6109c480c2314e0e921465c95122b53f4f9aa9ddabb93f40"
+      },
+      {
+        "path": "QuantumultX/script/SpotifyLyrics.js",
+        "bytes": 91522,
+        "sha256": "f09d17caeb812fb43f3edfd04d3e2a5dd600a608ba9216d2ea74a1689fa347ae"
+      },
+      {
+        "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
+        "bytes": 29697,
+        "sha256": "64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159"
+      },
+      {
+        "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
+        "bytes": 4697,
+        "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
+      },
+      {
+        "path": "Shadowrocket/script/SpotifyLyrics.js",
+        "bytes": 90727,
+        "sha256": "0ce686dc47f9aa327189af0763f58148352c684edb977a4aa74a2a39c8ad8b9d"
+      },
+      {
+        "path": "Surge/script/SpotifyLyrics.Entry.js",
+        "bytes": 29690,
+        "sha256": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584"
+      },
+      {
+        "path": "Surge/script/SpotifyLyrics.Request.js",
+        "bytes": 4697,
+        "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
+      },
+      {
+        "path": "Surge/script/SpotifyLyrics.js",
+        "bytes": 90720,
+        "sha256": "c5c5e1692677229c18b6050882e653f3c1a28711ca58c12fb50f7eafdffc96d3"
+      }
+    ]
+  },
+  "memoryBridge": {
+    "scope": "Node VM bridge with in-memory fixture transport; not a native Loon run or memory measurement",
+    "listenerStarted": false,
+    "networkRequests": 0,
+    "completed": 72,
+    "matched": 72
+  }
+}

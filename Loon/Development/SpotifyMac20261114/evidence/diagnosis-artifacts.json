@@ -1,0 +1,36 @@
+{
+  "scope": "Prepared local diagnostic only; not installed, enabled or published",
+  "productionMacCommit": "795c677b0d115cab5eb8e4f959424d905a98e3ff",
+  "productionMobileCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+  "files": [
+    {
+      "file": "runtime/SpotifyLyrics.Diagnosis.request.3585ce6c6fed44a6.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "productionSource": "SpotifyLyrics.Request.js",
+      "productionSHA256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "kind": "request"
+    },
+    {
+      "file": "runtime/SpotifyLyrics.Diagnosis.lyrics.e68c3124eda59f25.js",
+      "bytes": 106305,
+      "sha256": "e68c3124eda59f253d2c73682e8fbe41ac59d1685349d29d72f8b3846006d043",
+      "productionSource": "SpotifyLyrics.Mac.js",
+      "productionSHA256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+      "kind": "lyrics"
+    },
+    {
+      "file": "runtime/SpotifyLyrics.Diagnosis.entry.d64bc09cda88e694.js",
+      "bytes": 39237,
+      "sha256": "d64bc09cda88e694bb07ee291a8a8cf5abbd45dca72855219e20bfb2fdac3427",
+      "productionSource": "SpotifyLyrics.Entry.Mac.js",
+      "productionSHA256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "kind": "entry"
+    },
+    {
+      "file": "DiagnosisMac.lpx",
+      "bytes": 6403,
+      "sha256": "2482841b803db9b70b99f8f9eedd8dd5679419e19892358144c61010c4fb4c6b"
+    }
+  ]
+}

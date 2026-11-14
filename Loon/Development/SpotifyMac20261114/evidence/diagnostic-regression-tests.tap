@@ -1,0 +1,604 @@
+TAP version 13
+# Subtest: actual built cache probe strips only target TRACK_V4 conditional etag
+ok 1 - actual built cache probe strips only target TRACK_V4 conditional etag
+  ---
+  duration_ms: 7.214792
+  type: 'test'
+  ...
+# Subtest: a query without etag stays header-only
+ok 2 - a query without etag stays header-only
+  ---
+  duration_ms: 1.35375
+  type: 'test'
+  ...
+# Subtest: another song is never cache-refreshed by this controlled probe
+ok 3 - another song is never cache-refreshed by this controlled probe
+  ---
+  duration_ms: 3.219917
+  type: 'test'
+  ...
+# Subtest: other extension kind stays untouched
+ok 4 - other extension kind stays untouched
+  ---
+  duration_ms: 2.933458
+  type: 'test'
+  ...
+# Subtest: duplicate kind is ambiguous and remains untouched
+ok 5 - duplicate kind is ambiguous and remains untouched
+  ---
+  duration_ms: 3.453958
+  type: 'test'
+  ...
+# Subtest: malformed and oversize body passes through
+ok 6 - malformed and oversize body passes through
+  ---
+  duration_ms: 3.780042
+  type: 'test'
+  ...
+# Subtest: off settings do not refresh body
+ok 7 - off settings do not refresh body
+  ---
+  duration_ms: 2.978875
+  type: 'test'
+  ...
+# Subtest: integrity headers prevent body rewriting
+ok 8 - integrity headers prevent body rewriting
+  ---
+  duration_ms: 5.0365
+  type: 'test'
+  ...
+# Subtest: compressed request is not decoded or changed
+ok 9 - compressed request is not decoded or changed
+  ---
+  duration_ms: 1.592916
+  type: 'test'
+  ...
+# Subtest: OPTIONS remains unchanged
+ok 10 - OPTIONS remains unchanged
+  ---
+  duration_ms: 0.809458
+  type: 'test'
+  ...
+# Subtest: controlled profile puts body hook first and retains all response guards
+ok 11 - controlled profile puts body hook first and retains all response guards
+  ---
+  duration_ms: 0.732458
+  type: 'test'
+  ...
+# Subtest: debug wrapper preserves exact response and single completion; service failure=false
+ok 12 - debug wrapper preserves exact response and single completion; service failure=false
+  ---
+  duration_ms: 7.531917
+  type: 'test'
+  ...
+# Subtest: debug wrapper preserves exact response and single completion; service failure=true
+ok 13 - debug wrapper preserves exact response and single completion; service failure=true
+  ---
+  duration_ms: 1.71425
+  type: 'test'
+  ...
+# Subtest: diagnostic contains the exact published Mac production chain and versioned file hashes
+ok 14 - diagnostic contains the exact published Mac production chain and versioned file hashes
+  ---
+  duration_ms: 79.293042
+  type: 'test'
+  ...
+# Subtest: diagnostic keeps existing Mac parameters, rules, MITM and timeouts
+ok 15 - diagnostic keeps existing Mac parameters, rules, MITM and timeouts
+  ---
+  duration_ms: 0.781667
+  type: 'test'
+  ...
+# Subtest: prepared diagnostics have no production subscription reference
+ok 16 - prepared diagnostics have no production subscription reference
+  ---
+  duration_ms: 0.191375
+  type: 'test'
+  ...
+# Subtest: actual packaged Entry: paired input false and output true belong to the public test track
+ok 17 - actual packaged Entry: paired input false and output true belong to the public test track
+  ---
+  duration_ms: 9.1595
+  type: 'test'
+  ...
+# Subtest: already true packaged Entry is reported unchanged rather than a new repair
+ok 18 - already true packaged Entry is reported unchanged rather than a new repair
+  ---
+  duration_ms: 4.458458
+  type: 'test'
+  ...
+# Subtest: JSON bytes remain explicitly uninspected; no fabricated protobuf availability result
+ok 19 - JSON bytes remain explicitly uninspected; no fabricated protobuf availability result
+  ---
+  duration_ms: 2.118625
+  type: 'test'
+  ...
+# Subtest: unknown MIME is categorized without publishing arbitrary header contents
+ok 20 - unknown MIME is categorized without publishing arbitrary header contents
+  ---
+  duration_ms: 4.946625
+  type: 'test'
+  ...
+# Subtest: fixed route category: lyrics
+ok 21 - fixed route category: lyrics
+  ---
+  duration_ms: 1.191583
+  type: 'test'
+  ...
+# Subtest: fixed route category: extended-metadata
+ok 22 - fixed route category: extended-metadata
+  ---
+  duration_ms: 1.27075
+  type: 'test'
+  ...
+# Subtest: fixed route category: metadata
+ok 23 - fixed route category: metadata
+  ---
+  duration_ms: 0.240333
+  type: 'test'
+  ...
+# Subtest: fixed route category: connect-state
+ok 24 - fixed route category: connect-state
+  ---
+  duration_ms: 0.208542
+  type: 'test'
+  ...
+# Subtest: fixed route category: context-resolve
+ok 25 - fixed route category: context-resolve
+  ---
+  duration_ms: 0.203083
+  type: 'test'
+  ...
+# Subtest: fixed route category: player-cards
+ok 26 - fixed route category: player-cards
+  ---
+  duration_ms: 0.124875
+  type: 'test'
+  ...
+# Subtest: fixed route category: lyrics-entry
+ok 27 - fixed route category: lyrics-entry
+  ---
+  duration_ms: 0.112709
+  type: 'test'
+  ...
+# Subtest: unknown destinations, excessive URLs and missing request stay private
+ok 28 - unknown destinations, excessive URLs and missing request stay private
+  ---
+  duration_ms: 0.10525
+  type: 'test'
+  ...
+# Subtest: bilingual text retains native timing, provider, colors and unknown fields
+ok 29 - bilingual text retains native timing, provider, colors and unknown fields
+  ---
+  duration_ms: 1.330333
+  type: 'test'
+  ...
+# Subtest: SYLLABLE_SYNCED unchanged, no word timing fabrication
+ok 30 - SYLLABLE_SYNCED unchanged, no word timing fabrication
+  ---
+  duration_ms: 0.129583
+  type: 'test'
+  ...
+# Subtest: WORD_SYNCED unchanged, no word timing fabrication
+ok 31 - WORD_SYNCED unchanged, no word timing fabrication
+  ---
+  duration_ms: 0.07875
+  type: 'test'
+  ...
+# Subtest: unknown unchanged, no word timing fabrication
+ok 32 - unknown unchanged, no word timing fabrication
+  ---
+  duration_ms: 0.067958
+  type: 'test'
+  ...
+# Subtest: existing syllables are preserved byte for byte
+ok 33 - existing syllables are preserved byte for byte
+  ---
+  duration_ms: 0.08825
+  type: 'test'
+  ...
+# Subtest: translation off preserves bytes
+ok 34 - translation off preserves bytes
+  ---
+  duration_ms: 0.064083
+  type: 'test'
+  ...
+# Subtest: language and row counts must match exactly
+ok 35 - language and row counts must match exactly
+  ---
+  duration_ms: 0.154917
+  type: 'test'
+  ...
+# Subtest: unprocessed Spotify native response is not changed
+ok 36 - unprocessed Spotify native response is not changed
+  ---
+  duration_ms: 0.080208
+  type: 'test'
+  ...
+# Subtest: malformed JSON and invalid UTF-8 fail open
+ok 37 - malformed JSON and invalid UTF-8 fail open
+  ---
+  duration_ms: 0.156417
+  type: 'test'
+  ...
+# Subtest: instrumental/blank lines never receive fabricated text
+ok 38 - instrumental/blank lines never receive fabricated text
+  ---
+  duration_ms: 0.187125
+  type: 'test'
+  ...
+# Subtest: display transformation is idempotent
+ok 39 - display transformation is idempotent
+  ---
+  duration_ms: 0.0965
+  type: 'test'
+  ...
+# Subtest: protobuf passes through untouched
+ok 40 - protobuf passes through untouched
+  ---
+  duration_ms: 0.061833
+  type: 'test'
+  ...
+# Subtest: oversize reconstruction keeps original bytes
+ok 41 - oversize reconstruction keeps original bytes
+  ---
+  duration_ms: 4.598708
+  type: 'test'
+  ...
+# Subtest: actual generated Mac runtime translates using the original core and retains timestamp
+ok 42 - actual generated Mac runtime translates using the original core and retains timestamp
+  ---
+  duration_ms: 11.55275
+  type: 'test'
+  ...
+# Subtest: observed no-MIME ConnectState structure uses existing strict track parser
+ok 43 - observed no-MIME ConnectState structure uses existing strict track parser
+  ---
+  duration_ms: 4.585042
+  type: 'test'
+  ...
+# Subtest: known protobuf MIME continues to work
+ok 44 - known protobuf MIME continues to work
+  ---
+  duration_ms: 1.284
+  type: 'test'
+  ...
+# Subtest: nonempty unsupported content type stays unchanged
+ok 45 - nonempty unsupported content type stays unchanged
+  ---
+  duration_ms: 0.9685
+  type: 'test'
+  ...
+# Subtest: only ConnectState accepts missing MIME, context route does not
+ok 46 - only ConnectState accepts missing MIME, context route does not
+  ---
+  duration_ms: 0.920541
+  type: 'test'
+  ...
+# Subtest: unknown or malformed protobuf is passed without a fabricated flag
+ok 47 - unknown or malformed protobuf is passed without a fabricated flag
+  ---
+  duration_ms: 4.79625
+  type: 'test'
+  ...
+# Subtest: existing true flag needs no output mutation
+ok 48 - existing true flag needs no output mutation
+  ---
+  duration_ms: 0.656583
+  type: 'test'
+  ...
+# Subtest: discovery off or sources off preserves response
+ok 49 - discovery off or sources off preserves response
+  ---
+  duration_ms: 2.318791
+  type: 'test'
+  ...
+# Subtest: permission and upstream errors are not rewritten
+ok 50 - permission and upstream errors are not rewritten
+  ---
+  duration_ms: 5.074125
+  type: 'test'
+  ...
+# Subtest: oversize entry fails open
+ok 51 - oversize entry fails open
+  ---
+  duration_ms: 0.769916
+  type: 'test'
+  ...
+# Subtest: desktop JSON format and auth/origin/cookies are retained in flight only
+ok 52 - desktop JSON format and auth/origin/cookies are retained in flight only
+  ---
+  duration_ms: 7.211292
+  type: 'test'
+  ...
+# Subtest: OPTIONS passes without header mutation or async work
+ok 53 - OPTIONS passes without header mutation or async work
+  ---
+  duration_ms: 1.692916
+  type: 'test'
+  ...
+# Subtest: HEAD passes without header mutation or async work
+ok 54 - HEAD passes without header mutation or async work
+  ---
+  duration_ms: 1.490709
+  type: 'test'
+  ...
+# Subtest: DELETE passes without header mutation or async work
+ok 55 - DELETE passes without header mutation or async work
+  ---
+  duration_ms: 0.998458
+  type: 'test'
+  ...
+# Subtest: PATCH passes without header mutation or async work
+ok 56 - PATCH passes without header mutation or async work
+  ---
+  duration_ms: 0.681416
+  type: 'test'
+  ...
+# Subtest:  passes without header mutation or async work
+ok 57 -  passes without header mutation or async work
+  ---
+  duration_ms: 0.513209
+  type: 'test'
+  ...
+# Subtest: internal lyric fetch is not recursively rewritten
+ok 58 - internal lyric fetch is not recursively rewritten
+  ---
+  duration_ms: 0.640292
+  type: 'test'
+  ...
+# Subtest: translation and fallback off preserve native cache behavior
+ok 59 - translation and fallback off preserve native cache behavior
+  ---
+  duration_ms: 1.601542
+  type: 'test'
+  ...
+# Subtest: invalid settings fail open
+ok 60 - invalid settings fail open
+  ---
+  duration_ms: 2.190042
+  type: 'test'
+  ...
+# Subtest: unknown domain passes
+ok 61 - unknown domain passes
+  ---
+  duration_ms: 1.4385
+  type: 'test'
+  ...
+# Subtest: regional spclient and explicit :443 accepted
+ok 62 - regional spclient and explicit :443 accepted
+  ---
+  duration_ms: 0.907708
+  type: 'test'
+  ...
+# Subtest: response invocation cannot mutate request
+ok 63 - response invocation cannot mutate request
+  ---
+  duration_ms: 0.62475
+  type: 'test'
+  ...
+# Subtest: metadata entry request retains protobuf representation
+ok 64 - metadata entry request retains protobuf representation
+  ---
+  duration_ms: 4.181458
+  type: 'test'
+  ...
+# Subtest: discovery off preserves metadata request
+ok 65 - discovery off preserves metadata request
+  ---
+  duration_ms: 0.847042
+  type: 'test'
+  ...
+# Subtest: actual response runtimes equal the published 3.2.2 bytes
+ok 66 - actual response runtimes equal the published 3.2.2 bytes
+  ---
+  duration_ms: 46.273917
+  type: 'test'
+  ...
+# Subtest: manifest matches every actual install artifact
+ok 67 - manifest matches every actual install artifact
+  ---
+  duration_ms: 1.647708
+  type: 'test'
+  ...
+# Subtest: Mac profile keeps all normal defaults, no Rewrite and bounded native scripts
+ok 68 - Mac profile keeps all normal defaults, no Rewrite and bounded native scripts
+  ---
+  duration_ms: 18.171875
+  type: 'test'
+  ...
+# Subtest: diagnostic distinguishes partial TRACK_V4 without exposing any text
+ok 69 - diagnostic distinguishes partial TRACK_V4 without exposing any text
+  ---
+  duration_ms: 1.0735
+  type: 'test'
+  ...
+# Subtest: malformed and oversize metadata yield no raw data
+ok 70 - malformed and oversize metadata yield no raw data
+  ---
+  duration_ms: 1.141375
+  type: 'test'
+  ...
+# Subtest: public target 404 reaches verified qq fallback and retains real line timestamps
+ok 71 - public target 404 reaches verified qq fallback and retains real line timestamps
+  ---
+  duration_ms: 13.232209
+  type: 'test'
+  ...
+# Subtest: public target 404 reaches verified netease fallback and retains real line timestamps
+ok 72 - public target 404 reaches verified netease fallback and retains real line timestamps
+  ---
+  duration_ms: 2.384875
+  type: 'test'
+  ...
+# Subtest: cold target uses prerecorded Spotify identity before matching a source, without leaking auth
+ok 73 - cold target uses prerecorded Spotify identity before matching a source, without leaking auth
+  ---
+  duration_ms: 3.845875
+  type: 'test'
+  ...
+# Subtest: verified target cache avoids repeated source traffic
+ok 74 - verified target cache avoids repeated source traffic
+  ---
+  duration_ms: 2.795166
+  type: 'test'
+  ...
+# Subtest: target identity rejects different artist and preserves upstream missing response
+ok 75 - target identity rejects different artist and preserves upstream missing response
+  ---
+  duration_ms: 1.473459
+  type: 'test'
+  ...
+# Subtest: target identity rejects Live version and preserves upstream missing response
+ok 76 - target identity rejects Live version and preserves upstream missing response
+  ---
+  duration_ms: 0.991416
+  type: 'test'
+  ...
+# Subtest: target identity rejects Remix version and preserves upstream missing response
+ok 77 - target identity rejects Remix version and preserves upstream missing response
+  ---
+  duration_ms: 1.070875
+  type: 'test'
+  ...
+# Subtest: target identity rejects duration mismatch and preserves upstream missing response
+ok 78 - target identity rejects duration mismatch and preserves upstream missing response
+  ---
+  duration_ms: 1.1015
+  type: 'test'
+  ...
+# Subtest: target identity rejects invalid QQ identifier and preserves upstream missing response
+ok 79 - target identity rejects invalid QQ identifier and preserves upstream missing response
+  ---
+  duration_ms: 1.1365
+  type: 'test'
+  ...
+# Subtest: source failure preserves upstream status/body and cannot become a successful replacement
+ok 80 - source failure preserves upstream status/body and cannot become a successful replacement
+  ---
+  duration_ms: 1.150709
+  type: 'test'
+  ...
+# Subtest: native synchronized Chinese lyrics stay unchanged without source calls
+ok 81 - native synchronized Chinese lyrics stay unchanged without source calls
+  ---
+  duration_ms: 0.876042
+  type: 'test'
+  ...
+# Subtest: request route excludes query, token, cookies and authorization
+ok 82 - request route excludes query, token, cookies and authorization
+  ---
+  duration_ms: 2.655916
+  type: 'test'
+  ...
+# Subtest: other hosts never observed
+ok 83 - other hosts never observed
+  ---
+  duration_ms: 1.852625
+  type: 'test'
+  ...
+# Subtest: binary identifiers are redacted
+ok 84 - binary identifiers are redacted
+  ---
+  duration_ms: 0.834708
+  type: 'test'
+  ...
+# Subtest: user and device path values are redacted
+ok 85 - user and device path values are redacted
+  ---
+  duration_ms: 0.656125
+  type: 'test'
+  ...
+# Subtest: track identifiers are redacted while endpoint names remain useful
+ok 86 - track identifiers are redacted while endpoint names remain useful
+  ---
+  duration_ms: 0.641917
+  type: 'test'
+  ...
+# Subtest: availability only; no lyrics, user data or arbitrary values
+ok 87 - availability only; no lyrics, user data or arbitrary values
+  ---
+  duration_ms: 0.874208
+  type: 'test'
+  ...
+# Subtest: binary JSON same result and immutable
+ok 88 - binary JSON same result and immutable
+  ---
+  duration_ms: 0.784208
+  type: 'test'
+  ...
+# Subtest: oversize bodies are never parsed
+ok 89 - oversize bodies are never parsed
+  ---
+  duration_ms: 0.677917
+  type: 'test'
+  ...
+# Subtest: malformed JSON preserves original response
+ok 90 - malformed JSON preserves original response
+  ---
+  duration_ms: 0.743125
+  type: 'test'
+  ...
+# Subtest: local service failure completes original response once
+ok 91 - local service failure completes original response once
+  ---
+  duration_ms: 1.574542
+  type: 'test'
+  ...
+# Subtest: nonboolean availability omitted
+ok 92 - nonboolean availability omitted
+  ---
+  duration_ms: 0.939959
+  type: 'test'
+  ...
+# Subtest: binary payload only reports length and format
+ok 93 - binary payload only reports length and format
+  ---
+  duration_ms: 0.656209
+  type: 'test'
+  ...
+# Subtest: diagnostic does not take normal production response routes
+ok 94 - diagnostic does not take normal production response routes
+  ---
+  duration_ms: 0.836542
+  type: 'test'
+  ...
+# Subtest: literal availability maps only, numeric paths and booleans
+ok 95 - literal availability maps only, numeric paths and booleans
+  ---
+  duration_ms: 1.447875
+  type: 'test'
+  ...
+# Subtest: no raw strings, unrelated fields or token values captured
+ok 96 - no raw strings, unrelated fields or token values captured
+  ---
+  duration_ms: 0.203208
+  type: 'test'
+  ...
+# Subtest: unknown availability values are ignored
+ok 97 - unknown availability values are ignored
+  ---
+  duration_ms: 1.281333
+  type: 'test'
+  ...
+# Subtest: malformed or oversize bodies fail closed in diagnostics
+ok 98 - malformed or oversize bodies fail closed in diagnostics
+  ---
+  duration_ms: 0.225625
+  type: 'test'
+  ...
+# Subtest: input never mutated
+ok 99 - input never mutated
+  ---
+  duration_ms: 0.20975
+  type: 'test'
+  ...
+1..99
+# tests 99
+# suites 0
+# pass 99
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1097.648458

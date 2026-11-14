@@ -1,0 +1,33 @@
+{
+  "recordedAt": "2026-11-14T15:16:58.498Z",
+  "node": {
+    "tests": 385,
+    "passed": 385,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "python": {
+    "tests": 18,
+    "passed": 18,
+    "groups": [
+      {
+        "directory": "Loon/Development/SpotifyMac20261114",
+        "tests": 9,
+        "success": true
+      },
+      {
+        "directory": "Loon/Development/SpotifyNativeMemory20261114",
+        "tests": 6,
+        "success": true
+      },
+      {
+        "directory": "Loon/Development/SpotifyMacMetadata20261114",
+        "tests": 3,
+        "success": true
+      }
+    ]
+  },
+  "success": true,
+  "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
+}

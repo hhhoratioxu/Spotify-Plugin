@@ -1,0 +1,99 @@
+{
+  "recordedAt": "2026-11-14T16:52:59.077779+08:00",
+  "state": "Original B authorized; log-minimized artifact prepared; UI exclusive window withdrawn; awaiting explicit UI release",
+  "strictB": {
+    "manifest": "Loon/Development/SpotifyMac20261114/strict/manifest.json",
+    "profileSHA256": "d4c92b84e025c2da982f16b2f4a5c6020e835c6db997134313c5c16e4c139831",
+    "fields": [
+      "route",
+      "stage",
+      "pair",
+      "publicTargetMatched",
+      "lyricsFlags"
+    ],
+    "productionCoreChanged": false,
+    "candidateIncluded": false,
+    "narrowingTests": {
+      "node": 9,
+      "python": 5
+    }
+  },
+  "offline": {
+    "regression": {
+      "recordedAt": "2026-11-14T08:49:22.928Z",
+      "node": {
+        "tests": 242,
+        "passed": 242,
+        "failed": 0,
+        "skipped": 0,
+        "cancelled": 0
+      },
+      "python": {
+        "tests": 17,
+        "passed": 17,
+        "groups": [
+          {
+            "directory": "Loon/Development/SpotifyMac20261114",
+            "tests": 8,
+            "success": true
+          },
+          {
+            "directory": "Loon/Development/SpotifyNativeMemory20261114",
+            "tests": 6,
+            "success": true
+          },
+          {
+            "directory": "Loon/Development/SpotifyMacMetadata20261114",
+            "tests": 3,
+            "success": true
+          }
+        ]
+      },
+      "success": true,
+      "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
+    },
+    "historicalBaseline": {
+      "recordedAt": "2026-11-14T08:49:30.355Z",
+      "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+      "restoredFiles": 125,
+      "tests": 2248,
+      "passed": 2248,
+      "failed": 0,
+      "scope": "Historical source in a temporary directory; synthetic transport; not native Spotify acceptance"
+    },
+    "memoryBridge": {
+      "scope": "Node VM bridge with in-memory fixture transport; not a native Loon run or memory measurement",
+      "listenerStarted": false,
+      "networkRequests": 0,
+      "completed": 72,
+      "matched": 72
+    }
+  },
+  "performed": {
+    "nativePlayback": false,
+    "serverStarted": false,
+    "pluginImported": false,
+    "pluginEnabled": false,
+    "networkSettingsChanged": false,
+    "pushed": false,
+    "readOnlyLoonPluginList": true
+  },
+  "uiObservation": {
+    "scope": "Last read-only observation before UI window was withdrawn; not a current recheck",
+    "loon": "Connected",
+    "pluginCount": 14,
+    "enabledCount": 5,
+    "formalSpotifyPlugin": "Disabled",
+    "formalArguments": "Not yet rechecked in this window"
+  },
+  "nativeRestorationPreparation": {
+    "freshExclusiveWindowSnapshots": "Pending: two current configurations, cache inventory and actual parameters must be captured immediately before deployment",
+    "oldProjectSnapshotsUsed": false,
+    "nativeCacheOrConfigurationRestored": false
+  },
+  "acceptance": {
+    "macMissingLyrics": "Not passed",
+    "preciseSync": "Unverified",
+    "iOSUnder50000000Bytes": "Unverified"
+  }
+}

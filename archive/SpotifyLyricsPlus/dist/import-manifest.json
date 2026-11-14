@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Loon/script/SpotifyLyrics.lpx",
+    "assetBase": "http://127.0.0.1:8765/",
+    "approvedSources": [],
+    "localOnly": true
+  },
+  {
+    "path": "Surge/script/SpotifyLyrics.sgmodule",
+    "assetBase": "http://127.0.0.1:8765/",
+    "approvedSources": [],
+    "localOnly": true
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-11-14T05:26:48.816Z",
+  "scope": "Unmodified packaged modules executed with mocked React/query/transport and independent source fixtures; not the native application",
+  "installedSnapshotAvailable": true,
+  "wireRepresentationEstablished": false,
+  "nativeUIValidated": false,
+  "liveSourceRequests": 0,
+  "snapshotSHA256": "8e2b14a51e2fa79c8552d82718fae4eaf9f6fe14dcf63fe113559272de382a52",
+  "modules": {
+    "48071": {
+      "characters": 402,
+      "sha256": "bfb43eb092bc1e7cddeffb3ecc256c29000802cc23d9abaec1cfdc605e483d88"
+    },
+    "68900": {
+      "characters": 596,
+      "sha256": "e5427010b0d55982196672f024a5260a792a76b2e21b5d7cf822e20d59fd135d"
+    },
+    "83873": {
+      "characters": 1400,
+      "sha256": "39e0750b0b1c15d949fc7d80a7d69f15dd5836fd5ed34f04fceadbdb4a7e04b1"
+    },
+    "91243": {
+      "characters": 1725,
+      "sha256": "eb27b25d5377171a3fa876f2f9a881ed5d32838f13f9c544517f3fd760cc7e20"
+    }
+  },
+  "facts": {
+    "decodedFalseMakesNoLyricsRequest": true,
+    "metadataHelperSpecifiesNoFormatQuery": true,
+    "availabilityStaleTimeMs": 600000,
+    "existingFallbackHasNoPreviewLines": true,
+    "packagedParserRejectsExistingFallback": true,
+    "candidatePassesPackagedParser": true,
+    "candidateKeepsSourceRequestCount": true,
+    "startTimes": [
+      1000,
+      3250
+    ],
+    "previewLines": []
+  }
+}

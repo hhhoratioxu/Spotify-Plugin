@@ -1,0 +1,23 @@
+{
+  "scope": "Static facts from installed packaged V8 code; no app execution, profile, traffic or account read",
+  "snapshot": "/Applications/Spotify.app/Contents/Frameworks/Chromium Embedded Framework.framework/Versions/A/Resources/v8_context_snapshot.arm64.bin",
+  "bytes": 18585984,
+  "sha256": "8e2b14a51e2fa79c8552d82718fae4eaf9f6fe14dcf63fe113559272de382a52",
+  "moduleIds": [
+    "48071",
+    "68900",
+    "83873",
+    "91243"
+  ],
+  "facts": {
+    "availabilityQueryKey": true,
+    "availabilityStaleTime600000Ms": true,
+    "availabilityUsesMetadataHelper": true,
+    "helperReadsHasLyricsSnakeCase": true,
+    "helperUsesHostXE": true,
+    "hostXEMapsToMetadata4": true,
+    "lyricsHookUsesAvailability": true
+  },
+  "actualTargetResponseCaptured": false,
+  "nativeAcceptance": false
+}

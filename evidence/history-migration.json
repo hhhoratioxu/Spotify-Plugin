@@ -1,0 +1,17 @@
+{
+  "sourceMain": "823e6a8cbc89f4e6b697bea17a2f43820a632b86",
+  "commits": 101,
+  "historicalPaths": 3179,
+  "allFilteredTreesRetainOriginalBlobIDs": true,
+  "authorCommitterDatesMessagesPreserved": true,
+  "oldToNewCommitMap": "provenance/git-history.json",
+  "credentialPatternHits": {
+    "github-token": 0,
+    "spotify-access": 0,
+    "private-key": 0,
+    "bearer-value": 0
+  },
+  "archiveZipChecked": true,
+  "privateBackupsIncluded": false,
+  "originalParentModified": false
+}

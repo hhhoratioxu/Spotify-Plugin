@@ -1,0 +1,249 @@
+{
+  "scope": "Actual macOS Loon whole-process sampled physical footprint, not iOS or per-script acceptance",
+  "exclusiveLimitBytes": 50000000,
+  "sources": [
+    {
+      "file": "live-memory.jsonl",
+      "sha256": "a1645bb7899cf3eeb0412a38e0edf967c1c6774d5e7ad6fa43e6470502b7b99f",
+      "method": {
+        "kind": "method",
+        "source": "Apple top MEM / physical footprint",
+        "pids": {
+          "574": "com.loon.Loon.LoonHelper",
+          "1229": "Loon",
+          "1238": "com.loon.Loon.LoonTunnelExtension"
+        },
+        "peakKind": "sampled-window-maximum",
+        "rounded": true,
+        "nativeIOSAcceptance": "unverified",
+        "limitBytesExclusive": 50000000,
+        "command": [
+          "/usr/bin/top",
+          "-F",
+          "-R",
+          "-l",
+          "0",
+          "-s",
+          "0",
+          "-stats",
+          "pid,mem",
+          "-pid",
+          "1238",
+          "-pid",
+          "1229",
+          "-pid",
+          "574"
+        ]
+      },
+      "groups": [
+        {
+          "phase": "baseline-plugin-disabled",
+          "pid": 1238,
+          "samples": 969,
+          "firstSecond": 0.485029,
+          "lastSecond": 77.746226,
+          "minimumEstimateBytes": 49283072,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 60.473721,
+            "pid": 1238,
+            "phase": "baseline-plugin-disabled",
+            "display": "49M+",
+            "estimateBytes": 51380224,
+            "conservativeLowerBytes": 50331648,
+            "conservativeUpperBytes": 52428800
+          },
+          "durationSeconds": 77.261
+        },
+        {
+          "phase": "baseline-plugin-disabled",
+          "pid": 1229,
+          "samples": 969,
+          "firstSecond": 0.485353,
+          "lastSecond": 77.746622,
+          "minimumEstimateBytes": 161480704,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 21.552434,
+            "pid": 1229,
+            "phase": "baseline-plugin-disabled",
+            "display": "155M+",
+            "estimateBytes": 162529280,
+            "conservativeLowerBytes": 161480704,
+            "conservativeUpperBytes": 163577856
+          },
+          "durationSeconds": 77.261
+        },
+        {
+          "phase": "baseline-plugin-disabled",
+          "pid": 574,
+          "samples": 969,
+          "firstSecond": 0.485426,
+          "lastSecond": 77.746745,
+          "minimumEstimateBytes": 4964352,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 0.485426,
+            "pid": 574,
+            "phase": "baseline-plugin-disabled",
+            "display": "4848K",
+            "estimateBytes": 4964352,
+            "conservativeLowerBytes": 4963328,
+            "conservativeUpperBytes": 4965376
+          },
+          "durationSeconds": 77.261
+        },
+        {
+          "phase": "mobile-standard-real-spotify",
+          "pid": 1238,
+          "samples": 9511,
+          "firstSecond": 77.827098,
+          "lastSecond": 899.946501,
+          "minimumEstimateBytes": 50331648,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 167.899972,
+            "pid": 1238,
+            "phase": "mobile-standard-real-spotify",
+            "display": "111M+",
+            "estimateBytes": 116391936,
+            "conservativeLowerBytes": 115343360,
+            "conservativeUpperBytes": 117440512
+          },
+          "durationSeconds": 822.119
+        },
+        {
+          "phase": "mobile-standard-real-spotify",
+          "pid": 1229,
+          "samples": 9511,
+          "firstSecond": 77.827296,
+          "lastSecond": 899.946781,
+          "minimumEstimateBytes": 161480704,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 282.520767,
+            "pid": 1229,
+            "phase": "mobile-standard-real-spotify",
+            "display": "171M+",
+            "estimateBytes": 179306496,
+            "conservativeLowerBytes": 178257920,
+            "conservativeUpperBytes": 180355072
+          },
+          "durationSeconds": 822.119
+        },
+        {
+          "phase": "mobile-standard-real-spotify",
+          "pid": 574,
+          "samples": 9511,
+          "firstSecond": 77.827426,
+          "lastSecond": 899.946852,
+          "minimumEstimateBytes": 4964352,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 147.578821,
+            "pid": 574,
+            "phase": "mobile-standard-real-spotify",
+            "display": "4864K+",
+            "estimateBytes": 4980736,
+            "conservativeLowerBytes": 4979712,
+            "conservativeUpperBytes": 4981760
+          },
+          "durationSeconds": 822.119
+        }
+      ]
+    },
+    {
+      "file": "native-stress-memory.jsonl",
+      "sha256": "2c710491902b64edefb006187dbbcb230c183653effa147b60424de2ac1d7e39",
+      "method": {
+        "kind": "method",
+        "source": "Apple top MEM / physical footprint",
+        "pids": {
+          "574": "com.loon.Loon.LoonHelper",
+          "1229": "Loon",
+          "1238": "com.loon.Loon.LoonTunnelExtension"
+        },
+        "peakKind": "sampled-window-maximum",
+        "rounded": true,
+        "nativeIOSAcceptance": "unverified",
+        "limitBytesExclusive": 50000000,
+        "command": [
+          "/usr/bin/top",
+          "-F",
+          "-R",
+          "-l",
+          "0",
+          "-s",
+          "0",
+          "-stats",
+          "pid,mem",
+          "-pid",
+          "1238",
+          "-pid",
+          "1229",
+          "-pid",
+          "574"
+        ]
+      },
+      "groups": [
+        {
+          "phase": "native-generic-baseline",
+          "pid": 1238,
+          "samples": 9727,
+          "firstSecond": 0.509906,
+          "lastSecond": 827.367332,
+          "minimumEstimateBytes": 50331648,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 354.984105,
+            "pid": 1238,
+            "phase": "native-generic-baseline",
+            "display": "49M+",
+            "estimateBytes": 51380224,
+            "conservativeLowerBytes": 50331648,
+            "conservativeUpperBytes": 52428800
+          },
+          "durationSeconds": 826.857
+        },
+        {
+          "phase": "native-generic-baseline",
+          "pid": 1229,
+          "samples": 9727,
+          "firstSecond": 0.510237,
+          "lastSecond": 827.367528,
+          "minimumEstimateBytes": 173015040,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 738.827008,
+            "pid": 1229,
+            "phase": "native-generic-baseline",
+            "display": "200M+",
+            "estimateBytes": 209715200,
+            "conservativeLowerBytes": 208666624,
+            "conservativeUpperBytes": 210763776
+          },
+          "durationSeconds": 826.857
+        },
+        {
+          "phase": "native-generic-baseline",
+          "pid": 574,
+          "samples": 9727,
+          "firstSecond": 0.510312,
+          "lastSecond": 827.367603,
+          "minimumEstimateBytes": 5144576,
+          "maximumSample": {
+            "kind": "sample",
+            "seconds": 45.584453,
+            "pid": 574,
+            "phase": "native-generic-baseline",
+            "display": "5120K+",
+            "estimateBytes": 5242880,
+            "conservativeLowerBytes": 5241856,
+            "conservativeUpperBytes": 5243904
+          },
+          "durationSeconds": 826.857
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 (function(hostDone){
-function availabilityMapPaths(body,describe=false) {
+function availabilityMapPaths(body,describe=false,publicTestURI='') {
   if(!body || !ArrayBuffer.isView(body) || body.byteLength>131072)return [];
   const bytes=new Uint8Array(body.buffer,body.byteOffset,body.byteLength),found=[];
   let work=0,nodes=0;
@@ -14,14 +14,14 @@ function availabilityMapPaths(body,describe=false) {
       else if(w===1)at+=8;else if(w===5)at+=4;else throw 0;if(w!==2)fields.push({n,w});if(at>b.length)throw 0;
     }}catch{if(depth===0&&describe)found.push({path:'root.valid',value:false});return;}
     if(depth===0&&describe)found.push({path:'root.fields',value:fields.slice(0,20).map(f=>f.n+':'+f.w).join(',')});
-    if(describe)for(const f of fields)if(f.w===2&&f.z-f.a===36&&equal(b,f.a,f.a+14,'spotify:track:')){let valid=true;for(let i=f.a+14;i<f.z;i++)if(!((b[i]>=48&&b[i]<=57)||(b[i]>=65&&b[i]<=90)||(b[i]>=97&&b[i]<=122)))valid=false;if(valid)found.push({path:'track-uri.'+path.concat(f.n).join('.'),value:true});}
+    if(describe)for(const f of fields)if(f.w===2&&f.z-f.a===36&&equal(b,f.a,f.a+14,'spotify:track:')){let valid=true;for(let i=f.a+14;i<f.z;i++)if(!((b[i]>=48&&b[i]<=57)||(b[i]>=65&&b[i]<=90)||(b[i]>=97&&b[i]<=122)))valid=false;if(valid){found.push({path:'track-uri.'+path.concat(f.n).join('.'),value:true});if(publicTestURI&&equal(b,f.a,f.z,publicTestURI))found.push({path:'public-test-track.'+path.concat(f.n).join('.'),value:true});}}
     const key=fields.find(f=>f.n===1&&equal(b,f.a,f.z,'has_lyrics'));
     if(key){const value=fields.find(f=>f.n===2);if(value){const yes=equal(b,value.a,value.z,'true'),no=equal(b,value.a,value.z,'false');if(yes||no)found.push({path:path.join('.'),value:yes});}return;}
     for(const f of fields)if(f.w===2)walk(b.subarray(f.a,f.z),path.concat(f.n),depth+1);
   }
   walk(bytes,[],0);return found;
 }
-function metadataShape(input) {
+function metadataShape(input,publicTestURI='') {
   if(!input||!ArrayBuffer.isView(input)||input.byteLength>131072)return [];
   const bytes=new Uint8Array(input.buffer,input.byteOffset,input.byteLength),out=[];
   function fields(b){let at=0;const fs=[];function uint(){let v=0,m=1;for(let i=0;i<10;i++){if(at>=b.length)throw 0;const c=b[at++];v+=(c&127)*m;if(!(c&128))return v;m*=128;}throw 0;}
@@ -37,6 +37,7 @@ function metadataShape(input) {
       const prefix='metadata.'+(ordinal++)+'.',uri=str(entity,2),known=/(?:^|\/)spotify\.metadata\.Track$/.test(type);
       const publicType=type.replace(/^type\.googleapis\.com\//,'');
       out.push({path:prefix+'kind',value:number(group,2)??-1},{path:prefix+'knownType',value:known},{path:prefix+'type',value:/^spotify\.[A-Za-z0-9_.]{1,120}$/.test(publicType)?publicType:'other'});
+      if(publicTestURI)out.push({path:prefix+'publicTestTrack',value:uri===publicTestURI});
       if(!known)continue;
       const fs=fields(payload),gid=fs.find(f=>f.n===1&&f.w===2),title=fs.find(f=>f.n===2&&f.w===2),album=children(payload,3)[0],artists=children(payload,4);
       const duration=number(payload,7),flag=number(payload,18);
@@ -50,19 +51,49 @@ function metadataShape(input) {
   }catch{return out;}
   return out;
 }
+function diagnosticRoute(request) {
+  const value = typeof request?.url === 'string' && request.url.length <= 4096 ? request.url : '';
+  const match = /^https:\/\/(?:spclient\.wg|[a-z0-9-]+-spclient)\.spotify\.com(?::443)?(\/[^?#]*)/.exec(value);
+  const path = match?.[1] || '';
+  const rules = [
+    ['lyrics', /^\/color-lyrics\/v2\/track\/[0-9A-Za-z]{22}(?:\/image\/[^/\s]+)?\/?$/],
+    ['extended-metadata', /^\/extended-metadata\/v0\/extended-metadata\/?$/],
+    ['metadata', /^\/metadata\/4\/track\/[0-9a-f]{32}\/?$/],
+    ['connect-state', /^\/connect-state\/v1\/devices\/[0-9A-Za-z_-]{16,128}\/?$/],
+    ['context-resolve', /^\/context-resolve\/v1\/spotify(?::|%3[aA])[^/\s]{1,512}\/?$/],
+    ['player-cards', /^\/scrollsita\/v1\/scroll\/spotify(?::|%3[aA])track(?::|%3[aA])[0-9A-Za-z]{22}\/?$/],
+    ['lyrics-entry', /^\/(?:user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap|v1\/customize)\/?$/]
+  ];
+  return {
+    route: rules.find(([, pattern]) => pattern.test(path))?.[0] || 'other',
+    method: /^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)$/.test(request?.method) ? request.method : 'other'
+  };
+}
 let started=false,finished=false;
+const runId=Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,10);
+const publicTestURI="spotify:track:76XUZSb13QUuj1HECY4Hvo";
+function facts(input){
+  if(typeof input==="string")return [{path:"structure.textInspection",value:"not-performed"}];
+  if(!ArrayBuffer.isView(input)||input.byteLength>131072)return [];
+  let i=0;while(i<input.length&&[9,10,13,32].includes(input[i]))i++;
+  if(input[i]===123||input[i]===91)return [{path:"structure.jsonInspection",value:"not-performed"}];
+  return diagnosticRoute($request).route==="extended-metadata"?metadataShape(input,publicTestURI):availabilityMapPaths(input,true,publicTestURI);
+}
 function summary(output){
   const incoming=$response.body, body=output&&output.body;
-  const event={phase:"entry",route:"runtime",method:$request.method,status:Number($response.status),bytes:incoming?incoming.length:0,format:body===undefined?"unchanged":typeof body==="string"?"string":"bytes"};
+  const event={phase:"entry",...diagnosticRoute($request),status:Number($response.status),bytes:incoming?incoming.length:0,format:body===undefined?"unchanged":typeof body==="string"?"string":"bytes",flags:[{path:"run",value:runId},...facts(body===undefined?incoming:body)]};
   if(output&&output.status!==undefined)event.outputStatus=Number(output.status);
   if(body!==undefined)event.outputBytes=body.length;
   return event;
 }
 function report(event,next){
   let called=false;function resume(){if(!called){called=true;next();}}
+  // These fields contain ASCII categories, numbers and booleans only. Keep
+  // paired events within the receiver's existing 4 KiB input boundary.
+  while(JSON.stringify(event).length>3800&&event.flags?.length>1)event.flags.pop();
   try{$httpClient.post({url:"http://127.0.0.1:18765/events",headers:{"Content-Type":"application/json"},body:JSON.stringify(event),timeout:300,node:"DIRECT","auto-cookie":false,"auto-redirect":false,"binary-mode":false,insecure:false},resume);}catch{resume();}
 }
-const $done=output=>{if(finished)return;finished=true;let event;try{event=summary(output);}catch{event={phase:"entry",route:"runtime",format:"summary-error"};}report(event,()=>hostDone(output));};
+const $done=output=>{if(finished)return;finished=true;let event;try{event=summary(output);}catch{event={phase:"entry",route:"other",format:"summary-error"};}report(event,()=>hostDone(output));};
 function start(){if(started)return;started=true;
 /* VerseLyrics Loon lightweight entry 3.2.2. */
 (()=>{"use strict";function e(e,t){if(Number(v(e.headers,"Content-Length"))>t)throw new Error("body-limit");return e.boundedBytes(t)}
@@ -80,7 +111,6 @@ const shape=[{path:"body.json",value:typeof incoming==="string"&&/^\s*[{[]/.test
 const headers=$response.headers||{},typeKey=Object.keys(headers).find(k=>k.toLowerCase()==="content-type"),encodingKey=Object.keys(headers).find(k=>k.toLowerCase()==="content-encoding");
 shape.push({path:"header.json",value:/json/i.test(headers[typeKey]||"")},{path:"header.protobuf",value:/protobuf|octet-stream/i.test(headers[typeKey]||"")},{path:"header.encoding",value:/^(gzip|deflate|br|zstd)$/.test(headers[encodingKey]||"")?headers[encodingKey]:"other-or-absent"});
 let mime=headers[typeKey];if(Array.isArray(headers)){const row=headers.find(x=>String(x.field||x.name||x.key||"").toLowerCase()==="content-type");mime=row?.value;}
-const base=String(mime||"").split(";",1)[0].trim();shape.push({path:"header.shape",value:Array.isArray(headers)?"array":typeof headers},{path:"header.type",value:/^[a-z0-9.+-]+\/[a-z0-9.+-]+$/i.test(base)?base:"absent-or-other"});
-const metaFlags=/\/extended-metadata\/v0\/extended-metadata/.test($request.url)?metadataShape(incoming):[];
-report({phase:"entry-enter",route:"runtime",method:$request.method,status:Number($response.status),bytes:incoming?incoming.length:0,flags:shape.concat(metaFlags.length?metaFlags:availabilityMapPaths(incoming,true))},start);
+const base=String(mime||"").split(";",1)[0].trim().toLowerCase();shape.push({path:"header.shape",value:Array.isArray(headers)?"array":typeof headers},{path:"header.type",value:["application/json","application/protobuf","application/x-protobuf","application/octet-stream"].includes(base)?base:"absent-or-other"});
+report({phase:"entry-enter",...diagnosticRoute($request),status:Number($response.status),bytes:incoming?incoming.length:0,flags:[{path:"run",value:runId},...shape,...facts(incoming)]},start);
 })($done);

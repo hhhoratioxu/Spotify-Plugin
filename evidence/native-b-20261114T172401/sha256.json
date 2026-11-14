@@ -1,0 +1,16 @@
+{
+  "restore-comparison.json": "022e739c4e36d9a6d4d296a394e36e8bcc711efd1c0e4be080b1fdaf987a6f23",
+  "t0.json": "ade296b372a8a0e0280d09ac45f1d4d9aac73db0a17762eeba6930320f941ca7",
+  "events.json": "3082912fb9dcb1eb4bfa3224cbbdb905c8f772f3fd0bff84e174fc0c2dda895f",
+  "observation.json": "c57fa377eb760f743e09bdb3906ea70e88ec8f742d464c58b66409afd0728151",
+  "memory-summary.json": "c10eef443b68cd01c84b7fef77e31899d9df29c8b4931d451ee043ea2ec10f3a",
+  "process-memory.jsonl": "ca1f451a9efafbf0a8a4ec01cb725e32b5ced7fb1f118f38327d25638e4ba3db",
+  "audio.json": "9dff7be3b9a2821a2637076b9c1c0e761c0ea00c627ec888534273444714f539",
+  "monitor.stop": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "phase.json": "9b827a893afe92bebc770fb268e690e4fa10e97ba404959d858169487717ded2",
+  "artifacts/SpotifyLyrics.Diagnosis.Strict.lyrics.d0a36b83c1fcb4c8.js": "d0a36b83c1fcb4c8f245e9b53b4d8b819d740fea5b2465c971c8719a245fd16f",
+  "artifacts/SpotifyLyrics.Diagnosis.Strict.entry.4a1a2d5b4e73d139.js": "4a1a2d5b4e73d139a526440d010c936d03a2cb9f910ccb3c2cefc2431af30b9a",
+  "artifacts/manifest.json": "d38ddc33c6fd7612e1c2660247c355943d8a838e0be8016abdc1f2b20a41a66f",
+  "artifacts/SpotifyLyrics.Diagnosis.Strict.request.28d22ba4ac95222f.js": "28d22ba4ac95222fa098dfda3f0ec033e2f49fb9d83c0654c46087ed82ed6f5c",
+  "artifacts/DiagnosisMac.lpx": "160b564ddfcc0e117f8d732215789980d7e6e5a8f56dd0d866ae7a1657c2cf37"
+}

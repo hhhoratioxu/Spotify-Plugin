@@ -1,0 +1,101 @@
+{
+  "recordedAt": "2026-11-14T15:19:22.055Z",
+  "timeZone": "Asia/Taipei",
+  "scope": "Strict B offline preflight only",
+  "success": true,
+  "steps": [
+    {
+      "label": "script-and-baseline-guards",
+      "exitCode": 0
+    },
+    {
+      "label": "receiver-with-sockets-disabled",
+      "exitCode": 0
+    },
+    {
+      "label": "synthetic-recovery-rehearsal",
+      "exitCode": 0
+    }
+  ],
+  "performed": {
+    "ui": false,
+    "playback": false,
+    "listener": false,
+    "pluginChange": false,
+    "networkSettingsChange": false,
+    "push": false
+  },
+  "nativeRestorationReady": false,
+  "sourceSnapshotObjects": 191,
+  "artifacts": [
+    {
+      "kind": "request",
+      "sha256": "28d22ba4ac95222fa098dfda3f0ec033e2f49fb9d83c0654c46087ed82ed6f5c",
+      "productionCorePreserved": true,
+      "workingProductionRuntimeUnchanged": true
+    },
+    {
+      "kind": "lyrics",
+      "sha256": "01c95ec3afafa4936ef577fec1a8189fc6e691ce429faeaa56a6f0c0abb5a4d9",
+      "productionCorePreserved": true,
+      "workingProductionRuntimeUnchanged": true
+    },
+    {
+      "kind": "entry",
+      "sha256": "0a0be9945f511558c359aec09777353aec6a5b8d2efe3e30217ffe3fc79e677f",
+      "productionCorePreserved": true,
+      "workingProductionRuntimeUnchanged": true
+    },
+    {
+      "kind": "profile",
+      "sha256": "04d6c9c35feec1f0c68fc3b3e97d101d1054372190f603085be16e16f293f43d"
+    }
+  ],
+  "profileSHA256": "04d6c9c35feec1f0c68fc3b3e97d101d1054372190f603085be16e16f293f43d",
+  "fields": [
+    "route",
+    "stage",
+    "pair",
+    "publicTargetMatched",
+    "lyricsFlags"
+  ],
+  "node": {
+    "tests": 150,
+    "passed": 150,
+    "failed": 0,
+    "skipped": 0
+  },
+  "receiver": {
+    "tests": 6,
+    "success": true,
+    "socketsDisabled": true
+  },
+  "recoveryRehearsal": {
+    "scope": "Self-written files in a disposable directory; not native Loon recovery",
+    "fixtureProfiles": 2,
+    "fixtureSharedScripts": 3,
+    "missingSharedScriptsRestored": 2,
+    "concurrentConfigPreserved": true,
+    "interveningWriterPreserved": true,
+    "onlyFreshSelfCreatedSnapshotUsed": true,
+    "liveLoonFilesAccessed": false,
+    "nativeRestorationValidated": false
+  },
+  "resources": {
+    "exclusive": [
+      "Mac UI",
+      "Loon configuration and shared script cache"
+    ],
+    "nativeWindowMinutes": 10,
+    "loopbackEndpoint": "127.0.0.1:18765",
+    "listenerMaximumSeconds": 600,
+    "artifacts": 4,
+    "prerequisites": [
+      "New explicit UI and Loon release",
+      "Fresh snapshot of both actual configurations and script-cache content/index from that window",
+      "Current parameter/reference inventory",
+      "Local-device mute/volume-zero verification"
+    ],
+    "livePrerequisitesChecked": false
+  }
+}

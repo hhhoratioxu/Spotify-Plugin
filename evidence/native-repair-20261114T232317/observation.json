@@ -1,0 +1,40 @@
+{
+  "takeOnMe": {
+    "nativeBilingualTextVisuallyConfirmed": true,
+    "lyricsRadioSelected": true,
+    "preciseSynchronizationVerified": false
+  },
+  "nayeXiatian": {
+    "publicURIEntered": true,
+    "nowPlayingTitleArtistConfirmed": true,
+    "lyricsControlDisabledBeforeAndAfterRestart": true,
+    "fallbackPassed": false
+  },
+  "spotifyRestartedWhilePausedAndMuted": true,
+  "systemMuteAndVolumeZeroConfirmed": true,
+  "spotifyVolumeZeroAndThisComputerConfirmedBeforePlayback": true,
+  "copiedPublicLinkAttempt": "not obtained; no identity conclusion",
+  "eventCount": 144,
+  "routeStageCounts": {
+    "lyrics:before": 1,
+    "lyrics:after": 1,
+    "extended-metadata:before": 64,
+    "extended-metadata:after": 64,
+    "connect-state:before": 7,
+    "connect-state:after": 7
+  },
+  "exactTargetMetadataOrLyricsEvents": 0,
+  "publicTargetConnectEvents": 14,
+  "caution": "Connect target occurrence does not bind all flags to the current song. Lack of diagnostic events does not prove no network traffic.",
+  "eventsAreCheckpointOnly": true,
+  "eventCheckpointTaipei": "2026-11-14T23:27:54",
+  "finalBufferUnavailableAfterAutomatic600SecondStop": true,
+  "eventCountsDescribeSavedCheckpointOnly": true,
+  "endSpotifyPausedVerified": true,
+  "endSpotifyVolumeVerified": 1,
+  "endSystemVolumeVerified": 0,
+  "endSystemMuteVerified": true,
+  "endLoonConnectedVerified": true,
+  "endPluginCount": 14,
+  "endEnabledPluginCount": 5
+}

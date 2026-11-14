@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-13",
+  "kind": "offline fixture and compiled VM tests",
+  "tests": 446,
+  "passed": 446,
+  "failed": 0,
+  "reusedHistoricalSuites": [
+    "lrc-streaming",
+    "metadata-selective",
+    "extended-identity",
+    "parse-work",
+    "player-streaming",
+    "wire-performance",
+    "indexed-cache",
+    "cache-save-ranges",
+    "cache-work"
+  ],
+  "fixtureAdaptations": [
+    "cache namespace",
+    "wire-performance candidate count from 50 to 10"
+  ],
+  "hashes": {
+    "src/spotify-lyrics.js": "3ba6673f7b86655a86ffec4e7c4c4d439ef21e8bd75b3079ec119c2a1884b686",
+    "src/native-adapter.js": "6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670",
+    "build.mjs": "24e95d06e6a9a789a5357aa599be6b94c7311a89cff082da4db389d92d59dd48",
+    "source-policy.json": "dc79cf3b8832aabe5f959f75d90e80db96e244e25fec055b27987d39636676c6",
+    "dist/runtime-manifest.json": "0434fefd30ac4c9c5e41bfb4da3bc70b9e6e368b09fa810425b163acf5761dcb",
+    "dist/import-manifest.json": "062342be59238fcbbecfb633c9e1856e72462c893ae141fc663bb378ad4f5aa5",
+    "dist/Loon/script/SpotifyLyrics.lpx": "855119ab1e7a58af2f03b369ac334307e4f6e7a275421e398ad89959afeb56b8",
+    "dist/Surge/script/SpotifyLyrics.sgmodule": "e4f93d31ce602dc6dab6564d04da53c8fcdeb4cdd31ef2c00549e394872cf576"
+  },
+  "liveSpotify": false,
+  "iPhoneVPN": false,
+  "licensedProviderLiveRequests": 0
+}

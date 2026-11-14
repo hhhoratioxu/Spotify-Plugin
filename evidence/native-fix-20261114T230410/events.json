@@ -1,0 +1,164 @@
+[
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "ede344c355b685c0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "cf0e5288a0cd2fc0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "cf0e5288a0cd2fc0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "ede344c355b685c0",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "36d7d8f25b020418",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "36d7d8f25b020418",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "metadata",
+    "stage": "before",
+    "pair": "0ff13c75ad58b9ce",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "6b50ba0945aa10f6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "metadata",
+    "stage": "after",
+    "pair": "0ff13c75ad58b9ce",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      true
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "7824b12fdeaf13dd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "7824b12fdeaf13dd",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "6b50ba0945aa10f6",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "98c6e01654604526",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "98c6e01654604526",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "46804e43181457da",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "46804e43181457da",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "before",
+    "pair": "59786247a1bbd77a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  },
+  {
+    "route": "lyrics",
+    "stage": "after",
+    "pair": "59786247a1bbd77a",
+    "publicTargetMatched": false,
+    "lyricsFlags": [
+      "unknown"
+    ]
+  }
+]

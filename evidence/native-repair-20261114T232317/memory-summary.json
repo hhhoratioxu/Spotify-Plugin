@@ -1,0 +1,32 @@
+{
+  "scope": "Mac whole-process diagnostic sampling with other active plugins; not iOS acceptance or plugin-only memory",
+  "seconds": 599.949,
+  "sampleRows": 29919,
+  "processes": [
+    {
+      "name": "com.loon.Loon.LoonHelper",
+      "samples": 9973,
+      "maxDisplay": "4896K",
+      "estimateBytes": 5013504,
+      "conservativeLowerBytes": 5012480,
+      "conservativeUpperBytes": 5014528
+    },
+    {
+      "name": "Loon",
+      "samples": 9973,
+      "maxDisplay": "143M+",
+      "estimateBytes": 149946368,
+      "conservativeLowerBytes": 148897792,
+      "conservativeUpperBytes": 150994944
+    },
+    {
+      "name": "com.loon.Loon.LoonTunnelExtension",
+      "samples": 9973,
+      "maxDisplay": "63M+",
+      "estimateBytes": 66060288,
+      "conservativeLowerBytes": 65011712,
+      "conservativeUpperBytes": 67108864
+    }
+  ],
+  "temporaryPortClosed": true
+}

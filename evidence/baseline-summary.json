@@ -1,0 +1,9 @@
+{
+  "recordedAt": "2026-11-14T15:19:12.552Z",
+  "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
+  "restoredFiles": 125,
+  "tests": 2248,
+  "passed": 2248,
+  "failed": 0,
+  "scope": "Historical source in a temporary directory; synthetic transport; not native Spotify acceptance"
+}
