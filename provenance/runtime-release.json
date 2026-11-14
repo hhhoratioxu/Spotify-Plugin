@@ -4,7 +4,7 @@
   "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
   "core": "3.2.2",
   "patch": "non-chinese-translation",
-  "purpose": "Immutable maintained runtime snapshot for the requested non-Chinese translation policy; local changes are not automatically published",
+  "purpose": "Immutable maintained 3.2.2-core runtime with the non-Chinese translation fix; selected by v3.2.3 import profiles",
   "previousRuntimeRevision": "85803237600fc3701d369c10a5b9d7654d877a2b",
   "artifacts": [
     {
@@ -97,5 +97,6 @@
       "bytes": 4697,
       "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
     }
-  ]
+  ],
+  "release": "v3.2.3"
 }

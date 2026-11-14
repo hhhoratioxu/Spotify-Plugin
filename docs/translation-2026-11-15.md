@@ -1,6 +1,6 @@
 # 非中文歌词翻译修复
 
-状态：本地开发修复，尚未推送；已发布的 v3.2.2 迁移版不包含本次改动。当前未更新任何已安装客户端、VPN 或用户缓存。
+状态：v3.2.3 修复内容已纳入本次维护提交。v3.2.2 固定迁移版保留旧策略，持续更新请使用新仓库 main 订阅。用户于 2026-11-15 确认 push；本次不更新已安装客户端、VPN 或用户缓存。
 
 ## 用户要求与旧行为
 
@@ -39,4 +39,4 @@ Mac 歌词核心与手机使用同一维护源码。旧请求 / 入口适配保�
 
 `src/build.mjs` 先从原历史构建恢复，再恢复共享译文路径；Unicode / 匹配数据仍按需初始化。`tools/compile-runtime.mjs` 先生成 `build/current-runtime/`，随后按完整 SHA-256 清单核对再写入当前入口，拒绝源代码已改但仍悄悄安装旧脚本的情况。
 
-当前本地资源快照为 `6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0`。`provenance/runtime-release.json` 指向该固定提交，等待授权发布后才可通过公开 URL 下载。历史诊断构建继续读取原快照，不把隔离的 Mac JSON / previewLines 修补混入本次翻译修复。
+本次固定运行资源快照为 `6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0`。`provenance/runtime-release.json` 指向该固定提交，主分支推送后即可通过公开 URL 下载。历史诊断构建继续读取原快照，不把隔离的 Mac JSON / previewLines 修补混入本次翻译修复。

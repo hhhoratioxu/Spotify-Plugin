@@ -1,6 +1,6 @@
 # SpotifyLyrics · Egern
 
-> 当前文档含本地多语言修复说明；尚未推送，线上已发布迁移版仍为旧策略。新固定资源链接须发布后才可访问。
+> v3.2.3 多语言修复：中文原词保持，其他语言进入翻译。使用新仓库 main 订阅取得当前固定资源；旧 v3.2.2 Release 链接保留原版本。
 
 > 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
