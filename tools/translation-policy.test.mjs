@@ -41,13 +41,11 @@ for(const target of ['zh-CN','zh-TW','en','ja','ko'])for(const source of ['zh','
   assert.equal(Buffer.from(out.body).toString(),x.input);assert.equal(x.calls.length,0);
 });
 
-test('Japanese kanji and an English medley use at most two source groups without reordering output',async()=>{
-  const words=['I walk beside the sea','海の灯りが揺れる','The garden is quiet','手紙','東京 flash'];
+test('Japanese kanji and an English medley retain the established bounded batch without reordering output',async()=>{
+  const words=['I walk beside the sea','海の灯りが揺れる','The garden is quiet','手紙'];
   const translations=new Map(words.map((s,i)=>[s,'自写译文 '+i]));
   const x=setup(words,{source:'ja',answer:q=>q.map(s=>translations.get(s))}),out=decode(await run(x.ctx));
-  assert.equal(x.calls.length,2);
-  assert.deepEqual(x.calls.find(c=>c.source==='ja').q,['海の灯りが揺れる','手紙','東京 flash']);
-  assert.deepEqual(new Set(x.calls.find(c=>c.source==='auto').q),new Set([words[0],words[2]]));
+  assert.equal(x.calls.length,1);assert.equal(x.calls[0].source,'ja');assert.deepEqual(x.calls[0].q,words);
   assert.deepEqual(out.lyrics.alternatives[0].lines,words.map(s=>translations.get(s)));
   assert.deepEqual(out.lyrics.lines,x.original.lyrics.lines);
 });

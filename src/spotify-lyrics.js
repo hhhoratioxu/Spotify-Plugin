@@ -1822,9 +1822,9 @@ function mergeSourceRows(original, rows, translated, remember) {
 async function translate(ctx, original, state, sourceLanguage = "", sourceRows = null) {
   state = {...state,deadline:Math.min(state.deadline,Date.now()+2500)};
   const language = state.settings.language, source = translationSource(sourceLanguage), chinese = language === "zh-CN" || language === "zh-TW";
-  // Japanese Han/Latin text is a whole foreign sentence, not a Chinese
-  // sentence with English fragments. Preserve Chinese spans in other rows.
-  const fragment = s => source !== "ja" && mixedLatinLine(s);
+  // Keep the established fragment translator: Han/Latin rows preserve their
+  // literal Chinese spans, independently of a potentially stale source tag.
+  const fragment = s => mixedLatinLine(s);
   // English/Chinese filler rules cannot decide the meaning of another
   // language's short words. Explicit foreign language tags take precedence.
   const foreign = Boolean(source && source !== "zh" && source !== "en");
@@ -1899,35 +1899,19 @@ async function translate(ctx, original, state, sourceLanguage = "", sourceRows =
     if (legacy(s,cached)) cacheChanged = true;
     else if (!checkSource || !targetLanguageLine(s,source,language)) pending.push(s);
   }
-  const from = foreign && LANGUAGES.includes(source) && (source === "ja" || !original.some(mixedLatinLine)) ? source : "auto";
-  // A live/medley may mix a non-Latin language and English. Partition pending
-  // references once in place: native-script rows keep their source tag;
-  // Latin-only rows use auto. Add one batch boundary, not one per switch.
-  const autoLatin = /^(?:ja|ko|ru|ar|hi|th|uk|he|fa|el)$/.test(source);
-  let autoStart = pending.length;
-  if (autoLatin) {
-    autoStart = 0;
-    for (let i = 0; i < pending.length; i++) {
-      const s = pending[i];
-      if (!/\p{Script=Latin}/u.test(s) || /\p{L}/u.test(s.replace(/[\p{Script=Latin}\p{M}]/gu,""))) {
-        const previous = pending[autoStart]; pending[autoStart++] = s; pending[i] = previous;
-      }
-    }
-  }
+  const from = foreign && LANGUAGES.includes(source) && !original.some(mixedLatinLine) ? source : "auto";
   const base = "https://translate.googleapis.com/translate_a/t?client=dict-chrome-ex&sl=" + from + "&tl=" + encodeURIComponent(language);
-  const autoBase = autoLatin ? "https://translate.googleapis.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=" + encodeURIComponent(language) : base;
   // Build only the batch about to be sent. Do not retain a second nested
   // groups array or URI-encode every future row before network admission.
   let cursor = 0, batchLimit = 64;
   while (ctx.env?.NETWORK_MODE !== "cache-only" && cursor < pending.length && Date.now() + 250 < state.deadline) {
-    const start = cursor, rows = [], batchEnd = cursor < autoStart ? autoStart : pending.length;
-    const batchBase = cursor < autoStart ? base : autoBase; let url = batchBase, mixedBatch = false;
+    const start = cursor, rows = []; let url = base, mixedBatch = false;
     try {
       if (state.network) state.network.enter();
-      while (cursor < batchEnd && rows.length < batchLimit) {
+      while (cursor < pending.length && rows.length < batchLimit) {
         const s = pending[cursor], mixed = fragment(s), encoded = "&q=" + encodeURIComponent(mixed ? latinQuery(s,!foreign) : s);
         if (mixed) mixedBatch = true;
-        if (batchBase.length + encoded.length > 6800) { cursor++; continue; }
+        if (base.length + encoded.length > 6800) { cursor++; continue; }
         if (url.length + encoded.length > 6800) break;
         rows.push(s); url += encoded; cursor++;
       }

@@ -24,6 +24,7 @@ try {
     [process.execPath,['Loon/Development/SpotifyNativeMemory20261114/prepare.mjs'],'memory-fixture-build'],
     [process.execPath,['Loon/Development/SpotifyNativeMemory20261114/preflight-offline.mjs'],'memory-fixture-preflight'],
     [process.execPath,['tools/test.mjs'],'regression'],
+    [process.execPath,['tools/test-current-core.mjs'],'current-core-compatibility'],
     [process.execPath,['tools/test-baseline.mjs'],'baseline'],
   ]) {
     const started = Date.now();
@@ -35,6 +36,7 @@ try {
   report.success = true;
   report.regression = JSON.parse(readFileSync(join(scratch,'evidence/regression-summary.json')));
   report.baseline = JSON.parse(readFileSync(join(scratch,'evidence/baseline-summary.json')));
+  report.currentCore = JSON.parse(readFileSync(join(scratch,'evidence/current-core-summary.json')));
   report.build = JSON.parse(readFileSync(join(scratch,'evidence/build.json')));
   const memory=JSON.parse(readFileSync(join(scratch,'Loon/Development/SpotifyNativeMemory20261114/evidence/offline-preflight-summary.json')));
   report.memoryBridge={scope:memory.scope,listenerStarted:memory.listenerStarted,networkRequests:memory.networkRequests,completed:memory.rows.length,matched:memory.rows.filter(r=>r.matchesReference).length};

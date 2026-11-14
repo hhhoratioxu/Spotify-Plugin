@@ -1,0 +1,17 @@
+{
+  "scope": "Existing translation endpoint with self-written text only; no Spotify lyrics, account, cookies or credentials; not a native client test",
+  "source": "ja",
+  "target": "zh-CN",
+  "inputs": [
+    "海の灯りが揺れる",
+    "手紙",
+    "I walk beside the quiet sea."
+  ],
+  "success": true,
+  "status": 200,
+  "response": [
+    "海上的灯光摇曳",
+    "信",
+    "我走在安静的海边。"
+  ]
+}

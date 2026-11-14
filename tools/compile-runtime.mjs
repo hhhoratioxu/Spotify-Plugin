@@ -23,6 +23,7 @@ export function compileRuntime(root=project) {
     }
     symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
     execFileSync(process.execPath,['build.mjs'],{cwd:scratch,stdio:'pipe',maxBuffer:1024*1024});
+    mkdirSync(stage,{recursive:true});writeFileSync(join(stage,'request-core.js'),readFileSync(join(scratch,'request-core.js')));
     const artifacts=[];
     function save(path,bytes) {
       const dest=join(stage,'runtime',path);mkdirSync(dirname(dest),{recursive:true});writeFileSync(dest,bytes);

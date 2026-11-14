@@ -12,7 +12,7 @@
     },
     {
       "path": "src/spotify-lyrics.js",
-      "sha256": "36a0825e80de9506ef6c827ac2bfe01b75478c1887c4100686c0d66f2e0b3a95"
+      "sha256": "3be3ae973885deba5cbdf4127e9f43e32a7be6296f2b772b3e232c96ad440070"
     },
     {
       "path": "src/native-adapter.js",
@@ -45,8 +45,8 @@
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
-      "bytes": 89122,
-      "sha256": "6c5e53c2bef29ab87cb1bc72d2c97134ba8b2b14fe25e60ff51b0a67387c57ac"
+      "bytes": 88726,
+      "sha256": "4bb7187949f3ffd843c1ee9a0607cfdf584e981a6b3dda0e1b7576d103dfc90c"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.js",
@@ -60,13 +60,13 @@
     },
     {
       "path": "Loon/script/SpotifyLyrics.js",
-      "bytes": 93182,
-      "sha256": "8feeeed7379cc762c38d1c86b6805113e89209ce38500142cadefd814848d249"
+      "bytes": 92786,
+      "sha256": "f6dcc8d3df879f80e1a94ee6cc5b90e59d635df97ffdd3c42cd0bb514773544e"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Mac.js",
-      "bytes": 99198,
-      "sha256": "4c03ff1703444b6067cc7125acc630017588b2080c21da85d0dafca0e0743816"
+      "bytes": 98802,
+      "sha256": "2dffabaa02736f687a440ed1c2b27250803cb04ef6c97a6a4cbf46ca19c4ef8d"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
@@ -80,8 +80,8 @@
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.js",
-      "bytes": 93957,
-      "sha256": "6358363160bcafb84c6fe5bbc74936ba17316706327587e25bf1e1d4aea54240"
+      "bytes": 93561,
+      "sha256": "4de94a06e394241fd261f947ee38672d868a32a9dd2e01f64a87f40dd9cccf31"
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.Request.js",
@@ -95,8 +95,8 @@
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.js",
-      "bytes": 93162,
-      "sha256": "e7277d513c8fb7166316ad8e90f85930164e1166ce36295286ee444244bfdb5b"
+      "bytes": 92766,
+      "sha256": "4a2f5f3be4854a3c2f114b7a5c2efada08a74c311567712c8e3d6e07bf90d728"
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
@@ -110,8 +110,8 @@
     },
     {
       "path": "Surge/script/SpotifyLyrics.js",
-      "bytes": 93155,
-      "sha256": "c562229ba759ef35fb737e8b19f7d978374086e8d76be844355cd27ff6305da0"
+      "bytes": 92759,
+      "sha256": "53631219cdb07f7e059f4f01cb10d2aecb2fb1f6b78b32d66378293436a0accb"
     },
     {
       "path": "Surge/script/SpotifyLyrics.Request.js",
@@ -136,5 +136,11 @@
     }
   ],
   "metadataSource": "Spotify public catalog get_entity; names and durations only; no playback URI, library state, user URL tracking parameters or account credentials saved",
-  "trackTests": "Both public track routes were exercised with self-written Japanese/English fixtures, not real client lyric responses"
+  "trackTests": "Both public track routes were exercised with self-written Japanese/English fixtures, not real client lyric responses",
+  "currentCoreCompatibility": {
+    "executed": 1011,
+    "passed": 1011,
+    "excludedAssertionsReplacedForRequestedPolicy": 8
+  },
+  "serviceCheck": "evidence/multilingual-service-check.json"
 }
