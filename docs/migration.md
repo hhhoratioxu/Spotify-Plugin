@@ -1,5 +1,7 @@
 # 独立仓库迁移
 
+后续维护说明：本文件的“运行字节保持”指独立仓库首次迁移。之后用户要求所有非中文歌词可翻译，本地新增维护修复并生成新的固定资源，状态与证据见 [多语言修复](translation-2026-11-15.md)；旧历史与已发布 v3.2.2 迁移版不改。
+
 目标仓库：[hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)，公开。用户于 2026-11-15 明确要求将 Spotify 项目全部转移到新 GitHub 仓库；本次据此上传完整项目和迁移后的安装入口，不将设备验收待办当作已通过，也不创建 GitHub Release。
 
 已完成推送，默认分支为 `main`。公开原始链接的 5 个安装入口与 18 个固定资源均已下载核对；从 GitHub 全新 Clone 的 868 个文件逐字节匹配已推送的源码提交。校验记录见 [github-migration-verification.json](../evidence/github-migration-verification.json)。

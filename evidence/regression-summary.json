@@ -1,8 +1,8 @@
 {
-  "recordedAt": "2026-11-14T15:16:58.498Z",
+  "recordedAt": "2026-11-14T22:30:35.386Z",
   "node": {
-    "tests": 385,
-    "passed": 385,
+    "tests": 626,
+    "passed": 626,
     "failed": 0,
     "skipped": 0,
     "cancelled": 0
@@ -29,5 +29,6 @@
     ]
   },
   "success": true,
-  "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
+  "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions",
+  "execution": "Independent clean copy; see evidence/independence.json"
 }

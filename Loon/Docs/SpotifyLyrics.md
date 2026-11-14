@@ -1,14 +1,16 @@
 # SpotifyLyrics · Loon
 
+> 当前文档含本地多语言修复说明；尚未推送，线上已发布迁移版仍为旧策略。新固定资源链接须发布后才可访问。
+
 > 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
-当前订阅配置 **2026.11.14**，核心 **3.2.2**（原生适配 18）。原订阅地址已接入平台选择：手机默认 `mobile`，Mac 在插件参数中选择 `macOS`，启用已测试的桌面逐行双语显示；Mac 完全无词入口仍未完成。原有十二个设置的默认值和手机运行脚本保持原样。
+当前开发订阅配置 **2026.11.15**，核心 **3.2.2**（原生适配 18）。原订阅地址已接入平台选择：手机默认 `mobile`，Mac 在插件参数中选择 `macOS`，启用已测试的桌面逐行双语显示；Mac 完全无词入口仍未完成。原有十二个设置的默认值保持，手机与 Mac 歌词核心均由当前维护源码构建。
 
 在线备用源及匹配表仅在取得处理名额、实际查词时初始化；已有补词缓存和繁忙返回跳过初始化。英语歌词路径减少重复语言检查。临时补词忙碌或失败时保留真实状态、类型和正文，清除缓存校验标记并使用 no-store。没有增加后台任务、并发、缓存容量或超时。桌面测量有改善也有回退，不能保证每种首次加载都更省内存。
 
 保留六源补词、插件翻译、原生时间轴与高亮。缓存和网络都有明确上限；未收录的歌曲仍不能凭空补全。本地自动测试与 macOS JavaScriptCore 测量不等于 iPhone Loon 实机 VPN 验收，不能保证所有设备都不会被系统终止。
 
-中文翻译按整首歌词判断：中文、日语、韩语等歌曲即使夹英文也不翻译；旧官方、来源及缓存译文均受此规则限制。英语歌曲仍过滤 oh 等语气词。来源未给语言时只接受有明确英文用词且无其他文字体系的歌词，不确定时保留原词；此轻量判断不是权威语言检测。用户手动选择非中文目标时保留原有翻译行为。
+当前开发策略：中文原词保持，其他语言按目标设置进入翻译，不再按整曲限制为英语。中外文混合句保留中文片段；语言未知的纯汉字保留，避免猜测。空白、语气词、原时间轴和容量 / 超时边界继续按原实现处理。详见 [多语言修复记录](../../docs/translation-2026-11-15.md)。
 
 核心 **3.2.2**，客户端适配 **18**。在 Spotify 原生歌词结构中写入插件译文，保留原词、时间轴及排版。
 
@@ -20,7 +22,7 @@
 
 [SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx)
 
-继续更新上面的原地址即可，无需重新安装或更换订阅。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。更新后插件日期为 `2026-11-14`；核心号仍为 `3.2.2`。
+已切换新仓库地址的用户在修复发布后刷新该订阅；仍使用旧 Proxy 地址的用户须先更换。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。当前开发插件日期为 `2026-11-15`；核心号仍为 `3.2.2`。
 
 1. 在 Loon「插件」中添加上面的远程地址并启用。需要 Loon 3.5.1（983）或更新版本。已订阅旧 `.plugin` 地址的用户请改用本页 `.lpx` 地址，并确认只启用一份。
 2. 使用已安装、信任并开启的 HTTPS 解密证书。仅加入 `spclient.wg.spotify.com` 和 `*-spclient.spotify.com`。
@@ -32,7 +34,7 @@
 
 | 参数 | 默认值 | 作用 |
 | --- | --- | --- |
-| `TRANSLATION_ENABLED` | `true` | 中文目标仅翻译英语歌曲；非英语歌曲中的英文保持原样，移除旧官方译文 |
+| `TRANSLATION_ENABLED` | `true` | 中文原词保持；翻译其他语言，混合句保留中文；失败保留官方响应 |
 | `TARGET_LANGUAGE` | `zh-CN` | 默认简体；`zh-TW` 繁体、`en` 英文、`ja` 日文、`ko` 韩文 |
 | `FALLBACK_PROVIDER` | `auto` | 无词时核对六源；官方静态歌词尝试升级为真实同步歌词；可选 `lrclib` / `qq` / `netease` / `kugou` / `kuwo` / `lyricsovh` / `off` |
 | `DISCOVER_MISSING` | `true` | 尝试适配原生入口，不保证客户端发起歌词请求 |
@@ -47,7 +49,7 @@
 
 可以直接在插件参数中调整上述设置。新增 `CLIENT_PLATFORM`（运行平台）默认 `mobile`，可选 `macOS`；它只用于 Loon 原生配置选择对应脚本，不传给歌词来源。手机选择默认值时不会选中执行 Mac 脚本。
 
-在已处理的歌词响应中，翻译开启后不回填 Spotify 官方译文；翻译服务失败时保留原词，移除官方译文。关闭插件翻译则保留官方响应。补源核对歌名、艺人和时长，优先同专辑，跨专辑列表搜索要求唯一，LRCLIB 签名结果需通过严格身份、时长与版本校验；来源没有收录时不能凭空补全歌词。
+取得可用插件译文时保留原词及时间轴并写入新的译文列表；服务失败或没有可用结果时保留完整官方响应与原生译文。关闭翻译同样保留官方响应。补源核对歌名、艺人和时长，优先同专辑，跨专辑列表搜索要求唯一，LRCLIB 签名结果需通过严格身份、时长与版本校验；来源没有收录时不能凭空补全歌词。
 
 ## 配色与验证范围
 
@@ -59,7 +61,7 @@
 
 ## 运行版本与接口
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2)
 
 原始核心和适配逻辑为独立编写。Unicode Unihan 数据许可随运行脚本完整附带。[Script 语法](https://nsloon.app/docs/Script/script_v2/) · [Script API](https://nsloon.app/docs/Script/script_api/) · [目标歌曲公开配色来源](https://open.spotify.com/embed/track/76XUZSb13QUuj1HECY4Hvo)
 

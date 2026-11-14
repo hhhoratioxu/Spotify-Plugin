@@ -1,16 +1,17 @@
 {
-  "configuration": "2026.11.15-migration",
+  "configuration": "2026.11.15-multilingual",
   "core": "3.2.2",
+  "patch": "non-chinese-translation",
   "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
-  "runtimeCommit": "85803237600fc3701d369c10a5b9d7654d877a2b",
+  "runtimeCommit": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
   "baseline": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "profile": {
     "path": "Loon/script/SpotifyLyrics.lpx",
-    "bytes": 12405,
-    "sha256": "b11737913e21fea850de7f4d78e6da38c7ed3955a99a6399b0f03bcc0918d76e"
+    "bytes": 12387,
+    "sha256": "85d45764ed1c23dcb7f89097c5ef6e3a34f8c39297189419f576684d668ba07d"
   },
-  "mobileRuntimeChanged": false,
+  "mobileRuntimeChanged": true,
   "iosPeakAcceptance": "unverified",
   "macMissingLyricsEntry": "unverified"
 }

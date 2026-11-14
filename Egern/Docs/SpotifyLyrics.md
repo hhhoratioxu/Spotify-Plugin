@@ -1,12 +1,14 @@
 # SpotifyLyrics · Egern
 
+> 当前文档含本地多语言修复说明；尚未推送，线上已发布迁移版仍为旧策略。新固定资源链接须发布后才可访问。
+
 > 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
 当前发布 **3.2.2**（原生适配 18）。在线备用源及匹配表仅在取得处理名额、实际查词时初始化；已有补词缓存和繁忙返回跳过初始化。英语歌词路径减少重复语言检查。临时补词忙碌或失败时保留真实状态、类型和正文，清除缓存校验标记并使用 no-store。没有增加后台任务、并发、缓存容量或超时。桌面测量有改善也有回退，不能保证每种首次加载都更省内存。
 
 保留六源补词、插件翻译、原生时间轴与高亮。缓存和网络都有明确上限；未收录的歌曲仍不能凭空补全。本地自动测试与 macOS JavaScriptCore 测量不等于 iPhone Loon 实机 VPN 验收，不能保证所有设备都不会被系统终止。
 
-中文翻译按整首歌词判断：中文、日语、韩语等歌曲即使夹英文也不翻译；旧官方、来源及缓存译文均受此规则限制。英语歌曲仍过滤 oh 等语气词。来源未给语言时只接受有明确英文用词且无其他文字体系的歌词，不确定时保留原词；此轻量判断不是权威语言检测。用户手动选择非中文目标时保留原有翻译行为。
+当前开发策略：中文原词保持，其他语言按目标设置进入翻译，不再按整曲限制为英语。中外文混合句保留中文片段；语言未知的纯汉字保留，避免猜测。空白、语气词、原时间轴和容量 / 超时边界继续按原实现处理。详见 [多语言修复记录](../../docs/translation-2026-11-15.md)。
 
 当前模块：3.2.2，适用于支持原生 `ctx` 脚本 API 的 Egern。
 
@@ -30,7 +32,7 @@
 
 | 设置 | 默认值 | 用途 |
 | --- | --- | --- |
-| `TRANSLATION_ENABLED` | `true` | 中文目标仅翻译英语歌曲；非英语歌曲中的英文保持原样，移除旧官方译文。 |
+| `TRANSLATION_ENABLED` | `true` | 中文原词保持；翻译其他语言，混合句保留中文；失败保留官方响应。 |
 | `TARGET_LANGUAGE` | `zh-CN` | 简体中文，可在模块设置中改为其他语言。 |
 | `FALLBACK_PROVIDER` | `auto` | 官方无词时核对六源；只有静态歌词时搜索真实同步来源；也可选 `lrclib` / `qq` / `netease` / `kugou` / `kuwo` / `lyricsovh` / `off`。 |
 | `DISCOVER_MISSING` | `true` | 处理已适配的歌词检查、元数据和原生歌词入口。 |
@@ -59,9 +61,9 @@ Spotify 已有同步歌词的原词和时间轴继续保留；官方只有静态
 
 ## 来源与许可
 
-插件逻辑独立编写。Unihan 简繁体映射的许可保存在运行版本对应的 [NOTICE-UNICODE.txt](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt)。
+插件逻辑独立编写。Unihan 简繁体映射的许可保存在运行版本对应的 [NOTICE-UNICODE.txt](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt)。
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Egern/script/SpotifyLyrics/spotify-lyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2) · [Egern 原生 API](https://egernapp.com/docs/javascript-api/)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/spotify-lyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2) · [Egern 原生 API](https://egernapp.com/docs/javascript-api/)
 
 [其他客户端](../../README.md) · [返回 Egern](../README.md)
 

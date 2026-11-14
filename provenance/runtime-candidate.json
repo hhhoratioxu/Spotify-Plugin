@@ -142,5 +142,14 @@
     "passed": 1011,
     "excludedAssertionsReplacedForRequestedPolicy": 8
   },
-  "serviceCheck": "evidence/multilingual-service-check.json"
+  "serviceCheck": "evidence/multilingual-service-check.json",
+  "independentVerification": {
+    "node": 626,
+    "python": 18,
+    "currentCore": 1011,
+    "excludedPolicyAssertions": 8,
+    "historicalBaseline": 2248,
+    "memoryBridge": 72
+  },
+  "verificationReport": "evidence/independence.json"
 }
