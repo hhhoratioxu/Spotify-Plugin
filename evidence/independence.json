@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-14T15:58:44.766Z",
+  "recordedAt": "2026-11-14T16:18:46.886Z",
   "scope": "Copy outside Proxy with no Git database and freshly installed locked dependencies; build and fixture tests only",
   "parentGitAvailable": false,
   "commands": [
@@ -13,8 +13,8 @@
         "--no-fund"
       ],
       "exitCode": 0,
-      "durationMs": 602,
-      "tail": "\nadded 11 packages in 475ms\n\n"
+      "durationMs": 497,
+      "tail": "\nadded 11 packages in 389ms\n\n"
     },
     {
       "label": "build",
@@ -23,7 +23,7 @@
         "tools/build.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 5152,
+      "durationMs": 4731,
       "tail": "{\"built\":15,\"core\":\"3.2.2\",\"published\":false}\n\n"
     },
     {
@@ -33,7 +33,7 @@
         "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 959,
+      "durationMs": 916,
       "tail": "{\"path\":\"/verselyrics-native-0b74c82894\",\"cases\":18,\"productionStorageAccessed\":false}\n\n"
     },
     {
@@ -43,7 +43,7 @@
         "Loon/Development/SpotifyNativeMemory20261114/preflight-offline.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 774,
+      "durationMs": 748,
       "tail": "{\"completed\":72,\"matched\":72,\"networkRequests\":0,\"nativeAcceptance\":false}\n\n"
     },
     {
@@ -53,8 +53,8 @@
         "tools/test.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 1452,
-      "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
+      "durationMs": 1451,
+      "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nOK\n......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
     },
     {
       "label": "baseline",
@@ -63,17 +63,17 @@
         "tools/test-baseline.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 7858,
-      "tail": "1..2248\n# tests 2248\n# suites 0\n# pass 2248\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 4866.571458\n\n\n"
+      "durationMs": 6377,
+      "tail": "1..2248\n# tests 2248\n# suites 0\n# pass 2248\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 3570.216667\n\n\n"
     }
   ],
   "success": true,
   "nativeAcceptance": false,
   "regression": {
-    "recordedAt": "2026-11-14T15:58:53.892Z",
+    "recordedAt": "2026-11-14T16:18:55.274Z",
     "node": {
-      "tests": 385,
-      "passed": 385,
+      "tests": 391,
+      "passed": 391,
       "failed": 0,
       "skipped": 0,
       "cancelled": 0
@@ -103,7 +103,7 @@
     "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
   },
   "baseline": {
-    "recordedAt": "2026-11-14T15:59:02.000Z",
+    "recordedAt": "2026-11-14T16:19:01.897Z",
     "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
     "restoredFiles": 125,
     "tests": 2248,
@@ -116,7 +116,10 @@
     "displayName": "SpotifyLyrics",
     "inputs": "local source snapshots and src; no parent Git lookup",
     "network": "none",
-    "subscriptionURLsChanged": false,
+    "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
+    "runtimeCommit": "85803237600fc3701d369c10a5b9d7654d877a2b",
+    "runtimeBytesChanged": false,
+    "subscriptionURLsChanged": true,
     "artifacts": [
       {
         "path": "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",

@@ -1,5 +1,9 @@
 # Loon 官方文档适配记录
 
+## SpotifyLyrics GitHub 安装链迁移（2026-11-15）
+
+重新核对 [Plugin 官方页面](https://nsloon.app/docs/Plugin/) 的主页、日期与脚本 URL 示例。当前安装入口改用 `hhhoratioxu/SpotifyLyrics`，所有运行脚本固定到完整提交并核对本地 SHA-256；不增加 source 校验字段，不改变原规则、参数、API 或最低 Loon 版本。编号功能描述保留，日期只标明地址迁移。历史快照及来源链接保持原字节。迁移构建 / 链接验证与真实设备验收分开报告，本次不更新已安装 Loon 或 VPN。
+
 ## SpotifyLyrics 插件描述格式（2026-11-14）
 
 按用户指定，参照本地 WeatherKit 的系统列表与编号功能说明排版。重新核对 [Plugin 官方页面](https://nsloon.app/docs/Plugin/) 的 `#!desc` 功能说明字段；单行中的字面 `\n` 沿用 WeatherKit 已有写法。只改描述与其生成源，保留原日期、作者、支持参数、最低版本、规则、URL 和运行脚本；Mac 无词补全继续明确标为测试中，不加入未经验证的手机内存或逐字宣称。

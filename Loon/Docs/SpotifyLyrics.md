@@ -1,6 +1,6 @@
 # SpotifyLyrics · Loon
 
-> 独立本地项目的复制文档；核心和原订阅链接保持，未发布新版本。历史发布记录保留原名。当前验收状态见 [acceptance.md](../../docs/acceptance.md)。
+> 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
 当前订阅配置 **2026.11.14**，核心 **3.2.2**（原生适配 18）。原订阅地址已接入平台选择：手机默认 `mobile`，Mac 在插件参数中选择 `macOS`，启用已测试的桌面逐行双语显示；Mac 完全无词入口仍未完成。原有十二个设置的默认值和手机运行脚本保持原样。
 
@@ -18,7 +18,7 @@
 
 ## 安装与更新
 
-[SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/Proxy/main/Loon/script/SpotifyLyrics.lpx)
+[SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx)
 
 继续更新上面的原地址即可，无需重新安装或更换订阅。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。更新后插件日期为 `2026-11-14`；核心号仍为 `3.2.2`。
 
@@ -59,7 +59,7 @@
 
 ## 运行版本与接口
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/Proxy/10049053ce86bd992e3ebb6511ffb28312ba86fb/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/Proxy/tree/10049053ce86bd992e3ebb6511ffb28312ba86fb/Surge/Development/VerseLyrics322)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2)
 
 原始核心和适配逻辑为独立编写。Unicode Unihan 数据许可随运行脚本完整附带。[Script 语法](https://nsloon.app/docs/Script/script_v2/) · [Script API](https://nsloon.app/docs/Script/script_api/) · [目标歌曲公开配色来源](https://open.spotify.com/embed/track/76XUZSb13QUuj1HECY4Hvo)
 

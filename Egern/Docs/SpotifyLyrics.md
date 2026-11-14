@@ -1,6 +1,6 @@
 # SpotifyLyrics · Egern
 
-> 独立本地项目的复制文档；核心和原订阅链接保持，未发布新版本。历史发布记录保留原名。当前验收状态见 [acceptance.md](../../docs/acceptance.md)。
+> 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
 当前发布 **3.2.2**（原生适配 18）。在线备用源及匹配表仅在取得处理名额、实际查词时初始化；已有补词缓存和繁忙返回跳过初始化。英语歌词路径减少重复语言检查。临时补词忙碌或失败时保留真实状态、类型和正文，清除缓存校验标记并使用 no-store。没有增加后台任务、并发、缓存容量或超时。桌面测量有改善也有回退，不能保证每种首次加载都更省内存。
 
@@ -16,7 +16,7 @@
 
 已安装的用户更新原模块，再重新打开 Spotify；原来的导入地址继续有效。
 
-[正式模块 SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/Proxy/main/Egern/script/SpotifyLyrics.yaml)
+[正式模块 SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Egern/script/SpotifyLyrics.yaml)
 
 1. 在 Egern「模块」中添加上面的远程地址并启用，只保留一个 VerseLyrics 模块。
 2. 使用已经安装、信任并开启的 HTTPS 解密证书。模块仅处理 `spclient.wg.spotify.com` 和 `*-spclient.spotify.com`。
@@ -59,9 +59,9 @@ Spotify 已有同步歌词的原词和时间轴继续保留；官方只有静态
 
 ## 来源与许可
 
-插件逻辑独立编写。Unihan 简繁体映射的许可保存在运行版本对应的 [NOTICE-UNICODE.txt](https://raw.githubusercontent.com/hhhoratioxu/Proxy/10049053ce86bd992e3ebb6511ffb28312ba86fb/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt)。
+插件逻辑独立编写。Unihan 简繁体映射的许可保存在运行版本对应的 [NOTICE-UNICODE.txt](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt)。
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/Proxy/10049053ce86bd992e3ebb6511ffb28312ba86fb/Egern/script/SpotifyLyrics/spotify-lyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/Proxy/tree/10049053ce86bd992e3ebb6511ffb28312ba86fb/Surge/Development/VerseLyrics322) · [Egern 原生 API](https://egernapp.com/docs/javascript-api/)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Egern/script/SpotifyLyrics/spotify-lyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2) · [Egern 原生 API](https://egernapp.com/docs/javascript-api/)
 
 [其他客户端](../../README.md) · [返回 Egern](../README.md)
 

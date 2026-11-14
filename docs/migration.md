@@ -1,21 +1,33 @@
-# 复制式独立迁移
+# 独立仓库迁移
 
-2026-11-14，用户确认方案后建立 `Proxy/Spotify/`。该目录使用自己的 `.git`；父 Proxy、MapKit、WeatherKit 及其他项目原件不移动、不删除、不还原。父仓库的索引和 `.gitignore` 此阶段保持原样。
+目标仓库：[hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)，公开。用户于 2026-11-15 明确要求将 Spotify 项目全部转移到新 GitHub 仓库；本次据此上传完整项目和迁移后的安装入口，不将设备验收待办当作已通过，也不创建 GitHub Release。
 
-备份范围和逐文件哈希见 `provenance/parent-files-before.json`；本机 tar.gz 与校验清单的位置见 `provenance/migration.json`。备份含 888 个原件，其中 4 个 node_modules/.bin 符号链接分别核对链接目标和内容。最初备份检查因只统计常规文件而漏计符号链接，已按两类重新验证；原件未改。
+## 保留范围
 
-稳定历史、Mac 来源及公开运行对象共 191 个逻辑源对象导出为本地内容快照。`tools/source-snapshot.mjs` 逐次检查路径、字节数和 SHA-256，未知对象拒绝读取；不会回退到父仓库 Git。当前维护源码复制在 `src/`，原始 125 文件保存在 `history/3.2.2/`。
+独立目录 `Proxy/Spotify/` 使用自己的 `.git`。当前维护源码、五个客户端原生入口与运行文件、README / 安装说明、测试、Mac / 手机内存工具、公开实测证据、历史 Egern 档案及隔离恢复实验均一并保留。
 
-所有原订阅地址及固定版本 URL 暂时保留：手机核心为 Proxy `10049053ce86bd992e3ebb6511ffb28312ba86fb`，Mac 为 `795c677b0d115cab5eb8e4f959424d905a98e3ff`。新本地入口只变更用户可见显示名，版本、参数、协议标记和缓存身份保持。父仓库入口未改，安装中的 Loon 插件未更新。
+125 个 `history/3.2.2/` 文件与 191 个逻辑来源对象保持原始字节，按 SHA-256 核验。原 Proxy 最新主分支 `823e6a8cbc89f4e6b697bea17a2f43820a632b86` 的 Spotify / VerseLyrics 路径用 Git fast-export / fast-import 独立导入：101 个相关提交，历史共 3179 个路径；逐提交核对原始 blob ID、作者、提交者、时间与说明。过滤后的提交 ID 与原提交的对照保存在 [git-history.json](../provenance/git-history.json)，原历史分支为 `archive/proxy-history`。
 
-GitHub：`hhhoratioxu/SpotifyLyrics`，公开，与原 Proxy 一致。创建前已报告名称、可见性及同名查询 404，确认 CLI 身份为 hhhoratioxu；独立性验证通过后仅创建空仓库并配置本地 origin。随后 GraphQL 核实 nameWithOwner、visibility=PUBLIC、isEmpty=true。没有提交、Push、源码上传或发布版本。Codex 项目/分组由主聊天协调，本线程没有操作 Mac UI。
+导入历史只包含 Spotify 相关路径，没有导入 WeatherKit、MapKit 或其他代理项目。过滤后提交哈希与签名不能当作原提交签名；原仓库历史保持不变。
 
-独立性验证在 Proxy 之外的临时目录执行：不复制 `.git`、node_modules 或备份，重新 `npm ci`，执行构建、当前回归和 2248 项历史基线。该检查不启动本地服务、不操作客户端或播放音乐。结果写入 `evidence/independence.json`。
+另外逐文件核对当前父目录的 351 个 Spotify 插件文件：已在当前树或迁移 Git 历史中的内容直接关联；11 份此前仅在本机的原版开发文件额外保存在 `archive/pre-migration-local/`。完整路径、大小、SHA-256 与保留位置见 [source-coverage.json](../provenance/source-coverage.json)。10 个共享路由 / 图标资产继续归属 Proxy。
 
-扩展检查曾误用依赖本地 HTTP 服务的旧 `preflight.mjs`，在服务关闭时失败，记录保留为 `evidence/independence-network-preflight-failure.json`。新增进程内 `preflight-offline.mjs` 后，直接执行生成的原测试桥，72 个用例通过，网络请求为 0；不将这一结果写成原生压力或内存验收。
+## 安装链迁移
 
-后续顺序：完成实际功能和内存验收；明确整体许可；核对新仓库名称、可见性和发布授权；发布固定对象及新入口；原 Proxy 保留兼容入口并说明迁移；确认用户已切换后才清理旧开发文件。若要求连兼容入口也完全删除，必须先切换订阅，不能同时承诺原 main 路径继续可更新。原历史固定提交链接通过保留原 Git 历史继续提供。
+新入口集中在各客户端 `script/`，大小写保持一致。运行文件固定到新仓库的 `85803237600fc3701d369c10a5b9d7654d877a2b` 提交，18 个运行文件与 Unicode 许可文件的大小及 SHA-256 见 [runtime-release.json](../provenance/runtime-release.json)。迁移不改变这些运行文件的字节、核心 3.2.2、内部请求标记、缓存身份、来源、原参数或默认值。
 
-最终本地核对：888个原件未变，父仓库索引和忽略规则未变；子仓库分支为 codex/spotifylyrics-migration，尚无本地提交，origin 指向已核实的公开空仓库。当前父仓库仍会显示 Spotify/ 为未跟踪目录；不要将子仓库作为父仓库 gitlink 加入索引。父级忽略规则的后续处理留到获准阶段，当前不提前修改。
+Loon 继续使用原有 mobile / macOS 选择、原规则和体积保护；此次仅改主页、资源地址与迁移日期，保留编号功能描述。Surge、Egern、Quantumult X、Shadowrocket 继续使用各自原生格式与 API。历史快照、原兼容入口样本和档案中的旧 URL 不做全局替换。
 
-Spotify 路由列表、共享图标、其他 Proxy 项目均不属于此次删除范围。不得为了整洁改写父仓库历史或强制推送。
+现有用户须将旧 Proxy 订阅 URL 改为 [README 中的新入口](../README.md#安装)。旧地址保持兼容内容，不会自动变成新仓库地址；只更新旧订阅仍会获得旧内容。未修改已安装客户端、缓存或 VPN。
+
+## 备份与其他项目
+
+最初复制前的 888 个原件核对记录保存在 `provenance/parent-files-before.json`；本机备份位置见初次迁移记录。此次发布前另对当前子仓库和父仓库已跟踪文件 / 索引建立新基线与私有备份，结束时重新核对，保护已有的并发修改。
+
+本地 `.migration-backup/`、node_modules、客户端账户 / 配置 / 证书均不上传。父 Proxy、WeatherKit、MapKit 及其他项目的文件、索引和 Git 历史不移动、不删除、不覆盖，也不向旧 Proxy 推送。旧入口保留给已订阅用户，新功能后续在新仓库维护。Spotify 路由规则继续属于 Proxy。
+
+## 验证与仍待处理的工作
+
+独立构建在 Proxy 之外的临时目录执行，不复制 `.git`、依赖目录或备份，重新 `npm ci` 后构建并运行当前回归、2248 项原始历史基线和 72 项进程内测试桥。安装链检查逐个核对新仓库固定 URL 及 18 个文件哈希。结果见 `evidence/independence.json` 和发布校验记录。
+
+这些检查不播放音乐、不部署诊断，也不代替原生设备验收。Mac 无词补全、精确同步、iPhone 50 MB 和日文歌曲翻译继续记录在 [验收状态](acceptance.md) 与 [待修复问题](open-issues.md)。迁移上传不等同于新功能版本发布。

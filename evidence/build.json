@@ -3,7 +3,10 @@
   "displayName": "SpotifyLyrics",
   "inputs": "local source snapshots and src; no parent Git lookup",
   "network": "none",
-  "subscriptionURLsChanged": false,
+  "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
+  "runtimeCommit": "85803237600fc3701d369c10a5b9d7654d877a2b",
+  "runtimeBytesChanged": false,
+  "subscriptionURLsChanged": true,
   "artifacts": [
     {
       "path": "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",

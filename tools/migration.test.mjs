@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {sourceBuffer, verifySnapshots} from './source-snapshot.mjs';
 import {setDisplayName,loonDescription} from './display-name.mjs';
+import {relocateProfile} from './runtime-release.mjs';
 const root = new URL('../', import.meta.url);
 test('all exported source objects verify locally', () => assert.equal(verifySnapshots(), 191));
 test('historical commit names never fall back to parent Git or arbitrary files', () => {
@@ -18,8 +19,8 @@ test('native entries preserve compatibility while Loon uses the concise numbered
   for (const [client,ext] of Object.entries({Loon:'lpx',Surge:'sgmodule',Egern:'yaml',QuantumultX:'conf',Shadowrocket:'sgmodule'})) {
     const p=client+'/script/SpotifyLyrics.'+ext;
     const old=readFileSync(new URL('provenance/compatibility/'+p,root),'utf8');
-    const expected=setDisplayName(old,client);
-    assert.equal(readFileSync(new URL(p,root),'utf8'),client==='Loon'?expected.replace(/^#!desc = .*$/m,'#!desc = '+loonDescription):expected);
+    const expected=relocateProfile(setDisplayName(old,client));
+    assert.equal(readFileSync(new URL(p,root),'utf8'),client==='Loon'?expected.replace(/^#!desc = .*$/m,'#!desc = '+loonDescription).replace(/^#!date = .*$/m,'#!date = 2026-11-15'):expected);
   }
 });
 test('display naming leaves protocol markers and cache identity intact', () => {

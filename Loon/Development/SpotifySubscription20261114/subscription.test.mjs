@@ -5,6 +5,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {baseline,macSource,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
+import {relocateProfile,runtimeRelease,runtimeURL} from '../../../tools/runtime-release.mjs';
 const profile=readFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),'utf8');
 const manifest=JSON.parse(readFileSync(new URL('./subscription-manifest.json',import.meta.url),'utf8'));
 const old=git(macSource,'Loon/script/SpotifyLyrics.lpx').toString();
@@ -33,14 +34,14 @@ function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+path
   return lines.filter(line=>condition(line.slice(line.indexOf(' if ')+4,line.indexOf(' then ')),values));
 }
 test('the actual public entry has a reproducible build and a numbered WeatherKit-style description',()=>{
-  assert.equal(createProfile(manifest.runtimeCommit),profile);assert.match(profile,/#!date = 2026-11-14/);
+  assert.equal(createProfile(manifest.runtimeCommit),profile);assert.match(profile,/#!date = 2026-11-15/);
   const description=profile.split('\n').find(line=>line.startsWith('#!desc = ')).slice(9).split('\\n');
   assert.equal(description[0],'iOS & iPadOS & macOS');assert.equal(description.length,6);assert.ok(description.slice(1).every((line,i)=>line.startsWith((i+1)+'.')));assert.match(description[5],/Mac.*无词补全测试中/);
 });
 test('all twelve existing user settings and defaults remain byte identical',()=>{assert.equal(section(profile,'Argument').split('\n').filter(l=>!l.startsWith('CLIENT_PLATFORM = ')).join('\n'),section(old,'Argument'));assert.match(section(profile,'Argument'),/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);});
 test('mobile keeps exactly the original three native rewrites and two response scripts',()=>{
   assert.deepEqual(rules(profile,'Rewrite').map(unGate),rules(old,'Rewrite'));
-  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(old,'Script'));
+  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(relocateProfile(old),'Script'));
 });
 test('phone never starts the new Mac request script or loads a Mac runtime',()=>{
   for(const path of paths)for(const host of ['spclient.wg.spotify.com','gew1-spclient.spotify.com','gae2-spclient.spotify.com:443']){
@@ -53,7 +54,7 @@ test('phone never starts the new Mac request script or loads a Mac runtime',()=>
 test('native response routing preserves original status and size guards for phones',()=>{
   for(const path of paths)for(const status of [200,404,304,401,403,429,500])for(const length of [null,'20','131073','262145']){
     const options={url:'https://spclient.wg.spotify.com/'+path,status,length};
-    assert.deepEqual(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).map(unGate),select(rules(old,'Script'),options));
+    assert.deepEqual(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).map(unGate),select(rules(relocateProfile(old),'Script'),options));
   }
 });
 test('Mac selects its own request and exactly one response while native rewrites stay inactive',()=>{
@@ -75,15 +76,15 @@ test('internal fetches, unrelated hosts and invalid platform values do not selec
 });
 test('Mac routes preserve the tested candidate conditions and all native completion/body options',()=>{
   const actual=rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "macOS"')).map(unGate);
-  const expected=rules(mac,'Script').map(l=>{for(const item of files)l=l.replace('http://127.0.0.1:18765/'+item.source,'https://raw.githubusercontent.com/hhhoratioxu/Proxy/'+manifest.runtimeCommit+'/Loon/script/'+item.name);return l;});
+  const expected=rules(mac,'Script').map(l=>{for(const item of files)l=l.replace('http://127.0.0.1:18765/'+item.source,runtimeURL('Loon/script/'+item.name));return l;});
   assert.deepEqual(actual,expected);assert.equal(section(profile,'Mitm'),section(old,'Mitm'));
 });
 test('each real runtime is byte identical to the tested candidate and its pinned Git object',()=>{
-  for(const item of files){const bytes=readFileSync(join(repo,'Loon/script/'+item.name));assert.deepEqual(bytes,git(manifest.runtimeCommit,'Loon/script/'+item.name));assert.deepEqual(bytes,git(macSource,'Loon/Development/SpotifyMac20261114/runtime/'+item.source));new vm.Script(bytes.toString());}
+  for(const item of files){const bytes=readFileSync(join(repo,'Loon/script/'+item.name));assert.equal(createHash('sha256').update(bytes).digest('hex'),runtimeRelease.artifacts.find(a=>a.path==='Loon/script/'+item.name).sha256);assert.deepEqual(bytes,git(macSource,'Loon/Development/SpotifyMac20261114/runtime/'+item.source));new vm.Script(bytes.toString());}
 });
 test('the public install chain contains only immutable public URLs and no local diagnostics',()=>{
   assert.doesNotMatch(profile,/127\.0\.0\.1|localhost|18765|CacheProbe|Debug|observe/);
-  for(const line of rules(profile,'Script'))assert.match(line,/script\("https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/Proxy\/[0-9a-f]{40}\/Loon\/script\/[^"/]+\.js"/);
+  for(const line of rules(profile,'Script'))assert.match(line,/script\("https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/SpotifyLyrics\/[0-9a-f]{40}\/Loon\/script\/[^"/]+\.js"/);
   for(const item of files)assert.doesNotMatch(readFileSync(join(repo,'Loon/script/'+item.name),'utf8'),/127\.0\.0\.1:18765|phase:"|cache-probe|\/events/);
 });
 test('the published profile hash and honest acceptance state match its manifest',()=>{

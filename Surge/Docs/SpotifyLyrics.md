@@ -1,6 +1,6 @@
 # SpotifyLyrics · Surge
 
-> 独立本地项目的复制文档；核心和原订阅链接保持，未发布新版本。历史发布记录保留原名。当前验收状态见 [acceptance.md](../../docs/acceptance.md)。
+> 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
 当前发布 **3.2.2**（原生适配 18）。在线备用源及匹配表仅在取得处理名额、实际查词时初始化；已有补词缓存和繁忙返回跳过初始化。英语歌词路径减少重复语言检查。临时补词忙碌或失败时保留真实状态、类型和正文，清除缓存校验标记并使用 no-store。没有增加后台任务、并发、缓存容量或超时。桌面测量有改善也有回退，不能保证每种首次加载都更省内存。
 
@@ -18,7 +18,7 @@
 
 已安装的用户更新原模块或重写引用，再重新打开 Spotify；原来的导入地址继续有效。
 
-[SpotifyLyrics.sgmodule 原始地址](https://raw.githubusercontent.com/hhhoratioxu/Proxy/main/Surge/script/SpotifyLyrics.sgmodule)
+[SpotifyLyrics.sgmodule 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Surge/script/SpotifyLyrics.sgmodule)
 
 1. 在 Surge「模块」中添加远程模块，粘贴上面的地址并启用。建议 Surge iOS 5.9.0+ / Mac 5.5.0+。
 2. 使用已安装、信任并开启的 HTTPS 解密证书。仅加入 `spclient.wg.spotify.com` 和 `*-spclient.spotify.com`。
@@ -57,7 +57,7 @@
 
 ## 运行版本与接口
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/Proxy/10049053ce86bd992e3ebb6511ffb28312ba86fb/Surge/script/SpotifyLyrics.js) · [适配源码与构建记录](https://github.com/hhhoratioxu/Proxy/tree/10049053ce86bd992e3ebb6511ffb28312ba86fb/Surge/Development/VerseLyrics322)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/85803237600fc3701d369c10a5b9d7654d877a2b/Surge/script/SpotifyLyrics.js) · [适配源码与构建记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2)
 
 原始核心和适配逻辑为独立编写。Unicode Unihan 数据许可随运行脚本完整附带。[HTTP Response Script](https://manual.nssurge.com/scripting/http-response.html) · [HTTP / Storage API](https://manual.nssurge.com/scripting/api.html)
 

@@ -1,0 +1,3222 @@
+{
+  "schema": 1,
+  "scope": "All currently discoverable parent Spotify/VerseLyrics plugin files, excluding shared routing/icons, dependencies and private backups",
+  "sourceFileCount": 351,
+  "additionalLocalOriginalsArchived": [
+    "Loon/Development/SpotifyMac20261114/diagnosis-artifacts.test.mjs",
+    "Loon/Development/SpotifyMac20261114/missing-lyrics.test.mjs",
+    "Loon/Development/SpotifyMobileMemory20261114/README.md",
+    "Loon/Development/SpotifyMobileMemory20261114/fixtures.mjs",
+    "Loon/Development/SpotifyMobileMemory20261114/footprint-runner.c",
+    "Loon/Development/SpotifyMobileMemory20261114/run-screen.mjs",
+    "Loon/Development/SpotifyNativeMemory20261114/README.md",
+    "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs",
+    "Loon/Development/SpotifySubscription20261114/build-subscription.mjs",
+    "Loon/Development/SpotifySubscription20261114/subscription-manifest.json",
+    "Loon/Development/SpotifySubscription20261114/subscription.test.mjs"
+  ],
+  "sharedAssetsExcluded": [
+    {
+      "path": "Clash/rule/Spotify.yaml",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Egern/rule/Spotify.yaml",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Icons/App/Spotify.png",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Icons/App/Transparent/Spotify.png",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Icons/App/Variants/Spotify/Spotify_Alt.png",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Icons/App/Variants/Spotify/Spotify_Full.png",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Loon/rule/Spotify.lsr",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "QuantumultX/rule/Spotify.list",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Shadowrocket/rule/Spotify.list",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    },
+    {
+      "path": "Surge/rule/Spotify.list",
+      "reason": "Shared Proxy routing or icon asset; remains in Proxy, not a lyrics plugin dependency"
+    }
+  ],
+  "allPluginFilesPreserved": true,
+  "files": [
+    {
+      "source": "Clash/Docs/SpotifyLyrics.md",
+      "bytes": 893,
+      "sha256": "e7e6e891b97a4a15142ac50d4e8fc34fe775cb67914a8a463181c43a2b8fefec",
+      "preservedAt": {
+        "kind": "preserved-git-history",
+        "blob": "0b247f09c930be525d3a484f65d517a7488e9f44"
+      }
+    },
+    {
+      "source": "Egern/Docs/SpotifyLyrics.md",
+      "bytes": 7861,
+      "sha256": "a5eae28a47f90509501ef2e44aa50705245ad2456ed4c4feeabefe394967db92",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Egern/Docs/SpotifyLyrics.md"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/entry-flow-live.json",
+      "bytes": 1354,
+      "sha256": "6de3349f6b2febf4a269d74ac35af223578955089e48760b88ddd41f15b0299c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/entry-flow-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/entry-flow-regression.json",
+      "bytes": 1057,
+      "sha256": "4a039416a3ea56f081af5bf8312325d914b2f321add3aeb7fab19e842ffb0c7f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/entry-flow-regression.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/live-services.json",
+      "bytes": 1556,
+      "sha256": "27a0372dc93e2f6f48de5595f4013f4f57f418796688d7a10967ce47c4c485ec",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/live-services.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/local-tests.txt",
+      "bytes": 15884,
+      "sha256": "4e1d5a016893b2b00548b5659ee594d35ff6603b4ce29f48507f47e486044939",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/local-tests.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/missing-lyrics-live.json",
+      "bytes": 556,
+      "sha256": "75389488ef95901b6c6cb20fb6529b4100e81c2bd350a41f71de69c0c38fea3f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/missing-lyrics-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/missing-lyrics-protocol.json",
+      "bytes": 3137,
+      "sha256": "148e856aba6c93a9601abc888b74408eb0f392bb8f0a907a2b273a24828b8e03",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/missing-lyrics-protocol.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/module-validation.json",
+      "bytes": 694,
+      "sha256": "51a800fa610ac24d5f1bf762bffd141693bfab01952b56a13a396de237809901",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/module-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/native-format-live.json",
+      "bytes": 1151,
+      "sha256": "4ee970207887fcb82bd38a081c071da36e7fa867116819d07ae51d4de7205acb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/native-format-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/native-format-regression.json",
+      "bytes": 746,
+      "sha256": "3cac868cce2acb79c2baececc6f0c88f4b8e2e81c6ab7cd885aa417e038c0d6d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/native-format-regression.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/native-protocol.json",
+      "bytes": 1440,
+      "sha256": "61c20fb8a69c08ce0c8d3ed802d335fcc17d933afc7e1e25fd905d2f5f602a06",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/native-protocol.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/native-translation-live.json",
+      "bytes": 1289,
+      "sha256": "a005cfc4c1cc3dc9deee6495309865d16c1c9bd5891b855c2b8f9cabed7e6794",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/native-translation-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/player-entry-live.json",
+      "bytes": 868,
+      "sha256": "ce8b4a8cd98ea9e36ed691bed9cb657dded0a3d4f95037dd4e4c3948ebe0ffe8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/player-entry-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/player-entry-protocol.json",
+      "bytes": 1369,
+      "sha256": "415cc68191edba9bbba2d8fef6a3ac4b713f03ed968c12e38a57c175cce4563e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/player-entry-protocol.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/production-config-validation.json",
+      "bytes": 1345,
+      "sha256": "b77e01b0a2226740ed64e52b6e28848d366e38c3d1fa8670a2affc5adc007bab",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/production-config-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/production-protocol.json",
+      "bytes": 1612,
+      "sha256": "a845799d844a2e2b1e1e1b62262d2743b61b9e5a55c5e57360b96a8bf8de7fe9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/production-protocol.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/production-target-live.json",
+      "bytes": 1354,
+      "sha256": "85ce28f8a66181167dd17093e2749a46a350ab96e108634b79b04a56d6c22951",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/production-target-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/production-translation-live.json",
+      "bytes": 1630,
+      "sha256": "3b25d683e4f754aaf612055200ab895f1e8ae394783a4f4536dbee112ac12d91",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/production-translation-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/target-song-live.json",
+      "bytes": 1217,
+      "sha256": "d8e883093a22787a7577532a9e16c92d297d9270fc4ea212d553a8b72d01cf7c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/target-song-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/translation-ownership-live.json",
+      "bytes": 1631,
+      "sha256": "1f7845d8cd18f2bb003f5e9539a1af3f82fcde5f2ea524c6f9ca449625430055",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/translation-ownership-live.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/unicode-data.json",
+      "bytes": 765,
+      "sha256": "d2fe7fb4c17c0b0b7d1df1ca40e6b7b263523364ce8d113df5c2531ffd5917af",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/unicode-data.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/Evidence/unicode-table-validation.json",
+      "bytes": 119,
+      "sha256": "333e9af22ef7cba3825e2b299db149d24f585d64bd5750e3ff62212128370d0b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/Evidence/unicode-table-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/NOTICE-UNICODE.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/README.md",
+      "bytes": 11383,
+      "sha256": "f652c3d56fef9f942231c3301b4fcc98a84b8712204edb4cfbc57365a09e76c8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/README.md"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/SHA256.json",
+      "bytes": 5914,
+      "sha256": "b4c29f079181ea69949af8902c48568bf9e9569f7ef7acfd0c67fb33a2a7b3bc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/SHA256.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/SpotifyLyrics.yaml",
+      "bytes": 3684,
+      "sha256": "63fe0337879c52be383a6354c450930a7f79611d276817de984973f7472f8c6b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/SpotifyLyrics.yaml"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/build-module.rb",
+      "bytes": 2869,
+      "sha256": "7c8097a72895b199da1e7e13048d4093cfe54fdb81f0195aaa3da8a0c47926b2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/build-module.rb"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/package.json",
+      "bytes": 342,
+      "sha256": "9d2ac928032527b86f1ba0fff8a14071b0e6a51d8bd84c09572ba2dabb893672",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/package.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/spotify-lyrics-0.4.0.js",
+      "bytes": 92865,
+      "sha256": "0732d50db097c284db643be107f2c15be645b3e435fd135ab10f9a15f84b2d2a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/spotify-lyrics-0.4.0.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/spotify-lyrics-0.4.1.js",
+      "bytes": 100449,
+      "sha256": "716eef4269e618538f7e22d060a827674456270a55d3e74eaa7036e681d5dc9e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/spotify-lyrics.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/spotify-lyrics.js",
+      "bytes": 100449,
+      "sha256": "716eef4269e618538f7e22d060a827674456270a55d3e74eaa7036e681d5dc9e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/spotify-lyrics.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/build-han-fold.py",
+      "bytes": 2863,
+      "sha256": "7e3943802832cdef63ce886f654d72d72d0320a42a704749ee2ce88b056c2ca5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/build-han-fold.py"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/decode-native.py",
+      "bytes": 2201,
+      "sha256": "bb338cc4cfc17fcfba12a9a4d499d681333156330379310752c709394f81b419",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/decode-native.py"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/fixtures/target-scroll.json",
+      "bytes": 1133,
+      "sha256": "b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/fixtures/target-song.json",
+      "bytes": 1501,
+      "sha256": "eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/live-native-format.mjs",
+      "bytes": 3489,
+      "sha256": "d3bcd5ec5b1b933972d6904f329cfc4bacb5cff264309d7082a2cd31a81cbd0e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/live-native-format.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/live-smoke.mjs",
+      "bytes": 8555,
+      "sha256": "b2671718484c6c041aa18da459362e6078a1b6ae76977c5b95748188e923cbec",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/live-smoke.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/live-target.mjs",
+      "bytes": 4995,
+      "sha256": "284b3c6c18aa1a3d686dd567518297a5ebc0b0c5591ac39d25cda1a20a95caa3",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/live-target.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/native-entry.test.mjs",
+      "bytes": 8910,
+      "sha256": "580f21b05f50f5b0f7a385d3510ee1a53045f8b6796b367e18c076d23a3c885b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/native-entry.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/native-format.test.mjs",
+      "bytes": 5013,
+      "sha256": "0a111be0b5a54b512f9bdf0f493b04d607d83babea4cf5707a4e2bdf08d646f8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/native-format.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/player-entry.test.mjs",
+      "bytes": 7497,
+      "sha256": "00156e2267ded92986d163a0825b3ae8fa6e80e37ac894d3f1bd866f5c99c66d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/player-entry.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/spotify-lyrics.test.mjs",
+      "bytes": 58973,
+      "sha256": "d3aa4d79a5d0621eee0d8c8d9f8eb30e3f3cc81cb677e9c1097bb16e63bc5a6c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/spotify-lyrics.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyrics/test/validate-module.rb",
+      "bytes": 4234,
+      "sha256": "0d427a79552fa72cfbecccaf88d867187edbff111681bfa901c49e3623d029a9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyrics/test/validate-module.rb"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/core-regression.txt",
+      "bytes": 10579,
+      "sha256": "8647768229170892b147bae0b210544b5ec0363e201c0519c541532fe4384011",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/core-regression.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/diagnostic-tests.txt",
+      "bytes": 6047,
+      "sha256": "f6350a5f230488f25e18724714426e016328fd6410b74b00217134d9acf4aacc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/diagnostic-tests.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/module-validation.json",
+      "bytes": 506,
+      "sha256": "25e52e99b725227781a9c16702eb8837b91a909ae5ae3848aaaab974b6725a13",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/module-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/native-endpoint-regression.json",
+      "bytes": 2199,
+      "sha256": "f9383738e921668c048d3560c7deaaf141849efb3bccaf8001e92bd8ba13eb6e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/native-endpoint-regression.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/public-ios-configuration-validation.json",
+      "bytes": 1913,
+      "sha256": "45ec2899cea037f826da2212c700a6bdea3a0e43bda1dc6bf614f8a272d30af5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/public-ios-configuration-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/target-batch-validation.json",
+      "bytes": 2025,
+      "sha256": "1c33d654e1bb8be69e7035f684218c7baa743933ad84c3a2140ec771fb7c708c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/Evidence/target-batch-validation.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/NOTICE-UNICODE.txt"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/README.md",
+      "bytes": 10211,
+      "sha256": "d55aa267a005fdedf050f76f8dd35b3c8bbd6af6b47845c8d6690bf8fd9e43b2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/README.md"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/SHA256.json",
+      "bytes": 3626,
+      "sha256": "12b8c8588dd336ad223b8e23ac2af5b137dda60332ada34785bc425f99b7cfac",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/SHA256.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/SpotifyLyrics.Diagnostics.yaml",
+      "bytes": 4422,
+      "sha256": "a8d90daf2d8e5398e66bd4ac19c188b32912c360636782bb0fd18264a6703f60",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/SpotifyLyrics.Diagnostics.yaml"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/build-info.json",
+      "bytes": 797,
+      "sha256": "d8591aa8211738390934e26d7eac2b847304546a7ac29605c925b52970cbfa8f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/build-info.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/build-module.rb",
+      "bytes": 2939,
+      "sha256": "e658d5740b82a3a64d2c4c39888d0fc136d92d2a3015646ac69a8e0c784e8fdc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/build-module.rb"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/build.mjs",
+      "bytes": 2098,
+      "sha256": "06fe09dc38c7d0368e1f3afd900a61d3cb165d0d046fd0749f6cb79df7ad64c5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/build.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/legacy/SpotifyLyrics-0.3.3.yaml",
+      "bytes": 4619,
+      "sha256": "6db1772ab59c90e795eca67025b4439138dde24f18560d07347a5c1fd3dd2d0c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/legacy/SpotifyLyrics-0.3.3.yaml"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/legacy/processor-0.3.3.js",
+      "bytes": 85136,
+      "sha256": "bad6962d1e5fe43ca5c98bc380f7fc5d4792d01ef5b0de6d9a6a0b55d18bc1f0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/legacy/processor-0.3.3.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/legacy/spotify-lyrics.test.mjs",
+      "bytes": 58978,
+      "sha256": "8b8687fd6872796f6b02c7b421241f2cb151dc270b7ebaaeca7c15b935ecc168",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/legacy/spotify-lyrics.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/lyrics-entry-gate.js",
+      "bytes": 7912,
+      "sha256": "ee0efc9990b5da73866cb835a025b038084dc369ba21ef64a2fb21effaddbd5c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/lyrics-entry-gate.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/notification-layer.js",
+      "bytes": 11342,
+      "sha256": "47c938f48e8036c0211195ee77b7ea54d677090d7c664829ac184f556f5029bd",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/notification-layer.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/package.json",
+      "bytes": 243,
+      "sha256": "5e19effadd68042aba9aa227f5fcac57f76239fb04633326a41ca33f037c0670",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/package.json"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics-2.js",
+      "bytes": 103008,
+      "sha256": "7e796de3e00505bbbcaf4a540dd4b81171a1f5277f38a6d2c04c4fc4a65bf347",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics-2.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics-3.js",
+      "bytes": 104621,
+      "sha256": "a6c03a1ffcc98a9f076dac06a3fa407d1f6d350562308fafe3b0a49c1ecb71c8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics-3.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics.js",
+      "bytes": 95732,
+      "sha256": "fbcb85d42b60d7fad733a4ecfbd7a7d3314eaad2bd673f2c0611cc383badeb35",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/spotify-lyrics-diagnostics.js"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/test/diagnostics.test.mjs",
+      "bytes": 12919,
+      "sha256": "b2973f48b91b93b39d71da055243ef2795b0af4bef63684e77baacbd3f3f5f8b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/test/diagnostics.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/test/lyrics-gate.test.mjs",
+      "bytes": 14258,
+      "sha256": "56c3133e909613b38ec684ca470726ea4dbebc4f46f707c4499be20aaa1fc3c4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/test/lyrics-gate.test.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/test/run-core-regression.mjs",
+      "bytes": 921,
+      "sha256": "a4d059460732c7dfac8394aeb6cdb2d2a2303955e951d6c9b4ec171484eae228",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/test/run-core-regression.mjs"
+      }
+    },
+    {
+      "source": "Egern/Scripts/SpotifyLyricsDiagnostics/test/validate-module.rb",
+      "bytes": 2475,
+      "sha256": "363378d97ab7e6455c35b2d6162f8f831b50d9b5800afeaea9d7da20541c7334",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/SpotifyLyricsDiagnostics/test/validate-module.rb"
+      }
+    },
+    {
+      "source": "Egern/Scripts/VerseLyrics-Egern-0.4.1.zip",
+      "bytes": 213749,
+      "sha256": "03e3c54e0f10605ecff99b118b6d4e65525eeaa4fe17f98fcf4486bb8e7c0e52",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/VerseLyrics-Egern-0.4.1.zip"
+      }
+    },
+    {
+      "source": "Egern/Scripts/VerseLyrics-Egern-0.4.1.zip.sha256",
+      "bytes": 94,
+      "sha256": "6aa212bd3ecaef1b3eb17132edf78624ccb7dbfdf6450e4785f6a154162f8f03",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/Egern/Scripts/VerseLyrics-Egern-0.4.1.zip.sha256"
+      }
+    },
+    {
+      "source": "Egern/script/SpotifyLyrics.yaml",
+      "bytes": 7701,
+      "sha256": "89ae868b7d7276acb58fc422f04e00af54305d5a6585b7098fc741962d924e5f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Egern/script/SpotifyLyrics.yaml"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/.gitignore",
+      "bytes": 13,
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/.gitignore"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/CONTINUATION.md",
+      "bytes": 10817,
+      "sha256": "b8619836052217e8e5552c3b15b39f56c3746d570c4ecc17476eb1377365b31e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/CONTINUATION.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/CacheProbe.lpx",
+      "bytes": 7222,
+      "sha256": "7cfd6f2bddc99db9a9fa852a8e477ef1aedb309c03aca1055aef59e240b08ed3",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/7cfd6f2bddc99db9a9fa852a8e477ef1aedb309c03aca1055aef59e240b08ed3.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/DebugMac.lpx",
+      "bytes": 6340,
+      "sha256": "598a4d9e4c6bb0eec56bdf2a5d685ca390a73a1f89e7e8140024165009bd9148",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/598a4d9e4c6bb0eec56bdf2a5d685ca390a73a1f89e7e8140024165009bd9148.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/DiagnosisMac.lpx",
+      "bytes": 6403,
+      "sha256": "2482841b803db9b70b99f8f9eedd8dd5679419e19892358144c61010c4fb4c6b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/DiagnosisMac.lpx"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/DisplayMac.lpx",
+      "bytes": 6355,
+      "sha256": "f7760af9fd15d75edfd7f5a341bdcc93ee4b1cb24295cf6710cde012cd44756d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/f7760af9fd15d75edfd7f5a341bdcc93ee4b1cb24295cf6710cde012cd44756d.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/Mac.lpx",
+      "bytes": 6313,
+      "sha256": "ee00621ac715cba52b8365283da37b04ae28e9ba1af2ee8cf420da54d1a5ed76",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ee00621ac715cba52b8365283da37b04ae28e9ba1af2ee8cf420da54d1a5ed76.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/NATIVE-A.md",
+      "bytes": 6479,
+      "sha256": "4c68d25f29a1961f94b7862e8ed210cdb814176a63defcdb35d92af049c3bf4a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/NATIVE-A.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/Observe.lpx",
+      "bytes": 1107,
+      "sha256": "df0b531e50da344a9d5246a6f5e7c3d38428d0d8525472e07b868d244da96f23",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/df0b531e50da344a9d5246a6f5e7c3d38428d0d8525472e07b868d244da96f23.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/README.md",
+      "bytes": 9697,
+      "sha256": "f4148e7da0cfddd4218d4cfc66f738c979fc4314b56d5e546d89d6eb577476c2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/README.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/build-diagnosis.mjs",
+      "bytes": 2154,
+      "sha256": "8985c47c281d47fbd160c395ac3a310328e0d896e7eaf67b95fa04b86989112a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/build-diagnosis.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/build-mac.mjs",
+      "bytes": 10408,
+      "sha256": "7d5adfe226d96607484098c48b0143f9f1047954543b65ca506b0d4692ef6721",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/7d5adfe226d96607484098c48b0143f9f1047954543b65ca506b0d4692ef6721.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/build-manifest.json",
+      "bytes": 2046,
+      "sha256": "83a3961f6a179267c5d4ed62efe6ac029dd965a3f3a2f9cb7369a0ab2e4b3faa",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/83a3961f6a179267c5d4ed62efe6ac029dd965a3f3a2f9cb7369a0ab2e4b3faa.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/cache-probe.mjs",
+      "bytes": 2430,
+      "sha256": "3bc881b0fbf7173038eb9737a71096ffbd97a047ffb9b7aa4bfef2cdab4218bb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3bc881b0fbf7173038eb9737a71096ffbd97a047ffb9b7aa4bfef2cdab4218bb.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/cache-probe.test.mjs",
+      "bytes": 3960,
+      "sha256": "ce1743b21f230d4e2576245a30ec6d2143f85725226b5059ed4ce734b04f6ded",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ce1743b21f230d4e2576245a30ec6d2143f85725226b5059ed4ce734b04f6ded.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/debug-wrap.mjs",
+      "bytes": 4107,
+      "sha256": "d1e0efec80cf24ff1cafb1084f4d2494535286a0563fcd16cb32104b31b69bc7",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/debug-wrap.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/debug.test.mjs",
+      "bytes": 972,
+      "sha256": "03a1f800cf33ffb43d0e969a7f2f1ab0e9959c9b69e9354f8caa876f165da2be",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/03a1f800cf33ffb43d0e969a7f2f1ab0e9959c9b69e9354f8caa876f165da2be.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/diagnosis-artifacts.test.mjs",
+      "bytes": 2297,
+      "sha256": "3703b9e2735b1a9697582668d22325c22c76f79743dc56912fc506e9c134fd8a",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMac20261114/diagnosis-artifacts.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/diagnostic-flow.test.mjs",
+      "bytes": 3392,
+      "sha256": "4cdf070def297335644a8028ff020682b5e8516f2d0927f86dd26707134a1406",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/diagnostic-flow.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/diagnostic-route.mjs",
+      "bytes": 1284,
+      "sha256": "e2ac48d94e1fdd2b8fe1e35fa340f8cef9795b5803b792cd71d917529b987a0f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/diagnostic-route.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/diagnostic-route.test.mjs",
+      "bytes": 1513,
+      "sha256": "92b5e3150d2b8e1887bc6e53d1ec397b3946a2bfe5e788ec41c1ee2aa4028375",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/diagnostic-route.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/diagnostic_server_test.py",
+      "bytes": 1776,
+      "sha256": "7289bdd97b1e7b4607b92289b219de7a48e079f191e741b92d802e652ef4f553",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/diagnostic_server_test.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/display.test.mjs",
+      "bytes": 5234,
+      "sha256": "193369ad9e5666da573f060e551feb0ab1590e3f74ccec073d505e5530044abe",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/193369ad9e5666da573f060e551feb0ab1590e3f74ccec073d505e5530044abe.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/continuation-status.json",
+      "bytes": 4254,
+      "sha256": "902606d3e1c00f55c5a9466f65b991228c2f62d41228bf22f5f7398afac08b7a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/continuation-status.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/desktop-client-facts.json",
+      "bytes": 1028,
+      "sha256": "195b3cdedf9a56c52ca8d624bd05285492e5c9f3cee265a85652cb4decae5232",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/desktop-client-facts.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/diagnosis-artifacts.json",
+      "bytes": 1490,
+      "sha256": "f95ca8559e7438a4a321cfe2f7b391c5944b52784e60f651a5243f45068461ea",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/diagnosis-artifacts.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/diagnostic-regression-tests.tap",
+      "bytes": 17746,
+      "sha256": "83e3e97940547faf48946b40454d0802beb6a6c882a5e217de1ae91c5b4f3cf4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/diagnostic-regression-tests.tap"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/entry-after.json",
+      "bytes": 2474,
+      "sha256": "ff43e4799fb0898608bfef0d1c43ebea05c84309babce8d9c5da577820993f38",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ff43e4799fb0898608bfef0d1c43ebea05c84309babce8d9c5da577820993f38.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/entry-before.json",
+      "bytes": 5728,
+      "sha256": "874928529f21f7b762b19e1b9c752f7ef8c9bab7182c4d2b149ba367e26839c3",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/874928529f21f7b762b19e1b9c752f7ef8c9bab7182c4d2b149ba367e26839c3.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/installed-protocol-facts.json",
+      "bytes": 2417,
+      "sha256": "92088ea670a47e6703303f8c0cc5f6ae918d0bfaf0de20dbb7a8c85b33438b9e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/92088ea670a47e6703303f8c0cc5f6ae918d0bfaf0de20dbb7a8c85b33438b9e.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/mac-tests.log",
+      "bytes": 4969,
+      "sha256": "fc8b33806058e35aae9d300341c33264f70be7f1a224202ffd5d4c9185f257a7",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/fc8b33806058e35aae9d300341c33264f70be7f1a224202ffd5d4c9185f257a7.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/memory-summary.json",
+      "bytes": 5398,
+      "sha256": "aa8d4b734249deeff9364f87447cfda0c44175c7715c9b98e29b8075699c7641",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/memory-summary.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/observations.json",
+      "bytes": 5153,
+      "sha256": "c3d90a147d1d290ee908c8ef366b28e0716b12781a22f21c1cf30dab6f2ba729",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/observations.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/process-memory.jsonl",
+      "bytes": 4390251,
+      "sha256": "a060edfa84bf991b5b6d77ce060aa4ebc1ea033751c963baabe8f1f1b73015e2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/process-memory.jsonl"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/start.json",
+      "bytes": 539,
+      "sha256": "e12112b03b26071e0f775b12f57ff83477583b702c767bd0a15a8f37ecef27c6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/native-a-20261114T113224/start.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/pre-diagnosis-production-hashes.json",
+      "bytes": 1136,
+      "sha256": "d575c95ab0fc2ff9deda6f6dee94e0ddbf5039888a3d72fda66be4f77e6df7a0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/evidence/pre-diagnosis-production-hashes.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/request-api-probe.json",
+      "bytes": 887,
+      "sha256": "79482ae764e8b166b904d2be7eb118cf0e5d1837c68b5ffe7686dcd81e805e44",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/79482ae764e8b166b904d2be7eb118cf0e5d1837c68b5ffe7686dcd81e805e44.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/evidence/verification.json",
+      "bytes": 1120,
+      "sha256": "5d18ba5c8712c3d79945de32bd07e55f90cc4fbacd580d5e5a7d892c718b350b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/5d18ba5c8712c3d79945de32bd07e55f90cc4fbacd580d5e5a7d892c718b350b.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/inspect-desktop.py",
+      "bytes": 3270,
+      "sha256": "97a86653d197588e1a42d8092f42ecc36d48846bdf73d7f12e1b04bea44e2039",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/inspect-desktop.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/inspect-protocol.py",
+      "bytes": 4086,
+      "sha256": "ff74f4e0a002294df832c1ad32b162b09cbcb55ce66f2732708e76de17b8ac59",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ff74f4e0a002294df832c1ad32b162b09cbcb55ce66f2732708e76de17b8ac59.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/mac-display.mjs",
+      "bytes": 2373,
+      "sha256": "4fdcf7a8bd451e59cae4c1af649ea1357a836ee2f241f620c560ad5893ee34ea",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/4fdcf7a8bd451e59cae4c1af649ea1357a836ee2f241f620c560ad5893ee34ea.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/mac-entry.test.mjs",
+      "bytes": 3109,
+      "sha256": "be82e822274b3ebc7c8c30b0576bb841487f0545aa2f124688d8ad111550e9a3",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/be82e822274b3ebc7c8c30b0576bb841487f0545aa2f124688d8ad111550e9a3.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/mac.test.mjs",
+      "bytes": 4665,
+      "sha256": "21e1bec186d512cf58221982f31c2c8117f4f2423f92d54d7595feaf26768c48",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/21e1bec186d512cf58221982f31c2c8117f4f2423f92d54d7595feaf26768c48.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/metadata-shape.mjs",
+      "bytes": 2733,
+      "sha256": "617052c2e90af8b1c240e8e047bb768dd900f494bc9578939376d958989ed799",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/metadata-shape.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/metadata-shape.test.mjs",
+      "bytes": 1278,
+      "sha256": "0db50bb35d30b42cf285f420212f6b69f96168687186b806a6729140c3657e12",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/0db50bb35d30b42cf285f420212f6b69f96168687186b806a6729140c3657e12.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/missing-lyrics.test.mjs",
+      "bytes": 6363,
+      "sha256": "b4ea6e37fe2dd46b61357ac2b82598c1ce066cbadef944c2892e5dce5fcaf71a",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMac20261114/missing-lyrics.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/observe.js",
+      "bytes": 2839,
+      "sha256": "0857406ea6405f3373d2e2756f0b5c7d9aa1051ea372d5d382800272c0f11792",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/0857406ea6405f3373d2e2756f0b5c7d9aa1051ea372d5d382800272c0f11792.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/observe.test.mjs",
+      "bytes": 3926,
+      "sha256": "3fbf6cadb58b34efa51ddde6a90eed2d0d56ec0e2d6a862c55ebbf67e33581dd",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3fbf6cadb58b34efa51ddde6a90eed2d0d56ec0e2d6a862c55ebbf67e33581dd.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/package-lock.json",
+      "bytes": 4824,
+      "sha256": "026ebf80027f06d8c0a2b34db6cc9991ab0a85b819300552714b0a76bf86d4c4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/026ebf80027f06d8c0a2b34db6cc9991ab0a85b819300552714b0a76bf86d4c4.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/package.json",
+      "bytes": 228,
+      "sha256": "45e0aafd44fc5626e997411bb615a5568c2d2b6966d2c56b30c55f5ead0463f0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/45e0aafd44fc5626e997411bb615a5568c2d2b6966d2c56b30c55f5ead0463f0.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/protocol-shape.mjs",
+      "bytes": 2292,
+      "sha256": "510571c5f97aee1a3ccff0ab560a4d7420c5bd449e2a8ca7c26638a928fac2f6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/protocol-shape.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/protocol.test.mjs",
+      "bytes": 1258,
+      "sha256": "94e43368b726f5f2516f9a74a0abb560ce6aef4c17a67b0bd0fa09107634853c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/94e43368b726f5f2516f9a74a0abb560ce6aef4c17a67b0bd0fa09107634853c.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.CacheProbe2.js",
+      "bytes": 15145,
+      "sha256": "a1c6a9344aee3c596c28ca526f0df545bba1a4b6b59687d9f884979e57b39cd2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a1c6a9344aee3c596c28ca526f0df545bba1a4b6b59687d9f884979e57b39cd2.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Debug.js",
+      "bytes": 100289,
+      "sha256": "f6b65021d75607a06b1bd8fbb7704b0985b95f4bfeb413562bde7c1e9657e34e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Debug.js"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Diagnosis.entry.d64bc09cda88e694.js",
+      "bytes": 39237,
+      "sha256": "d64bc09cda88e694bb07ee291a8a8cf5abbd45dca72855219e20bfb2fdac3427",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.TypesDebug.js"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Diagnosis.lyrics.e68c3124eda59f25.js",
+      "bytes": 106305,
+      "sha256": "e68c3124eda59f253d2c73682e8fbe41ac59d1685349d29d72f8b3846006d043",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Diagnosis.lyrics.e68c3124eda59f25.js"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Diagnosis.request.3585ce6c6fed44a6.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.TypesDebug.js",
+      "bytes": 39237,
+      "sha256": "d64bc09cda88e694bb07ee291a8a8cf5abbd45dca72855219e20bfb2fdac3427",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.TypesDebug.js"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.Mac.js",
+      "bytes": 29698,
+      "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Entry.js",
+      "bytes": 29689,
+      "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Mac.js",
+      "bytes": 96763,
+      "sha256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.Request.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/runtime/SpotifyLyrics.js",
+      "bytes": 90747,
+      "sha256": "8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/8ddea05e3bfbaeda162bfe31cd887207cab7813c169e58795f1f8b9318d11b94.txt"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMac20261114/serve.py",
+      "bytes": 2902,
+      "sha256": "72c463a15f5b1e8eb2513b59b23eb5c7fd7eaa6df21ced828596e27cc7e045e4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMac20261114/serve.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/.gitignore",
+      "bytes": 14,
+      "sha256": "4d56952b0fb13bf8f9b6c13a6d4c34a075bac3af447636a1df4335d7576e2f97",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/.gitignore"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/README.md",
+      "bytes": 6500,
+      "sha256": "89d06d4a96f33c2257ed6e39e6ff30d0f7c25693ef03f9febec898a75eef8d24",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMobileMemory20261114/README.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/budget.mjs",
+      "bytes": 1157,
+      "sha256": "b5b774917447df006ea12b562d8d5aaaf2962c28af445cfbff69d7ad9578240e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/budget.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/budget.test.mjs",
+      "bytes": 1996,
+      "sha256": "6419541eb16aeedea7218f5c34da7122d922ffa9e1a41985c3235b8bd5341d0a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/budget.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/check-budget.mjs",
+      "bytes": 445,
+      "sha256": "6ed27694fb9a3b59a88bf2b64f915281331fdf2ea020857ebd8f37c0437625b9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/check-budget.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/evidence/memory-screen.json",
+      "bytes": 194549,
+      "sha256": "4136e8b385aa0943a4e594b36557e9c487e3907091cf5f537aebd89e1a00a2c8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/evidence/memory-screen.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/fixtures.mjs",
+      "bytes": 9010,
+      "sha256": "00ca5c57ba390e71467697b479217d1637ed7a94a5cdcdc77fdc8760966f5525",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMobileMemory20261114/fixtures.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/footprint-runner.c",
+      "bytes": 3209,
+      "sha256": "1404631f52f5c5601931d1560e05c4d5fd0e5ad8c789624bdd6eea127baa3ff6",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMobileMemory20261114/footprint-runner.c"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/memory-policy.json",
+      "bytes": 813,
+      "sha256": "dc6484bd9c763f329d7f47dc493bb3e33c8c49575cb58ded59f800cb64a5520f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/memory-policy.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/package.json",
+      "bytes": 204,
+      "sha256": "a23ed2f5c70989184352206c606872839e9d0e25ae124eba2479a6074f56c549",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyMobileMemory20261114/package.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyMobileMemory20261114/run-screen.mjs",
+      "bytes": 4075,
+      "sha256": "af5924fe02d3c6300cf4702f7c01e9b65bcbda01ea12cb4b61895ca3b1d04bf7",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyMobileMemory20261114/run-screen.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/.gitignore",
+      "bytes": 22,
+      "sha256": "7c97da9d69b3c1ad1cc201ed8637dd519b10f98047b1eaa697fb2be7bd0f351f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/.gitignore"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/README.md",
+      "bytes": 8227,
+      "sha256": "e06ae7712d8590a2bbf563c366bdaa761cf00dcaa1f547cfd2c11d831b566aed",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyNativeMemory20261114/README.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/driver-body.js",
+      "bytes": 3801,
+      "sha256": "d465d86ab1e9f2ae0f25534ab325afebb177e009be1ad0d992d4fce060bde841",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/driver-body.js"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/live-memory.jsonl",
+      "bytes": 6704956,
+      "sha256": "a1645bb7899cf3eeb0412a38e0edf967c1c6774d5e7ad6fa43e6470502b7b99f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/live-memory.jsonl"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/memory-summary.json",
+      "bytes": 7480,
+      "sha256": "87f321cdcbc105af1f55e945cbd7f84a25ab79033c5323ac0883646553bdc9ac",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/memory-summary.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/native-stress-memory.jsonl",
+      "bytes": 6085649,
+      "sha256": "2c710491902b64edefb006187dbbcb230c183653effa147b60424de2ac1d7e39",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/native-stress-memory.jsonl"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/node-preflight-results.json",
+      "bytes": 28119,
+      "sha256": "c6e830c0fe29f5f93401e08d37bf34f52a1ebb07419dc2e2806d305d5c64e1fc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/node-preflight-results.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/preflight-summary.json",
+      "bytes": 429,
+      "sha256": "3ebffbc60d7ff4df6330e5b3a4d1d8e7d3f32d6e46997b3e8200e6fed21161e1",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/preflight-summary.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/evidence/source-manifest.json",
+      "bytes": 1336,
+      "sha256": "c8b890763cd957985e4b53e33775bb89a1a6ae91f03fc419c52e33e03defca88",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/evidence/source-manifest.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/monitor.py",
+      "bytes": 4300,
+      "sha256": "2a2acbe5f1068b6e639db9f3077f0690880799c79c8260a430eacb17758b8091",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/monitor.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/monitor_test.py",
+      "bytes": 1190,
+      "sha256": "283c4b8a6cf1a4dbf531ce4d3f6d2fc7e3ee8b8a33d99f69fb26fbb7fb108b83",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/monitor_test.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/native-memory.c",
+      "bytes": 2969,
+      "sha256": "0c7a690a3b999b3fb1f3cc1b059fcca95aeece94a6e25d859de9e9781a0a0526",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/native-memory.c"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/preflight.mjs",
+      "bytes": 1959,
+      "sha256": "16a6f4a18279ca54db07a6cf0ea8d6bb4097c1a4c7bd4ee7fbfcf8dc62ecf9e0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/preflight.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs",
+      "bytes": 4734,
+      "sha256": "51876bcda391cad0771f2438d5dc979a8b9df98aaa0cbede6f92fa57aa57cdb9",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifyNativeMemory20261114/prepare.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifyNativeMemory20261114/serve.py",
+      "bytes": 4590,
+      "sha256": "8615461657e1bf64c4db4008d01b83b610dfd0fda02148db65f3835dcd470fd3",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifyNativeMemory20261114/serve.py"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/README.md",
+      "bytes": 3214,
+      "sha256": "c92d82b38b4f796406f5f337290129bfee9075f23b6085df16476e2461ae0b83",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifySubscription20261114/README.md"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/artifacts-manifest.json",
+      "bytes": 920,
+      "sha256": "51ebde373448cc5c4b7ff09de96d261077e70c9019edc959f40afe116d8108c5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifySubscription20261114/artifacts-manifest.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/build-subscription.mjs",
+      "bytes": 4641,
+      "sha256": "4179836364626fa7166b50881fb481dcf1b5f0694e17b0810557216298a7ab1e",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifySubscription20261114/build-subscription.mjs"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/package.json",
+      "bytes": 181,
+      "sha256": "25d5eef2df02471940c82482f4d0c07d2e3b97ddeb0d6cc3b45cf3fdd2450d49",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "Loon/Development/SpotifySubscription20261114/package.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/subscription-manifest.json",
+      "bytes": 512,
+      "sha256": "5caad4d6f2d0452b64092287e8e47c77035b0649cb87a476a6b6732fb5654e12",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifySubscription20261114/subscription-manifest.json"
+      }
+    },
+    {
+      "source": "Loon/Development/SpotifySubscription20261114/subscription.test.mjs",
+      "bytes": 7465,
+      "sha256": "17a11c249b23cb2db52b0e64de1290667fc4c7ba4c2a18bddce1ebe864880738",
+      "preservedAt": {
+        "kind": "local-original-archive",
+        "path": "archive/pre-migration-local/Loon/Development/SpotifySubscription20261114/subscription.test.mjs"
+      }
+    },
+    {
+      "source": "Loon/Docs/SpotifyLyrics.md",
+      "bytes": 10271,
+      "sha256": "93a47a1d847e756052a84a023a7fd378150e5e4f293e99970d0fa18a7619e01c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Loon/Docs/SpotifyLyrics.md"
+      }
+    },
+    {
+      "source": "Loon/Script/SpotifyLyrics.Entry.Mac.js",
+      "bytes": 29698,
+      "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f.txt"
+      }
+    },
+    {
+      "source": "Loon/Script/SpotifyLyrics.Mac.js",
+      "bytes": 96763,
+      "sha256": "df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/df875afd50ef5f578c7079fff14ed6c7c2edd13b93ad05533ace86dd4ef96bd4.txt"
+      }
+    },
+    {
+      "source": "Loon/Script/SpotifyLyrics.Request.Mac.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2.txt"
+      }
+    },
+    {
+      "source": "Loon/Script/SpotifyLyrics.lpx",
+      "bytes": 12388,
+      "sha256": "7fbd7c2024608e642687532b47055b4622eda3a70117c2cd6c0a965e0bffae86",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Loon/script/SpotifyLyrics.lpx"
+      }
+    },
+    {
+      "source": "QuantumultX/Docs/SpotifyLyrics.md",
+      "bytes": 8589,
+      "sha256": "e56fe59ae59020e042b8d1592bd798bf1f17b35378431c9246cdb2f1c77d0ddd",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/QuantumultX/Docs/SpotifyLyrics.md"
+      }
+    },
+    {
+      "source": "QuantumultX/script/SpotifyLyrics.conf",
+      "bytes": 3031,
+      "sha256": "a3f7070cd13b8904e08a94e6703940b3c83db491c8c6de23c3d3cdbfa33d4800",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/QuantumultX/script/SpotifyLyrics.conf"
+      }
+    },
+    {
+      "source": "Shadowrocket/Docs/SpotifyLyrics.md",
+      "bytes": 8110,
+      "sha256": "e1615a562d1eff24ce79f929bce56ca3846a0bb518c638bb90bc8209072c20c9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Shadowrocket/Docs/SpotifyLyrics.md"
+      }
+    },
+    {
+      "source": "Shadowrocket/script/SpotifyLyrics.sgmodule",
+      "bytes": 3316,
+      "sha256": "ada8db0d1515f28739aad76c6bd99f51190cc0321281f7e6a4db83e243c41ecd",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Shadowrocket/script/SpotifyLyrics.sgmodule"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/.gitignore",
+      "bytes": 162,
+      "sha256": "4c27febd559917a2e16fdf070b9d70f4232bdecc20e08e542d6a38d4c6121579",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/.gitignore"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/AGENTS.md",
+      "bytes": 2353,
+      "sha256": "212907ed622821ccf9d1d987dee5e67ff8d73d76addcbe2bfb79aabe1a1cc606",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/AGENTS.md"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/README.md",
+      "bytes": 6039,
+      "sha256": "70bc93b1ccb649aff71997e612ef5ac776099c2d94c5a994fb17596653770f4b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/README.md"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/build.mjs",
+      "bytes": 18285,
+      "sha256": "24e95d06e6a9a789a5357aa599be6b94c7311a89cff082da4db389d92d59dd48",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/build.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/NOTICE-UNICODE.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+      "bytes": 27221,
+      "sha256": "03e1d64488b403e3459f37af362b98e1bbe50efcc54cbfd8f3092b96de532686",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
+      "bytes": 2778,
+      "sha256": "eac8561c43a1e4d884a8c568782e191be4f6d7524a1fa29cfd4a1d059d361c9e",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics-request.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics.js",
+      "bytes": 84215,
+      "sha256": "dfd0d34e50f4449a7fd286ef591e3e7a854aa1a5e47bc36fbea423ce9a1e3bae",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Egern/script/SpotifyLyrics/spotify-lyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.Entry.js",
+      "bytes": 29788,
+      "sha256": "c241087dbfaf0014c6f94c2ddb3ceb6b47cfa48dbbc270c684692b94918ce02c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.Entry.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.js",
+      "bytes": 88105,
+      "sha256": "00f0fd10259f742883e4b6aeb89d03e629d0d657bcc24e24b6eaaee45ab865ed",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.lpx",
+      "bytes": 2856,
+      "sha256": "855119ab1e7a58af2f03b369ac334307e4f6e7a275421e398ad89959afeb56b8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Loon/script/SpotifyLyrics.lpx"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.Entry.js",
+      "bytes": 30419,
+      "sha256": "8053184d810bc40272f0fde0e9ecafbcfb0b2f89e21b8f4478848d4ad2af1074",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.Entry.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.Request.js",
+      "bytes": 4700,
+      "sha256": "6ac57e59923dff2349b41f21de22c303c4652896fb4b7c18123f827300b5b74a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.Request.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.js",
+      "bytes": 88880,
+      "sha256": "91da80de8ac7c9575382f54d5bae72a4396208fb8095fabb66cddf68b6e9fb10",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/QuantumultX/script/SpotifyLyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Shadowrocket/script/SpotifyLyrics.Entry.js",
+      "bytes": 29796,
+      "sha256": "39e83a823ff8e314d13b01c69ee72269c2e7fb0c86f16678b507495a106dff86",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Shadowrocket/script/SpotifyLyrics.Entry.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Shadowrocket/script/SpotifyLyrics.Request.js",
+      "bytes": 4544,
+      "sha256": "5015bc59057c1ee5bb891fbb70186188013fbed19094d0884cf83dc33dd06485",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.Request.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Shadowrocket/script/SpotifyLyrics.js",
+      "bytes": 88085,
+      "sha256": "0563dc19983e8cff3de564bc86a1ed3085f2d35126416eb91ab33b3d7b0d2db5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Shadowrocket/script/SpotifyLyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.Entry.js",
+      "bytes": 29789,
+      "sha256": "386ede58e7ab683cd73e0b92ffa7871631c5e059b7f8d132f9505ce4d89884af",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.Entry.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.Request.js",
+      "bytes": 4544,
+      "sha256": "5015bc59057c1ee5bb891fbb70186188013fbed19094d0884cf83dc33dd06485",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.Request.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.js",
+      "bytes": 88078,
+      "sha256": "b04b802f6025549e31341b9318efb06af8cb834c5c05883efe3267c3a7d14314",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.sgmodule",
+      "bytes": 2534,
+      "sha256": "e4f93d31ce602dc6dab6564d04da53c8fcdeb4cdd31ef2c00549e394872cf576",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/Surge/script/SpotifyLyrics.sgmodule"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/import-manifest.json",
+      "bytes": 301,
+      "sha256": "062342be59238fcbbecfb633c9e1856e72462c893ae141fc663bb378ad4f5aa5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/import-manifest.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/request-core.js",
+      "bytes": 4226,
+      "sha256": "79967f711beaf7bf1e40a3da3f3be903b981bf57214e1ed80ae50623a2e52ddc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/request-core.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/dist/runtime-manifest.json",
+      "bytes": 3728,
+      "sha256": "0434fefd30ac4c9c5e41bfb4da3bc70b9e6e368b09fa810425b163acf5761dcb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/dist/runtime-manifest.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/docs/client-compatibility.md",
+      "bytes": 5103,
+      "sha256": "c80471e0a56b500fbd26dd9af6190799c6cffa9f5e4119df56a447a363499b26",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/docs/client-compatibility.md"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/docs/implementation-status.md",
+      "bytes": 7686,
+      "sha256": "c9646354a230974aa2b3dff75dc437d240a138d60d33c21d27875f835fde9485",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/docs/implementation-status.md"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/docs/testing.md",
+      "bytes": 4848,
+      "sha256": "b1117ef67a5e464f2f549c8ab13c514d484314417c020f8aa54afdbc0644fd9c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/docs/testing.md"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/evidence/baseline-summary.json",
+      "bytes": 219,
+      "sha256": "a98c7d59ac63c7947042af485f3bed2c2c7e3d476b7de11cd2703ad3ae47acf2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/evidence/baseline-summary.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/evidence/validation-summary.json",
+      "bytes": 1372,
+      "sha256": "fe4de9347b6649ce3edab368f085ee8d1d25640849699511e7bf4d5cfc56d5fb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/evidence/validation-summary.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/evidence/workspace-integrity.json",
+      "bytes": 2168,
+      "sha256": "e28047160c1f235994df95fc95efd51a04fed033164cb57d095d3f790dbb2172",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/evidence/workspace-integrity.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/CLIENT-CONTRACTS.md",
+      "bytes": 3102,
+      "sha256": "64b3f3cea7af975148bd5a50a8b41593a6da5b90cf00afa2e6a78cdbd75a0829",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/64b3f3cea7af975148bd5a50a8b41593a6da5b90cf00afa2e6a78cdbd75a0829.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/MEASUREMENTS.md",
+      "bytes": 10016,
+      "sha256": "8724777102869bde1cdf61967d1c86f689e2b68467b8ffd9ed9fa6fddebe22ac",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/8724777102869bde1cdf61967d1c86f689e2b68467b8ffd9ed9fa6fddebe22ac.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/README.md",
+      "bytes": 5447,
+      "sha256": "064951f83ad95bdab6ac1e2f7d224275187177b730fc5e2c7daf2d56a7407668",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/064951f83ad95bdab6ac1e2f7d224275187177b730fc5e2c7daf2d56a7407668.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/SOURCE-EVIDENCE.md",
+      "bytes": 4421,
+      "sha256": "92886089189694e1429715ed0fb910d81e839aa3594340f596707360003b7a7a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/92886089189694e1429715ed0fb910d81e839aa3594340f596707360003b7a7a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/STARTUP-EVIDENCE.md",
+      "bytes": 2459,
+      "sha256": "471b90892d59f852ec72dbedcd23f9de0dbec94419982cf7d67a7911f937df0a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/471b90892d59f852ec72dbedcd23f9de0dbec94419982cf7d67a7911f937df0a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/base.json",
+      "bytes": 114455,
+      "sha256": "90ddc54fed85c966a9ef0e2ba9a72b14c6e8ee16d17c6977c5fb83ce8ece8f45",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/90ddc54fed85c966a9ef0e2ba9a72b14c6e8ee16d17c6977c5fb83ce8ece8f45.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/bench-runtime-sha256.json",
+      "bytes": 3514,
+      "sha256": "88032e94ccef0b3e8fc972846816944c88ac10555fcff6d2049885421aab3693",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/88032e94ccef0b3e8fc972846816944c88ac10555fcff6d2049885421aab3693.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/build.mjs",
+      "bytes": 17056,
+      "sha256": "aa029963d9fec1ca6cfabe86d048049624980b5e91ed9a0bd5b87870749ff41f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/aa029963d9fec1ca6cfabe86d048049624980b5e91ed9a0bd5b87870749ff41f.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/client-contract.test.mjs",
+      "bytes": 6266,
+      "sha256": "a55e42ab05db1a9af6585bb23becfbf75ee1b5c92209dcf47c0aca67d1cc4dad",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a55e42ab05db1a9af6585bb23becfbf75ee1b5c92209dcf47c0aca67d1cc4dad.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/config.test.mjs",
+      "bytes": 6296,
+      "sha256": "48e06b7cfefc05b41b308b38e4d437b2320b888afb05121681a1eada3920c6fa",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/48e06b7cfefc05b41b308b38e4d437b2320b888afb05121681a1eada3920c6fa.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/NOTICE-UNICODE.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/spotify-lyrics.js",
+      "bytes": 175580,
+      "sha256": "bb3c9f0b18fd678ebbb8e912ea2bab00b4c09074db0802fdca12918664e6fda2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/spotify-lyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/bilingual-artists.test.mjs",
+      "bytes": 7383,
+      "sha256": "362efbf4a3b9059c1ec5dc4a90415271e272f4ed04e677c7644ae353bb41ecc2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/362efbf4a3b9059c1ec5dc4a90415271e272f4ed04e677c7644ae353bb41ecc2.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/cache-latency.test.mjs",
+      "bytes": 10611,
+      "sha256": "4768993b77ef852dbb78dd6133285deb9a731b93863ac27cb27bd5604e7b63d1",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/4768993b77ef852dbb78dd6133285deb9a731b93863ac27cb27bd5604e7b63d1.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/cache-save-ranges.test.mjs",
+      "bytes": 8325,
+      "sha256": "fa573b697e14922ace1552bd9cb154ae5b907ed6958d1bbf6d06e0388de90fd0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/fa573b697e14922ace1552bd9cb154ae5b907ed6958d1bbf6d06e0388de90fd0.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/cache-work.test.mjs",
+      "bytes": 4974,
+      "sha256": "96eae42ccabd63a4897cdb69f22ce2ba2bbdffc3b6f6177a97368a7d5f176d71",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/96eae42ccabd63a4897cdb69f22ce2ba2bbdffc3b6f6177a97368a7d5f176d71.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/chinese-conversion-output.test.mjs",
+      "bytes": 9373,
+      "sha256": "111a937a8fb3a5b00329ae5dc40ef813f8880059b434ef1ad0d04b9fc6ba3fb9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/111a937a8fb3a5b00329ae5dc40ef813f8880059b434ef1ad0d04b9fc6ba3fb9.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/coverage.test.mjs",
+      "bytes": 8559,
+      "sha256": "3dceedec92df76013a9df0cb6f440f8704a27f2ed6491fb009e768de0208a71c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3dceedec92df76013a9df0cb6f440f8704a27f2ed6491fb009e768de0208a71c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/decoder-memory.test.mjs",
+      "bytes": 3044,
+      "sha256": "997ef9d277947c446075d8ed2b83483bc888eadb42d72904b844ff981eb7ad8d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/997ef9d277947c446075d8ed2b83483bc888eadb42d72904b844ff981eb7ad8d.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/extended-identity.test.mjs",
+      "bytes": 2364,
+      "sha256": "e745a986030ab13048e39f66af06ad649db3e4242c3291fca923dc1b8529dc8d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e745a986030ab13048e39f66af06ad649db3e4242c3291fca923dc1b8529dc8d.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fallback-offset.test.mjs",
+      "bytes": 2890,
+      "sha256": "c61e4655c9a3dfd0bf2f7bf650434db4736daf1299c5e2e4112d965fa3168aba",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c61e4655c9a3dfd0bf2f7bf650434db4736daf1299c5e2e4112d965fa3168aba.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/first-load.test.mjs",
+      "bytes": 14353,
+      "sha256": "2b611cd335daa21ac6a1b16ad2c11dfaa04018e8f7f98347cd6389d99618b460",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2b611cd335daa21ac6a1b16ad2c11dfaa04018e8f7f98347cd6389d99618b460.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/han-reference.json",
+      "bytes": 43636,
+      "sha256": "0231dd32ea8f19310fa77138a09333618b32fcd4488854f0e5bc6b9e8b3908a9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/0231dd32ea8f19310fa77138a09333618b32fcd4488854f0e5bc6b9e8b3908a9.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/player-entry-052-reference.js",
+      "bytes": 5512,
+      "sha256": "93de025ab088db453b4dba46297e43e984f0b5fdd89d11c0425e3fa1936bae8a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/93de025ab088db453b4dba46297e43e984f0b5fdd89d11c0425e3fa1936bae8a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/source-services.mjs",
+      "bytes": 1070,
+      "sha256": "6f7bd63633b4f08deb483fe6a0bc5586caa91cf84e2ac571ea1240173067e061",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/6f7bd63633b4f08deb483fe6a0bc5586caa91cf84e2ac571ea1240173067e061.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/target-palette.json",
+      "bytes": 1526,
+      "sha256": "a5e617423cdf520e7ee377dab57667532d3ee83fd848e245c2c247e9484e277a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a5e617423cdf520e7ee377dab57667532d3ee83fd848e245c2c247e9484e277a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/target-scroll.json",
+      "bytes": 1133,
+      "sha256": "b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b67945feca9bdfadec3377e6eeac6b33725123bbf209731abde331b6ef992fc4.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/fixtures/target-song.json",
+      "bytes": 1501,
+      "sha256": "eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/eb72fdb8e8a8bb3da9060068361d28575b6c4c2b60e3c5b314e589b370076b5d.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/indexed-cache.test.mjs",
+      "bytes": 4121,
+      "sha256": "32f69f03c4af1453bc1504ee8ab3cef3ff0ed2b181bb31def4e81bda1549c495",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/32f69f03c4af1453bc1504ee8ab3cef3ff0ed2b181bb31def4e81bda1549c495.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/lrc-streaming.test.mjs",
+      "bytes": 3146,
+      "sha256": "8cc347012634028801b754bc42c98d1fd8aad87fbec72b003141cbc226d31304",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/8cc347012634028801b754bc42c98d1fd8aad87fbec72b003141cbc226d31304.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/memory-preferences.test.mjs",
+      "bytes": 2211,
+      "sha256": "1d9b20ac863cf45545cde68fe48745b7e42697effdff8866d93ed700f0d4198a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/1d9b20ac863cf45545cde68fe48745b7e42697effdff8866d93ed700f0d4198a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/metadata-selective.test.mjs",
+      "bytes": 1991,
+      "sha256": "a7dc9260cb724a532e871d8991ab5c79ee0f16a5bd424a72ca8dd59a61f4b048",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a7dc9260cb724a532e871d8991ab5c79ee0f16a5bd424a72ca8dd59a61f4b048.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/mixed-fragments.test.mjs",
+      "bytes": 7583,
+      "sha256": "e6b5020c1bea180350fdc598da0fb8e56497442ea432c66b6982f456c1d0676c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e6b5020c1bea180350fdc598da0fb8e56497442ea432c66b6982f456c1d0676c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/native-entry-packaged.test.mjs",
+      "bytes": 9027,
+      "sha256": "801c21c63c9a1336da8fbf65549e701fc5bcf53ae0f49606fe14000affe24466",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/801c21c63c9a1336da8fbf65549e701fc5bcf53ae0f49606fe14000affe24466.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/native-entry.test.mjs",
+      "bytes": 8805,
+      "sha256": "fdb6c1e4b75a5a95f1f38758eed369089b8ad4d862b6b161a0bdf90589e4cb2c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/fdb6c1e4b75a5a95f1f38758eed369089b8ad4d862b6b161a0bdf90589e4cb2c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/native-format.test.mjs",
+      "bytes": 4763,
+      "sha256": "3669a0fd8b3576dd8bbfb25eb31e0cb24df2d22ceb8219484c0cbe504907a296",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3669a0fd8b3576dd8bbfb25eb31e0cb24df2d22ceb8219484c0cbe504907a296.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/optimization.test.mjs",
+      "bytes": 12173,
+      "sha256": "a87be9b56721929852565f6b43071377a04b19346554aabfba98744e01c03fc1",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a87be9b56721929852565f6b43071377a04b19346554aabfba98744e01c03fc1.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/palette.test.mjs",
+      "bytes": 11128,
+      "sha256": "afef3c7edab6dc094cd8f5d0a7395707272a4c7dce13fee1082b59efda233684",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/afef3c7edab6dc094cd8f5d0a7395707272a4c7dce13fee1082b59efda233684.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/parse-work.test.mjs",
+      "bytes": 4589,
+      "sha256": "e8de916b9b77d141820d6c75c569487c7bf53d97492b5799abc61d4ed6ac4111",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e8de916b9b77d141820d6c75c569487c7bf53d97492b5799abc61d4ed6ac4111.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/player-entry-packaged.test.mjs",
+      "bytes": 7624,
+      "sha256": "44b7fbff52a873934872c6c68b41277f3ad6092fe01cf745f21b6e3069fcac90",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/44b7fbff52a873934872c6c68b41277f3ad6092fe01cf745f21b6e3069fcac90.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/player-entry.test.mjs",
+      "bytes": 7402,
+      "sha256": "b1bf597fea9104aed32f2b188757b8b410c4dfddc80282dd15933a2f03323863",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b1bf597fea9104aed32f2b188757b8b410c4dfddc80282dd15933a2f03323863.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/player-streaming.test.mjs",
+      "bytes": 4639,
+      "sha256": "d266e31000932f97bfb735d44d7b08a4c4be19660c911dc798810dc29c040d99",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/d266e31000932f97bfb735d44d7b08a4c4be19660c911dc798810dc29c040d99.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/post-transport.test.mjs",
+      "bytes": 2085,
+      "sha256": "261aa3580063e2bf6c9f50b02a8abf28563fb47c383ec701ef1c51fc83a43eca",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/261aa3580063e2bf6c9f50b02a8abf28563fb47c383ec701ef1c51fc83a43eca.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/provider-cache.test.mjs",
+      "bytes": 2568,
+      "sha256": "da17ce5dc71ed18f5b3ffebaf6c85623c790537ea7ccc1a7c73272b12c7bcfc5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/da17ce5dc71ed18f5b3ffebaf6c85623c790537ea7ccc1a7c73272b12c7bcfc5.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/responsiveness.test.mjs",
+      "bytes": 11022,
+      "sha256": "47ada698a38c8b93bec3ec6203a1c333487ef1368b048c0f8429c5e5d04fe2e1",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/47ada698a38c8b93bec3ec6203a1c333487ef1368b048c0f8429c5e5d04fe2e1.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/source-progress.test.mjs",
+      "bytes": 6609,
+      "sha256": "67da503fc5353a8f59b5abbc0cde1f7b4b446d1d4709636af367bdca04b74c1c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/67da503fc5353a8f59b5abbc0cde1f7b4b446d1d4709636af367bdca04b74c1c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/source-translations.test.mjs",
+      "bytes": 9742,
+      "sha256": "ff86f7b40ab67f65db13ef37fe40716f7feaf346fc2273c55e1780461a616b33",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ff86f7b40ab67f65db13ef37fe40716f7feaf346fc2273c55e1780461a616b33.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/sources.test.mjs",
+      "bytes": 11668,
+      "sha256": "a22f23a9dfc9deb835d4004f70fead32775d6bd702d0c743a4044591f7278cf5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a22f23a9dfc9deb835d4004f70fead32775d6bd702d0c743a4044591f7278cf5.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/spotify-lyrics.test.mjs",
+      "bytes": 59328,
+      "sha256": "11602ea4e2ded4bd53503486e1cf1b2078c4ce2e2d4b7c1551ed39f5f348e913",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/11602ea4e2ded4bd53503486e1cf1b2078c4ce2e2d4b7c1551ed39f5f348e913.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/static-source-repair.test.mjs",
+      "bytes": 6781,
+      "sha256": "c447a767288f756ffb30e79990f80f73c3df4de0d2104747677dc04798af0e9d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c447a767288f756ffb30e79990f80f73c3df4de0d2104747677dc04798af0e9d.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/static-upgrade.test.mjs",
+      "bytes": 4878,
+      "sha256": "df73f8debdf17e22ac30cb2e2fd2dc1562126573d5226a87ed623cd9c1b5446c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/df73f8debdf17e22ac30cb2e2fd2dc1562126573d5226a87ed623cd9c1b5446c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/translation-batch.test.mjs",
+      "bytes": 2968,
+      "sha256": "a95dc766ca0ce4ab6988647d67b803139f019ecd083ca8d0cd5fa2a275cf0b58",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a95dc766ca0ce4ab6988647d67b803139f019ecd083ca8d0cd5fa2a275cf0b58.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/translation-common-path.test.mjs",
+      "bytes": 6199,
+      "sha256": "61d9672e08d903c4254fd74197d66404dcc961dcab920c84ed8661837f131876",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/61d9672e08d903c4254fd74197d66404dcc961dcab920c84ed8661837f131876.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/translation-recovery.test.mjs",
+      "bytes": 6616,
+      "sha256": "b4189460047da862bbe7cad2aa2a92e8f9338611f62fafb356d648e4c69e9791",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b4189460047da862bbe7cad2aa2a92e8f9338611f62fafb356d648e4c69e9791.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/translation-scope.test.mjs",
+      "bytes": 4080,
+      "sha256": "714142f241776ca57c6db4a129fc76432a7ab6d12c657219c8481aeb81b75906",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/714142f241776ca57c6db4a129fc76432a7ab6d12c657219c8481aeb81b75906.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/translation-streaming.test.mjs",
+      "bytes": 1428,
+      "sha256": "4bce42238c4736727c0aa927afdb88978d64a1fdc0e128d3204d6a35ed96d459",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/4bce42238c4736727c0aa927afdb88978d64a1fdc0e128d3204d6a35ed96d459.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/vocal-filter.test.mjs",
+      "bytes": 4761,
+      "sha256": "28b915126344538d44ef973ef680d3f8f597728b03987e1f75a5185641aaf2c9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/28b915126344538d44ef973ef680d3f8f597728b03987e1f75a5185641aaf2c9.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/vocal-language.test.mjs",
+      "bytes": 5511,
+      "sha256": "3821f4f9ad71fc86ac7fde05b003ec309049358fbb401bbc4828c7a115293b18",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/3821f4f9ad71fc86ac7fde05b003ec309049358fbb401bbc4828c7a115293b18.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/wire-performance.test.mjs",
+      "bytes": 9755,
+      "sha256": "46df371a300504d441906d4ee4555887a551d231891e4cb1a8848465fdaab424",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/46df371a300504d441906d4ee4555887a551d231891e4cb1a8848465fdaab424.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/core/test/working-set.test.mjs",
+      "bytes": 8672,
+      "sha256": "69aefcea8b6a4c4430ae42d8af7db4b2aef20ddb6d5d3b0e4878146c1282a918",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/69aefcea8b6a4c4430ae42d8af7db4b2aef20ddb6d5d3b0e4878146c1282a918.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/egern-package.test.mjs",
+      "bytes": 8253,
+      "sha256": "2487afcaaadc0315cbaa3fc8ef005353ba49d1b6d031771278b326fd2badaedc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2487afcaaadc0315cbaa3fc8ef005353ba49d1b6d031771278b326fd2badaedc.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/feature-check.mjs",
+      "bytes": 4445,
+      "sha256": "9fbd7e4e0d0eeffb82da7b77f80a439fb0be34a9b6e9e1f1aa57d3f054f6fa9b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/9fbd7e4e0d0eeffb82da7b77f80a439fb0be34a9b6e9e1f1aa57d3f054f6fa9b.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/feature-host.mjs",
+      "bytes": 4578,
+      "sha256": "c656cac77fcebeb646d3cb7f3ce47cb27d9a8bb4ef6658c4ab2c4cedd12c7199",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c656cac77fcebeb646d3cb7f3ce47cb27d9a8bb4ef6658c4ab2c4cedd12c7199.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/feature-results.json",
+      "bytes": 5326,
+      "sha256": "706761a249104dd1c9365724c37ed30e2df6db69eebf06e049e00f2a587e49d2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/706761a249104dd1c9365724c37ed30e2df6db69eebf06e049e00f2a587e49d2.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/generate-han-blocks.mjs",
+      "bytes": 2192,
+      "sha256": "e9dd0be41341a020c5fac1343455b472ac1755556d95005482d8a4a6e99f6ae7",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e9dd0be41341a020c5fac1343455b472ac1755556d95005482d8a4a6e99f6ae7.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/jsc-startup-runner.c",
+      "bytes": 2643,
+      "sha256": "9b4f69b30fdc2c8eaeb18e5ae60cfdd40a97442ef52b420f45e31c696538c92c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/9b4f69b30fdc2c8eaeb18e5ae60cfdd40a97442ef52b420f45e31c696538c92c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/loon-rewrite.test.mjs",
+      "bytes": 7590,
+      "sha256": "2e1a419f93894eb644749f2037babea24cd3304cbb94399c92403545f37c39bf",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2e1a419f93894eb644749f2037babea24cd3304cbb94399c92403545f37c39bf.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/lyric-jsc-fixtures.mjs",
+      "bytes": 2596,
+      "sha256": "2dd731aa99178bbf3ffee6cc794b72ee73788d5770d260da2646ad238dc319d5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2dd731aa99178bbf3ffee6cc794b72ee73788d5770d260da2646ad238dc319d5.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/lyric-jsc-results.json",
+      "bytes": 77746,
+      "sha256": "ee3448fe2b15a5c5b80ab8ef9be82218244dd6833426e871f82d45628f3325d0",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ee3448fe2b15a5c5b80ab8ef9be82218244dd6833426e871f82d45628f3325d0.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/lyric-startup-bench.mjs",
+      "bytes": 3714,
+      "sha256": "2f27985494d39558734ff8267dfbce3b6cd97c7fa13670bdc9eac1a691598775",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2f27985494d39558734ff8267dfbce3b6cd97c7fa13670bdc9eac1a691598775.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/lyric-startup-fixture.mjs",
+      "bytes": 4969,
+      "sha256": "ecf04681f0c95f0a54074312770e126a763f3a8bee095907ddaa04f913c8e5b6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ecf04681f0c95f0a54074312770e126a763f3a8bee095907ddaa04f913c8e5b6.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/lyric-startup-results.json",
+      "bytes": 177948,
+      "sha256": "08d9c5249aa59ead9e47fbe7fede6d167b43f27393a9232b46b0f60e2e6db234",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/08d9c5249aa59ead9e47fbe7fede6d167b43f27393a9232b46b0f60e2e6db234.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/manifest.py",
+      "bytes": 2155,
+      "sha256": "8c84e26dda3f7762cc6b9378d2035899ff8ea1561b298ab5c9466482b2af01cc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/8c84e26dda3f7762cc6b9378d2035899ff8ea1561b298ab5c9466482b2af01cc.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/mixed-native-churn-results.json",
+      "bytes": 13135,
+      "sha256": "64c033b845cf66aae597c37265c4e02fc365df1b908d167faeb5fb000946fc0c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/64c033b845cf66aae597c37265c4e02fc365df1b908d167faeb5fb000946fc0c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/mixed-playlist-bench.mjs",
+      "bytes": 5152,
+      "sha256": "7f23c025aabe1ecbddf4e091a6baca82b7719605feda34093350c4f000b70712",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/7f23c025aabe1ecbddf4e091a6baca82b7719605feda34093350c4f000b70712.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-adapter.js",
+      "bytes": 10087,
+      "sha256": "6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/native-adapter.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-adapter.test.mjs",
+      "bytes": 23727,
+      "sha256": "fd7e961906b8dfbdf8c327afdde2ea2b6474123add3d8cb4dd682568fae2b64a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/fd7e961906b8dfbdf8c327afdde2ea2b6474123add3d8cb4dd682568fae2b64a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-bilingual-artists.test.mjs",
+      "bytes": 5656,
+      "sha256": "ab6f5c5886805aaa0834ef829fb842a09ad225947e20faa4a229e445de3a0c2a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/ab6f5c5886805aaa0834ef829fb842a09ad225947e20faa4a229e445de3a0c2a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-burst.test.mjs",
+      "bytes": 4457,
+      "sha256": "c7ac8eb34e724522fa6662fea20ce6b0711f14109078ea8ad5b109750a1f84d5",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c7ac8eb34e724522fa6662fea20ce6b0711f14109078ea8ad5b109750a1f84d5.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-cache-mode.test.mjs",
+      "bytes": 6097,
+      "sha256": "532aee58437901f9c896fb9267ffe0eb7385f1721bcdc4339076ad6ce4bca262",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/532aee58437901f9c896fb9267ffe0eb7385f1721bcdc4339076ad6ce4bca262.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-chinese-output.test.mjs",
+      "bytes": 3370,
+      "sha256": "39c1eb2ecec5ecdb3bebfb30cdde7f8fbffaf00939417dbe8afc6c80cc70c30c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/39c1eb2ecec5ecdb3bebfb30cdde7f8fbffaf00939417dbe8afc6c80cc70c30c.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-chinese-sync.test.mjs",
+      "bytes": 9099,
+      "sha256": "10c8e7c6dfc7e3c4f16763399e0bdcb32eb9542b64c2f598721760334dcf0633",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/10c8e7c6dfc7e3c4f16763399e0bdcb32eb9542b64c2f598721760334dcf0633.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-coalescing.test.mjs",
+      "bytes": 5533,
+      "sha256": "2d63307a26f8cccc6f2391fa40f1749a554cffc765bbe0442f82039963fbf0da",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2d63307a26f8cccc6f2391fa40f1749a554cffc765bbe0442f82039963fbf0da.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-color-migration.test.mjs",
+      "bytes": 3661,
+      "sha256": "c87e4b95ab51601294f1119e094f33fcab3338978568a735f4e82c3ca51a51cc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c87e4b95ab51601294f1119e094f33fcab3338978568a735f4e82c3ca51a51cc.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-entry-cache-profile.test.mjs",
+      "bytes": 2043,
+      "sha256": "4239121170b4de5914650b182670239af3b618822db5445356defa045efa98fe",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/4239121170b4de5914650b182670239af3b618822db5445356defa045efa98fe.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-fast-mode.test.mjs",
+      "bytes": 3211,
+      "sha256": "b7b496d5e62c021c47df95a1cb7161dd745680104721a3c3ed3bf0e7fb329786",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b7b496d5e62c021c47df95a1cb7161dd745680104721a3c3ed3bf0e7fb329786.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-filled-first-load-results.json",
+      "bytes": 124062,
+      "sha256": "974185960c7e54f91d355e42a1c4ca13b433711aff2582b5212f1092f4b40363",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/974185960c7e54f91d355e42a1c4ca13b433711aff2582b5212f1092f4b40363.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-first-load-bench.mjs",
+      "bytes": 10445,
+      "sha256": "e0cb6c0f7069e307d7108f11dee700d01f204c6c32e981c4deef02e8d40684fa",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e0cb6c0f7069e307d7108f11dee700d01f204c6c32e981c4deef02e8d40684fa.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-first-load-results.json",
+      "bytes": 124213,
+      "sha256": "edb50936187c8ccd7aa3f23c2e4f00d9c31d6c1aaf7891eeb124ed5eafb921d6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/edb50936187c8ccd7aa3f23c2e4f00d9c31d6c1aaf7891eeb124ed5eafb921d6.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-flow.mjs",
+      "bytes": 3847,
+      "sha256": "d88b432395b5db0bc22ee652ffd06f37f0419b8a4e595d4681208a4ee9d39e0f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/native-flow.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-flow.test.mjs",
+      "bytes": 1566,
+      "sha256": "e52c0e35786da9ec85063eaa3ea4f1f3d27989951d7ef3185e61bb8b0ad4b8a2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e52c0e35786da9ec85063eaa3ea4f1f3d27989951d7ef3185e61bb8b0ad4b8a2.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-json-backoff.test.mjs",
+      "bytes": 3977,
+      "sha256": "37e7a185894a3512d7b968056cb26b42b181fcbbacf00ac69726df23b46860d9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/37e7a185894a3512d7b968056cb26b42b181fcbbacf00ac69726df23b46860d9.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-local-flow.test.mjs",
+      "bytes": 2045,
+      "sha256": "a8b9460a6cffd2518be4f3a79b44165e49ecaee96c38eb3c4f323ecfc11cced8",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a8b9460a6cffd2518be4f3a79b44165e49ecaee96c38eb3c4f323ecfc11cced8.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-memory-preferences.test.mjs",
+      "bytes": 1502,
+      "sha256": "aea17850ca0811d22b8780a964a0b0f81f38df2ac32445cc41494dbab6f44d56",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/aea17850ca0811d22b8780a964a0b0f81f38df2ac32445cc41494dbab6f44d56.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-memory.test.mjs",
+      "bytes": 3774,
+      "sha256": "761eaa92288fccb8ca2c99c1b34aedf828765bd5a31867eceeb9d706f13db426",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/761eaa92288fccb8ca2c99c1b34aedf828765bd5a31867eceeb9d706f13db426.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-missing-retry.test.mjs",
+      "bytes": 2757,
+      "sha256": "a1e9cca0a4aeddc50eef9b1d338c912fbc8e2e4c4f7382e36429ff23b448f895",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a1e9cca0a4aeddc50eef9b1d338c912fbc8e2e4c4f7382e36429ff23b448f895.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-offset.test.mjs",
+      "bytes": 1535,
+      "sha256": "2a999206d763627f59e1643bc0229c102fba39bb15eedc91b9a668f6f79525aa",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/2a999206d763627f59e1643bc0229c102fba39bb15eedc91b9a668f6f79525aa.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-player-streaming.test.mjs",
+      "bytes": 2541,
+      "sha256": "b883a3524b4594702bc6a69d75a8a5dab674d8b64a62258b49f8d5ccd69ed1ad",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b883a3524b4594702bc6a69d75a8a5dab674d8b64a62258b49f8d5ccd69ed1ad.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-preferences.test.mjs",
+      "bytes": 1344,
+      "sha256": "b5f0f95e05fd4d32b87731cf7b392def805ee40703542f583b8c15d7bc7f3774",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b5f0f95e05fd4d32b87731cf7b392def805ee40703542f583b8c15d7bc7f3774.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-pressure-bench.mjs",
+      "bytes": 5100,
+      "sha256": "e19b9a357d4f85fc4629ec0c68a56caa80a53339ddaaf1642e9a5cf02d89a26f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e19b9a357d4f85fc4629ec0c68a56caa80a53339ddaaf1642e9a5cf02d89a26f.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-pressure-results.json",
+      "bytes": 9429,
+      "sha256": "b666eaf21abf38208aa1e10d788e519f4c7cf3b2981646b932aad03b56dae5fc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b666eaf21abf38208aa1e10d788e519f4c7cf3b2981646b932aad03b56dae5fc.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-source-translations.test.mjs",
+      "bytes": 3067,
+      "sha256": "c64e72bcef8ed228d5f6a17cad515cc878ca14193ccda2b7687ad6aeffc9bb98",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/c64e72bcef8ed228d5f6a17cad515cc878ca14193ccda2b7687ad6aeffc9bb98.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-startup-entry.test.mjs",
+      "bytes": 5417,
+      "sha256": "a066b3022ad4e71cbd2437e2367252fbd5c5005ae033bfc92ab08ffcb805076a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a066b3022ad4e71cbd2437e2367252fbd5c5005ae033bfc92ab08ffcb805076a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-static-repair.test.mjs",
+      "bytes": 2593,
+      "sha256": "97585b506ddec219aa61d59068435c908c812bcf6f4f48a2472287640691c9b6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/97585b506ddec219aa61d59068435c908c812bcf6f4f48a2472287640691c9b6.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-static-switch.test.mjs",
+      "bytes": 7209,
+      "sha256": "07b60f85b321391b08ae756b1b25bacf76b007408b3f170c1205356ea8befb6d",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/07b60f85b321391b08ae756b1b25bacf76b007408b3f170c1205356ea8befb6d.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-translation-recovery.test.mjs",
+      "bytes": 6078,
+      "sha256": "5649cb1ccd6fab23396e05c10a8c34445845e6ef0d089a216566085acb3c7da4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/5649cb1ccd6fab23396e05c10a8c34445845e6ef0d089a216566085acb3c7da4.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/native-vocal-language.test.mjs",
+      "bytes": 2905,
+      "sha256": "08ecf50ef106d26301120f0fd783146a4667db7e71449e339edc5c83231942a4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/08ecf50ef106d26301120f0fd783146a4667db7e71449e339edc5c83231942a4.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/options.py",
+      "bytes": 1960,
+      "sha256": "f30cadf4decd9df7dee8b5daa4f092cc207610c73ea6a8b0286ad3f2e8b282dd",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/f30cadf4decd9df7dee8b5daa4f092cc207610c73ea6a8b0286ad3f2e8b282dd.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/package.json",
+      "bytes": 146,
+      "sha256": "1cc84b8a93b8cd8bdb0c2f06152791a6c7d22604d59319e1f04f198952393d22",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/1cc84b8a93b8cd8bdb0c2f06152791a6c7d22604d59319e1f04f198952393d22.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/package.py",
+      "bytes": 5351,
+      "sha256": "07e0a993c2d8ac6344441e4ffbb85cf587f101b0c112424b18bade461ed01629",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/07e0a993c2d8ac6344441e4ffbb85cf587f101b0c112424b18bade461ed01629.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/pnpm-lock.yaml",
+      "bytes": 2906,
+      "sha256": "b8e3d583c42567a0ce9c4ffa5f4bb159265f1aed8dd78ecbbe5244b67b600159",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/b8e3d583c42567a0ce9c4ffa5f4bb159265f1aed8dd78ecbbe5244b67b600159.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/pressure.test.mjs",
+      "bytes": 5931,
+      "sha256": "78fd8cc4b1641b91e1d9808ab20e103b29257fae3e75858c854be2bcd131c34f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/78fd8cc4b1641b91e1d9808ab20e103b29257fae3e75858c854be2bcd131c34f.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/provider-scope.test.mjs",
+      "bytes": 1129,
+      "sha256": "25154dacc9fa253d5dae4a06765275e49ddcdb7bc137e1ec7428045c0f8b79b4",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/25154dacc9fa253d5dae4a06765275e49ddcdb7bc137e1ec7428045c0f8b79b4.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/reference/AGENTS.md",
+      "bytes": 1287,
+      "sha256": "a2ecce301f4697dbc58044b3e7c7e093a618cf78913088c4c68cd7e105ac0988",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a2ecce301f4697dbc58044b3e7c7e093a618cf78913088c4c68cd7e105ac0988.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/reference/Loon/Docs/OfficialReference.md",
+      "bytes": 35255,
+      "sha256": "d468c1edefe7ff40b84c179f65e286681491573992d3c1154e298c91d3545547",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/d468c1edefe7ff40b84c179f65e286681491573992d3c1154e298c91d3545547.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/release.json",
+      "bytes": 3514,
+      "sha256": "e08825c2d432e00c69e7762b97a7d8270b6325fe93c51dd25a08fa73003758fe",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/e08825c2d432e00c69e7762b97a7d8270b6325fe93c51dd25a08fa73003758fe.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/run-measurements-322.py",
+      "bytes": 3567,
+      "sha256": "1c1423fe5d285a2054b21e99f1ce88d15b5d3905ca838ca87ca550339359ee5a",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/1c1423fe5d285a2054b21e99f1ce88d15b5d3905ca838ca87ca550339359ee5a.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/runtime-manifest.json",
+      "bytes": 3728,
+      "sha256": "661339af3460a2d3019a608ef0067921bbda34f29b08a7c549e432a565b0b8d9",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/661339af3460a2d3019a608ef0067921bbda34f29b08a7c549e432a565b0b8d9.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/startup-fixtures.mjs",
+      "bytes": 2507,
+      "sha256": "900e8746c54665c43703238aeda5a38813d641c82af14d7fb4553b2200ebc860",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/900e8746c54665c43703238aeda5a38813d641c82af14d7fb4553b2200ebc860.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/summarize-322.py",
+      "bytes": 10801,
+      "sha256": "14d656447b683b98d0ed790f7372d906d9804d1617ef9d6a5eb2123c906433fb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/14d656447b683b98d0ed790f7372d906d9804d1617ef9d6a5eb2123c906433fb.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/sync-local.py",
+      "bytes": 1741,
+      "sha256": "f8955b4c24a2eebfc7a62090215d64d798fd39a257a51e28cd524928c43dc10f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/f8955b4c24a2eebfc7a62090215d64d798fd39a257a51e28cd524928c43dc10f.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/tests.log",
+      "bytes": 526264,
+      "sha256": "917d4eeb9d3f91f7731b86cb05cd85d40fa8db6e21eadc85f55a0bc643f3063f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/917d4eeb9d3f91f7731b86cb05cd85d40fa8db6e21eadc85f55a0bc643f3063f.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/validate-egern.rb",
+      "bytes": 3010,
+      "sha256": "a4c7900bb74dc698bd1a840f9fba6792e178feb1d3e079ba4b540a1833fd25b7",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/a4c7900bb74dc698bd1a840f9fba6792e178feb1d3e079ba4b540a1833fd25b7.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/validation-summary.json",
+      "bytes": 4220,
+      "sha256": "5d1857e93f76980c1227c3e8bd5e119dcde410d2c54ba7f07020c20ab36bc3ab",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/5d1857e93f76980c1227c3e8bd5e119dcde410d2c54ba7f07020c20ab36bc3ab.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/history/3.2.2/verify-public.py",
+      "bytes": 2324,
+      "sha256": "11d5f9948d70e89ae6db17172f612ca4a2c0e9dadbf943edafbacd4778037037",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/objects/11d5f9948d70e89ae6db17172f612ca4a2c0e9dadbf943edafbacd4778037037.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/package-lock.json",
+      "bytes": 4836,
+      "sha256": "cc09b6bf50727acc411596cfd59aafe34cbaf92f2ba32e95f8e7783ad8e1c706",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/package-lock.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/package.json",
+      "bytes": 352,
+      "sha256": "51323a98595006c4d6b3aba9c53543d853241af2cfd8070fcf1788b22f8f53fe",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/package.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/recovery-manifest.json",
+      "bytes": 39018,
+      "sha256": "fdfde2b9ac686c2da24561a7a5a7b07426c637f2eb37fbea7f2e35055e7d782b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/recovery-manifest.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/source-policy.json",
+      "bytes": 936,
+      "sha256": "dc79cf3b8832aabe5f959f75d90e80db96e244e25fec055b27987d39636676c6",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/source-policy.json"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/src/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/NOTICE-UNICODE.txt"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/src/native-adapter.js",
+      "bytes": 10087,
+      "sha256": "6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/native-adapter.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/src/spotify-lyrics.js",
+      "bytes": 176741,
+      "sha256": "3ba6673f7b86655a86ffec4e7c4c4d439ef21e8bd75b3079ec119c2a1884b686",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/src/spotify-lyrics.js"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/test/host.mjs",
+      "bytes": 6485,
+      "sha256": "f8aecd0b5ee4d9275ab6952ce70bdc2401ce9f6403ff455063d48d7b42fa6ecb",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/test/host.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/test/imports.test.mjs",
+      "bytes": 2579,
+      "sha256": "cd8f21b08ad81e252249cc610ede450eda03a26a16f7974ae01ae9b241a2ac11",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/test/imports.test.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/test/matching.test.mjs",
+      "bytes": 5670,
+      "sha256": "38670913b49a444eafefed5343eddf042249241bfbb7cefd726389a33b6916dc",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/test/matching.test.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/test/native-preservation.test.mjs",
+      "bytes": 4774,
+      "sha256": "e04aa63845b1531644f17d9351f5d0af8d69d7a9ed80a49d95fa33efb1167429",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/test/native-preservation.test.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/test/sources-cache.test.mjs",
+      "bytes": 6863,
+      "sha256": "908a5d6e581b7e4d22d2dd3e8085dc9760638a13052a40290b87c981c80bc1ec",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/test/sources-cache.test.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/tools/generate-imports.mjs",
+      "bytes": 3899,
+      "sha256": "be6e2cec284919e62ea2fb09fb49c1e438a937c8c13c588d6e8b1ca94aba2124",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/tools/generate-imports.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/tools/native-flow.mjs",
+      "bytes": 3847,
+      "sha256": "d88b432395b5db0bc22ee652ffd06f37f0419b8a4e595d4681208a4ee9d39e0f",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "src/native-flow.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/tools/test-baseline.mjs",
+      "bytes": 2187,
+      "sha256": "42375f201593f96e3fe68bd9d04be2ae0664ab9b50e9d6c705da3b558502cd41",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/tools/test-baseline.mjs"
+      }
+    },
+    {
+      "source": "SpotifyLyricsPlus/tools/test.mjs",
+      "bytes": 3242,
+      "sha256": "44a61d22352a6854b2160578d47746cdc104ef44f57c9972f68dab7230a90f9c",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "archive/SpotifyLyricsPlus/tools/test.mjs"
+      }
+    },
+    {
+      "source": "Surge/Docs/SpotifyLyrics.md",
+      "bytes": 8078,
+      "sha256": "a48de0f150a1f31062994576942f59da70ba348128263d19e00ded3239e71bc2",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Surge/Docs/SpotifyLyrics.md"
+      }
+    },
+    {
+      "source": "Surge/script/SpotifyLyrics.sgmodule",
+      "bytes": 3240,
+      "sha256": "e660cbd40a1ffa66fded5abb018c4a62d833b7056e3471f148b4e0a8b754678b",
+      "preservedAt": {
+        "kind": "current-tree",
+        "path": "provenance/compatibility/Surge/script/SpotifyLyrics.sgmodule"
+      }
+    }
+  ]
+}

@@ -38,5 +38,18 @@
   "verificationReport": "evidence/independence.json",
   "localBranch": "codex/spotifylyrics-migration",
   "localCommits": 0,
-  "pushPerformed": false
+  "pushPerformed": false,
+  "publication": {
+    "authorizedAt": "2026-11-15",
+    "instruction": "Spotify的项目全部转移到新的GitHub库里",
+    "repository": "hhhoratioxu/SpotifyLyrics",
+    "visibility": "PUBLIC",
+    "runtimeCommit": "85803237600fc3701d369c10a5b9d7654d877a2b",
+    "gitHistoryCommits": 101,
+    "originalFilesRemoved": false,
+    "nativeClientSettingsChanged": false,
+    "deviceAcceptanceUnchanged": true,
+    "releaseCreated": false,
+    "status": "prepared-pending-remote-verification"
+  }
 }

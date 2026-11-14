@@ -3,6 +3,12 @@ node_modules/
 __pycache__/
 .venv/
 .migration-backup/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
 build/
 *.local.yaml
 *.local.yml

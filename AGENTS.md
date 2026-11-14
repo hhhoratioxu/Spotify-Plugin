@@ -1,10 +1,10 @@
-# Proxy 仓库工作约定
+# SpotifyLyrics 仓库工作约定
 
-本目录是 SpotifyLyrics 独立本地仓库。只在本目录维护；不得移动、删除或覆盖父 Proxy 和其他项目原件。先读 README.md、docs/migration.md、docs/acceptance.md 与 NOTICE.md。history/3.2.2/ 的 125 个历史文件及 provenance/objects/ 保持原字节。archive/ 是历史档案及隔离实验，默认构建不使用其实验源码。
+本目录是 SpotifyLyrics 独立维护仓库。只在本目录维护；不得移动、删除或覆盖父 Proxy 和其他项目原件。先读 README.md、docs/migration.md、docs/acceptance.md 与 NOTICE.md。history/3.2.2/ 的 125 个历史文件及 provenance/objects/ 保持原字节。archive/ 是历史档案及隔离实验，默认构建不使用其实验源码。
 
 用户可见名称 SpotifyLyrics；保留核心 3.2.2、x-verselyrics-internal、x-verselyrics、VerseLyrics.v1.cache 和原有参数。不全局替换历史名称。构建必须从本仓库快照读取，不能依赖父仓库 Git 对象。修改后执行相关回归；构建/依赖迁移执行 check:independent。
 
-未经新的明确批准，不启用/更新客户端插件、不部署诊断、不改 Loon/VPN/网络设置。Mac 播放测试必须定向本机并保持系统静音及播放器音量 0。完整验收前不 Push，GitHub 空仓库创建先报告名称、可见性及同名查询结果。当前 Mac 无词补全失败、精确同步和 iOS 50 MB 未验收，不能把离线测试改写为实机通过。
+未经新的明确批准，不启用/更新客户端插件、不部署诊断、不改 Loon/VPN/网络设置。Mac 播放测试必须定向本机并保持系统静音及播放器音量 0。用户于 2026-11-15 已明确授权将完整项目迁往 hhhoratioxu/SpotifyLyrics；本次迁移上传与功能发布验收分开。后续 Push / 发布须遵守当次用户授权，不能以本次迁移授权代替未来新版本授权。构建读取 provenance/runtime-release.json 的固定运行快照；修改运行脚本后须重新产生并验证固定提交，不能绕过哈希校验。当前 Mac 无词补全失败、精确同步和 iOS 50 MB 未验收，不能把离线测试改写为实机通过。
 
 用户指定：本仓库后续所有涉及 Loon 的项目，以以下官方文档作为首要依据。此要求也适用于其他目录中的共享源码，只要其产物包含 Loon 版本。
 
