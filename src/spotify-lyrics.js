@@ -1326,8 +1326,7 @@ function withSourceTranslation(doc, input, state) {
   // response. Reuse only exact timed, unambiguous Simplified Chinese rows.
   // Never shift timestamps, guess by row index or convert visible Han text.
   if (!doc || doc.lyrics.syncType !== "LINE_SYNCED" || state.settings?.translate === false ||
-    state.settings?.sourceTranslations === false || state.settings?.language !== "zh-CN" || typeof input !== "string" || !input || input.length > 60000 ||
-    !englishSong(doc.lyrics.lines,doc.lyrics.language)) return doc;
+    state.settings?.sourceTranslations === false || state.settings?.language !== "zh-CN" || typeof input !== "string" || !input || input.length > 60000) return doc;
   try {
     const translated = lrc(input), original = doc.lyrics.lines;
     let at = 0, rows = null;
@@ -1336,7 +1335,7 @@ function withSourceTranslation(doc, input, state) {
       while (at < translated.length && Number(translated[at].startTimeMs) < time) at++;
       const row = translated[at], value = row && clean(row.words);
       if (!row || row.startTimeMs !== line.startTimeMs || !clean(line.words) || /[\r\n]/.test(line.words) ||
-        !value || value.length > 6000 || /[\r\n]/.test(value) || targetLanguageLine(line.words,"","zh-CN") || !simplifiedSourceLine(value)) continue;
+        !value || value.length > 6000 || /[\r\n]/.test(value) || targetLanguageLine(line.words,translationSource(doc.lyrics.language),"zh-CN") || !simplifiedSourceLine(value)) continue;
       if (!rows) rows = new Array(original.length).fill("");
       rows[i] = value;
     }
@@ -1661,30 +1660,12 @@ function translationSource(value) {
   if (/^(?:zh|zho|chi|cmn|yue)$/.test(code)) return "zh";
   return code === "eng" ? "en" : code === "jpn" ? "ja" : code === "kor" ? "ko" : code;
 }
-function englishSong(original, language) {
-  const source = translationSource(language);
-  if (source && source !== "en") return false;
-  let evidence = false;
-  for (const value of original) {
-    const row = typeof value === "string" ? value : str(value?.words);
-    // Do not let a stale English tag or an English chorus opt a Chinese,
-    // Japanese, Korean or other non-Latin lyric into Chinese translation.
-    // ASCII rows take the cheap path; no token arrays or language model.
-    if (/[^\x00-\x7f]/.test(row) && /\p{L}/u.test(row.replace(/\p{Script=Latin}/gu,""))) return false;
-    if (!source && /\b(?:i|i['’](?:m|ll|ve|d)|you|your|you['’](?:re|ll|ve|d)|we|we['’](?:re|ll|ve|d)|they|their|the|this|that|these|those|my|me|our|with|without|don['’]t|can['’]t|won['’]t|isn['’]t|doesn['’]t|never|nothing|something|everything|hello|goodbye)\b/i.test(row)) evidence = true;
-  }
-  // Fallback providers often omit language. Only permit clear English lexical
-  // evidence; ambiguous Latin-only titles/lyrics remain original. This bounded
-  // heuristic is not an authoritative language detector.
-  return source === "en" || evidence;
-}
 function targetLanguageLine(s, source, target) {
-  // Only Chinese-only rows skip translation up front. Latin letters in a
-  // Chinese row may carry meaning and must reach the translator. Compare
-  // accepted results below to suppress conversion alone, not the whole row.
-  if (target === "zh-CN" || target === "zh-TW") {
-    return !/^(?:ja|ko)(?:-|$)/.test(source) && /\p{Script=Han}/u.test(s) && !/[A-Za-z]/.test(s) && !/\p{L}/u.test(s.replace(/[\p{Script=Han}\p{Script=Bopomofo}]/gu,""));
-  }
+  // Chinese originals remain literal for every selected target. A Japanese
+  // or Korean source tag disambiguates Han-only words; unknown Han-only rows
+  // stay original instead of guessing their language from a song title.
+  if (!/^(?:ja|ko)(?:-|$)/.test(source) && /\p{Script=Han}/u.test(s) && !/[A-Za-z]/.test(s) && !/\p{L}/u.test(s.replace(/[\p{Script=Han}\p{Script=Bopomofo}]/gu,""))) return true;
+  if (target === "zh-CN" || target === "zh-TW") return false;
   const japanese = target === "ja" && /^ja(?:-|$)/.test(source);
   const korean = target === "ko" && /^ko(?:-|$)/.test(source);
   if (!japanese && !korean) return false;
@@ -1735,6 +1716,18 @@ function vocalPreserved(s,t) {
     at += match[0].length;
   }
   return true;
+}
+function literalPreserved(s,t) {
+  // Cached/source translations from an older whole-row policy must not
+  // replace Chinese fragments. Check original literal spans in order.
+  const re = latinSpans(); let match, at = 0, written = 0;
+  while ((match = re.exec(s))) {
+    const literal = s.slice(at,match.index);
+    if (literal) { const found = t.indexOf(literal,written); if (found < 0) return false; written = found + literal.length; }
+    at = re.lastIndex;
+  }
+  const tail = s.slice(at);
+  return !tail || t.indexOf(tail,written) >= 0;
 }
 function latinQuery(s, filterVocals = true) {
   // One query per original row, even with several foreign spans. Newline
@@ -1829,15 +1822,18 @@ function mergeSourceRows(original, rows, translated, remember) {
 async function translate(ctx, original, state, sourceLanguage = "", sourceRows = null) {
   state = {...state,deadline:Math.min(state.deadline,Date.now()+2500)};
   const language = state.settings.language, source = translationSource(sourceLanguage), chinese = language === "zh-CN" || language === "zh-TW";
+  // Japanese Han/Latin text is a whole foreign sentence, not a Chinese
+  // sentence with English fragments. Preserve Chinese spans in other rows.
+  const fragment = s => source !== "ja" && mixedLatinLine(s);
   // English/Chinese filler rules cannot decide the meaning of another
   // language's short words. Explicit foreign language tags take precedence.
   const foreign = Boolean(source && source !== "zh" && source !== "en");
-  if (chinese && original.every(s => !clean(s) || targetLanguageLine(s,source,language))) return {translations:new Array(original.length).fill(""),changed:0};
+  if (original.every(s => !clean(s) || targetLanguageLine(s,source,language))) return {translations:new Array(original.length).fill(""),changed:0};
   if (!foreign && original.every(s => !clean(s) || vocalLine(s,chinese))) return {translations:new Array(original.length).fill(""),changed:0};
   const translated = new Map(), pending = [];
   let storedCharacters = 0, fromSource = null, checked = null, retryAfter = null;
   function mixedConversion(s,t) {
-    return chinese && /\p{Script=Han}/u.test(s) && /\p{Script=Latin}/u.test(s) && conversionEqual(normal(s),normal(t));
+    return chinese && fragment(s) && conversionEqual(normal(s),normal(t));
   }
   function untranslated(s,t) {
     // Chinese identity/correctly checked mixed rows retain their existing
@@ -1848,7 +1844,8 @@ async function translate(ctx, original, state, sourceLanguage = "", sourceRows =
     if (until > Date.now() && until <= Date.now() + 30000) (retryAfter || (retryAfter = new Map())).set(s,until);
   }
   function remember(s,t,attempted = false) {
-    if (typeof t !== "string" || !clean(t) || t.length > 6000 || storedCharacters + t.length - (translated.get(s)?.length || 0) > 60000 || chinese && targetLanguageLine(s,source,language) || !foreign && vocalLine(s,chinese)) return false;
+    if (typeof t !== "string" || !clean(t) || t.length > 6000 || storedCharacters + t.length - (translated.get(s)?.length || 0) > 60000 || targetLanguageLine(s,source,language) || !foreign && vocalLine(s,chinese)) return false;
+    if (!attempted && fragment(s) && !literalPreserved(s,t)) return false;
     if (chinese && !foreign && !attempted && mixedLatinLine(s) && !vocalPreserved(s,t)) return false;
     // Old identity/conversion pairs may come from 3.1.1's whole-row skip.
     // Retry just these mixed rows once; keep meaningful cached translations.
@@ -1894,7 +1891,7 @@ async function translate(ctx, original, state, sourceLanguage = "", sourceRows =
   }
   for (const s of unique) {
     if (!clean(s) || !/[\p{L}\p{N}]/u.test(s) || /[\r\n]/.test(s) || s.length > 3000) continue;
-    if (chinese && targetLanguageLine(s,source,language)) continue;
+    if (targetLanguageLine(s,source,language)) continue;
     if (!foreign && vocalLine(s,chinese)) continue;
     if (translated.has(s)) continue;
     if (retryAfter?.get(s) > Date.now()) continue;
@@ -1902,19 +1899,35 @@ async function translate(ctx, original, state, sourceLanguage = "", sourceRows =
     if (legacy(s,cached)) cacheChanged = true;
     else if (!checkSource || !targetLanguageLine(s,source,language)) pending.push(s);
   }
-  const from = foreign && LANGUAGES.includes(source) && !original.some(mixedLatinLine) ? source : "auto";
+  const from = foreign && LANGUAGES.includes(source) && (source === "ja" || !original.some(mixedLatinLine)) ? source : "auto";
+  // A live/medley may mix a non-Latin language and English. Partition pending
+  // references once in place: native-script rows keep their source tag;
+  // Latin-only rows use auto. Add one batch boundary, not one per switch.
+  const autoLatin = /^(?:ja|ko|ru|ar|hi|th|uk|he|fa|el)$/.test(source);
+  let autoStart = pending.length;
+  if (autoLatin) {
+    autoStart = 0;
+    for (let i = 0; i < pending.length; i++) {
+      const s = pending[i];
+      if (!/\p{Script=Latin}/u.test(s) || /\p{L}/u.test(s.replace(/[\p{Script=Latin}\p{M}]/gu,""))) {
+        const previous = pending[autoStart]; pending[autoStart++] = s; pending[i] = previous;
+      }
+    }
+  }
   const base = "https://translate.googleapis.com/translate_a/t?client=dict-chrome-ex&sl=" + from + "&tl=" + encodeURIComponent(language);
+  const autoBase = autoLatin ? "https://translate.googleapis.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=" + encodeURIComponent(language) : base;
   // Build only the batch about to be sent. Do not retain a second nested
   // groups array or URI-encode every future row before network admission.
   let cursor = 0, batchLimit = 64;
   while (ctx.env?.NETWORK_MODE !== "cache-only" && cursor < pending.length && Date.now() + 250 < state.deadline) {
-    const start = cursor, rows = []; let url = base, mixedBatch = false;
+    const start = cursor, rows = [], batchEnd = cursor < autoStart ? autoStart : pending.length;
+    const batchBase = cursor < autoStart ? base : autoBase; let url = batchBase, mixedBatch = false;
     try {
       if (state.network) state.network.enter();
-      while (cursor < pending.length && rows.length < batchLimit) {
-        const s = pending[cursor], mixed = chinese && mixedLatinLine(s), encoded = "&q=" + encodeURIComponent(mixed ? latinQuery(s,!foreign) : s);
+      while (cursor < batchEnd && rows.length < batchLimit) {
+        const s = pending[cursor], mixed = fragment(s), encoded = "&q=" + encodeURIComponent(mixed ? latinQuery(s,!foreign) : s);
         if (mixed) mixedBatch = true;
-        if (base.length + encoded.length > 6800) { cursor++; continue; }
+        if (batchBase.length + encoded.length > 6800) { cursor++; continue; }
         if (url.length + encoded.length > 6800) break;
         rows.push(s); url += encoded; cursor++;
       }
@@ -1930,7 +1943,7 @@ async function translate(ctx, original, state, sourceLanguage = "", sourceRows =
         const detectedChinese = chinese && Array.isArray(data[i]) && /^(?:zh|cmn|yue)(?:[-_]|$)/i.test(str(data[i][1]));
         // Detection corrects stale labels only for Chinese-only rows. A zh
         // label on mixed text must not discard its English translation.
-        data[i] = chinese && mixedLatinLine(rows[i]) ? latinTranslation(rows[i],value,!foreign) : detectedChinese && targetLanguageLine(rows[i],"zh",language) ? rows[i] : value;
+        data[i] = fragment(rows[i]) ? latinTranslation(rows[i],value,!foreign) : detectedChinese && targetLanguageLine(rows[i],"zh",language) ? rows[i] : value;
         if (data[i] === null) continue;
         characters += data[i].length;
       }
@@ -2105,12 +2118,12 @@ export default async function(ctx) {
     // lyrics, metadata, palettes and other target languages for this track.
     if (!generated && config.translate) cacheScope.translations = true;
     const sourceRows = generated && ["qq","netease"].includes(generated.lyrics.provider) ? generated.lyrics.alternatives?.find(a => a.language === config.language)?.lines : null;
-    const chineseTarget = config.language === "zh-CN" || config.language === "zh-TW";
-    const translateSong = config.translate && (!chineseTarget || englishSong(doc.words,doc.language));
-    // Decide before reading translations, including legacy/source rows. Stale
-    // mixed-language translations must not reappear from a warm cache.
-    const result = translateSong ? await translate(ctx,doc.words,state,doc.language,sourceRows) : {translations:doc.hasAlternatives ? new Array(doc.words.length).fill("") : [],changed:0};
-    const replaceTranslations = config.translate && (result.changed > 0 || doc.hasAlternatives);
+    // All foreign languages are eligible. Per-row guards preserve Chinese,
+    // original timing and existing words, including on a mixed-language song.
+    const result = config.translate ? await translate(ctx,doc.words,state,doc.language,sourceRows) : {translations:[],changed:0};
+    // A timeout, unsupported language or empty result must not erase native
+    // translations just because the original response contained alternatives.
+    const replaceTranslations = config.translate && result.changed > 0;
     if (!generated && !replaceTranslations) {
       status(ctx, config.translate ? "保留 Spotify 原词；插件暂未取得可用译文。" : "插件翻译已关闭，保留原响应。");
       return unchanged();
@@ -2120,7 +2133,7 @@ export default async function(ctx) {
     const offset = generated ? fallbackOffset(ctx.env) : 0;
     const body = generated ? offset ? encodeOffset(generated,doc.format,offset) : encodeDocument(generated,doc.format) : doc.writeNative(config.language, result.translations);
     const origin = generated ? "备用来源：" + generated.lyrics.providerDisplayName : "Spotify 原词";
-    status(ctx, origin + (config.translate ? result.changed > 0 ? "；已用插件的 " + result.changed + " 句译文（" + config.language + "）替换全部官方译文。" : "；官方译文已移除，插件翻译暂不可用，目前仅保留原词。" : "；插件翻译已关闭。"));
+    status(ctx, origin + (config.translate ? result.changed > 0 ? "；已用插件的 " + result.changed + " 句译文（" + config.language + "）替换官方译文。" : "；插件暂未取得可用译文，保留原词。" : "；插件翻译已关闭。"));
     return { ...(generated ? { status: 200 } : {}), headers: responseHeaders(ctx, doc.format), body };
   } catch { status(ctx, "响应结构不支持或处理失败，已保留原响应。"); return unchanged(); }
   finally { try { state.cache.save(); } finally { state.network?.release(); } }

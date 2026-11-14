@@ -1,0 +1,140 @@
+{
+  "schema": 1,
+  "policy": "Preserve Chinese originals; translate other languages and foreign fragments using the selected target; keep unknown Han-only words rather than guess",
+  "historicalBase": "e2101de9c38c6537254058d0a50e93a9ca5b315c",
+  "sourceTests": 235,
+  "sourceTestsFailed": 0,
+  "nativeDeviceVerification": false,
+  "currentRuntimeInputs": [
+    {
+      "path": "src/build.mjs",
+      "sha256": "dbeb7f5f2ab0080cb1f94cc8d8a2ff5aea98c22f2a7bfccc55c11fd27660c0d4"
+    },
+    {
+      "path": "src/spotify-lyrics.js",
+      "sha256": "36a0825e80de9506ef6c827ac2bfe01b75478c1887c4100686c0d66f2e0b3a95"
+    },
+    {
+      "path": "src/native-adapter.js",
+      "sha256": "6b1bb8fc6b869f0bfc66d2e1184807a1a89e6416fe5f0a931fe71bdc0c5b2670"
+    },
+    {
+      "path": "src/native-flow.mjs",
+      "sha256": "d88b432395b5db0bc22ee652ffd06f37f0419b8a4e595d4681208a4ee9d39e0f"
+    },
+    {
+      "path": "src/NOTICE-UNICODE.txt",
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+      "bytes": 27122,
+      "sha256": "d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e"
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
+      "bytes": 2931,
+      "sha256": "d5531a4ce9555006e2f5aef54d0fe6e1df0074bea75f44a193ac23c6ee75a1bd"
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
+      "bytes": 89122,
+      "sha256": "6c5e53c2bef29ab87cb1bc72d2c97134ba8b2b14fe25e60ff51b0a67387c57ac"
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Entry.js",
+      "bytes": 29689,
+      "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64"
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
+      "bytes": 29698,
+      "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f"
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.js",
+      "bytes": 93182,
+      "sha256": "8feeeed7379cc762c38d1c86b6805113e89209ce38500142cadefd814848d249"
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Mac.js",
+      "bytes": 99198,
+      "sha256": "4c03ff1703444b6067cc7125acc630017588b2080c21da85d0dafca0e0743816"
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2"
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
+      "bytes": 30320,
+      "sha256": "1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3"
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.js",
+      "bytes": 93957,
+      "sha256": "6358363160bcafb84c6fe5bbc74936ba17316706327587e25bf1e1d4aea54240"
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.Request.js",
+      "bytes": 4853,
+      "sha256": "f9615506ff41006f6109c480c2314e0e921465c95122b53f4f9aa9ddabb93f40"
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
+      "bytes": 29697,
+      "sha256": "64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159"
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.js",
+      "bytes": 93162,
+      "sha256": "e7277d513c8fb7166316ad8e90f85930164e1166ce36295286ee444244bfdb5b"
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
+      "bytes": 4697,
+      "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.Entry.js",
+      "bytes": 29690,
+      "sha256": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584"
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.js",
+      "bytes": 93155,
+      "sha256": "c562229ba759ef35fb737e8b19f7d978374086e8d76be844355cd27ff6305da0"
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.Request.js",
+      "bytes": 4697,
+      "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
+    }
+  ],
+  "publicTrackMetadata": [
+    {
+      "id": "39HrUxcvKF3jtLz7fUDWXc",
+      "name": "First Love",
+      "artist": "宇多田光",
+      "album": "First Love",
+      "durationMs": 257293
+    },
+    {
+      "id": "6149wOhItvVX0zoa1KK5hw",
+      "name": "ラスト・クリスマス 〜 赤鼻のトナカイ - BLACKPINK ARENA TOUR 2018 \"SPECIAL FINAL IN KYOCERA DOME OSAKA\"",
+      "artist": "BLACKPINK",
+      "album": "BLACKPINK ARENA TOUR 2018 \"SPECIAL FINAL IN KYOCERA DOME OSAKA\"",
+      "durationMs": 232566
+    }
+  ],
+  "metadataSource": "Spotify public catalog get_entity; names and durations only; no playback URI, library state, user URL tracking parameters or account credentials saved",
+  "trackTests": "Both public track routes were exercised with self-written Japanese/English fixtures, not real client lyric responses"
+}

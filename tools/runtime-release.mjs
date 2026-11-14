@@ -1,5 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {setTranslationDescription} from './translation-description.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -28,7 +29,7 @@ export function runtimeURL(path, release = runtimeRelease) {
 // original compatibility entries and provenance objects retain their bytes.
 export function relocateProfile(profile, release = runtimeRelease) {
   validateRelease(release);
-  return profile
+  return setTranslationDescription(profile)
     .replace(/https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/Proxy\/[0-9a-f]{40}\/([A-Za-z0-9./_-]+)/g, (_, path) => runtimeURL(path, release))
     .replaceAll('https://github.com/hhhoratioxu/Proxy/blob/main/', 'https://github.com/hhhoratioxu/SpotifyLyrics/blob/main/');
 }

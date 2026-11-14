@@ -6,6 +6,7 @@ import {createHash} from 'node:crypto';
 import {join} from 'node:path';
 import {baseline,macSource,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
 import {relocateProfile,runtimeRelease,runtimeURL} from '../../../tools/runtime-release.mjs';
+import {setTranslationDescription} from '../../../tools/translation-description.mjs';
 const profile=readFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),'utf8');
 const manifest=JSON.parse(readFileSync(new URL('./subscription-manifest.json',import.meta.url),'utf8'));
 const old=git(macSource,'Loon/script/SpotifyLyrics.lpx').toString();
@@ -38,7 +39,7 @@ test('the actual public entry has a reproducible build and a numbered WeatherKit
   const description=profile.split('\n').find(line=>line.startsWith('#!desc = ')).slice(9).split('\\n');
   assert.equal(description[0],'iOS & iPadOS & macOS');assert.equal(description.length,6);assert.ok(description.slice(1).every((line,i)=>line.startsWith((i+1)+'.')));assert.match(description[5],/Mac.*无词补全测试中/);
 });
-test('all twelve existing user settings and defaults remain byte identical',()=>{assert.equal(section(profile,'Argument').split('\n').filter(l=>!l.startsWith('CLIENT_PLATFORM = ')).join('\n'),section(old,'Argument'));assert.match(section(profile,'Argument'),/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);});
+test('all existing setting keys and defaults remain; only translation help follows the requested policy',()=>{assert.equal(section(profile,'Argument').split('\n').filter(l=>!l.startsWith('CLIENT_PLATFORM = ')).join('\n'),section(setTranslationDescription(old),'Argument'));assert.match(section(profile,'Argument'),/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);});
 test('mobile keeps exactly the original three native rewrites and two response scripts',()=>{
   assert.deepEqual(rules(profile,'Rewrite').map(unGate),rules(old,'Rewrite'));
   assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(relocateProfile(old),'Script'));
@@ -79,8 +80,8 @@ test('Mac routes preserve the tested candidate conditions and all native complet
   const expected=rules(mac,'Script').map(l=>{for(const item of files)l=l.replace('http://127.0.0.1:18765/'+item.source,runtimeURL('Loon/script/'+item.name));return l;});
   assert.deepEqual(actual,expected);assert.equal(section(profile,'Mitm'),section(old,'Mitm'));
 });
-test('each real runtime is byte identical to the tested candidate and its pinned Git object',()=>{
-  for(const item of files){const bytes=readFileSync(join(repo,'Loon/script/'+item.name));assert.equal(createHash('sha256').update(bytes).digest('hex'),runtimeRelease.artifacts.find(a=>a.path==='Loon/script/'+item.name).sha256);assert.deepEqual(bytes,git(macSource,'Loon/Development/SpotifyMac20261114/runtime/'+item.source));new vm.Script(bytes.toString());}
+test('each real runtime matches its immutable pin and the established Mac transport remains unchanged',()=>{
+  for(const item of files){const bytes=readFileSync(join(repo,'Loon/script/'+item.name));assert.equal(createHash('sha256').update(bytes).digest('hex'),runtimeRelease.artifacts.find(a=>a.path==='Loon/script/'+item.name).sha256);if(item.name!=='SpotifyLyrics.Mac.js')assert.deepEqual(bytes,git(macSource,'Loon/Development/SpotifyMac20261114/runtime/'+item.source));new vm.Script(bytes.toString());}
 });
 test('the public install chain contains only immutable public URLs and no local diagnostics',()=>{
   assert.doesNotMatch(profile,/127\.0\.0\.1|localhost|18765|CacheProbe|Debug|observe/);
@@ -89,5 +90,5 @@ test('the public install chain contains only immutable public URLs and no local 
 });
 test('the published profile hash and honest acceptance state match its manifest',()=>{
   assert.equal(Buffer.byteLength(profile),manifest.profile.bytes);assert.equal(createHash('sha256').update(profile).digest('hex'),manifest.profile.sha256);
-  assert.equal(manifest.mobileRuntimeChanged,false);assert.equal(manifest.iosPeakAcceptance,'unverified');assert.equal(manifest.macMissingLyricsEntry,'unverified');
+  assert.equal(manifest.mobileRuntimeChanged,true);assert.equal(manifest.patch,'non-chinese-translation');assert.equal(manifest.iosPeakAcceptance,'unverified');assert.equal(manifest.macMissingLyricsEntry,'unverified');
 });
