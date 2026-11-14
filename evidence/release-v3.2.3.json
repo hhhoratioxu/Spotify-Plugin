@@ -1,0 +1,331 @@
+{
+  "schema": 1,
+  "verifiedAt": "2026-11-14T23:04:35.646503+00:00",
+  "repository": "hhhoratioxu/SpotifyLyrics",
+  "release": "v3.2.3",
+  "sourceCommit": "fed1d9191028e799e5048131cff2fa8db271a9d1",
+  "runtimeCommit": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+  "releaseURL": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.3",
+  "publishedAt": "2026-11-14T23:03:37Z",
+  "isDraft": false,
+  "isPrerelease": false,
+  "isLatest": true,
+  "publicNativeEntriesVerified": 5,
+  "publicRuntimeAssetsVerified": 18,
+  "publicReleaseAssetsVerified": 7,
+  "zipEntries": 29,
+  "assets": [
+    {
+      "name": "SpotifyLyrics.lpx",
+      "bytes": 12387,
+      "sha256": "85d45764ed1c23dcb7f89097c5ef6e3a34f8c39297189419f576684d668ba07d",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics.lpx",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SpotifyLyrics.Surge.sgmodule",
+      "bytes": 3229,
+      "sha256": "d4b0c9a24ebe7aa675f888e0695b09647f65472d1ce0ebdbe22c020958cec814",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics.Surge.sgmodule",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SpotifyLyrics.Egern.yaml",
+      "bytes": 7698,
+      "sha256": "6efe0fc5e72597569d2d10ba42de9301eb002c9ee36ad782032905c74a80a765",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics.Egern.yaml",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SpotifyLyrics.QuantumultX.conf",
+      "bytes": 3020,
+      "sha256": "e1971139cf3f63cf5dd37e9807b769d11aa4273ae05e13d0b9873e741289faf1",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics.QuantumultX.conf",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SpotifyLyrics.Shadowrocket.sgmodule",
+      "bytes": 3305,
+      "sha256": "5c9061d37319db496f28df1abde54a42531d76eb71b9f85fef166357804c08c2",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics.Shadowrocket.sgmodule",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SpotifyLyrics-v3.2.3.zip",
+      "bytes": 385356,
+      "sha256": "75285bf293d880398c6c537b25f0560c2edf1a12eb04d88a2d86477c82fb4cea",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SpotifyLyrics-v3.2.3.zip",
+      "status": 200,
+      "sha256Verified": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 560,
+      "sha256": "74156461ee74d8cd2956e703b1f0381cc208b080275bc1f60558f7455d1f7428",
+      "url": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/download/v3.2.3/SHA256SUMS.txt",
+      "status": 200,
+      "sha256Verified": true
+    }
+  ],
+  "installChain": [
+    {
+      "path": "Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",
+      "bytes": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/NOTICE-UNICODE.txt",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+      "bytes": 27122,
+      "sha256": "d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
+      "bytes": 2931,
+      "sha256": "d5531a4ce9555006e2f5aef54d0fe6e1df0074bea75f44a193ac23c6ee75a1bd",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
+      "bytes": 88726,
+      "sha256": "4bb7187949f3ffd843c1ee9a0607cfdf584e981a6b3dda0e1b7576d103dfc90c",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Egern/script/SpotifyLyrics/spotify-lyrics.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Entry.js",
+      "bytes": 29689,
+      "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.Entry.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
+      "bytes": 29698,
+      "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.Entry.Mac.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.js",
+      "bytes": 92786,
+      "sha256": "f6dcc8d3df879f80e1a94ee6cc5b90e59d635df97ffdd3c42cd0bb514773544e",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Mac.js",
+      "bytes": 98802,
+      "sha256": "2dffabaa02736f687a440ed1c2b27250803cb04ef6c97a6a4cbf46ca19c4ef8d",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.Mac.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
+      "bytes": 4772,
+      "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.Request.Mac.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
+      "bytes": 30320,
+      "sha256": "1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/QuantumultX/script/SpotifyLyrics.Entry.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.js",
+      "bytes": 93561,
+      "sha256": "4de94a06e394241fd261f947ee38672d868a32a9dd2e01f64a87f40dd9cccf31",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/QuantumultX/script/SpotifyLyrics.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.Request.js",
+      "bytes": 4853,
+      "sha256": "f9615506ff41006f6109c480c2314e0e921465c95122b53f4f9aa9ddabb93f40",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/QuantumultX/script/SpotifyLyrics.Request.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
+      "bytes": 29697,
+      "sha256": "64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Shadowrocket/script/SpotifyLyrics.Entry.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.js",
+      "bytes": 92766,
+      "sha256": "4a2f5f3be4854a3c2f114b7a5c2efada08a74c311567712c8e3d6e07bf90d728",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Shadowrocket/script/SpotifyLyrics.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
+      "bytes": 4697,
+      "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Shadowrocket/script/SpotifyLyrics.Request.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.Entry.js",
+      "bytes": 29690,
+      "sha256": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Surge/script/SpotifyLyrics.Entry.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.js",
+      "bytes": 92759,
+      "sha256": "53631219cdb07f7e059f4f01cb10d2aecb2fb1f6b78b32d66378293436a0accb",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Surge/script/SpotifyLyrics.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.Request.js",
+      "bytes": 4697,
+      "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d",
+      "revision": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+      "kind": "runtime",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Surge/script/SpotifyLyrics.Request.js",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Loon/script/SpotifyLyrics.lpx",
+      "revision": "main",
+      "bytes": 12387,
+      "sha256": "85d45764ed1c23dcb7f89097c5ef6e3a34f8c39297189419f576684d668ba07d",
+      "kind": "install-entry",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Surge/script/SpotifyLyrics.sgmodule",
+      "revision": "main",
+      "bytes": 3229,
+      "sha256": "d4b0c9a24ebe7aa675f888e0695b09647f65472d1ce0ebdbe22c020958cec814",
+      "kind": "install-entry",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Surge/script/SpotifyLyrics.sgmodule",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Egern/script/SpotifyLyrics.yaml",
+      "revision": "main",
+      "bytes": 7698,
+      "sha256": "6efe0fc5e72597569d2d10ba42de9301eb002c9ee36ad782032905c74a80a765",
+      "kind": "install-entry",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Egern/script/SpotifyLyrics.yaml",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "QuantumultX/script/SpotifyLyrics.conf",
+      "revision": "main",
+      "bytes": 3020,
+      "sha256": "e1971139cf3f63cf5dd37e9807b769d11aa4273ae05e13d0b9873e741289faf1",
+      "kind": "install-entry",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/QuantumultX/script/SpotifyLyrics.conf",
+      "status": 200,
+      "matches": true
+    },
+    {
+      "path": "Shadowrocket/script/SpotifyLyrics.sgmodule",
+      "revision": "main",
+      "bytes": 3305,
+      "sha256": "5c9061d37319db496f28df1abde54a42531d76eb71b9f85fef166357804c08c2",
+      "kind": "install-entry",
+      "url": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Shadowrocket/script/SpotifyLyrics.sgmodule",
+      "status": 200,
+      "matches": true
+    }
+  ],
+  "verification": {
+    "independentNode": 626,
+    "python": 18,
+    "currentCore": 1011,
+    "supersededPolicyAssertions": 8,
+    "historicalBaseline": 2248,
+    "originalBridge": 72
+  },
+  "desktopMemory": {
+    "processes": 80,
+    "invocations": 840,
+    "maxFootprintBytes": 13189744,
+    "maxResidentBytes": 18448384,
+    "belowDesktopReference": true,
+    "scope": "Current maintained mobile runtimes in an owned desktop JavaScriptCore process; synthetic network only",
+    "nativeIOSAcceptance": false
+  },
+  "nativeAcceptance": {
+    "requestedTrackDisplays": "unverified",
+    "macMissingLyrics": "not-passed",
+    "iPhoneUnder50000000Bytes": "unverified"
+  },
+  "clientSettingsChanged": false,
+  "musicPlayed": false
+}

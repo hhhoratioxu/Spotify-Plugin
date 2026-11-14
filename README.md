@@ -2,9 +2,9 @@
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
-项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整项目已上传，5 个公开安装入口、18 个固定资源和新 Clone 均已核对，见 [GitHub 迁移校验](evidence/github-migration-verification.json)。此次为仓库与安装地址迁移，运行脚本保持原字节；Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
+项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整项目已上传，5 个公开安装入口、18 个固定资源和新 Clone 均已核对，见 [GitHub 迁移校验](evidence/github-migration-verification.json)。首次仓库迁移保持原运行字节；后续 v3.2.3 更新了非中文翻译策略，Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
 
-**v3.2.3 非中文歌词翻译修复：中文原词保持，其他语言进入翻译；独立检查 626 项 Node / 18 项 Python、1011 项当前核心兼容与 2248 项历史基线通过。本次更新提供新固定运行资源，使用下方新仓库订阅刷新获取。** 详见 [多语言修复记录](docs/translation-2026-11-15.md)。
+**[v3.2.3 非中文歌词翻译修复](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.3)：中文原词保持，其他语言进入翻译；独立检查 626 项 Node / 18 项 Python、1011 项当前核心兼容与 2248 项历史基线通过。本次更新提供新固定运行资源，使用下方新仓库订阅刷新获取。** 详见 [多语言修复记录](docs/translation-2026-11-15.md)及[公开发布校验](evidence/release-v3.2.3.json)。
 
 ## 安装
 
