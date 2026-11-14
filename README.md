@@ -2,7 +2,7 @@
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
-项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。此次为仓库与安装地址迁移，运行脚本保持原字节；Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
+项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整项目已上传，5 个公开安装入口、18 个固定资源和新 Clone 均已核对，见 [GitHub 迁移校验](evidence/github-migration-verification.json)。此次为仓库与安装地址迁移，运行脚本保持原字节；Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
 
 ## 安装
 

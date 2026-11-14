@@ -2,6 +2,8 @@
 
 目标仓库：[hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)，公开。用户于 2026-11-15 明确要求将 Spotify 项目全部转移到新 GitHub 仓库；本次据此上传完整项目和迁移后的安装入口，不将设备验收待办当作已通过，也不创建 GitHub Release。
 
+已完成推送，默认分支为 `main`。公开原始链接的 5 个安装入口与 18 个固定资源均已下载核对；从 GitHub 全新 Clone 的 868 个文件逐字节匹配已推送的源码提交。校验记录见 [github-migration-verification.json](../evidence/github-migration-verification.json)。
+
 ## 保留范围
 
 独立目录 `Proxy/Spotify/` 使用自己的 `.git`。当前维护源码、五个客户端原生入口与运行文件、README / 安装说明、测试、Mac / 手机内存工具、公开实测证据、历史 Egern 档案及隔离恢复实验均一并保留。

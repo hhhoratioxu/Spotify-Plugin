@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "createdAt": "20261114T041907Z",
-  "mode": "copy-only",
+  "mode": "copy-and-independent-publish",
   "localProject": "Spotify",
   "displayName": "SpotifyLyrics",
   "proposedGitHubRepository": "hhhoratioxu/SpotifyLyrics",
   "proposedVisibility": "public",
   "remoteCreated": true,
   "remoteConfigured": true,
-  "pushed": false,
+  "pushed": true,
   "originalFilesRemoved": false,
   "parentIndexChanged": false,
   "subscriptionSwitched": false,
@@ -23,22 +23,22 @@
     "macMissingLyrics": "not-passed",
     "preciseSync": "unverified",
     "iOSUnder50000000Bytes": "unverified",
-    "readyToPush": false
+    "readyForFeatureRelease": false,
+    "migrationUploadExplicitlyAuthorized": true
   },
   "remote": {
-    "verifiedAt": "2026-11-14T04:41:34.977966+00:00",
+    "verifiedAt": "2026-11-14T16:24:37.204017+00:00",
     "repository": "hhhoratioxu/SpotifyLyrics",
     "url": "https://github.com/hhhoratioxu/SpotifyLyrics",
     "visibility": "PUBLIC",
-    "isEmpty": true,
-    "creation": "Empty repository only; no initial README, license, commit, branch or source upload",
+    "isEmpty": false,
+    "defaultBranch": "main",
     "origin": "https://github.com/hhhoratioxu/SpotifyLyrics.git"
   },
   "independentBuildVerified": true,
   "verificationReport": "evidence/independence.json",
   "localBranch": "codex/spotifylyrics-migration",
-  "localCommits": 0,
-  "pushPerformed": false,
+  "pushPerformed": true,
   "publication": {
     "authorizedAt": "2026-11-15",
     "instruction": "Spotify的项目全部转移到新的GitHub库里",
@@ -50,6 +50,23 @@
     "nativeClientSettingsChanged": false,
     "deviceAcceptanceUnchanged": true,
     "releaseCreated": false,
-    "status": "prepared-pending-remote-verification"
-  }
+    "status": "pushed-and-publicly-verified",
+    "verifiedSourceCommit": "c7708afdf7f83c1dcef627821eb09fbcc9df41f6",
+    "verifiedAt": "2026-11-14T16:24:37.204017+00:00",
+    "verificationReport": "evidence/github-migration-verification.json",
+    "nativeEntriesVerified": 5,
+    "immutableArtifactsVerified": 18,
+    "freshCloneFilesVerified": 868,
+    "oldProxyRepositoryPushed": false
+  },
+  "initialRemote": {
+    "verifiedAt": "2026-11-14T04:41:34.977966+00:00",
+    "repository": "hhhoratioxu/SpotifyLyrics",
+    "url": "https://github.com/hhhoratioxu/SpotifyLyrics",
+    "visibility": "PUBLIC",
+    "isEmpty": true,
+    "creation": "Empty repository only; no initial README, license, commit, branch or source upload",
+    "origin": "https://github.com/hhhoratioxu/SpotifyLyrics.git"
+  },
+  "initialLocalCommits": 0
 }
