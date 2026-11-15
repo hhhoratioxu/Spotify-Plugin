@@ -22,7 +22,7 @@
 
 [SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx)
 
-已切换新仓库 main 地址的用户刷新该订阅；仍使用旧 Proxy 地址的用户须先更换。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件日期为 `2026-11-15`；核心号仍为 `3.2.2`。
+已切换新仓库 main 地址的用户刷新该订阅；仍使用旧 Proxy 地址的用户须先更换。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件详情的 Version Date 按台北时间（UTC+8）显示本次订阅更新时间，格式为 `YYYY-MM-DD HH:mm:ss`，与 WeatherKit 一样精确到秒；核心号仍为 `3.2.2`。
 
 1. 在 Loon「插件」中添加上面的远程地址并启用。需要 Loon 3.5.1（983）或更新版本。已订阅旧 `.plugin` 地址的用户请改用本页 `.lpx` 地址，并确认只启用一份。
 2. 使用已安装、信任并开启的 HTTPS 解密证书。仅加入 `spclient.wg.spotify.com` 和 `*-spclient.spotify.com`。

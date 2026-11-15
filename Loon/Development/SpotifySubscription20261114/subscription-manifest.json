@@ -1,5 +1,6 @@
 {
   "configuration": "2026.11.15-multilingual",
+  "versionDate": "2026-11-15 08:08:01",
   "core": "3.2.2",
   "patch": "non-chinese-translation",
   "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
@@ -8,8 +9,8 @@
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "profile": {
     "path": "Loon/script/SpotifyLyrics.lpx",
-    "bytes": 12387,
-    "sha256": "85d45764ed1c23dcb7f89097c5ef6e3a34f8c39297189419f576684d668ba07d"
+    "bytes": 12396,
+    "sha256": "4df97fd2a5eb82a3b3d28de98dec21f2f26086b2645b742fc2c45337de398187"
   },
   "mobileRuntimeChanged": true,
   "iosPeakAcceptance": "unverified",

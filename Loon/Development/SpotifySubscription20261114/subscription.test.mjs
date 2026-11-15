@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
-import {baseline,macSource,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
+import {baseline,macSource,versionDate,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
 import {relocateProfile,runtimeRelease,runtimeURL} from '../../../tools/runtime-release.mjs';
 import {setTranslationDescription} from '../../../tools/translation-description.mjs';
 const profile=readFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),'utf8');
@@ -35,7 +35,10 @@ function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+path
   return lines.filter(line=>condition(line.slice(line.indexOf(' if ')+4,line.indexOf(' then ')),values));
 }
 test('the actual public entry has a reproducible build and a numbered WeatherKit-style description',()=>{
-  assert.equal(createProfile(manifest.runtimeCommit),profile);assert.match(profile,/#!date = 2026-11-15/);
+  assert.equal(createProfile(manifest.runtimeCommit),profile);
+  assert.match(profile,/^#!date = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/m);
+  assert.equal(profile.split('\n').find(line=>line.startsWith('#!date = ')),'#!date = '+versionDate);
+  assert.equal(manifest.versionDate,versionDate);
   const description=profile.split('\n').find(line=>line.startsWith('#!desc = ')).slice(9).split('\\n');
   assert.equal(description[0],'iOS & iPadOS & macOS');assert.equal(description.length,6);assert.ok(description.slice(1).every((line,i)=>line.startsWith((i+1)+'.')));assert.match(description[5],/Mac.*无词补全测试中/);
 });
