@@ -2186,31 +2186,83 @@ function lyricGateConfiguration(bytes) {
   // Configuration.assigned_values(3) -> AssignedValue.property_id(1)
   // -> Identifier.scope(1), name(2). AssignedValue.bool_value(3).value(1).
   // Recognize only a configuration containing an actual iOS lyrics namespace.
-  const fs = fields(bytes), entries = fs.filter(f => f.number === 3 && f.wire === 2);
-  if (!entries.length || entries.length > 5000) return null;
-  const id = fs.filter(f => f.number === 1), time = fs.filter(f => f.number === 2);
-  if (id.length !== 1 || id[0].wire !== 2 || !word(fs, 1) || time.some(f => f.wire !== 0)) return null;
+  let idCount = 0, id, badTime = false, entryCount = 0;
+  // First validate the envelope, before interpreting a target value. Never
+  // materialize the thousands of unrelated assignments in a startup response.
+  scanFields(bytes,(n,w,a,b) => {
+    if (n === 1) { idCount++; if (w === 2) id = bytes.subarray(a,b); }
+    else if (n === 2 && w !== 0) badTime = true;
+    else if (n === 3 && w === 2) entryCount++;
+  });
+  if (!entryCount || entryCount > 5000 || idCount !== 1 || !id || !text(id) || badTime) return null;
   let iosLyrics = false; const targets = [];
-  for (const entry of entries) {
-    let ef, identifier;
+  scanFields(bytes,(n,w,a,b,value,start,end) => {
+    if (n !== 3 || w !== 2) return;
+    const payload = bytes.subarray(a,b);
+    let identifiers = 0, identifier, values = 0, boolPayload;
     try {
-      ef = fields(entry.payload);
-      const ids = ef.filter(f => f.number === 1);
-      if (ids.length !== 1 || ids[0].wire !== 2) continue;
-      identifier = fields(ids[0].payload);
-      if (identifier.filter(f => f.number === 1).length !== 1 || identifier.filter(f => f.number === 2).length !== 1) continue;
-      if (word(identifier, 1) !== LYRICS_GATE_SCOPE) continue;
+      scanFields(payload,(n,w,a,b) => {
+        if (n === 1) { identifiers++; if (w === 2) identifier = payload.subarray(a,b); }
+        else if (n === 3 || n === 4 || n === 5) { values++; if (n === 3 && w === 2) boolPayload = payload.subarray(a,b); }
+      });
+      if (identifiers !== 1 || !identifier) return;
+      let scopes = 0, names = 0, scope, name;
+      scanFields(identifier,(n,w,a,b) => {
+        if (n === 1) { scopes++; if (w === 2) scope = identifier.subarray(a,b); }
+        else if (n === 2) { names++; if (w === 2) name = identifier.subarray(a,b); }
+      });
+      if (scopes !== 1 || names !== 1 || !gateASCII(scope,LYRICS_GATE_SCOPE)) return;
       iosLyrics = true;
-      if (word(identifier, 2) !== LYRICS_GATE_NAME) continue;
-    } catch { continue; }
-    const values = ef.filter(f => [3, 4, 5].includes(f.number));
-    if (values.length !== 1 || values[0].number !== 3 || values[0].wire !== 2) throw new Error("lyrics-gate-type");
-    const bool = fields(values[0].payload), value = bool.filter(f => f.number === 1);
-    if (value.length > 1 || value.some(f => f.wire !== 0 || ![0, 1].includes(f.value))) throw new Error("lyrics-gate-value");
-    targets.push({ entry, ef, bool, value: value[0]?.value ?? 0 });
-  }
+      if (!gateASCII(name,LYRICS_GATE_NAME)) return;
+    } catch { return; }
+    if (values !== 1 || !boolPayload) throw new Error("lyrics-gate-type");
+    let count = 0, flag = 0;
+    scanFields(boolPayload,(n,w,a,b,value) => {
+      if (n !== 1) return;
+      if (++count > 1 || w !== 0 || value !== 0 && value !== 1) throw new Error("lyrics-gate-value");
+      flag = value;
+    });
+    targets.push({payload,boolPayload,start,end,value:flag});
+  });
   if (!iosLyrics) return null;
-  return { fs, entries, targets };
+  return { targets };
+}
+function gateASCII(bytes, value) {
+  if (!bytes || bytes.length !== value.length) return false;
+  for (let i = 0; i < bytes.length; i++) if (bytes[i] !== value.charCodeAt(i)) return false;
+  return true;
+}
+function gateSplice(bytes, patches, append) {
+  let size = bytes.length + (append?.length || 0), previous = 0;
+  for (const p of patches) {
+    if (p.start < previous || p.end < p.start || p.end > bytes.length) throw new Error("lyrics-gate-range");
+    size += p.body.length - (p.end - p.start); previous = p.end;
+  }
+  if (size > LIMIT) throw new Error("body-limit");
+  const out = new Uint8Array(size); let at = 0; previous = 0;
+  for (const p of patches) {
+    const kept = bytes.subarray(previous,p.start); out.set(kept,at); at += kept.length;
+    out.set(p.body,at); at += p.body.length; previous = p.end;
+  }
+  const tail = bytes.subarray(previous); out.set(tail,at); at += tail.length;
+  if (append) out.set(append,at);
+  return out;
+}
+function gateWrap(fs, number, body) {
+  // Rebuild each known envelope into one buffer. dataField + replaceField
+  // would copy the entire growing response twice at every wrapper depth.
+  const prefix = join([uint(number * 8 + 2),uint(body.length)]);
+  let size = prefix.length + body.length;
+  for (const f of fs) if (f.number !== number) size += f.raw.length;
+  if (size > LIMIT) throw new Error("body-limit");
+  const out = new Uint8Array(size); let at = 0, inserted = false;
+  function insert() { out.set(prefix,at); at += prefix.length; out.set(body,at); at += body.length; }
+  for (const f of fs) {
+    if (f.number === number) { if (!inserted) { insert(); inserted = true; } }
+    else { out.set(f.raw,at); at += f.raw.length; }
+  }
+  if (!inserted) insert();
+  return out;
 }
 function nativeLyricGate(bytes, envelope = "customize") {
   if (bytes.length > LIMIT) throw new Error("body-limit");
@@ -2229,7 +2281,7 @@ function nativeLyricGate(bytes, envelope = "customize") {
     if (!result.changed) return { ...result, body: bytes, ...(result.depth !== undefined ? { depth: result.depth + 3 } : {}) };
     let body = result.body;
     for (let i = wrappers.length - 1; i >= 0; i--) {
-      const { fs, number } = wrappers[i]; body = replaceField(fs, number, dataField(number, body));
+      const { fs, number } = wrappers[i]; body = gateWrap(fs,number,body);
     }
     return { ...result, body, depth: result.depth + 3 };
   }
@@ -2242,20 +2294,20 @@ function nativeLyricGate(bytes, envelope = "customize") {
     try { candidate = lyricGateConfiguration(current); }
     catch (e) { if (/^lyrics-gate-/.test(e.message)) throw e; }
     if (candidate) {
-      const replacements = new Map(); let updated = 0, added = 0;
+      const patches = []; let updated = 0, added = 0, append;
       for (const t of candidate.targets) {
         if (t.value === 1) continue;
-        const bool = replaceField(t.bool, 1, numberField(1, 1));
-        replacements.set(t.entry, dataField(3, replaceField(t.ef, 3, dataField(3, bool)))); updated++;
+        const bool = replaceField(fields(t.boolPayload), 1, numberField(1, 1));
+        const body = dataField(3,replaceField(fields(t.payload),3,dataField(3,bool)));
+        patches.push({start:t.start,end:t.end,body}); updated++;
       }
-      const parts = candidate.fs.map(f => replacements.get(f) || f.raw);
       if (!candidate.targets.length) {
         const identifier = join([stringField(1, LYRICS_GATE_SCOPE), stringField(2, LYRICS_GATE_NAME)]);
-        parts.push(dataField(3, join([dataField(1, identifier), dataField(3, numberField(1, 1))]))); added = 1;
+        append = dataField(3,join([dataField(1,identifier),dataField(3,numberField(1,1))])); added = 1;
       }
       if (!updated && !added) return { changed: false, body: bytes, matched: candidate.targets.length, added, updated, depth };
-      let body = join(parts);
-      for (let i = parents.length - 1; i >= 0; i--) body = replaceField(parents[i], 1, dataField(1, body));
+      let body = gateSplice(current,patches,append);
+      for (let i = parents.length - 1; i >= 0; i--) body = gateWrap(parents[i],1,body);
       return { changed: true, body, matched: candidate.targets.length, added, updated, depth };
     }
     if (depth === 3) break;
