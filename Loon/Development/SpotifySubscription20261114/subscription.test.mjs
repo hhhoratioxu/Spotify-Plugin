@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
-import {baseline,macSource,versionDate,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
+import {baseline,macSource,versionDate,filterEntryJSON,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
 import {relocateProfile,runtimeRelease,runtimeURL} from '../../../tools/runtime-release.mjs';
 import {setTranslationDescription} from '../../../tools/translation-description.mjs';
 const profile=readFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),'utf8');
@@ -24,11 +24,12 @@ test('the standalone display name is SpotifyLyrics and survives the real subscri
   assert.equal(profile.split('\n')[0],'#!name = SpotifyLyrics');
   assert.equal(createProfile(manifest.runtimeCommit).split('\n')[0],'#!name = SpotifyLyrics');
 });
-function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+paths[0],method='GET',status=200,length='20',internal=null}={}){
+function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+paths[0],method='GET',status=200,length='20',internal=null,contentType=null}={}){
   const values=k=>{
     if(k==='url')return url;if(k==='request.method')return method;if(k==='response.status')return status;
     if(k==="request.header['x-verselyrics-internal']")return internal;
     if(k==="response.header['Content-Length']")return length;
+    if(k==="response.header['Content-Type']")return contentType;
     if(k.startsWith('request.header[')||k.startsWith('response.header['))return null;
     assert.ok(Object.hasOwn(defaults,k));return k==='CLIENT_PLATFORM'?mode:defaults[k];
   };
@@ -43,9 +44,23 @@ test('the actual public entry has a reproducible build and a numbered WeatherKit
   assert.equal(description[0],'iOS & iPadOS & macOS');assert.equal(description.length,6);assert.ok(description.slice(1).every((line,i)=>line.startsWith((i+1)+'.')));assert.match(description[5],/Mac.*无词补全测试中/);
 });
 test('all existing setting keys and defaults remain; only translation help follows the requested policy',()=>{assert.equal(section(profile,'Argument').split('\n').filter(l=>!l.startsWith('CLIENT_PLATFORM = ')).join('\n'),section(setTranslationDescription(old),'Argument'));assert.match(section(profile,'Argument'),/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);});
-test('mobile keeps exactly the original three native rewrites and two response scripts',()=>{
+test('mobile retains the original rewrites and scripts with a known no-op JSON startup filter',()=>{
   assert.deepEqual(rules(profile,'Rewrite').map(unGate),rules(old,'Rewrite'));
-  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(relocateProfile(old),'Script'));
+  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(filterEntryJSON(relocateProfile(old)),'Script'));
+});
+for(const contentType of ['application/json','APPLICATION/JSON; charset=UTF-8','application/problem+json'])test(`mobile startup ${contentType}: unsupported JSON metadata/configuration selects no body script`,()=>{
+  const noOps=['metadata/4/track/'+'0'.repeat(32),'extended-metadata/v0/extended-metadata','bootstrap/v1/bootstrap','user-customization-service/v1/customize','v1/customize'];
+  for(const path of noOps)for(const host of ['spclient.wg.spotify.com','gew1-spclient.spotify.com','gae2-spclient.spotify.com:443']){
+    const options={url:'https://'+host+'/'+path+'?fixture=1',contentType};
+    assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).length,0);
+    assert.equal(select(rules(relocateProfile(old),'Script'),options).length,1,'prove the old entry would have run');
+  }
+});
+for(const contentType of [null,'application/x-protobuf','application/octet-stream'])test(`mobile startup ${contentType}: native binary and unknown content types retain the original routes`,()=>{
+  for(const path of paths){const options={url:'https://spclient.wg.spotify.com/'+path,contentType};assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).length,1);}
+});
+test('supported scroll/player JSON and the actual lyric response still select one mobile script',()=>{
+  for(const path of [paths[0],paths[3],paths[6],paths[7]])assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{url:'https://spclient.wg.spotify.com/'+path,contentType:'application/json'}).length,1);
 });
 test('phone never starts the new Mac request script or loads a Mac runtime',()=>{
   for(const path of paths)for(const host of ['spclient.wg.spotify.com','gew1-spclient.spotify.com','gae2-spclient.spotify.com:443']){
@@ -58,7 +73,7 @@ test('phone never starts the new Mac request script or loads a Mac runtime',()=>
 test('native response routing preserves original status and size guards for phones',()=>{
   for(const path of paths)for(const status of [200,404,304,401,403,429,500])for(const length of [null,'20','131073','262145']){
     const options={url:'https://spclient.wg.spotify.com/'+path,status,length};
-    assert.deepEqual(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).map(unGate),select(rules(relocateProfile(old),'Script'),options));
+    assert.deepEqual(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).map(unGate),select(rules(filterEntryJSON(relocateProfile(old)),'Script'),options));
   }
 });
 test('Mac selects its own request and exactly one response while native rewrites stay inactive',()=>{

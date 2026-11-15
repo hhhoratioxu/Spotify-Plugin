@@ -1,0 +1,170 @@
+{
+  "recordedAt": "2026-11-15T00:48:49.464339+00:00",
+  "status": "local-candidate; native failure not yet resolved",
+  "branch": "codex/spotify-memory-admission",
+  "publishedMain": "8cc285bd6e38a7a9e4bf2e7e38a8431cfbb4ba06",
+  "candidateRuntime": "5bff1aa3e318172205c68892d7a84588031100b6",
+  "feedback": {
+    "trigger": "Opening Spotify and starting playback causes the iPhone Loon VPN to disconnect",
+    "device": "iPhone",
+    "disconnectTarget": "Loon VPN",
+    "errorTextAvailable": false
+  },
+  "rootCauseConfirmed": false,
+  "nativeIOSAcceptance": false,
+  "newTests": {
+    "admissionAndKnownJsonPassthrough": 45,
+    "loonStartupRuleFiltering": 7
+  },
+  "independent": {
+    "nodePassed": 678,
+    "pythonPassed": 18,
+    "currentCorePassed": 1011,
+    "historicalBaselinePassed": 2248,
+    "memoryBridgeMatched": 72
+  },
+  "models": {
+    "published": {
+      "processes": 96,
+      "invocations": 696,
+      "maxFootprintBytes": 59621976,
+      "maxResidentBytes": 78659584,
+      "byConcurrency": [
+        {
+          "concurrency": 1,
+          "maxFootprintBytes": 12206680,
+          "maxResidentBytes": 17235968
+        },
+        {
+          "concurrency": 4,
+          "maxFootprintBytes": 20710024,
+          "maxResidentBytes": 29229056
+        },
+        {
+          "concurrency": 8,
+          "maxFootprintBytes": 33768048,
+          "maxResidentBytes": 45580288
+        },
+        {
+          "concurrency": 16,
+          "maxFootprintBytes": 59621976,
+          "maxResidentBytes": 78659584
+        }
+      ],
+      "belowDesktopReference": false
+    },
+    "candidate": {
+      "processes": 96,
+      "invocations": 696,
+      "maxFootprintBytes": 50463344,
+      "maxResidentBytes": 62619648,
+      "byConcurrency": [
+        {
+          "concurrency": 1,
+          "maxFootprintBytes": 12370544,
+          "maxResidentBytes": 17498112
+        },
+        {
+          "concurrency": 4,
+          "maxFootprintBytes": 19743320,
+          "maxResidentBytes": 26607616
+        },
+        {
+          "concurrency": 8,
+          "maxFootprintBytes": 29819480,
+          "maxResidentBytes": 38420480
+        },
+        {
+          "concurrency": 16,
+          "maxFootprintBytes": 50463344,
+          "maxResidentBytes": 62619648
+        }
+      ],
+      "belowDesktopReference": false
+    },
+    "published-immediate": {
+      "processes": 96,
+      "invocations": 696,
+      "maxFootprintBytes": 13664808,
+      "maxResidentBytes": 19234816,
+      "byConcurrency": [
+        {
+          "concurrency": 1,
+          "maxFootprintBytes": 12173912,
+          "maxResidentBytes": 17268736
+        },
+        {
+          "concurrency": 4,
+          "maxFootprintBytes": 13550144,
+          "maxResidentBytes": 19218432
+        },
+        {
+          "concurrency": 8,
+          "maxFootprintBytes": 13664808,
+          "maxResidentBytes": 19234816
+        },
+        {
+          "concurrency": 16,
+          "maxFootprintBytes": 13566528,
+          "maxResidentBytes": 19234816
+        }
+      ],
+      "belowDesktopReference": true
+    },
+    "candidate-immediate": {
+      "processes": 96,
+      "invocations": 696,
+      "maxFootprintBytes": 13107776,
+      "maxResidentBytes": 19038208,
+      "byConcurrency": [
+        {
+          "concurrency": 1,
+          "maxFootprintBytes": 12370568,
+          "maxResidentBytes": 17498112
+        },
+        {
+          "concurrency": 4,
+          "maxFootprintBytes": 13058624,
+          "maxResidentBytes": 19038208
+        },
+        {
+          "concurrency": 8,
+          "maxFootprintBytes": 13091392,
+          "maxResidentBytes": 18939904
+        },
+        {
+          "concurrency": 16,
+          "maxFootprintBytes": 13107776,
+          "maxResidentBytes": 18956288
+        }
+      ],
+      "belowDesktopReference": true
+    }
+  },
+  "conservativeCandidateBelowReference": false,
+  "startupFiltering": {
+    "unsupportedJsonFamiliesSkipped": 5,
+    "supportedPlayerJsonRetained": true,
+    "binaryAndMissingTypesRetained": true,
+    "realStartupTrafficCaptured": false,
+    "nativeMemorySavingsMeasured": false
+  },
+  "performed": {
+    "push": false,
+    "release": false,
+    "clientSettingsChanged": false,
+    "musicPlayed": false,
+    "listenerStarted": false,
+    "accountCredentialsAccessed": false
+  },
+  "reports": [
+    "evidence/independence.json",
+    "docs/memory-2026-11-15.md"
+  ],
+  "candidateVersionDate": "2026-11-15 08:52:48",
+  "finalMetadataChecks": {
+    "passed": 31,
+    "failed": 0,
+    "candidateVersionDate": "2026-11-15 08:52:48"
+  }
+}

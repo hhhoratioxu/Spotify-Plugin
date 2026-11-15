@@ -9,7 +9,7 @@ import {relocateProfile,runtimeRelease,runtimeURL,verifyRuntimeArtifacts} from '
 export const baseline='10049053ce86bd992e3ebb6511ffb28312ba86fb';
 export const macSource='9f7399dda1279689d2436e981a547b1ea45513b3';
 // Subscription update time in Asia/Taipei (UTC+8); fixed for reproducible builds.
-export const versionDate='2026-11-15 08:08:01';
+export const versionDate='2026-11-15 08:52:48';
 export const repo=fileURLToPath(new URL('../../../',import.meta.url));
 const here=fileURLToPath(new URL('.',import.meta.url));
 const sourcePath='Loon/Development/SpotifyMac20261114/';
@@ -22,6 +22,14 @@ export const git=(revision,path)=>sourceBuffer(revision,path);
 const sha=b=>createHash('sha256').update(b).digest('hex');
 export function section(profile,name){const start=profile.indexOf('['+name+']\n');if(start<0)throw Error('Missing '+name);return profile.slice(start+name.length+3).split(/\n\[/)[0].trim();}
 export function rules(profile,name){return section(profile,name).split('\n').filter(line=>/^(request|response) if /.test(line));}
+// Metadata and bootstrap/customize JSON are passthrough in the established
+// core. Do not select a body script for these known no-op startup responses.
+// Scroll/player JSON is supported and must continue to select the entry hook.
+export function filterEntryJSON(profile){
+  const type="${response.header['Content-Type']}",address='${url}';
+  const guard=String.raw` && (${type} == null || ${type} ~= /^(?![\s\S]*json)[\s\S]*$/i || ${address} ~= /^https:\/\/[^\/?#]+\/(?:scrollsita\/v1\/scroll\/|context-resolve\/v1\/|connect-state\/v1\/)/)`;
+  return profile.split('\n').map(line=>line.startsWith('response if ')&&line.includes('/SpotifyLyrics.Entry.js"')?line.replace(' then script(',guard+' then script('):line).join('\n');
+}
 export function createProfile(revision=runtimeRelease.revision){
   if(revision!==runtimeRelease.revision)throw Error('Runtime commit must match the verified independent release');
   verifyRuntimeArtifacts();
@@ -43,7 +51,7 @@ export function createProfile(revision=runtimeRelease.revision){
     return gate(line,'macOS');
   });
   if(mobileRewrite.length!==3||mobileScripts.length!==2||macScripts.length!==3)throw Error('Unexpected baseline shape');
-  return relocateProfile(header+'[Argument]\n'+platform+'\n'+section(old,'Argument')+'\n\n[Rewrite]\n'+mobileRewrite.join('\n')+'\n\n[Script]\n'+macScripts.join('\n')+'\n'+mobileScripts.join('\n')+'\n\n[Mitm]\n'+section(old,'Mitm')+'\n');
+  return filterEntryJSON(relocateProfile(header+'[Argument]\n'+platform+'\n'+section(old,'Argument')+'\n\n[Rewrite]\n'+mobileRewrite.join('\n')+'\n\n[Script]\n'+macScripts.join('\n')+'\n'+mobileScripts.join('\n')+'\n\n[Mitm]\n'+section(old,'Mitm')+'\n'));
 }
 
 if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
@@ -58,6 +66,6 @@ if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
     writeFileSync(join(here,'artifacts-manifest.json'),JSON.stringify({macSource,baseline,runtimeCommit:runtimeRelease.revision,artifacts},null,2)+'\n');
   }else if(mode==='profile'){
     const revision=process.argv[3],profile=createProfile(revision);writeFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),profile);
-    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.15-multilingual',versionDate,core:'3.2.2',patch:'non-chinese-translation',runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
+    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.15-memory-candidate',versionDate,core:'3.2.2',patch:'non-chinese-translation',runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
   }else throw Error('Usage: node build-subscription.mjs artifacts | profile <full-runtime-commit>');
 }

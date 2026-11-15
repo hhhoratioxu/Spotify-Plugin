@@ -1,5 +1,9 @@
 # Loon 官方文档适配记录
 
+## 内存准入候选（2026-11-15，本地未发布）
+
+重新核对 [Script](https://nsloon.app/docs/Script/script_v2/) 的条件与完整正文约定，以及 [Script API](https://nsloon.app/docs/Script/script_api/) 的同步字符串存储、HTTP 回调和 `$done`。忙碌且没有可用快取的歌词回应在解码前保留原文；生成的原生包还在完整核心初始化前检查同一个共享租约。只在本次 VM 没有启动任何异步工作时同步完成，旧 VM 的真实 HTTP 回调仍须结算；不依赖取消能力、计时器、其他客户端字段或新的最低版本。手机 Entry 新增原生 Content-Type/URL 条件，仅排除原核心明确透传的元数据与 bootstrap/customize JSON；保留支持的 Scroll/播放器 JSON、二进制及缺失类型路线。共享存储没有原子 CAS，`requires_body` 仍可能先让宿主缓冲正文。桌面测量分别保留延迟回收与及时释放两个模型，不将其中低于参考线的数值当作 iPhone 验收。详见 [本轮记录](../../docs/memory-2026-11-15.md)。
+
 ## 插件版本日期显示时间（2026-11-15）
 
 重新核对 [Plugin 官方页面](https://nsloon.app/docs/Plugin/)：`#!date` 是按原样显示的插件版本日期。按用户提供的 WeatherKit 截图，将 SpotifyLyrics 的该字段改为台北时间（UTC+8）的 `YYYY-MM-DD HH:mm:ss`，精确到秒；生成源使用固定的本次订阅更新时间，重复构建不会产生新的时间。同步更新订阅清单和既有安装链回归。

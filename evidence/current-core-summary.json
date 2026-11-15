@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-14T22:30:36.836Z",
+  "recordedAt": "2026-11-15T00:47:05.504Z",
   "scope": "Original core test files executed against the current maintained source and staged native runtimes in a temporary directory; history files unchanged",
   "tests": 1011,
   "passed": 1011,
@@ -14,12 +14,11 @@
     "netease: mixed Chinese/English source keeps originals without any translation",
     "complete translation failure removes every official JSON alternative and retains original lyrics",
     "complete translation failure removes all protobuf alternatives and preserves every non-translation byte",
-    "explicit source and compatible letters only: zh -> ja, \u6d77\u9762"
+    "explicit source and compatible letters only: zh -> ja, 海面"
   ],
   "replacementTests": [
     "tools/translation-policy.test.mjs",
     "tools/translation-native.test.mjs"
   ],
-  "success": true,
-  "execution": "Independent clean copy; see evidence/independence.json"
+  "success": true
 }

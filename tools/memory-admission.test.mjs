@@ -82,6 +82,10 @@ test('an unrelated cached song cannot make cold contention decode the body',asyn
   const x=setup(),cache=loadCache(x.ctx);cache.put('translations:v1:zh-CN:'+other,{pairs:[[words[0],'其他歌曲']]});cache.save();
   await run(x.ctx);assert.equal(x.reads,0);assert.equal(x.calls,0);
 });
+for(const path of ['metadata/4/track/'+'0'.repeat(32),'extended-metadata/v0/extended-metadata','bootstrap/v1/bootstrap','user-customization-service/v1/customize','v1/customize'])test(`startup JSON ${path}: the existing core is a proven no-op, so Loon can omit the body script`,async()=>{
+  const x=setup();x.ctx.request.url='https://spclient.wg.spotify.com/'+path;
+  const result=await run(x.ctx);assert.deepEqual(Buffer.from(result.body),x.body);assert.equal(result.headers,undefined);assert.equal(result.status,undefined);assert.equal(x.calls,0);assert.equal(x.store.has(key),false);
+});
 
 const stage=fileURLToPath(new URL('../build/current-runtime/',import.meta.url));
 for(const client of ['Loon','Surge','Shadowrocket','QuantumultX','Egern','Mac'])for(const format of ['json','protobuf'])test(`${client} ${format}: staged native busy response preserves original lyrics, official translations and HTTP status`,async()=>{

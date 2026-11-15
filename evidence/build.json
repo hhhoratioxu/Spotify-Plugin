@@ -5,7 +5,7 @@
   "inputs": "maintained src/build.mjs and shared core; local source snapshots for historical diagnostics; no parent Git lookup",
   "network": "none",
   "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
-  "runtimeCommit": "6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0",
+  "runtimeCommit": "5bff1aa3e318172205c68892d7a84588031100b6",
   "subscriptionURLsChanged": true,
   "artifacts": [
     {
@@ -15,8 +15,8 @@
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
-      "bytes": 27122,
-      "sha256": "d295b39dd87e961572c676178157852de518013e617fb2178fd5b3590ba6869e"
+      "bytes": 27136,
+      "sha256": "adefaca6c038a2934a829fef15908d73be5fc87da22fa8ae28899ff37f0ce90d"
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
@@ -25,13 +25,13 @@
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
-      "bytes": 88726,
-      "sha256": "4bb7187949f3ffd843c1ee9a0607cfdf584e981a6b3dda0e1b7576d103dfc90c"
+      "bytes": 90038,
+      "sha256": "abbb1c426e902404d18196038ca5a13d969fb7562581863e71e881136f63bc1c"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.js",
-      "bytes": 29689,
-      "sha256": "961f106f4d2d069911c56a47b15ce80bd681ee616de13e3f2fae997aad092d64"
+      "bytes": 29700,
+      "sha256": "4be99028de88aefa00110b182d992584007e75e547c2f0b0475325b062fc734a"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
@@ -40,13 +40,13 @@
     },
     {
       "path": "Loon/script/SpotifyLyrics.js",
-      "bytes": 92786,
-      "sha256": "f6dcc8d3df879f80e1a94ee6cc5b90e59d635df97ffdd3c42cd0bb514773544e"
+      "bytes": 99908,
+      "sha256": "003fa946018471d0b246b7e19d733c18fc5ff0c0dad62562600fe9df64d36acb"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Mac.js",
-      "bytes": 98802,
-      "sha256": "2dffabaa02736f687a440ed1c2b27250803cb04ef6c97a6a4cbf46ca19c4ef8d"
+      "bytes": 105924,
+      "sha256": "9f01d39a364b7a6ad426b3289fad81a33d50583cb1745c29f16cb2734598eff8"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
@@ -55,13 +55,13 @@
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
-      "bytes": 30320,
-      "sha256": "1ff5e60c020177002af7bbd918be4f760bd2ccd735af591e0e60365ed059c1d3"
+      "bytes": 30331,
+      "sha256": "ba325a1faf3fd22f63932cc055fc5853652b384f137f57fbf420950acb819cca"
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.js",
-      "bytes": 93561,
-      "sha256": "4de94a06e394241fd261f947ee38672d868a32a9dd2e01f64a87f40dd9cccf31"
+      "bytes": 100835,
+      "sha256": "88bdf771c2dc12e0b7d11dfb8fadc45b8785b181181c775db94f97b6921250e0"
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.Request.js",
@@ -70,13 +70,13 @@
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
-      "bytes": 29697,
-      "sha256": "64acd7e282e16a1abb3f8ee3537b99dd640db1f326759177116da29ea8c76159"
+      "bytes": 29708,
+      "sha256": "e840b95471843c55e5dd7759f21fd158c1258782917206864294b1bbcf39b4d8"
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.js",
-      "bytes": 92766,
-      "sha256": "4a2f5f3be4854a3c2f114b7a5c2efada08a74c311567712c8e3d6e07bf90d728"
+      "bytes": 99888,
+      "sha256": "c3cbee183c0c2f2d7953d21ae3754504f3b784a913c7710898330be7322a34e9"
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
@@ -85,13 +85,13 @@
     },
     {
       "path": "Surge/script/SpotifyLyrics.Entry.js",
-      "bytes": 29690,
-      "sha256": "f4de4f049d158adebe03088bde81418b982b00fbd105c63c6d9199e647cbe584"
+      "bytes": 29701,
+      "sha256": "aa83cb992dbb3779583b025a52e685935c269e6a2cac75da32b9f9d49252e298"
     },
     {
       "path": "Surge/script/SpotifyLyrics.js",
-      "bytes": 92759,
-      "sha256": "53631219cdb07f7e059f4f01cb10d2aecb2fb1f6b78b32d66378293436a0accb"
+      "bytes": 99881,
+      "sha256": "283d82352f6c9f0224bc21ea2f86fbf60df29cb8d6f0067201f3b35d0c52660a"
     },
     {
       "path": "Surge/script/SpotifyLyrics.Request.js",
@@ -102,11 +102,11 @@
   "sourceInputs": [
     {
       "path": "src/build.mjs",
-      "sha256": "dbeb7f5f2ab0080cb1f94cc8d8a2ff5aea98c22f2a7bfccc55c11fd27660c0d4"
+      "sha256": "5f40f20d85806df41b3490d7e908ecc61d097ee2214ab77ec654b7c14554fe6b"
     },
     {
       "path": "src/spotify-lyrics.js",
-      "sha256": "3be3ae973885deba5cbdf4127e9f43e32a7be6296f2b772b3e232c96ad440070"
+      "sha256": "f01e3f65dfa0bba3d93bd6758aef9d0120b3afc9d568213393f08b8be7e5d68f"
     },
     {
       "path": "src/native-adapter.js",
