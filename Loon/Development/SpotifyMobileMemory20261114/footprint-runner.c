@@ -43,9 +43,15 @@ static JSValueRef evaluate(JSContextRef c,const char *code){
   if(error){JSStringRef message=JSValueToStringCopy(c,error,NULL);char out[2048];JSStringGetUTF8CString(message,out,sizeof(out));fprintf(stderr,"%s\n",out);JSStringRelease(message);exit(21);}return value;
 }
 static char *read_file(const char *path){FILE *f=fopen(path,"rb");if(!f)exit(22);fseek(f,0,SEEK_END);long size=ftell(f);rewind(f);if(size<0||size>2097152)exit(23);char *out=malloc(size+1);if(!out||fread(out,1,size,f)!=(size_t)size)exit(23);out[size]=0;fclose(f);return out;}
+static void collect_result(JSGlobalContextRef c,int *total_calls,int *coalesced,char **result){
+  *total_calls+=(int)JSValueToNumber(c,evaluate(c,"calls"),NULL);
+  if(JSValueToBoolean(c,evaluate(c,"__verify().coalesced")))(*coalesced)++;
+  JSStringRef s=JSValueToStringCopy(c,evaluate(c,"JSON.stringify(__verify())"),NULL);size_t size=JSStringGetMaximumUTF8CStringSize(s);
+  free(*result);*result=malloc(size);if(!*result)exit(25);JSStringGetUTF8CString(s,*result,size);JSStringRelease(s);measure();
+}
 int main(int argc,char **argv){
-  if(argc<4||argc>6)return 2;int repeats=atoi(argv[3]),concurrent=argc>=5?atoi(argv[4]):1,shared=argc==6&&!strcmp(argv[5],"shared");
-  if(argc==6&&!shared)return 2;
+  if(argc<4||argc>7)return 2;int repeats=atoi(argv[3]),concurrent=argc>=5?atoi(argv[4]):1,shared=0,release_completed=0;
+  for(int i=5;i<argc;i++){if(!strcmp(argv[i],"shared")&&!shared)shared=1;else if(!strcmp(argv[i],"release-completed")&&!release_completed)release_completed=1;else return 2;}
   if(repeats<1||repeats>200||concurrent<1||concurrent>16)return 2;
   char *host=read_file(argv[1]),*script=read_file(argv[2]),*marked=malloc(strlen(script)+40),*result=NULL;
   strcpy(marked,script);strcat(marked,"\n;__hostReturned=true;\n");
@@ -53,29 +59,26 @@ int main(int argc,char **argv){
   int max_pending_contexts=0,total_calls=0,coalesced=0;
   for(int i=0;i<repeats;i++){
     JSContextGroupRef groups[16];JSGlobalContextRef contexts[16];int pending=0;
-    // Keep independent groups alive together and delay synthetic HTTP jobs
-    // until every invocation has started. No shared-context global shortcuts.
+    // Delay synthetic HTTP jobs until every invocation has started. By default
+    // completed groups also stay live; release-completed disposes each group
+    // after evaluation returns from $done. Neither mode forces garbage collection.
     for(int j=0;j<concurrent;j++){
       groups[j]=JSContextGroupCreate();contexts[j]=JSGlobalContextCreateInGroup(groups[j],NULL);
       if(shared)bind_shared(contexts[j]);
       evaluate(contexts[j],host);measure();evaluate(contexts[j],marked);measure();
       if(!JSValueToBoolean(contexts[j],evaluate(contexts[j],"__done")))pending++;
+      else if(release_completed){collect_result(contexts[j],&total_calls,&coalesced,&result);JSGlobalContextRelease(contexts[j]);JSContextGroupRelease(groups[j]);contexts[j]=NULL;groups[j]=NULL;measure();}
     }
     if(pending>max_pending_contexts)max_pending_contexts=pending;
     for(int step=0;step<1000&&pending;step++){
-      pending=0;for(int j=0;j<concurrent;j++)if(!JSValueToBoolean(contexts[j],evaluate(contexts[j],"__done"))){evaluate(contexts[j],"__step()");measure();if(!JSValueToBoolean(contexts[j],evaluate(contexts[j],"__done")))pending++;}
+      pending=0;for(int j=0;j<concurrent;j++)if(contexts[j]&&!JSValueToBoolean(contexts[j],evaluate(contexts[j],"__done"))){evaluate(contexts[j],"__step()");measure();if(!JSValueToBoolean(contexts[j],evaluate(contexts[j],"__done")))pending++;else if(release_completed){collect_result(contexts[j],&total_calls,&coalesced,&result);JSGlobalContextRelease(contexts[j]);JSContextGroupRelease(groups[j]);contexts[j]=NULL;groups[j]=NULL;measure();}}
     }
     if(pending)return 24;
-    for(int j=0;j<concurrent;j++){
-      total_calls+=(int)JSValueToNumber(contexts[j],evaluate(contexts[j],"calls"),NULL);
-      if(JSValueToBoolean(contexts[j],evaluate(contexts[j],"__verify().coalesced")))coalesced++;
-      JSStringRef s=JSValueToStringCopy(contexts[j],evaluate(contexts[j],"JSON.stringify(__verify())"),NULL);size_t size=JSStringGetMaximumUTF8CStringSize(s);
-      free(result);result=malloc(size);JSStringGetUTF8CString(s,result,size);JSStringRelease(s);measure();
-    }
-    for(int j=0;j<concurrent;j++){JSGlobalContextRelease(contexts[j]);JSContextGroupRelease(groups[j]);measure();}
+    for(int j=0;j<concurrent;j++)if(contexts[j])collect_result(contexts[j],&total_calls,&coalesced,&result);
+    for(int j=0;j<concurrent;j++)if(contexts[j]){JSGlobalContextRelease(contexts[j]);JSContextGroupRelease(groups[j]);measure();}
   }
   unsigned long long after=measure();
-  printf("{\"peakFootprintSupported\":%s,\"peakFootprintBytes\":%llu,\"peakResidentBytes\":%llu,\"beforeFootprintBytes\":%llu,\"endFootprintBytes\":%llu,\"milliseconds\":%.3f,\"repeats\":%d,\"concurrency\":%d,\"invocations\":%d,\"maxPendingContexts\":%d,\"sharedStorage\":%s,\"totalCalls\":%d,\"coalesced\":%d,\"result\":%s}\n",peak_supported?"true":"false",peak_phys,peak_resident,before,after,now()-start,repeats,concurrent,repeats*concurrent,max_pending_contexts,shared?"true":"false",total_calls,coalesced,result);
+  printf("{\"peakFootprintSupported\":%s,\"peakFootprintBytes\":%llu,\"peakResidentBytes\":%llu,\"beforeFootprintBytes\":%llu,\"endFootprintBytes\":%llu,\"milliseconds\":%.3f,\"repeats\":%d,\"concurrency\":%d,\"invocations\":%d,\"maxPendingContexts\":%d,\"sharedStorage\":%s,\"releaseCompletedContexts\":%s,\"totalCalls\":%d,\"coalesced\":%d,\"result\":%s}\n",peak_supported?"true":"false",peak_phys,peak_resident,before,after,now()-start,repeats,concurrent,repeats*concurrent,max_pending_contexts,shared?"true":"false",release_completed?"true":"false",total_calls,coalesced,result);
   for(int i=0;i<shared_count;i++){free(shared_rows[i].key);free(shared_rows[i].value);}
   free(result);free(host);free(script);free(marked);return 0;
 }

@@ -47,6 +47,7 @@ entry = entry.slice(0,entry.indexOf('function checkTranslationRows(')) + entry.s
 entry = entry.slice(0,entry.indexOf('function cooldown(')) + clean.match(/^async function readBody\([^]*?^}/m)[0] + '\n' + entry.slice(entry.indexOf('function cacheMetadata('));
 entry = entry.slice(0,entry.indexOf('async function metadata(')) + entry.slice(entry.indexOf('function responseHeaders('));
 entry = entry.replace('  state.network = networkLease(ctx,state.deadline,Boolean(lyric));','');
+entry = entry.replace('  if (lyric) {\n    const busy = busyLyricResponse(ctx,lyric[2],state,cacheScope);\n    if (busy) return busy;\n  }\n','');
 entry = entry.replace('finally { try { state.cache.save(); } finally { state.network?.release(); } }','finally { state.cache.save(); }');
 entry = entry.replace('  if (lyric) state.work = lyricWork(ctx,lyric[2]);','');
 const lyricStart = entry.indexOf('    const contentType = header(ctx.response.headers, "Content-Type");');
@@ -125,6 +126,44 @@ const flowAdapter=adapter.replace('nativeMain().catch(() => nativeDone({}));',
 const syncRequest=strip(request).replace('async function verseLyricsCore','function verseLyricsCore');
 const syncRequestAdapter=requestNativeAdapter.replace('else Promise.resolve(verseLyricsCore({request:{url:$request.url,headers:new NativeHeaders($request.headers)},env:nativeArguments()}))\n    .then(r=>nativeDone(r?.headers?{headers:r.headers.native()}:{}),()=>nativeDone({}));',
   'else { const r=verseLyricsCore({request:{url:$request.url,headers:new NativeHeaders($request.headers)},env:nativeArguments()}); nativeDone(r?.headers?{headers:r.headers.native()}:{}); }');
+// A cold busy response must not instantiate the full lyric bundle merely to
+// discover the existing owner. Generate this small synchronous gate from the
+// same settings/cache/lease implementations; warm caches enter the full core.
+// Wrap AFTER minification so the optimizer cannot hoist the heavy declarations
+// back ahead of admission. No eval, downloaded code, timers or extra HTTP.
+const admissionNames=['KEY','INTERNAL','MARKER','HOST','LYRIC_URL','LANGUAGES','SOURCES','str','truth'];
+const admissionDeclarations=admissionNames.map(n=>{const m=core.match(new RegExp('^const '+n+' = .+$','m'));if(!m)throw Error(n);return m[0];});
+const admissionAdapter=extractFunctions(adapter,['nativeArguments','nativeStatus']).definitions.join('\n');
+const admissionHeaders=adapter.slice(adapter.indexOf('class NativeHeaders'),adapter.indexOf('function nativeBytes'));
+const admissionStorage=adapter.slice(adapter.indexOf('const nativeStorage'),adapter.indexOf('async function nativeMain'));
+const admission=`(() => {
+const CLIENT="__CLIENT__",nativeQX=CLIENT==="QuantumultX",nativeFinished=false;
+${admissionDeclarations.join('\n')}
+${['header','settings','networkLease','possibleCachedLyrics'].map(fn).join('\n')}
+${admissionAdapter}
+${admissionHeaders}
+${admissionStorage}
+function nativeMemoryAdmission() {
+  if(typeof $request==="undefined" || !$request?.url || typeof $response==="undefined" || !$response)return null;
+  const lyric=LYRIC_URL.exec(str($request.url));
+  if(!lyric || header($request.headers,INTERNAL) || header($response.headers,MARKER))return null;
+  const code=nativeStatus($response.statusCode??$response.status);
+  if(code!==200 && code!==404)return null;
+  const env=nativeArguments(),config=settings(env);
+  if(env.NETWORK_MODE==="cache-only" || config.provider==="off" && (code===404 || !config.translate))return null;
+  const ctx={request:{url:$request.url},env,storage:nativeStorage};
+  const network=networkLease(ctx,Date.now()+10000,true);
+  if(!network.busy() || possibleCachedLyrics(ctx,lyric[2],config))return null;
+  try { network.enter();network.release();return null; } catch { }
+  const headers=new NativeHeaders($response.headers);
+  for(const name of ["Cache-Control","Expires","ETag","Last-Modified"])headers.delete(name);
+  headers.set("Cache-Control","no-store");
+  return {headers:headers.native()};
+}
+let handled=false;
+try { const result=nativeMemoryAdmission();if(result){handled=true;$done(result);} } catch { }
+return handled;
+})()`;
 const manifest=[];
 async function save(path,body){
   const originalBytes=Buffer.byteLength(body);
@@ -135,6 +174,12 @@ async function save(path,body){
     const result=await minify(body,{module:path.startsWith('Egern/'),compress:{passes:2,pure_funcs:['status','sourceReport']},mangle:true,format:{comments:/VerseLyrics|UNICODE LICENSE/}});
     if(!result.code)throw Error('Empty compiled script '+path);
     body=result.code+'\n';
+    if(/^(Surge|Loon|Shadowrocket|QuantumultX)\/script\/SpotifyLyrics\.js$/.test(path)) {
+      const client=path.split('/')[0];
+      const gate=await minify('var nativeMemoryHandled='+admission.replace('__CLIENT__',client)+';',{module:false,compress:{passes:2},mangle:true,format:{comments:false}});
+      if(!gate.code)throw Error('Empty native memory admission gate');
+      body='/* VerseLyrics synchronous memory admission; shared core 3.2.2. */\n(() => {\n'+gate.code+'\nif (!nativeMemoryHandled) {\n'+body+'}\n})();\n';
+    }
   }
   const url=new URL('./runtime/'+path,import.meta.url);mkdirSync(new URL('./',url),{recursive:true});writeFileSync(url,body);
   manifest.push({path,bytes:Buffer.byteLength(body),originalBytes,sha:gitSHA(body),sha256:createHash('sha256').update(body).digest('hex')});

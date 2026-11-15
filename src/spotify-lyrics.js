@@ -974,6 +974,7 @@ function networkLease(ctx, deadline, coalesce = false) {
   }
   return {
     enter,
+    busy() { try { return active().length > 0; } catch { return false; } },
     async acquire() { enter(); return false; },
     defer() { stalled = true; },
     release() {
@@ -984,6 +985,50 @@ function networkLease(ctx, deadline, coalesce = false) {
       acquired = false;
     }
   };
+}
+function possibleCachedLyrics(ctx, id, config) {
+  if (typeof ctx.storage.get !== "function") return true;
+  let raw;
+  try { raw = ctx.storage.get(KEY); } catch { return true; }
+  if (typeof raw !== "string" || raw.length > 128000) return false;
+  // Exact ASCII key fragments suffice for this writer's compact JSON. Unicode
+  // escaped legacy keys require the ordinary reader; false positives here only
+  // admit extra local work, never unvalidated content or an incorrect song.
+  if (raw.includes("\\u")) return true;
+  if (config.translate && (raw.includes('"translations:v1:' + config.language + ':' + id + '"') || raw.includes('"translation:' + config.language + ':'))) return true;
+  if (config.provider === "off") return false;
+  for (const provider of ["auto",...Object.keys(SOURCES)]) {
+    if (raw.includes('"lyrics:' + provider + ':' + id + '"') || raw.includes('"lyrics-fast:' + provider + ':' + id + '"')) return true;
+  }
+  return false;
+}
+function busyLyricResponse(ctx, id, state, scope) {
+  if (state.settings.provider === "off" && (ctx.response.status === 404 || !state.settings.translate)) return null;
+  if (ctx.env?.NETWORK_MODE === "cache-only" || !state.network.busy()) return null;
+  const translations = "translations:v1:" + state.settings.language + ":" + id;
+  const legacy = "translation:" + state.settings.language + ":";
+  // A warm/partial cache must still work while another network job is pending.
+  // This is only a conservative admission probe; the ordinary cache reader
+  // and lyric parser validate every value before it can become visible.
+  if (possibleCachedLyrics(ctx,id,state.settings)) {
+    state.cache = loadCache(ctx,scope);
+    if (state.cache.entries.some(e =>
+      state.settings.translate && (e.key === translations || e.key.startsWith(legacy)) ||
+      state.settings.provider !== "off" && /^lyrics(?:-fast)?:/.test(e.key) && e.key.endsWith(":" + id) && e.value && !e.value.missing)) return null;
+  }
+  // Cold contenders cannot fetch anything. Retire a different old track using
+  // the established lease, then finish before decoding words, JSON or protobuf.
+  try {
+    state.network.enter();
+    // The previous owner may have settled/expired while storage was read.
+    // Resume normal processing and never leave a newly acquired slot behind.
+    state.network.release();
+    return null;
+  } catch { }
+  const headers = ctx.response.headers;
+  for (const name of ["Cache-Control","Expires","ETag","Last-Modified"]) headers.delete(name);
+  headers.set("Cache-Control","no-store");
+  return {headers};
 }
 async function http(ctx, url, state, options = {}, allowMissing = false) {
   if (ctx.env?.NETWORK_MODE === "cache-only") throw new Error("cache-only");
@@ -2016,13 +2061,18 @@ export default async function(ctx) {
   if (header(ctx.response.headers, MARKER)) return;
   if (code !== 200 && !(lyric && code === 404)) { status(ctx, "Spotify HTTP " + code + "，保留原响应，不将鉴权或服务错误当成无词。"); return; }
   if (lyric && code === 200 && !config.translate && config.provider === "off") return;
+  const cacheScope = lyric ? {track:lyric[2],language:config.language,translate:config.translate} : {metadata:true};
+  const state = { settings: config, deadline: Date.now() + 10000 };
+  state.network = networkLease(ctx,state.deadline,Boolean(lyric));
+  if (lyric) {
+    const busy = busyLyricResponse(ctx,lyric[2],state,cacheScope);
+    if (busy) return busy;
+  }
   let bytes;
   try { bytes = await readBody(ctx.response, LYRIC_URL.test(str(ctx.request.url)) ? BODY_LIMIT : PLAYER_LIMIT); } catch { status(ctx, "无法读取响应或响应超出大小限制，保留原响应。"); return; }
   const unchanged = () => ({ body: bytes });
   if (bytes.length > LIMIT) return unchanged();
-  const cacheScope = lyric ? {track:lyric[2],language:config.language,translate:config.translate} : {metadata:true};
-  const state = { settings: config, cache: loadCache(ctx,cacheScope), deadline: Date.now() + 10000 };
-  state.network = networkLease(ctx,state.deadline,Boolean(lyric));
+  if (!state.cache) state.cache = loadCache(ctx,cacheScope);
   try {
     if (scroll) {
       const card = scrollDocument(bytes, header(ctx.response.headers, "Content-Type"), scroll[2]);
