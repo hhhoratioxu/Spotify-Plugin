@@ -12,7 +12,7 @@
     },
     {
       "path": "src/spotify-lyrics.js",
-      "sha256": "f01e3f65dfa0bba3d93bd6758aef9d0120b3afc9d568213393f08b8be7e5d68f"
+      "sha256": "1ab5ec854e54669dde360ab1c5ffb299d2917057ade8d3daf139af8b83ca70c3"
     },
     {
       "path": "src/native-adapter.js",
@@ -35,8 +35,8 @@
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
-      "bytes": 27136,
-      "sha256": "adefaca6c038a2934a829fef15908d73be5fc87da22fa8ae28899ff37f0ce90d"
+      "bytes": 27971,
+      "sha256": "9bb1f09188e24dfe81f928d9ca10de5eda6033072a611d8a5992b1e9e32c5d49"
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
@@ -50,8 +50,8 @@
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.js",
-      "bytes": 29700,
-      "sha256": "4be99028de88aefa00110b182d992584007e75e547c2f0b0475325b062fc734a"
+      "bytes": 30546,
+      "sha256": "8708ecabbcd98bd25a5f89a797b51a0de758cdabc9f88fc89ceb7f683544e76a"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
@@ -75,8 +75,8 @@
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
-      "bytes": 30331,
-      "sha256": "ba325a1faf3fd22f63932cc055fc5853652b384f137f57fbf420950acb819cca"
+      "bytes": 31178,
+      "sha256": "634561e940a13b33ca55ae83fcda0580b84e5da6b1314700244d8c900a373807"
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.js",
@@ -90,8 +90,8 @@
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
-      "bytes": 29708,
-      "sha256": "e840b95471843c55e5dd7759f21fd158c1258782917206864294b1bbcf39b4d8"
+      "bytes": 30554,
+      "sha256": "9e2db986e0c01dcfae7bb77d26eb3fb7335e71205047fda146b0a917892fb198"
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.js",
@@ -105,8 +105,8 @@
     },
     {
       "path": "Surge/script/SpotifyLyrics.Entry.js",
-      "bytes": 29701,
-      "sha256": "aa83cb992dbb3779583b025a52e685935c269e6a2cac75da32b9f9d49252e298"
+      "bytes": 30547,
+      "sha256": "7c3f7cd6ee499855f20ad2c208493a8a9ace221cec9cb549c1dcc868dc6a7e97"
     },
     {
       "path": "Surge/script/SpotifyLyrics.js",
@@ -144,7 +144,7 @@
   },
   "serviceCheck": "evidence/multilingual-service-check.json",
   "independentVerification": {
-    "node": 678,
+    "node": 747,
     "python": 18,
     "currentCore": 1011,
     "excludedPolicyAssertions": 8,
@@ -170,5 +170,16 @@
     "feedbackTrigger": "iPhone Loon VPN disconnects when Spotify opens and playback starts; error text unavailable",
     "release": "v3.2.4-beta.1",
     "publicVerification": "evidence/release-v3.2.4-beta.1.json"
+  },
+  "startupStreaming": {
+    "release": "v3.2.4-beta.2",
+    "baselineRelease": "v3.2.4-beta.1",
+    "runtimeRevision": "ac49618d52711d5f9340d9f0c16ab94d3bf7c33c",
+    "tests": 64,
+    "fuzzMutations": 700,
+    "mobileAdmissionTests": 5,
+    "independentVerification": "passed",
+    "nativeIOSAcceptance": false,
+    "memoryEvidence": "evidence/startup-memory-beta2.json"
   }
 }

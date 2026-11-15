@@ -1,0 +1,55 @@
+{
+  "recordedAt": "2026-11-15T08:25:40.766319+00:00",
+  "release": "v3.2.4-beta.2",
+  "status": "verified candidate awaiting test publication",
+  "baselineRelease": "v3.2.4-beta.1",
+  "userFeedback": "beta.1 still disconnects the iPhone Loon VPN when Spotify opens and starts playback",
+  "errorTextAvailable": false,
+  "rootCauseOfPhoneExitConfirmed": false,
+  "runtimeCommit": "ac49618d52711d5f9340d9f0c16ab94d3bf7c33c",
+  "changedRuntimePaths": [
+    "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
+    "Loon/script/SpotifyLyrics.Entry.js",
+    "QuantumultX/script/SpotifyLyrics.Entry.js",
+    "Shadowrocket/script/SpotifyLyrics.Entry.js",
+    "Surge/script/SpotifyLyrics.Entry.js"
+  ],
+  "unchangedRuntimeFiles": 13,
+  "versionDate": "2026-11-15 16:20:21",
+  "checks": {
+    "newConfigurationTests": 64,
+    "malformedMutationSamples": 700,
+    "newLoonAdmissionTests": 5,
+    "independentNodePassed": 747,
+    "pythonPassed": 18,
+    "currentCorePassed": 1011,
+    "historicalBaselinePassed": 2248,
+    "memoryBridgeMatched": 72
+  },
+  "startupModel": {
+    "before": {
+      "processes": 180,
+      "invocations": 780,
+      "maxFootprintBytes": 77546072,
+      "maxResidentBytes": 89604096,
+      "maxMilliseconds": 656.445
+    },
+    "after": {
+      "processes": 180,
+      "invocations": 780,
+      "maxFootprintBytes": 38142552,
+      "maxResidentBytes": 48365568,
+      "maxMilliseconds": 765.682
+    }
+  },
+  "desktopStartupModelBelowReference": true,
+  "nativeIOSAcceptance": false,
+  "otherMemoryModelsRetested": false,
+  "clientSettingsChanged": false,
+  "musicPlayed": false,
+  "publication": {
+    "pushed": false,
+    "prereleasePublished": false,
+    "testSubscription": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx"
+  }
+}

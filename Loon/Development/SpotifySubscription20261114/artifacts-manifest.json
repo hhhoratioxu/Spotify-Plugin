@@ -1,7 +1,7 @@
 {
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "baseline": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
-  "runtimeCommit": "5bff1aa3e318172205c68892d7a84588031100b6",
+  "runtimeCommit": "ac49618d52711d5f9340d9f0c16ab94d3bf7c33c",
   "artifacts": [
     {
       "path": "Loon/script/SpotifyLyrics.Mac.js",

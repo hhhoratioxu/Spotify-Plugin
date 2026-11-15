@@ -1,5 +1,9 @@
 # Loon 官方文档适配记录
 
+## beta.2 启动配置分配优化（2026-11-15）
+
+重新核对 [Script](https://nsloon.app/docs/Script/script_v2/) 的原生布尔/字符串条件和 Response 唯一匹配，以及 [Script API](https://nsloon.app/docs/Script/script_api/) 的二进位、同步完成及回调约定。手机 Body Script 在无词发现/来源关闭或已有处理标记时按核心原有语义放行；翻译与来源同时关闭时不处理歌词正文。只使用已声明参数和官方条件，不加内存/并发/取消字段，最低版本与默认值不变。共享配置解析仅改 JavaScript 分配与已知封装重建，保持原始协议输出。桌面 JSC 启动模型与真实 iPhone 验收分开，详见 [beta.2 记录](../../docs/memory-beta2-2026-11-15.md)。
+
 ## 内存准入测试版（2026-11-15，v3.2.4-beta.1）
 
 重新核对 [Script](https://nsloon.app/docs/Script/script_v2/) 的条件与完整正文约定，以及 [Script API](https://nsloon.app/docs/Script/script_api/) 的同步字符串存储、HTTP 回调和 `$done`。忙碌且没有可用快取的歌词回应在解码前保留原文；生成的原生包还在完整核心初始化前检查同一个共享租约。只在本次 VM 没有启动任何异步工作时同步完成，旧 VM 的真实 HTTP 回调仍须结算；不依赖取消能力、计时器、其他客户端字段或新的最低版本。手机 Entry 新增原生 Content-Type/URL 条件，仅排除原核心明确透传的元数据与 bootstrap/customize JSON；保留支持的 Scroll/播放器 JSON、二进制及缺失类型路线。共享存储没有原子 CAS，`requires_body` 仍可能先让宿主缓冲正文。桌面测量分别保留延迟回收与及时释放两个模型，不将其中低于参考线的数值当作 iPhone 验收。详见 [本轮记录](../../docs/memory-2026-11-15.md)。

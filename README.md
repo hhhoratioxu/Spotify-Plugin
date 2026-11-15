@@ -1,6 +1,6 @@
 # SpotifyLyrics
 
-> **[v3.2.4-beta.1 内存修补测试版](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.1)已发布（Pre-release）**。针对 iPhone 打开 Spotify、开始播放即断开 Loon VPN 的反馈，减少已确认的多余初始化和启动 JSON 拦截。**iPhone 50 MB 及实际断线修复仍未验收通过**，保守桌面模型仍超 50 MB。测试请使用下表专用订阅；main 保留 v3.2.3 正式版。测试订阅、18 个固定资源与 7 个附件的公开下载已核对，见 [发布校验](evidence/release-v3.2.4-beta.1.json)。详见 [测试版说明](docs/releases/v3.2.4-beta.1.md)与[内存记录](docs/memory-2026-11-15.md)。
+> **v3.2.4-beta.2 启动内存优化测试版**。用户反馈 beta.1 仍断开 iPhone Loon VPN，本次减少二进位配置的临时对象与重复正文复制；同一桌面启动模型峰值约 38.14/48.37 MB（footprint/resident）。**实际 iPhone 50 MB 与断线修复仍待验收**。测试订阅地址不变，Version Date 更新为 `2026-11-15 16:20:21`。详见 [beta.2 说明](docs/releases/v3.2.4-beta.2.md)与[测量记录](docs/memory-beta2-2026-11-15.md)。main 保留 v3.2.3。
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
@@ -18,7 +18,7 @@
 | Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/QuantumultX/script/SpotifyLyrics.conf) | 重写引用；原参数与限制保留 |
 | Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Shadowrocket/script/SpotifyLyrics.sgmodule) | 原生模块；当前设备显示效果未验收 |
 
-测试用户将现有 SpotifyLyrics 的订阅改用上表专用地址，保留原设置，并保持只启用一份 SpotifyLyrics。刷新 main 或旧 Proxy 地址不会取得这个测试版。正式版回退地址见 [测试版说明](docs/releases/v3.2.4-beta.1.md)。发布操作不会自动修改已安装插件或 VPN 设置。
+测试用户将现有 SpotifyLyrics 的订阅改用上表专用地址，保留原设置，并保持只启用一份 SpotifyLyrics。刷新 main 或旧 Proxy 地址不会取得这个测试版。正式版回退地址见 [测试版说明](docs/releases/v3.2.4-beta.2.md)。发布操作不会自动修改已安装插件或 VPN 设置。
 
 Loon 的插件名称与编号功能描述保持现有 WeatherKit 风格。五个入口的运行脚本均固定到新仓库的完整 Git 提交，哈希见 [runtime-release.json](provenance/runtime-release.json)，不再向旧 Proxy 下载运行脚本。
 

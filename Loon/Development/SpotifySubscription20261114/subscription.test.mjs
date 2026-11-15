@@ -24,14 +24,15 @@ test('the standalone display name is SpotifyLyrics and survives the real subscri
   assert.equal(profile.split('\n')[0],'#!name = SpotifyLyrics');
   assert.equal(createProfile(manifest.runtimeCommit).split('\n')[0],'#!name = SpotifyLyrics');
 });
-function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+paths[0],method='GET',status=200,length='20',internal=null,contentType=null}={}){
+function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+paths[0],method='GET',status=200,length='20',internal=null,contentType=null,marker=null,env={}}={}){
   const values=k=>{
     if(k==='url')return url;if(k==='request.method')return method;if(k==='response.status')return status;
     if(k==="request.header['x-verselyrics-internal']")return internal;
     if(k==="response.header['Content-Length']")return length;
     if(k==="response.header['Content-Type']")return contentType;
+    if(k==="response.header['x-verselyrics']")return marker;
     if(k.startsWith('request.header[')||k.startsWith('response.header['))return null;
-    assert.ok(Object.hasOwn(defaults,k));return k==='CLIENT_PLATFORM'?mode:defaults[k];
+    assert.ok(Object.hasOwn(defaults,k));return k==='CLIENT_PLATFORM'?mode:Object.hasOwn(env,k)?env[k]:defaults[k];
   };
   return lines.filter(line=>condition(line.slice(line.indexOf(' if ')+4,line.indexOf(' then ')),values));
 }
@@ -61,6 +62,26 @@ for(const contentType of [null,'application/x-protobuf','application/octet-strea
 });
 test('supported scroll/player JSON and the actual lyric response still select one mobile script',()=>{
   for(const path of [paths[0],paths[3],paths[6],paths[7]])assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{url:'https://spclient.wg.spotify.com/'+path,contentType:'application/json'}).length,1);
+});
+test('mobile discovery disabled selects no entry body VM while normal lyric translation remains available',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response ')),env={DISCOVER_MISSING:false};
+  for(const path of paths.slice(1))assert.equal(select(responses,{url:'https://spclient.wg.spotify.com/'+path,env}).length,0);
+  assert.equal(select(responses,{env}).length,1);
+});
+test('mobile fallback disabled selects no entry VM and preserves enabled lyric translation',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response ')),env={FALLBACK_PROVIDER:'off'};
+  for(const path of paths.slice(1))assert.equal(select(responses,{url:'https://spclient.wg.spotify.com/'+path,env}).length,0);
+  assert.equal(select(responses,{env}).length,1);
+});
+test('mobile translation and fallback both disabled select no lyric body VM for 200 or 404',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response ')),env={FALLBACK_PROVIDER:'off',TRANSLATION_ENABLED:false};
+  for(const status of [200,404])assert.equal(select(responses,{env,status}).length,0);
+});
+test('mobile translation disabled still selects the original backup path when fallback is enabled',()=>{
+  assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{env:{TRANSLATION_ENABLED:false}}).length,1);
+});
+test('already processed mobile responses select no second body VM',()=>{
+  for(const path of paths)assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{url:'https://spclient.wg.spotify.com/'+path,marker:'3.2.2'}).length,0);
 });
 test('phone never starts the new Mac request script or loads a Mac runtime',()=>{
   for(const path of paths)for(const host of ['spclient.wg.spotify.com','gew1-spclient.spotify.com','gae2-spclient.spotify.com:443']){

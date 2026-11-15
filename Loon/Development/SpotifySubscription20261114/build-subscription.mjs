@@ -9,7 +9,7 @@ import {relocateProfile,runtimeRelease,runtimeURL,verifyRuntimeArtifacts} from '
 export const baseline='10049053ce86bd992e3ebb6511ffb28312ba86fb';
 export const macSource='9f7399dda1279689d2436e981a547b1ea45513b3';
 // Subscription update time in Asia/Taipei (UTC+8); fixed for reproducible builds.
-export const versionDate='2026-11-15 08:52:48';
+export const versionDate='2026-11-15 16:20:21';
 export const repo=fileURLToPath(new URL('../../../',import.meta.url));
 const here=fileURLToPath(new URL('.',import.meta.url));
 const sourcePath='Loon/Development/SpotifyMac20261114/';
@@ -27,8 +27,17 @@ export function rules(profile,name){return section(profile,name).split('\n').fil
 // Scroll/player JSON is supported and must continue to select the entry hook.
 export function filterEntryJSON(profile){
   const type="${response.header['Content-Type']}",address='${url}';
+  const discover='${DISCOVER_MISSING}',provider='${FALLBACK_PROVIDER}',translate='${TRANSLATION_ENABLED}',marker="${response.header['x-verselyrics']}";
+  const unprocessed=String.raw` && (${marker} == null || ${marker} == "")`;
+  const entryEnabled=String.raw` && ${discover} == true && ${provider} ~= /^(?:auto|lrclib|qq|netease|kugou|kuwo|lyricsovh)$/`;
+  const lyricEnabled=String.raw` && (${translate} == true || ${provider} ~= /^(?:auto|lrclib|qq|netease|kugou|kuwo|lyricsovh)$/)`;
   const guard=String.raw` && (${type} == null || ${type} ~= /^(?![\s\S]*json)[\s\S]*$/i || ${address} ~= /^https:\/\/[^\/?#]+\/(?:scrollsita\/v1\/scroll\/|context-resolve\/v1\/|connect-state\/v1\/)/)`;
-  return profile.split('\n').map(line=>line.startsWith('response if ')&&line.includes('/SpotifyLyrics.Entry.js"')?line.replace(' then script(',guard+' then script('):line).join('\n');
+  return profile.split('\n').map(line=>{
+    if(!line.startsWith('response if '))return line;
+    if(line.includes('/SpotifyLyrics.Entry.js"'))return line.replace(' then script(',entryEnabled+unprocessed+guard+' then script(');
+    if(line.includes('/SpotifyLyrics.js"'))return line.replace(' then script(',lyricEnabled+unprocessed+' then script(');
+    return line;
+  }).join('\n');
 }
 export function createProfile(revision=runtimeRelease.revision){
   if(revision!==runtimeRelease.revision)throw Error('Runtime commit must match the verified independent release');
@@ -66,6 +75,6 @@ if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
     writeFileSync(join(here,'artifacts-manifest.json'),JSON.stringify({macSource,baseline,runtimeCommit:runtimeRelease.revision,artifacts},null,2)+'\n');
   }else if(mode==='profile'){
     const revision=process.argv[3],profile=createProfile(revision);writeFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),profile);
-    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.15-memory-candidate',versionDate,core:'3.2.2',patch:'non-chinese-translation',runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
+    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.15-memory-beta2',versionDate,core:'3.2.2',patch:'non-chinese-translation',runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
   }else throw Error('Usage: node build-subscription.mjs artifacts | profile <full-runtime-commit>');
 }
