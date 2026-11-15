@@ -1,6 +1,6 @@
 {
   "recordedAt": "2026-11-15T00:48:49.464339+00:00",
-  "status": "approved for prerelease; native iPhone failure not yet resolved",
+  "status": "published prerelease; native iPhone acceptance pending",
   "branch": "codex/spotify-memory-admission",
   "publishedMain": "8cc285bd6e38a7a9e4bf2e7e38a8431cfbb4ba06",
   "candidateRuntime": "5bff1aa3e318172205c68892d7a84588031100b6",
@@ -150,8 +150,8 @@
     "nativeMemorySavingsMeasured": false
   },
   "performed": {
-    "push": false,
-    "release": false,
+    "push": true,
+    "release": true,
     "clientSettingsChanged": false,
     "musicPlayed": false,
     "listenerStarted": false,
@@ -169,5 +169,8 @@
   },
   "release": "v3.2.4-beta.1",
   "publicationAuthorization": "User explicitly requested publishing a test version and providing a subscription link",
-  "testSubscription": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx"
+  "testSubscription": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx",
+  "releaseURL": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.1",
+  "releaseSourceCommit": "1d924acc931fa14e773a56e6a742a7cfc4a67ed6",
+  "publicVerification": "evidence/release-v3.2.4-beta.1.json"
 }

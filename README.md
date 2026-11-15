@@ -1,6 +1,6 @@
 # SpotifyLyrics
 
-> **v3.2.4-beta.1 内存修补测试版（Pre-release）**。针对 iPhone 打开 Spotify、开始播放即断开 Loon VPN 的反馈，减少已确认的多余初始化和启动 JSON 拦截。**iPhone 50 MB 及实际断线修复仍未验收通过**，保守桌面模型仍超 50 MB。测试请使用下表专用订阅；main 保留 v3.2.3 正式版。详见 [测试版说明](docs/releases/v3.2.4-beta.1.md)与[内存记录](docs/memory-2026-11-15.md)。
+> **[v3.2.4-beta.1 内存修补测试版](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.1)已发布（Pre-release）**。针对 iPhone 打开 Spotify、开始播放即断开 Loon VPN 的反馈，减少已确认的多余初始化和启动 JSON 拦截。**iPhone 50 MB 及实际断线修复仍未验收通过**，保守桌面模型仍超 50 MB。测试请使用下表专用订阅；main 保留 v3.2.3 正式版。测试订阅、18 个固定资源与 7 个附件的公开下载已核对，见 [发布校验](evidence/release-v3.2.4-beta.1.json)。详见 [测试版说明](docs/releases/v3.2.4-beta.1.md)与[内存记录](docs/memory-2026-11-15.md)。
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
