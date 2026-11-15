@@ -1,5 +1,7 @@
 # SpotifyLyrics · Loon
 
+> **v3.2.4-beta.1 测试分支**：减少启动时已知无效的 JSON 拦截与忙碌请求初始化。iPhone 50 MB 和实际断线修复未验收通过；请使用本页测试订阅。main 仍保留正式版。详见 [测试说明](../../docs/releases/v3.2.4-beta.1.md)。
+
 > v3.2.3 多语言修复：中文原词保持，其他语言进入翻译。使用新仓库 main 订阅取得当前固定资源；旧 v3.2.2 Release 链接保留原版本。
 
 > 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
@@ -20,9 +22,9 @@
 
 ## 安装与更新
 
-[SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx)
+[SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx)
 
-已切换新仓库 main 地址的用户刷新该订阅；仍使用旧 Proxy 地址的用户须先更换。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件详情的 Version Date 按台北时间（UTC+8）显示本次订阅更新时间，格式为 `YYYY-MM-DD HH:mm:ss`，与 WeatherKit 一样精确到秒；核心号仍为 `3.2.2`。
+测试用户须使用本页测试分支地址；刷新 main 或旧 Proxy 地址不会取得测试版。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件详情的 Version Date 按台北时间（UTC+8）显示本次订阅更新时间，格式为 `YYYY-MM-DD HH:mm:ss`，与 WeatherKit 一样精确到秒；核心号仍为 `3.2.2`。
 
 1. 在 Loon「插件」中添加上面的远程地址并启用。需要 Loon 3.5.1（983）或更新版本。已订阅旧 `.plugin` 地址的用户请改用本页 `.lpx` 地址，并确认只启用一份。
 2. 使用已安装、信任并开启的 HTTPS 解密证书。仅加入 `spclient.wg.spotify.com` 和 `*-spclient.spotify.com`。

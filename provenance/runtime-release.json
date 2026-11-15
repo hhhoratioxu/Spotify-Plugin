@@ -98,6 +98,7 @@
       "sha256": "5c0728f789804d0bb291c39140d14b1d7006fd5125847e2778cff2a317fff07d"
     }
   ],
-  "release": "unpublished-memory-candidate",
-  "memoryFix": "early-busy-admission"
+  "release": "v3.2.4-beta.1",
+  "memoryFix": "early-busy-admission",
+  "channel": "prerelease"
 }

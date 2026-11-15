@@ -153,7 +153,7 @@
   },
   "verificationReport": "evidence/independence.json",
   "memoryAdmission": {
-    "status": "local-candidate",
+    "status": "approved-for-prerelease",
     "publishedBase": "8cc285bd6e38a7a9e4bf2e7e38a8431cfbb4ba06",
     "runtimeRevision": "5bff1aa3e318172205c68892d7a84588031100b6",
     "tests": 45,
@@ -167,6 +167,7 @@
       "evidence/memory-pressure-candidate-immediate.json"
     ],
     "startupRuleTests": 7,
-    "feedbackTrigger": "iPhone Loon VPN disconnects when Spotify opens and playback starts; error text unavailable"
+    "feedbackTrigger": "iPhone Loon VPN disconnects when Spotify opens and playback starts; error text unavailable",
+    "release": "v3.2.4-beta.1"
   }
 }

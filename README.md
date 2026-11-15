@@ -1,24 +1,24 @@
 # SpotifyLyrics
 
-> 当前本地分支为内存修补候选，未推送、未发布，也没有替换已安装插件。线上 main 仍是原 v3.2.3 订阅。本分支固定运行地址引用尚未公开的本地快照，不能直接在线安装。用户反馈的内存失败尚未完成手机验收，见 [2026-11-15 内存记录](docs/memory-2026-11-15.md)。
+> **v3.2.4-beta.1 内存修补测试版（Pre-release）**。针对 iPhone 打开 Spotify、开始播放即断开 Loon VPN 的反馈，减少已确认的多余初始化和启动 JSON 拦截。**iPhone 50 MB 及实际断线修复仍未验收通过**，保守桌面模型仍超 50 MB。测试请使用下表专用订阅；main 保留 v3.2.3 正式版。详见 [测试版说明](docs/releases/v3.2.4-beta.1.md)与[内存记录](docs/memory-2026-11-15.md)。
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
 项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整项目已上传，5 个公开安装入口、18 个固定资源和新 Clone 均已核对，见 [GitHub 迁移校验](evidence/github-migration-verification.json)。首次仓库迁移保持原运行字节；后续 v3.2.3 更新了非中文翻译策略，Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
 
-**[v3.2.3 非中文歌词翻译修复](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.3)：中文原词保持，其他语言进入翻译；独立检查 626 项 Node / 18 项 Python、1011 项当前核心兼容与 2248 项历史基线通过。本次更新提供新固定运行资源，使用下方新仓库订阅刷新获取。** 详见 [多语言修复记录](docs/translation-2026-11-15.md)及[公开发布校验](evidence/release-v3.2.3.json)。
+**正式版历史：[v3.2.3 非中文歌词翻译修复](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.3)：中文原词保持，其他语言进入翻译；独立检查 626 项 Node / 18 项 Python、1011 项当前核心兼容与 2248 项历史基线通过。该正式版记录保留；本测试分支使用另一组经过核验的固定运行资源。** 详见 [多语言修复记录](docs/translation-2026-11-15.md)及[公开发布校验](evidence/release-v3.2.3.json)。
 
 ## 安装
 
 | 客户端 | 订阅 / 导入文件 | 说明 |
 | --- | --- | --- |
-| Loon | [SpotifyLyrics.lpx](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Loon/script/SpotifyLyrics.lpx) | iPhone / iPad 默认 `mobile`；Mac 选择 `macOS` |
-| Surge | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Surge/script/SpotifyLyrics.sgmodule) | 保留 Surge 原生配置；iOS / macOS 未完成实机验收 |
-| Egern | [SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Egern/script/SpotifyLyrics.yaml) | 保留 ctx / Response 适配；当前设备显示效果未验收 |
-| Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/QuantumultX/script/SpotifyLyrics.conf) | 重写引用；原参数与限制保留 |
-| Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/main/Shadowrocket/script/SpotifyLyrics.sgmodule) | 原生模块；当前设备显示效果未验收 |
+| Loon | [SpotifyLyrics.lpx](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx) | iPhone / iPad 默认 `mobile`；Mac 选择 `macOS` |
+| Surge | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Surge/script/SpotifyLyrics.sgmodule) | 保留 Surge 原生配置；iOS / macOS 未完成实机验收 |
+| Egern | [SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Egern/script/SpotifyLyrics.yaml) | 保留 ctx / Response 适配；当前设备显示效果未验收 |
+| Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/QuantumultX/script/SpotifyLyrics.conf) | 重写引用；原参数与限制保留 |
+| Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Shadowrocket/script/SpotifyLyrics.sgmodule) | 原生模块；当前设备显示效果未验收 |
 
-在客户端用上表的新 URL 替换原 Proxy 订阅地址，并保留原有设置。仅刷新旧 URL 仍会获得旧仓库的内容。此次迁移没有自动修改用户已安装的插件或 VPN 设置；避免同时启用两个相同功能的插件。
+测试用户将现有 SpotifyLyrics 的订阅改用上表专用地址，保留原设置，并保持只启用一份 SpotifyLyrics。刷新 main 或旧 Proxy 地址不会取得这个测试版。正式版回退地址见 [测试版说明](docs/releases/v3.2.4-beta.1.md)。发布操作不会自动修改已安装插件或 VPN 设置。
 
 Loon 的插件名称与编号功能描述保持现有 WeatherKit 风格。五个入口的运行脚本均固定到新仓库的完整 Git 提交，哈希见 [runtime-release.json](provenance/runtime-release.json)，不再向旧 Proxy 下载运行脚本。
 
