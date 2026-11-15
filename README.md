@@ -1,6 +1,6 @@
 # SpotifyLyrics
 
-> **v3.2.4-beta.2 启动内存优化测试版**。用户反馈 beta.1 仍断开 iPhone Loon VPN，本次减少二进位配置的临时对象与重复正文复制；同一桌面启动模型峰值约 38.14/48.37 MB（footprint/resident）。**实际 iPhone 50 MB 与断线修复仍待验收**。测试订阅地址不变，Version Date 更新为 `2026-11-15 16:20:21`。详见 [beta.2 说明](docs/releases/v3.2.4-beta.2.md)与[测量记录](docs/memory-beta2-2026-11-15.md)。main 保留 v3.2.3。
+> **[v3.2.4-beta.2 启动内存优化测试版已发布](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.2)**。用户反馈 beta.1 仍断开 iPhone Loon VPN，本次减少二进位配置的临时对象与重复正文复制；同一桌面启动模型峰值约 38.14/48.37 MB（footprint/resident）。**实际 iPhone 50 MB 与断线修复仍待验收**。测试订阅地址不变，Version Date 更新为 `2026-11-15 16:20:21`。29 项公开安装链资源及 7 个附件已下载核对，见 [公开发布校验](evidence/release-v3.2.4-beta.2.json)、[beta.2 说明](docs/releases/v3.2.4-beta.2.md)与[测量记录](docs/memory-beta2-2026-11-15.md)。main 保留 v3.2.3。
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 

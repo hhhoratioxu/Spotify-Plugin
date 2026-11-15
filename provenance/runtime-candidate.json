@@ -180,6 +180,9 @@
     "mobileAdmissionTests": 5,
     "independentVerification": "passed",
     "nativeIOSAcceptance": false,
-    "memoryEvidence": "evidence/startup-memory-beta2.json"
+    "memoryEvidence": "evidence/startup-memory-beta2.json",
+    "status": "published-prerelease; native test pending",
+    "sourceRevision": "50b3d98e76912df9be1f86b527699e7f5877a16d",
+    "publicVerification": "evidence/release-v3.2.4-beta.2.json"
   }
 }

@@ -42,6 +42,8 @@ beta.1 的 JSON 透传筛选保留。Mac 原生条件与最低版本保持；没
 
 ## 试用与状态
 
-同一个 [Loon 测试订阅](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx) 将提供 beta.2。手机平台保持 mobile，保留原设置；更新后的 Version Date 为 `2026-11-15 16:20:21`（台北时间）。main 继续 v3.2.3，beta.1 标签和附件保持原样。
+同一个 [Loon 测试订阅](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx) 已提供 [beta.2](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.2)，原测试用户直接刷新。手机平台保持 mobile，保留原设置；更新后的 Version Date 为 `2026-11-15 16:20:21`（台北时间）。main 继续 v3.2.3，beta.1 标签和附件保持原样。
 
-本轮尚未操作真实手机或 Mac 客户端、播放音乐、部署诊断或读取账户凭据。用户要求继续更新测试版，发布完成后还需验证公开订阅、固定脚本和附件。
+已从公开地址下载并逐字节核对 29 项安装链资源（五个持续更新入口、五个固定标签入口、18 个固定运行资源及未变的 main Loon 入口），另从无需登录的 Release 地址下载全部 7 个附件并核对大小与 SHA-256。公开 ZIP 的 31 个条目 CRC 正常，SHA256SUMS 与下载文件一致；正式版 Latest 仍为 v3.2.3。详见 [公开发布校验](../evidence/release-v3.2.4-beta.2.json)。
+
+本轮尚未操作真实手机或 Mac 客户端、播放音乐、部署诊断或读取账户凭据。测试版已发布，手机的实际 VPN 稳定性与 50 MB 验收仍待取得真实设备结果。

@@ -1,7 +1,7 @@
 {
-  "recordedAt": "2026-11-15T08:25:40.766319+00:00",
+  "recordedAt": "2026-11-15T08:37:02.296890+00:00",
   "release": "v3.2.4-beta.2",
-  "status": "verified candidate awaiting test publication",
+  "status": "published test prerelease; native iPhone acceptance pending",
   "baselineRelease": "v3.2.4-beta.1",
   "userFeedback": "beta.1 still disconnects the iPhone Loon VPN when Spotify opens and starts playback",
   "errorTextAvailable": false,
@@ -48,8 +48,13 @@
   "clientSettingsChanged": false,
   "musicPlayed": false,
   "publication": {
-    "pushed": false,
-    "prereleasePublished": false,
-    "testSubscription": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx"
+    "pushed": true,
+    "prereleasePublished": true,
+    "testSubscription": "https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx",
+    "releaseUrl": "https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.2",
+    "sourceCommit": "50b3d98e76912df9be1f86b527699e7f5877a16d",
+    "publicVerification": "evidence/release-v3.2.4-beta.2.json",
+    "publicAssetsVerified": 7,
+    "publicChainFilesVerified": 29
   }
 }
