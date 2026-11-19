@@ -14,8 +14,8 @@ test('runtime pins reject moving branches, wrong repositories, duplicate assets 
   assert.throws(()=>runtimeURL('Loon/script/unknown.js'));
 });
 
-test('all eighteen relocated runtime and notice files retain their bootstrap hashes', () => {
-  assert.equal(verifyRuntimeArtifacts(),18);
+test('all pinned runtimes and the notice match the snapshot', () => {
+  assert.equal(verifyRuntimeArtifacts(),19);
 });
 
 test('every native installation script resolves to the same independent immutable release', () => {

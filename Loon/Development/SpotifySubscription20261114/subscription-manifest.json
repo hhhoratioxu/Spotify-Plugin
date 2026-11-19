@@ -1,16 +1,16 @@
 {
   "configuration": "2026.11.19-dev",
-  "versionDate": "2026-11-19 09:01:52",
+  "versionDate": "2026-11-19 09:17:39",
   "core": "3.2.2",
-  "patch": "localized-artists-and-mac-lyrics",
-  "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
-  "runtimeCommit": "3976962cf798a47a217cf1d3ad03de7fcc3edc12",
+  "patch": "recording-identity-and-version-lookup",
+  "runtimeRepository": "hhhoratioxu/Spotify-Plugin",
+  "runtimeCommit": "997dcb3aad3fb988d41cbe9dcbd05b82128054b9",
   "baseline": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "profile": {
     "path": "Loon/script/SpotifyLyrics.lpx",
-    "bytes": 13055,
-    "sha256": "c72f200bd6b0b6dae4a6e358877b134d58ad3d7bd128c168a526ff17ce256766"
+    "bytes": 13489,
+    "sha256": "d144de2dfdd8b1dccb0a8856f1cc901f0788fbcfa3172add2d03d0c38e95ed51"
   },
   "mobileRuntimeChanged": true,
   "iosPeakAcceptance": "unverified",

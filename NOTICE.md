@@ -7,6 +7,7 @@
 - `archive/` 保留早期 Egern 实现及隔离恢复实验；它们不代表当前默认运行实现，也不作为新的设备验收结果。
 - Unicode 数据的 License V3 见 `src/NOTICE-UNICODE.txt`，应随使用该数据的产物保留。
 - 构建依赖使用锁文件，Terser 5.51.2 为 BSD-2-Clause；其依赖包含 MIT/BSD 许可的软件。依赖包各自的许可证继续适用，不把构建工具许可套用于整个项目。
+- 录音署名、艺人别名和公开发行版链接使用 [MusicBrainz 公开 API](https://musicbrainz.org/doc/MusicBrainz_API)。目录数据许可与 API 使用要求见 [MusicBrainz 数据许可](https://musicbrainz.org/doc/About/Data_License)及[限频说明](https://musicbrainz.org/doc/MusicBrainz_API/Rate_Limiting)。
 
 用户于 2026-11-15 明确授权将现有 Spotify 项目迁移到独立公开 GitHub 仓库。本次保留已有署名与各组成部分的许可，不自行新增 MIT、Apache 或其他整体许可证；没有明确许可证的代码仍不因此授予第三方额外使用权。源码公开与歌词数据/API 的访问和展示授权分别核对，不能因接口可访问就认定获得歌词再分发许可。
 

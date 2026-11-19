@@ -9,7 +9,7 @@ import {relocateProfile,runtimeRelease,runtimeURL,verifyRuntimeArtifacts} from '
 export const baseline='10049053ce86bd992e3ebb6511ffb28312ba86fb';
 export const macSource='9f7399dda1279689d2436e981a547b1ea45513b3';
 // Subscription update time in Asia/Taipei (UTC+8); fixed for reproducible builds.
-export const versionDate='2026-11-19 09:01:52';
+export const versionDate='2026-11-19 09:17:39';
 export const repo=fileURLToPath(new URL('../../../',import.meta.url));
 const here=fileURLToPath(new URL('.',import.meta.url));
 const sourcePath='Loon/Development/SpotifyMac20261114/';
@@ -54,6 +54,8 @@ export function createProfile(revision=runtimeRelease.revision){
     .replace(/^#!desc = .*$/m,'#!desc = '+loonDescription)
     .replace(/^#!date = .*$/m,'#!date = '+versionDate);
   const platform='CLIENT_PLATFORM = select,"mobile","macOS",type=string,tag=运行平台,desc=iPhone/iPad 保持 mobile；Mac 选择 macOS 后使用桌面双语显示。Mac 完全无词入口仍在测试。';
+  const versionTrack='VERSION_TRACK = input,"",type=string,tag=同录音版本查询,desc=填写 Spotify 曲目链接或 ISRC 后手动运行查询。';
+  const versionSearch='generic then script("'+runtimeURL('Loon/script/SpotifyLyrics.Versions.js')+'", {${VERSION_TRACK}}) with tag="查找 Spotify 同录音版本", timeout=9';
   const gate=(line,mode)=>line.replace(/^(request|response) if /,(_,phase)=>phase+' if ${CLIENT_PLATFORM} == "'+mode+'" && ');
   const mobileRewrite=rules(old,'Rewrite').map(line=>gate(line,'mobile'));
   const mobileScripts=rules(old,'Script').map(line=>gate(line,'mobile'));
@@ -63,7 +65,7 @@ export function createProfile(revision=runtimeRelease.revision){
     return gate(line,'macOS');
   });
   if(mobileRewrite.length!==3||mobileScripts.length!==2||macScripts.length!==3)throw Error('Unexpected baseline shape');
-  return filterEntryJSON(relocateProfile(header+'[Argument]\n'+platform+'\n'+section(old,'Argument')+'\n\n[Rewrite]\n'+mobileRewrite.join('\n')+'\n\n[Script]\n'+macScripts.join('\n')+'\n'+mobileScripts.join('\n')+'\n\n[Mitm]\n'+section(old,'Mitm')+'\n'));
+  return filterEntryJSON(relocateProfile(header+'[Argument]\n'+platform+'\n'+section(old,'Argument')+'\n'+versionTrack+'\n\n[Rewrite]\n'+mobileRewrite.join('\n')+'\n\n[Script]\n'+macScripts.join('\n')+'\n'+mobileScripts.join('\n')+'\n'+versionSearch+'\n\n[Mitm]\n'+section(old,'Mitm')+'\n'));
 }
 
 if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){

@@ -5,15 +5,16 @@ import {setTranslationDescription} from './translation-description.mjs';
 const root = new URL('../', import.meta.url);
 
 export function validateRelease(value) {
-  if (value?.schema !== 1 || value.repository !== 'hhhoratioxu/SpotifyLyrics' ||
+  if (value?.schema !== 1 || value.repository !== 'hhhoratioxu/Spotify-Plugin' ||
       !/^[0-9a-f]{40}$/.test(value.revision) || value.core !== '3.2.2' ||
-      !Array.isArray(value.artifacts) || value.artifacts.length !== 18) throw Error('Invalid runtime release');
+      !Array.isArray(value.artifacts) || value.artifacts.length !== 19) throw Error('Invalid runtime release');
   const paths = new Set();
   for (const item of value.artifacts) {
     if (!/^(?:Loon|Surge|Egern|QuantumultX|Shadowrocket)\/script\/(?:SpotifyLyrics\/)?[A-Za-z][A-Za-z0-9.-]*\.(?:js|txt)$/.test(item.path) ||
         !Number.isSafeInteger(item.bytes) || item.bytes < 1 || !/^[0-9a-f]{64}$/.test(item.sha256) || paths.has(item.path)) throw Error('Invalid runtime artifact');
     paths.add(item.path);
   }
+  if (!paths.has('Loon/script/SpotifyLyrics.Versions.js')) throw Error('Missing pinned Loon version lookup script');
   return value;
 }
 
@@ -31,7 +32,7 @@ export function relocateProfile(profile, release = runtimeRelease) {
   validateRelease(release);
   return setTranslationDescription(profile)
     .replace(/https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/Proxy\/[0-9a-f]{40}\/([A-Za-z0-9./_-]+)/g, (_, path) => runtimeURL(path, release))
-    .replaceAll('https://github.com/hhhoratioxu/Proxy/blob/main/', 'https://github.com/hhhoratioxu/SpotifyLyrics/blob/main/');
+    .replaceAll('https://github.com/hhhoratioxu/Proxy/blob/main/', 'https://github.com/'+release.repository+'/blob/dev/');
 }
 
 export function verifyRuntimeArtifacts(base = root, release = runtimeRelease) {

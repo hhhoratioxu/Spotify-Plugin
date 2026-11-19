@@ -1,5 +1,7 @@
 # 验收状态
 
+2026-11-19 Spotify-Plugin Dev 增加通用录音署名核对和 Loon 手动查找同录音发行版。按用户要求仅构建与校验发布文件，回归、设备显示和实际曲目可播性待后续验收。[Dev 说明](localized-artist-matching.md)
+
 2026-11-19 Dev：加入艺人名跨语言匹配及 Loon Mac 元数据、补词显示与翻译预载适配。本轮按用户要求直接构建和发布，未执行回归或实机测试。Mac 验收以歌词功能为准，iPhone 的当前目标为整个 Loon VPN 扩展峰值低于 40,000,000 字节。[Dev 版本说明](localized-artist-matching.md)
 
 2026-11-15 beta.2：用户反馈 beta.1 仍会断开 iPhone Loon VPN。新增启动配置扫描与单次封装复制优化，保留协议输出；64 项配置检查、700 个异常变体及 5 项原生条件检查通过。桌面启动模型的峰值约 38.14 MB footprint / 48.37 MB resident；这不含手机原生扩展、真实网络缓冲和其他插件，iPhone 50 MB 与实际断线修复仍待验证。已发布 beta.2 测试版，29 项公开安装链资源及 7 个附件核对通过，见 [公开发布校验](../evidence/release-v3.2.4-beta.2.json)。详见 [beta.2 记录](memory-beta2-2026-11-15.md)。下方 beta.1 数据按当时范围保留。

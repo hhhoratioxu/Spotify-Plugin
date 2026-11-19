@@ -1,10 +1,10 @@
 # SpotifyLyrics · Loon
 
-> **Dev 版本 2026-11-19 09:01:52**。识别已确认的跨语言艺人署名，并纳入 Mac 补词与逐行翻译适配。iPhone 整个 Loon VPN 扩展低于 40 MB 的目标待实机验收。[Dev 版本说明](../../docs/localized-artist-matching.md)
+> **Dev 版本 2026-11-19 09:17:39**。按录音身份核对各语言艺人署名。Loon 新增手动查找同录音 Spotify 发行版。iPhone 40 MB 目标等待设备验收。[Dev 说明](../../docs/localized-artist-matching.md)
 
 > v3.2.3 多语言修复：中文原词保持，其他语言进入翻译。使用新仓库 main 订阅取得当前固定资源；旧 v3.2.2 Release 链接保留原版本。
 
-> 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
+> 本项目已独立迁至 [hhhoratioxu/Spotify-Plugin](https://github.com/hhhoratioxu/Spotify-Plugin)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
 当前订阅配置 **2026.11.19 Dev**，核心 **3.2.2**（原生适配 18）。手机默认 `mobile`，Mac 在插件参数中选择 `macOS` 以启用桌面补词与逐行双语适配。手机与 Mac 歌词核心均由当前维护源码构建。
 
@@ -22,7 +22,7 @@
 
 ## 安装与更新
 
-[SpotifyLyrics.lpx Dev 订阅](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Loon/script/SpotifyLyrics.lpx)
+[SpotifyLyrics.lpx Dev 订阅](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/dev/Loon/script/SpotifyLyrics.lpx)
 
 测试用户须使用本页测试分支地址；刷新 main 或旧 Proxy 地址不会取得测试版。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件详情的 Version Date 按台北时间（UTC+8）显示本次订阅更新时间，格式为 `YYYY-MM-DD HH:mm:ss`，与 WeatherKit 一样精确到秒；核心号仍为 `3.2.2`。
 
@@ -31,6 +31,10 @@
 3. 同时只启用一个 Spotify 歌词处理插件，重新加载代理配置并重新打开 Spotify；切换歌曲后重新进入歌词页。
 
 客户端自动下载固定版本运行脚本，只需安装这个入口文件。无需下载源码、运行测试、查看诊断或开启通知。
+
+## 查找同录音发行版
+
+在 SpotifyLyrics 设置中的「同录音版本查询」填写 Spotify 曲目链接或 ISRC。手动运行「查找 Spotify 同录音版本」，点击通知中的候选，由 Spotify 判断当前账号和地区是否可播放。
 
 ## 设置
 
@@ -63,7 +67,7 @@
 
 ## 运行版本与接口
 
-[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/SpotifyLyrics/tree/main/history/3.2.2)
+[固定运行脚本](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/6b7bf71c62d412ad7f814e0721bd8a1dcafa96c0/Loon/script/SpotifyLyrics.js) · [源码与验证记录](https://github.com/hhhoratioxu/Spotify-Plugin/tree/main/history/3.2.2)
 
 原始核心和适配逻辑为独立编写。Unicode Unihan 数据许可随运行脚本完整附带。[Script 语法](https://nsloon.app/docs/Script/script_v2/) · [Script API](https://nsloon.app/docs/Script/script_api/) · [目标歌曲公开配色来源](https://open.spotify.com/embed/track/76XUZSb13QUuj1HECY4Hvo)
 

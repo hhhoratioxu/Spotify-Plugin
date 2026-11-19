@@ -2,8 +2,8 @@
 name: SpotifyLyrics
 author: Horatio Xu
 icon: music.note.list
-homepage: https://github.com/hhhoratioxu/SpotifyLyrics/blob/main/Egern/script/SpotifyLyrics.yaml
-manual: https://github.com/hhhoratioxu/SpotifyLyrics/blob/main/Egern/Docs/SpotifyLyrics.md
+homepage: https://github.com/hhhoratioxu/Spotify-Plugin/blob/dev/Egern/script/SpotifyLyrics.yaml
+manual: https://github.com/hhhoratioxu/Spotify-Plugin/blob/dev/Egern/Docs/SpotifyLyrics.md
 description: 核心 3.2.2 · 适配 18。备用源按需初始化；临时无词响应不长期缓存。保留六源补词，中文原词保持，其他语言按需翻译。 保留补词、翻译与原生高亮。需 HTTPS 解密。
 env_schema:
   REPLACE_UNSYNCED:
@@ -137,7 +137,7 @@ mitm:
   - "*-spclient.spotify.com"
 scriptings:
 - http_request:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/3976962cf798a47a217cf1d3ad03de7fcc3edc12/Egern/script/SpotifyLyrics/spotify-lyrics-request.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics-request.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN
@@ -157,7 +157,7 @@ scriptings:
     body_required: false
     timeout: 3
 - http_response:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/3976962cf798a47a217cf1d3ad03de7fcc3edc12/Egern/script/SpotifyLyrics/spotify-lyrics.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN
@@ -179,7 +179,7 @@ scriptings:
     max_size: 262144
     timeout: 12
 - http_response:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/3976962cf798a47a217cf1d3ad03de7fcc3edc12/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN

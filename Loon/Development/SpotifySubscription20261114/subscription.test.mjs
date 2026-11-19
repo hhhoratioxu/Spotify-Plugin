@@ -43,12 +43,19 @@ test('the actual public entry has a reproducible build and a numbered WeatherKit
   assert.equal(manifest.versionDate,versionDate);
   const description=profile.split('\n').find(line=>line.startsWith('#!desc = ')).slice(9).split('\\n');
   assert.equal(description[0],'iOS & iPadOS & macOS');
-  assert.equal(description.length,7);
+  assert.equal(description.length,8);
   assert.ok(description.slice(1).every((line,i)=>line.startsWith((i+1)+'.')));
-  assert.match(description[5],/跨语言艺人名匹配/);
+  assert.match(description[5],/不同语言的艺人名/);
   assert.match(description[6],/Mac.*无词补全适配/);
+  assert.match(description[7],/同一录音/);
 });
-test('all existing setting keys and defaults remain; only translation help follows the requested policy',()=>{assert.equal(section(profile,'Argument').split('\n').filter(l=>!l.startsWith('CLIENT_PLATFORM = ')).join('\n'),section(setTranslationDescription(old),'Argument'));assert.match(section(profile,'Argument'),/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);});
+test('existing settings are preserved and the optional version lookup has no default input',()=>{
+  const args=section(profile,'Argument');
+  assert.equal(args.split('\n').filter(line=>!line.startsWith('CLIENT_PLATFORM = ')&&!line.startsWith('VERSION_TRACK = ')).join('\n'),section(setTranslationDescription(old),'Argument'));
+  assert.match(args,/^CLIENT_PLATFORM = select,"mobile","macOS",type=string/);
+  assert.match(args,/^VERSION_TRACK = input,"",type=string/m);
+  assert.ok(section(profile,'Script').includes('generic then script("'+runtimeURL('Loon/script/SpotifyLyrics.Versions.js')));
+});
 test('mobile retains the original rewrites and scripts with a known no-op JSON startup filter',()=>{
   assert.deepEqual(rules(profile,'Rewrite').map(unGate),rules(old,'Rewrite'));
   assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(filterEntryJSON(relocateProfile(old)),'Script'));

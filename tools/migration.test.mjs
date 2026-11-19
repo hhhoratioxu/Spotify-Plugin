@@ -21,7 +21,9 @@ test('native entries preserve compatibility while Loon uses the concise numbered
     const p=client+'/script/SpotifyLyrics.'+ext;
     const old=readFileSync(new URL('provenance/compatibility/'+p,root),'utf8');
     const expected=relocateProfile(setDisplayName(old,client));
-    assert.equal(readFileSync(new URL(p,root),'utf8'),client==='Loon'?filterEntryJSON(expected.replace(/^#!desc = .*$/m,'#!desc = '+loonDescription).replace(/^#!date = .*$/m,'#!date = '+versionDate)):expected);
+    const actual=readFileSync(new URL(p,root),'utf8');
+    const originalHooks=actual.replace(/^VERSION_TRACK = .*\n/m,'').replace(/^generic then script\([^\n]*SpotifyLyrics\.Versions\.js[^\n]*\n/m,'');
+    assert.equal(client==='Loon'?originalHooks:actual,client==='Loon'?filterEntryJSON(expected.replace(/^#!desc = .*$/m,'#!desc = '+loonDescription).replace(/^#!date = .*$/m,'#!date = '+versionDate)):expected);
   }
 });
 test('display naming leaves protocol markers and cache identity intact', () => {

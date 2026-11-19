@@ -1,5 +1,7 @@
 # Loon 官方文档适配记录
 
+2026-11-19 Spotify-Plugin Dev 核对官方 [Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/) 和 [Plugin](https://nsloon.app/docs/Plugin/)。同录音查询使用手动 Generic、字符串输入对象、HTTP 毫秒超时以及通知的 `openUrl`。异步工作完成后调用一次 `$done`。歌词匹配继续共用现有串行请求预算、存储、路由与最低版本。
+
 2026-11-19 SpotifyLyrics Dev 核对 [Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/) 与[插件](https://nsloon.app/docs/Plugin/)。艺人名匹配共用既有查询与缓存。Mac JSON 元数据复用原生响应及同步缓存接口，按曲目区分网络名额，完成后调用一次 `$done`。继续使用已发布的 Loon 规则语法、参数与最低版本。iPhone 的 40 MB 目标待实机验收。
 
 ## beta.2 启动配置分配优化（2026-11-15）
