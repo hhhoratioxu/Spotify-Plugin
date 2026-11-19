@@ -35,5 +35,5 @@ for(const script of ['build-candidate.mjs','build-compat.mjs','build-repair.mjs'
 execFileSync(process.execPath,['Loon/Development/SpotifyMac20261114/build-strict-diagnosis.mjs'],{cwd:root,stdio:'pipe'});
 verifyRuntimeArtifacts();
 mkdirSync(join(root,'evidence'),{recursive:true});
-writeFileSync(join(root,'evidence/build.json'),JSON.stringify({core:'3.2.2',patch:'non-chinese-translation',displayName:'SpotifyLyrics',inputs:'maintained src/build.mjs and shared core; local source snapshots for historical diagnostics; no parent Git lookup',network:'none',runtimeRepository:runtimeRelease.repository,runtimeCommit:runtimeRelease.revision,subscriptionURLsChanged:true,artifacts:manifest.artifacts,sourceInputs:manifest.inputs},null,2)+'\n');
-console.log(JSON.stringify({built:manifest.artifacts.length,core:'3.2.2',patch:'non-chinese-translation',published:false}));
+writeFileSync(join(root,'evidence/build.json'),JSON.stringify({core:'3.2.2',patch:manifest.patch,displayName:'SpotifyLyrics',inputs:'maintained src/build.mjs and shared core; local source snapshots for historical diagnostics; no parent Git lookup',network:'none',runtimeRepository:runtimeRelease.repository,runtimeCommit:runtimeRelease.revision,subscriptionURLsChanged:true,artifacts:manifest.artifacts,sourceInputs:manifest.inputs},null,2)+'\n');
+console.log(JSON.stringify({built:manifest.artifacts.length,core:'3.2.2',patch:manifest.patch,published:false}));

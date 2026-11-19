@@ -9,7 +9,7 @@ import {relocateProfile,runtimeRelease,runtimeURL,verifyRuntimeArtifacts} from '
 export const baseline='10049053ce86bd992e3ebb6511ffb28312ba86fb';
 export const macSource='9f7399dda1279689d2436e981a547b1ea45513b3';
 // Subscription update time in Asia/Taipei (UTC+8); fixed for reproducible builds.
-export const versionDate='2026-11-15 16:20:21';
+export const versionDate='2026-11-19 09:01:52';
 export const repo=fileURLToPath(new URL('../../../',import.meta.url));
 const here=fileURLToPath(new URL('.',import.meta.url));
 const sourcePath='Loon/Development/SpotifyMac20261114/';
@@ -42,7 +42,10 @@ export function filterEntryJSON(profile){
 export function createProfile(revision=runtimeRelease.revision){
   if(revision!==runtimeRelease.revision)throw Error('Runtime commit must match the verified independent release');
   verifyRuntimeArtifacts();
-  for(const item of files)if(item.name!=='SpotifyLyrics.Mac.js'&&!readFileSync(join(repo,'Loon/script/'+item.name)).equals(git(macSource,sourcePath+'runtime/'+item.source)))throw Error('Mac transport/entry adapter drift: '+item.name);
+  const request = files.find(item => item.name === 'SpotifyLyrics.Request.Mac.js');
+  if (!readFileSync(join(repo, 'Loon/script/'+request.name)).equals(git(macSource,sourcePath+'runtime/'+request.source))) {
+    throw Error('Mac request adapter no longer matches the verified original');
+  }
   // Use the released entry, not the earlier artifact commit's temporary pins.
   const old=git(macSource,'Loon/script/SpotifyLyrics.lpx').toString();
   const mac=git(macSource,sourcePath+'DisplayMac.lpx').toString();
@@ -67,14 +70,19 @@ if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url){
   const mode=process.argv[2];
   if(mode==='artifacts'){
     const artifacts=[];
+    const macSources = {
+      'SpotifyLyrics.Mac.js': 'src/spotify-lyrics.js + mac-display.mjs + mac-runtime.mjs',
+      'SpotifyLyrics.Entry.Mac.js': sourcePath+'runtime/SpotifyLyrics.Entry.Mac.js + src/mac-metadata.mjs',
+      'SpotifyLyrics.Request.Mac.js': sourcePath+'runtime/SpotifyLyrics.Request.js',
+    };
     for(const item of files){
       const path='Loon/script/'+item.name,bytes=readFileSync(join(repo,'build/current-runtime/runtime',path)),pin=runtimeRelease.artifacts.find(a=>a.path===path);
       if(!pin||bytes.length!==pin.bytes||sha(bytes)!==pin.sha256)throw Error('Staged Mac runtime does not match the verified pin: '+path);
-      mkdirSync(join(repo,'Loon/script'),{recursive:true});writeFileSync(join(repo,path),bytes);artifacts.push({path,source:item.name==='SpotifyLyrics.Mac.js'?'src/spotify-lyrics.js + mac-display.mjs':sourcePath+'runtime/'+item.source,bytes:bytes.length,sha256:sha(bytes)});
+      mkdirSync(join(repo,'Loon/script'),{recursive:true});writeFileSync(join(repo,path),bytes);artifacts.push({path,source:macSources[item.name],bytes:bytes.length,sha256:sha(bytes)});
     }
     writeFileSync(join(here,'artifacts-manifest.json'),JSON.stringify({macSource,baseline,runtimeCommit:runtimeRelease.revision,artifacts},null,2)+'\n');
   }else if(mode==='profile'){
     const revision=process.argv[3],profile=createProfile(revision);writeFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),profile);
-    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.15-memory-beta2',versionDate,core:'3.2.2',patch:'non-chinese-translation',runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
+    writeFileSync(join(here,'subscription-manifest.json'),JSON.stringify({configuration:'2026.11.19-dev',versionDate,core:'3.2.2',patch:runtimeRelease.patch,runtimeRepository:runtimeRelease.repository,runtimeCommit:revision,baseline,macSource,profile:{path:'Loon/script/SpotifyLyrics.lpx',bytes:Buffer.byteLength(profile),sha256:sha(profile)},mobileRuntimeChanged:true,iosPeakAcceptance:'unverified',macMissingLyricsEntry:'unverified'},null,2)+'\n');
   }else throw Error('Usage: node build-subscription.mjs artifacts | profile <full-runtime-commit>');
 }

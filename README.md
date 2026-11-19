@@ -1,10 +1,10 @@
 # SpotifyLyrics
 
-> **[v3.2.4-beta.2 启动内存优化测试版已发布](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.4-beta.2)**。用户反馈 beta.1 仍断开 iPhone Loon VPN，本次减少二进位配置的临时对象与重复正文复制；同一桌面启动模型峰值约 38.14/48.37 MB（footprint/resident）。**实际 iPhone 50 MB 与断线修复仍待验收**。测试订阅地址不变，Version Date 更新为 `2026-11-15 16:20:21`。29 项公开安装链资源及 7 个附件已下载核对，见 [公开发布校验](evidence/release-v3.2.4-beta.2.json)、[beta.2 说明](docs/releases/v3.2.4-beta.2.md)与[测量记录](docs/memory-beta2-2026-11-15.md)。main 保留 v3.2.3。
+> **Dev 更新于 2026-11-19 09:01:52（UTC+8）。** 补词识别 Jay Chou／周杰伦、Stefanie Sun／孙燕姿等已确认的跨语言署名，并集成 Loon Mac 补词与逐行翻译适配。本版按用户要求直接构建与发布，设备验证待补。[版本说明](docs/localized-artist-matching.md)
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
-项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整项目已上传，5 个公开安装入口、18 个固定资源和新 Clone 均已核对，见 [GitHub 迁移校验](evidence/github-migration-verification.json)。首次仓库迁移保持原运行字节；后续 v3.2.3 更新了非中文翻译策略，Mac 无词补全、精确同步及 iPhone 整个代理扩展低于 50,000,000 字节的验收状态仍见下文。
+项目统一在 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics) 维护。完整迁移的安装链和历史校验见 [GitHub 迁移记录](evidence/github-migration-verification.json)。
 
 **正式版历史：[v3.2.3 非中文歌词翻译修复](https://github.com/hhhoratioxu/SpotifyLyrics/releases/tag/v3.2.3)：中文原词保持，其他语言进入翻译；独立检查 626 项 Node / 18 项 Python、1011 项当前核心兼容与 2248 项历史基线通过。该正式版记录保留；本测试分支使用另一组经过核验的固定运行资源。** 详见 [多语言修复记录](docs/translation-2026-11-15.md)及[公开发布校验](evidence/release-v3.2.3.json)。
 
@@ -12,21 +12,21 @@
 
 | 客户端 | 订阅 / 导入文件 | 说明 |
 | --- | --- | --- |
-| Loon | [SpotifyLyrics.lpx](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx) | iPhone / iPad 默认 `mobile`；Mac 选择 `macOS` |
-| Surge | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Surge/script/SpotifyLyrics.sgmodule) | 保留 Surge 原生配置；iOS / macOS 未完成实机验收 |
-| Egern | [SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Egern/script/SpotifyLyrics.yaml) | 保留 ctx / Response 适配；当前设备显示效果未验收 |
-| Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/QuantumultX/script/SpotifyLyrics.conf) | 重写引用；原参数与限制保留 |
-| Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Shadowrocket/script/SpotifyLyrics.sgmodule) | 原生模块；当前设备显示效果未验收 |
+| Loon | [SpotifyLyrics.lpx](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Loon/script/SpotifyLyrics.lpx) | iPhone / iPad 默认 `mobile`，Mac 选择 `macOS` |
+| Surge | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Surge/script/SpotifyLyrics.sgmodule) | Surge 模块 |
+| Egern | [SpotifyLyrics.yaml](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Egern/script/SpotifyLyrics.yaml) | Egern 插件 |
+| Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/QuantumultX/script/SpotifyLyrics.conf) | Quantumult X 重写 |
+| Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Shadowrocket/script/SpotifyLyrics.sgmodule) | Shadowrocket 模块 |
 
-测试用户将现有 SpotifyLyrics 的订阅改用上表专用地址，保留原设置，并保持只启用一份 SpotifyLyrics。刷新 main 或旧 Proxy 地址不会取得这个测试版。正式版回退地址见 [测试版说明](docs/releases/v3.2.4-beta.2.md)。发布操作不会自动修改已安装插件或 VPN 设置。
+使用 Dev 时，将现有 SpotifyLyrics 的订阅改用上表地址，并保持只启用一份 SpotifyLyrics。Loon 详情中的 Version Date 应为 `2026-11-19 09:01:52`。正式版地址见 [beta.2 发布记录](docs/releases/v3.2.4-beta.2.md)。
 
 Loon 的插件名称与编号功能描述保持现有 WeatherKit 风格。五个入口的运行脚本均固定到新仓库的完整 Git 提交，哈希见 [runtime-release.json](provenance/runtime-release.json)，不再向旧 Proxy 下载运行脚本。
 
 ## 当前功能与限制
 
 - 原有补词、逐行同步、翻译目标、来源与缓存参数保留；Spotify 原生有词时按原逻辑处理，不在迁移时更换核心。
-- Mac 原生英中双语已有可见实测记录；目标无词歌曲的歌词入口仍未通过，精确高亮、逐字、长期稳定仍需实机验证。
-- iPhone 的 50 MB 是真实手机代理扩展的验收目标。Mac 进程与桌面 JavaScriptCore 测量无法代替 iPhone 峰值，当前尚未完成该验收。
+- Loon Mac 提供原生逐行双语和无词补全适配，实际覆盖取决于来源收录情况及 Spotify 是否发出歌词请求。详见 [Dev 版本说明](docs/localized-artist-matching.md)。
+- iPhone 的验收目标为整个 Loon VPN 扩展峰值低于 40,000,000 字节，目前等待实机数据。
 - 当前维护源码已取消整曲英语门槛：中文原词保持，其他语言使用所选翻译目标。两首反馈曲目的真实客户端显示仍待验证；v3.2.2 固定下载链接保留旧版，持续更新请使用下方新仓库 main 订阅。见 [多语言修复](docs/translation-2026-11-15.md)。
 - Clash / Mihomo 没有本项目已实现的歌词正文改写入口。Spotify 路由仍由 Proxy 项目维护。
 

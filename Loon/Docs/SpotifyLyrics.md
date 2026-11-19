@@ -1,14 +1,14 @@
 # SpotifyLyrics · Loon
 
-> **v3.2.4-beta.2 测试分支**：进一步减少启动二进位配置的对象建立与整段正文复制。手机 50 MB 和实际断线修复仍待实机验收；刷新本页测试订阅，Version Date 为 `2026-11-15 16:20:21`。main 保留正式版。详见 [测试说明](../../docs/releases/v3.2.4-beta.2.md)。
+> **Dev 版本 2026-11-19 09:01:52**。识别已确认的跨语言艺人署名，并纳入 Mac 补词与逐行翻译适配。iPhone 整个 Loon VPN 扩展低于 40 MB 的目标待实机验收。[Dev 版本说明](../../docs/localized-artist-matching.md)
 
 > v3.2.3 多语言修复：中文原词保持，其他语言进入翻译。使用新仓库 main 订阅取得当前固定资源；旧 v3.2.2 Release 链接保留原版本。
 
 > 本项目已独立迁至 [hhhoratioxu/SpotifyLyrics](https://github.com/hhhoratioxu/SpotifyLyrics)。下方安装入口使用新仓库；核心与原参数保留。历史发布记录保留原名，当前功能限制见 [acceptance.md](../../docs/acceptance.md)。
 
-当前订阅配置 **2026.11.15**，核心 **3.2.2**（原生适配 18）。原订阅地址已接入平台选择：手机默认 `mobile`，Mac 在插件参数中选择 `macOS`，启用已测试的桌面逐行双语显示；Mac 完全无词入口仍未完成。原有十二个设置的默认值保持，手机与 Mac 歌词核心均由当前维护源码构建。
+当前订阅配置 **2026.11.19 Dev**，核心 **3.2.2**（原生适配 18）。手机默认 `mobile`，Mac 在插件参数中选择 `macOS` 以启用桌面补词与逐行双语适配。手机与 Mac 歌词核心均由当前维护源码构建。
 
-在线备用源及匹配表仅在取得处理名额、实际查词时初始化；已有补词缓存和繁忙返回跳过初始化。英语歌词路径减少重复语言检查。临时补词忙碌或失败时保留真实状态、类型和正文，清除缓存校验标记并使用 no-store。没有增加后台任务、并发、缓存容量或超时。桌面测量有改善也有回退，不能保证每种首次加载都更省内存。
+在线备用源及匹配表按需初始化。临时补词忙碌或失败时保留原状态、类型和正文并使用 no-store。手机继续使用单个网络处理名额，Mac 允许少量不同曲目的请求并行完成。两端使用已有缓存容量和单次请求预算。
 
 保留六源补词、插件翻译、原生时间轴与高亮。缓存和网络都有明确上限；未收录的歌曲仍不能凭空补全。本地自动测试与 macOS JavaScriptCore 测量不等于 iPhone Loon 实机 VPN 验收，不能保证所有设备都不会被系统终止。
 
@@ -22,7 +22,7 @@
 
 ## 安装与更新
 
-[SpotifyLyrics.lpx 原始地址](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/codex/spotify-memory-admission/Loon/script/SpotifyLyrics.lpx)
+[SpotifyLyrics.lpx Dev 订阅](https://raw.githubusercontent.com/hhhoratioxu/SpotifyLyrics/dev/Loon/script/SpotifyLyrics.lpx)
 
 测试用户须使用本页测试分支地址；刷新 main 或旧 Proxy 地址不会取得测试版。在插件参数中确认**运行平台**：手机保留 `mobile`；Mac 选择 `macOS` 并保存配置。Mac 路径直接加载固定的 GitHub 脚本，不需要本地测试服务器。插件详情的 Version Date 按台北时间（UTC+8）显示本次订阅更新时间，格式为 `YYYY-MM-DD HH:mm:ss`，与 WeatherKit 一样精确到秒；核心号仍为 `3.2.2`。
 

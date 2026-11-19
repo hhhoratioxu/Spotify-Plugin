@@ -1,5 +1,7 @@
 # Loon 官方文档适配记录
 
+2026-11-19 SpotifyLyrics Dev 核对 [Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/) 与[插件](https://nsloon.app/docs/Plugin/)。艺人名匹配共用既有查询与缓存。Mac JSON 元数据复用原生响应及同步缓存接口，按曲目区分网络名额，完成后调用一次 `$done`。继续使用已发布的 Loon 规则语法、参数与最低版本。iPhone 的 40 MB 目标待实机验收。
+
 ## beta.2 启动配置分配优化（2026-11-15）
 
 重新核对 [Script](https://nsloon.app/docs/Script/script_v2/) 的原生布尔/字符串条件和 Response 唯一匹配，以及 [Script API](https://nsloon.app/docs/Script/script_api/) 的二进位、同步完成及回调约定。手机 Body Script 在无词发现/来源关闭或已有处理标记时按核心原有语义放行；翻译与来源同时关闭时不处理歌词正文。只使用已声明参数和官方条件，不加内存/并发/取消字段，最低版本与默认值不变。共享配置解析仅改 JavaScript 分配与已知封装重建，保持原始协议输出。桌面 JSC 启动模型与真实 iPhone 验收分开，详见 [beta.2 记录](../../docs/memory-beta2-2026-11-15.md)。

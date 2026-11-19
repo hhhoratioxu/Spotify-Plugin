@@ -1,11 +1,11 @@
 {
   "core": "3.2.2",
-  "patch": "non-chinese-translation",
+  "patch": "localized-artists-and-mac-lyrics",
   "displayName": "SpotifyLyrics",
   "inputs": "maintained src/build.mjs and shared core; local source snapshots for historical diagnostics; no parent Git lookup",
   "network": "none",
   "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
-  "runtimeCommit": "ac49618d52711d5f9340d9f0c16ab94d3bf7c33c",
+  "runtimeCommit": "3976962cf798a47a217cf1d3ad03de7fcc3edc12",
   "subscriptionURLsChanged": true,
   "artifacts": [
     {
@@ -25,8 +25,8 @@
     },
     {
       "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
-      "bytes": 90038,
-      "sha256": "abbb1c426e902404d18196038ca5a13d969fb7562581863e71e881136f63bc1c"
+      "bytes": 90438,
+      "sha256": "ea254077677b09cba6d2b60a86c15b580445b50e50f51d0a590777154808bc7c"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.js",
@@ -35,18 +35,18 @@
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
-      "bytes": 29698,
-      "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f"
+      "bytes": 55463,
+      "sha256": "1ab6b5fa5c8b4ec4fef5b1879c717b5d424d9837db6b4da7a9ad30ab19458df5"
     },
     {
       "path": "Loon/script/SpotifyLyrics.js",
-      "bytes": 99908,
-      "sha256": "003fa946018471d0b246b7e19d733c18fc5ff0c0dad62562600fe9df64d36acb"
+      "bytes": 100309,
+      "sha256": "03048712397f54180bfd7962a0a3d67ef4f877a84d0548d6dca1897d87da6e3d"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Mac.js",
-      "bytes": 105924,
-      "sha256": "9f01d39a364b7a6ad426b3289fad81a33d50583cb1745c29f16cb2734598eff8"
+      "bytes": 119758,
+      "sha256": "be9f67aad5dab84cef1f09885eb96152f427688f3bfcfbcf8d8158782977f77a"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
@@ -60,8 +60,8 @@
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.js",
-      "bytes": 100835,
-      "sha256": "88bdf771c2dc12e0b7d11dfb8fadc45b8785b181181c775db94f97b6921250e0"
+      "bytes": 101236,
+      "sha256": "d182767704374151b4747acdd027d5aec66ae45f30955827e690bc1c5e9af626"
     },
     {
       "path": "QuantumultX/script/SpotifyLyrics.Request.js",
@@ -75,8 +75,8 @@
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.js",
-      "bytes": 99888,
-      "sha256": "c3cbee183c0c2f2d7953d21ae3754504f3b784a913c7710898330be7322a34e9"
+      "bytes": 100289,
+      "sha256": "b21fa3f0ae291f838271464dab4fd18a9cfe412361bf25c5b6e9577b9583eb2b"
     },
     {
       "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
@@ -90,8 +90,8 @@
     },
     {
       "path": "Surge/script/SpotifyLyrics.js",
-      "bytes": 99881,
-      "sha256": "283d82352f6c9f0224bc21ea2f86fbf60df29cb8d6f0067201f3b35d0c52660a"
+      "bytes": 100282,
+      "sha256": "d1e0b0f5ca70c06dea95572153857d3242f8b252b824c05806d6e70f44f43ceb"
     },
     {
       "path": "Surge/script/SpotifyLyrics.Request.js",
@@ -102,11 +102,11 @@
   "sourceInputs": [
     {
       "path": "src/build.mjs",
-      "sha256": "5f40f20d85806df41b3490d7e908ecc61d097ee2214ab77ec654b7c14554fe6b"
+      "sha256": "d2670f778fd6faa585b9961fb35a9c9cdbd54a732e8a3673d49767f665c34b1f"
     },
     {
       "path": "src/spotify-lyrics.js",
-      "sha256": "1ab5ec854e54669dde360ab1c5ffb299d2917057ade8d3daf139af8b83ca70c3"
+      "sha256": "aeebc21e5e2f863850e430b1576e2d6543387ee6a0f450d39a924ad9187b7a9e"
     },
     {
       "path": "src/native-adapter.js",
@@ -119,6 +119,34 @@
     {
       "path": "src/NOTICE-UNICODE.txt",
       "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    },
+    {
+      "path": "src/mac-metadata.mjs",
+      "sha256": "0df190c19f8384e68674825054708d698696cbbe6d581c7336d7e4bde5ce84ba"
+    },
+    {
+      "path": "src/mac-network.mjs",
+      "sha256": "8f442d75f0116209f25b196b7440f7899ddb034f58f1dec8b1efcdf524ccac8c"
+    },
+    {
+      "path": "tools/mac-runtime.mjs",
+      "sha256": "95e1d32b753a4f5f5dec76a9f0ce3226400a8ca2c684b838a9bc9fefaa2f04cc"
+    },
+    {
+      "path": "tools/mac-metadata-cache.mjs",
+      "sha256": "8e7cd45482ddf8facb8675f031c975f1ff30b80e2fd3a4647d5c50210b6b46ab"
+    },
+    {
+      "path": "Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs",
+      "sha256": "1a02627153739c30cf923dd0578f2bea2b4a8c1e66c880e1275a29c8a26992c4"
+    },
+    {
+      "path": "Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs",
+      "sha256": "932311750f826f2fe187aaa60b9d6fcc7162182dc7dfab5fbbb6d9b287107541"
+    },
+    {
+      "path": "Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs",
+      "sha256": "6976763f3040d6deb6d006961d7ded7402665d6a4fba08cb8b5c50dd306658ae"
     }
   ]
 }
