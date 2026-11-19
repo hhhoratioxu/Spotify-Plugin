@@ -64,7 +64,22 @@ export function macMetadataEntry(request, response, env, codec) {
     headers['Cache-Control'] = 'no-store'; headers['x-verselyrics'] = '3.2.2';
     // The native adapter can reuse this already validated catalog identity.
     // A cache failure must never prevent returning the compatible response.
-    try { codec.remember?.({gid:hex,title:doc.name,album:doc.album.name,artists:doc.artist.map(artist => artist.name),duration:doc.duration / 1000}); } catch {}
+    try {
+      const record = {gid:hex,title:doc.name,album:doc.album.name,artists:doc.artist.map(artist => artist.name),duration:doc.duration / 1000};
+      if (codec.catalogISRC) {
+        const codes = new Set();
+        const named = codec.catalogISRC(doc.external_ids?.isrc);
+        if (named) codes.add(named);
+        if (Array.isArray(doc.external_id) && doc.external_id.length <= 16) {
+          for (const entry of doc.external_id) if (typeof entry?.type === "string" && entry.type.toLowerCase() === "isrc") {
+            const code = codec.catalogISRC(entry.id);
+            if (code) codes.add(code);
+          }
+        }
+        if (codes.size === 1) record.isrc = codes.values().next().value;
+      }
+      codec.remember?.(record);
+    } catch {}
     return {headers, body:encoded};
   } catch { return null; }
 }

@@ -6,7 +6,7 @@ import {macMetadataCacheRuntime} from './mac-metadata-cache.mjs';
 
 export function macMetadataRuntime(entry,source) {
   return '(function(hostDone){\n'+candidateCodec(131072)+macMetadataEntry.toString()+'\n'+macMetadataCacheRuntime(source)+`
-let patched;try{patched=macMetadataEntry($request,$response,nativeArguments(),{settings,utf8Size,utf8,text,scanJSON:boundedJSON,remember:macRememberMetadata});}catch{}
+let patched;try{patched=macMetadataEntry($request,$response,nativeArguments(),{settings,utf8Size,utf8,text,scanJSON:boundedJSON,catalogISRC,remember:macRememberMetadata});}catch{}
 if(patched){hostDone(patched);return;}
 const $done=hostDone;
 `+entry+'\n})($done);\n';

@@ -183,7 +183,22 @@ function macMetadataEntry(request, response, env, codec) {
     headers['Cache-Control'] = 'no-store'; headers['x-verselyrics'] = '3.2.2';
     // The native adapter can reuse this already validated catalog identity.
     // A cache failure must never prevent returning the compatible response.
-    try { codec.remember?.({gid:hex,title:doc.name,album:doc.album.name,artists:doc.artist.map(artist => artist.name),duration:doc.duration / 1000}); } catch {}
+    try {
+      const record = {gid:hex,title:doc.name,album:doc.album.name,artists:doc.artist.map(artist => artist.name),duration:doc.duration / 1000};
+      if (codec.catalogISRC) {
+        const codes = new Set();
+        const named = codec.catalogISRC(doc.external_ids?.isrc);
+        if (named) codes.add(named);
+        if (Array.isArray(doc.external_id) && doc.external_id.length <= 16) {
+          for (const entry of doc.external_id) if (typeof entry?.type === "string" && entry.type.toLowerCase() === "isrc") {
+            const code = codec.catalogISRC(entry.id);
+            if (code) codes.add(code);
+          }
+        }
+        if (codes.size === 1) record.isrc = codes.values().next().value;
+      }
+      codec.remember?.(record);
+    } catch {}
     return {headers, body:encoded};
   } catch { return null; }
 }
@@ -202,6 +217,11 @@ function hexBase62(hex) {
     out = B62[carry] + out;
   }
   return out.padStart(22, "0");
+}
+function catalogISRC(value) {
+  if (typeof value !== "string" || value.length > 20) return "";
+  const code = value.trim().toUpperCase().replace(/^([A-Z]{2})-([A-Z0-9]{3})-([0-9]{2})-([0-9]{5})$/, "$1$2$3$4");
+  return /^[A-Z]{2}[A-Z0-9]{3}[0-9]{7}$/.test(code) ? code : "";
 }
 function translationPair(pair) {
   return Array.isArray(pair) && (pair.length === 2 || pair.length === 3 && (pair[2] === "source" || pair[2] === "checked" || pair[1] === "" && Number.isFinite(pair[2]) && pair[2] > 0)) && typeof pair[0] === "string" && typeof pair[1] === "string";
@@ -401,7 +421,7 @@ function loadCache(ctx, scope) {
 function cacheMetadata(state, parsed) {
   const key = "meta:" + parsed.meta.id, old = state.cache.get(key), next = parsed.meta;
   const same = old && old.id === next.id && old.title === next.title && old.album === next.album && old.duration === next.duration &&
-    Array.isArray(old.artists) && old.artists.length === next.artists.length && old.artists.every((name,i) => name === next.artists[i]);
+    (old.isrc === next.isrc || !next.isrc) && Array.isArray(old.artists) && old.artists.length === next.artists.length && old.artists.every((name,i) => name === next.artists[i]);
   if (!same) state.cache.put(key,next);
   const available = "availability:" + next.id;
   if (parsed.hasLyrics !== null && state.cache.get(available) !== parsed.hasLyrics) state.cache.put(available,parsed.hasLyrics,300000);
@@ -409,11 +429,13 @@ function cacheMetadata(state, parsed) {
 function macRememberMetadata(record) {
   const storage={get:key=>$persistentStore.read(key),set:(key,value)=>$persistentStore.write(value,key)};
   const cache=loadCache({env:nativeArguments(),storage},{metadata:true});
-  cacheMetadata({cache},{meta:{id:hexBase62(record.gid),title:record.title,album:record.album,artists:record.artists,duration:record.duration},hasLyrics:false});
+  const meta={id:hexBase62(record.gid),title:record.title,album:record.album,artists:record.artists,duration:record.duration};
+  if(record.isrc)meta.isrc=record.isrc;
+  cacheMetadata({cache},{meta,hasLyrics:false});
   cache.save();
 }
 
-let patched;try{patched=macMetadataEntry($request,$response,nativeArguments(),{settings,utf8Size,utf8,text,scanJSON:boundedJSON,remember:macRememberMetadata});}catch{}
+let patched;try{patched=macMetadataEntry($request,$response,nativeArguments(),{settings,utf8Size,utf8,text,scanJSON:boundedJSON,catalogISRC,remember:macRememberMetadata});}catch{}
 if(patched){hostDone(patched);return;}
 const $done=hostDone;
 /* VerseLyrics Loon lightweight entry 3.2.2. */

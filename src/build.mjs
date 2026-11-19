@@ -105,12 +105,12 @@ for(const name of ['LYRICS_SECTION','META_URL','EXTENDED_URL','SCROLL_URL'])lyri
 // Providers are a static, lazy lexical scope. Ordinary official lyric/cache
 // responses do not instantiate dozens of unused source functions. No eval,
 // external JavaScript, background initialization or additional persistent data.
-const providerNames = ['conversionEqual','comparisonHan','hanTables','hanPlane0','hanPlane2','hanPlane3','hanVariant','foldHan','metadataNormal','base62Hex','hexBase62','parseMetadata','extendedIdentity',
-  'artistLabels','artists','metadataArtist','latinArtistName','asianArtistName','bilingualArtistPair','bilingualArtistNames','sameArtists','artistKey','sourceArtistName',
+const providerNames = ['conversionEqual','comparisonHan','hanTables','hanPlane0','hanPlane2','hanPlane3','hanVariant','foldHan','metadataNormal','base62Hex','hexBase62','parseMetadata','catalogISRC','extendedIdentity',
+  'artistLabels','artists','metadataArtist','latinArtistName','asianArtistName','bilingualArtistPair','bilingualArtistNames','sameArtists','sameCreditGroups','sourceArtistsMatch','sourceArtistCredits','artistKey','sourceArtistName',
   'recordingTitle','matches','sourceCandidates','alternateVersion','sourceSearch','lyricBase64',
   'kugouCandidates','kugouLyrics','kuwoCandidates','kuwoLyrics','ovhCandidate','ovhLyrics','entities','lrc',
   'fallbackDoc','withSourceTranslation','simplifiedSourceLine','matchedCandidate','qqCandidates','neteaseCandidates','sourceLyrics',
-  'sourceHintKey','sourceOrder','backup','spotifyHeaders','cacheMetadata','metadata','publicMetadata'];
+  'sourceHintKey','sourceOrder','linkedSpotifyRecording','verifiedRecordingCredits','recordingCredits','backup','spotifyHeaders','cacheMetadata','metadata','publicMetadata'];
 const extracted = extractFunctions(lyrics,providerNames);
 const providerDefinitions = extracted.definitions; lyrics = extracted.source;
 for (const name of ['metadata','backup','conversionEqual']) lyrics = lyrics.replaceAll(name+'(', 'lyricProviders().'+name+'(');

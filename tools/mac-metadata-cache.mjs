@@ -13,11 +13,13 @@ export function macMetadataCacheRuntime(source) {
     return match[0];
   };
   return ['KEY','CACHE_LIMIT','CACHE_COUNT','MAX_LINES','B62','goodObject'].map(constant).join('\n')+'\n'+
-    ['hexBase62','translationPair','indexedCache','serializedCache','loadCache','cacheMetadata'].map(fn).join('\n')+`
+    ['hexBase62','catalogISRC','translationPair','indexedCache','serializedCache','loadCache','cacheMetadata'].map(fn).join('\n')+`
 function macRememberMetadata(record) {
   const storage={get:key=>$persistentStore.read(key),set:(key,value)=>$persistentStore.write(value,key)};
   const cache=loadCache({env:nativeArguments(),storage},{metadata:true});
-  cacheMetadata({cache},{meta:{id:hexBase62(record.gid),title:record.title,album:record.album,artists:record.artists,duration:record.duration},hasLyrics:false});
+  const meta={id:hexBase62(record.gid),title:record.title,album:record.album,artists:record.artists,duration:record.duration};
+  if(record.isrc)meta.isrc=record.isrc;
+  cacheMetadata({cache},{meta,hasLyrics:false});
   cache.save();
 }
 `;

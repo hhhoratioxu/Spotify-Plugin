@@ -50,8 +50,12 @@ export function compileRuntime(root=project) {
     const lyrics=readFileSync(join(stage,'runtime/Loon/script/SpotifyLyrics.js'),'utf8');
     const wrapped='(function(hostDone){\nconst LIMIT=262144;let TEXT_UNITS;\n'+codec+'\n'+macDisplay.toString()+'\nconst $done=output=>hostDone(macDisplay($response,output,typeof $argument==="undefined"?{}:$argument,{text,utf8}));\n'+lyrics+'\n})($done);\n';
     save('Loon/script/SpotifyLyrics.Mac.js',Buffer.from(macLyricsRuntime(wrapped)));
-    for(const path of ['src/mac-metadata.mjs','src/mac-network.mjs','tools/mac-runtime.mjs','tools/mac-metadata-cache.mjs','Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs','Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs','Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs'])inputs.push({path,sha256:sha(readFileSync(join(root,path)))});
-    const manifest={schema:1,core:'3.2.2',patch:'localized-artists-and-mac-lyrics',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
+    const versionAction = 'src/spotify-versions.js';
+    const isrcParser = source.match(/^function catalogISRC\([^]*?^}/m);
+    if (!isrcParser) throw Error('Missing recording identifier parser');
+    save('Loon/script/SpotifyLyrics.Versions.js',Buffer.from(isrcParser[0]+'\n'+readFileSync(join(root,versionAction),'utf8')));
+    for(const path of [versionAction,'src/mac-metadata.mjs','src/mac-network.mjs','tools/mac-runtime.mjs','tools/mac-metadata-cache.mjs','Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs','Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs','Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs'])inputs.push({path,sha256:sha(readFileSync(join(root,path)))});
+    const manifest={schema:1,core:'3.2.2',patch:'recording-identity-and-version-lookup',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
     mkdirSync(stage,{recursive:true});writeFileSync(join(stage,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
     return {stage,manifest};
   } finally {rmSync(scratch,{recursive:true,force:true});}

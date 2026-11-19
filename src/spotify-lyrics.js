@@ -25,7 +25,7 @@ const EXTENDED_URL = new RegExp("^https://(" + HOST + ")(?::443)?/extended-metad
 const SCROLL_URL = new RegExp("^https://(" + HOST + ")(?::443)?/scrollsita/v1/scroll/spotify(?::|%3[aA])track(?::|%3[aA])([0-9A-Za-z]{22})/?(?:\\?.*)?$");
 const LANGUAGES = ["zh-CN", "zh-TW", "en", "ja", "ko", "fr", "de", "es", "pt", "it", "ru", "ar", "hi", "id", "vi", "th", "tr", "nl", "pl", "sv", "uk", "he", "fa", "ms", "el"];
 const SOURCES = { lrclib: "LRCLIB", qq: "QQ 音乐", netease: "网易云音乐", kugou: "酷狗音乐", kuwo: "酷我音乐", lyricsovh: "lyrics.ovh" };
-const SOURCE_REVISION = 9;
+const SOURCE_REVISION = 10;
 const SOURCE_REQUEST_LIMIT = 12;
 const SOURCE_BYTE_LIMIT = 256 * 1024;
 const NEW_SOURCE_LIMIT = 96 * 1024;
@@ -539,6 +539,7 @@ async function fallbackPalette(ctx, id, state) {
 }
 function parseMetadata(bytes, hex, identityOnly = false) {
   let gid, title = "", album = "", rawDuration, flag, invalidFlag = false;
+  let isrc = "", conflictingISRC = false;
   const artists = [];
   function name(a,b) { let value = ""; scanFields(bytes.subarray(a,b),(n,w,s,e) => { if (n === 2 && w === 2) value = text(bytes.subarray(a+s,a+e)); }); return value; }
   scanFields(bytes,(n,w,a,b,value) => {
@@ -547,19 +548,42 @@ function parseMetadata(bytes, hex, identityOnly = false) {
     else if (n === 3 && w === 2) album = name(a,b);
     else if (n === 4 && w === 2) artists.push(name(a,b));
     else if (n === 7 && w === 0) rawDuration = value;
+    else if (n === 10 && w === 2 && b - a <= 64) {
+      // Use the public recording identifier, never a release or artist ID.
+      try {
+        const external = bytes.subarray(a,b);
+        let type, code;
+        scanFields(external,(field,wire,start,end) => {
+          if (wire !== 2) return;
+          if (field === 1) type = type === undefined ? text(external.subarray(start,end)) : "";
+          if (field === 2) code = code === undefined ? text(external.subarray(start,end)) : "";
+        });
+        if (type?.toLowerCase() === "isrc") {
+          const normalized = catalogISRC(code);
+          if (normalized && isrc && isrc !== normalized) conflictingISRC = true;
+          if (normalized) isrc = normalized;
+        }
+      } catch { }
+    }
     else if (n === 18) { if (w !== 0) invalidFlag = true; else flag = value; }
   });
   if (!gid || gid.length !== 16 || gid.some((b,i) => b !== parseInt(hex.slice(i*2,i*2+2),16))) throw new Error("metadata-id");
   const meta = { id: hexBase62(hex), title, album, artists,
     duration: Number.isSafeInteger(rawDuration) ? (rawDuration % 2 ? -(rawDuration + 1) / 2 : rawDuration / 2) / 1000 : 0 };
+  if (isrc && !conflictingISRC) meta.isrc = isrc;
   if (!clean(meta.title) || !clean(meta.album) || !meta.artists.length || meta.artists.some(a => !clean(a)) || meta.duration <= 0 || meta.duration > 86400) throw new Error("metadata-incomplete");
   if (invalidFlag || flag !== undefined && flag !== 0 && flag !== 1) throw new Error("metadata-lyrics-flag");
   // spotify.metadata.Track is proto2: an omitted optional bool is false.
   // Native no-lyrics tracks can omit this field entirely instead of sending 0.
-  // Decode only title/album/artists/duration here. Materialize a field list
+  // Decode the compact catalog identity here. Materialize a field list
   // only when a caller actually edits this track, never for a fallback lookup.
   if (identityOnly) return {meta,hasLyrics:flag === 1,hasLyricsField:flag !== undefined};
   return { meta, get fs() { return fields(bytes); }, hasLyrics: flag === 1, hasLyricsField: flag !== undefined };
+}
+function catalogISRC(value) {
+  if (typeof value !== "string" || value.length > 20) return "";
+  const code = value.trim().toUpperCase().replace(/^([A-Z]{2})-([A-Z0-9]{3})-([0-9]{2})-([0-9]{5})$/, "$1$2$3$4");
+  return /^[A-Z]{2}[A-Z0-9]{3}[0-9]{7}$/.test(code) ? code : "";
 }
 // Only the documented TRACK_V4 Any payload is parsed. Other extensions remain
 // opaque, including audio/playability/account data and all unknown wire fields.
@@ -1123,9 +1147,9 @@ function bilingualArtistPair(value) {
   if (asianArtistName(first) && latinArtistName(second)) return [second, first];
   return null;
 }
-function bilingualArtistNames(names) {
+function bilingualArtistNames(names, split = true) {
   const groups = [], keys = [];
-  for (const value of artistLabels(names)) {
+  for (const value of split ? artistLabels(names) : names) {
     const key = metadataArtist(value);
     if (!key || keys.includes(key)) continue;
     if (groups.length === 32) return null;
@@ -1145,7 +1169,9 @@ function sameArtists(reference, candidate, expected = JSON.stringify(artists(ref
   // The normal exact-name path allocates no alias lists. Only a disagreement
   // involving an explicit parenthetical label needs the bounded slow path.
   if (!reference.some(s => /[()（）]/.test(str(s))) && !candidate.some(s => /[()（）]/.test(str(s)))) return false;
-  const a = bilingualArtistNames(reference), b = bilingualArtistNames(candidate);
+  return sameCreditGroups(bilingualArtistNames(reference),bilingualArtistNames(candidate));
+}
+function sameCreditGroups(a, b) {
   if (!a || !b || !a.length || a.length !== b.length) return false;
   let used = 0;
   for (const names of a) {
@@ -1158,6 +1184,15 @@ function sameArtists(reference, candidate, expected = JSON.stringify(artists(ref
     used |= 1 << found;
   }
   return true;
+}
+function sourceArtistsMatch(meta, candidate, expected) {
+  if (sameArtists(meta.artists,candidate,expected)) return true;
+  if (!meta.catalog) return false;
+  return sameCreditGroups(meta.catalog.groups,bilingualArtistNames(candidate,false)) ||
+    sameCreditGroups(meta.catalog.groups,bilingualArtistNames(candidate));
+}
+function sourceArtistCredits(meta) {
+  return meta.catalog?.names ?? meta.artists.map(sourceArtistName);
 }
 function artistKey(key) {
   // Exact full names verified against public artist credits. See
@@ -1190,7 +1225,7 @@ function recordingTitle(value) {
 }
 function matches(meta, candidate) {
   return !!clean(meta.album) && metadataNormal(recordingTitle(meta.title)) === metadataNormal(recordingTitle(candidate.title)) && metadataNormal(meta.album) === metadataNormal(candidate.album) &&
-    sameArtists(meta.artists,candidate.artists) &&
+    sourceArtistsMatch(meta,candidate.artists) &&
     Number.isFinite(candidate.duration) && Math.abs(meta.duration - candidate.duration) <= 2;
 }
 function sourceCandidates(meta, records, metadataOf, sameEvidence) {
@@ -1203,7 +1238,7 @@ function sourceCandidates(meta, records, metadataOf, sameEvidence) {
     if (!goodObject(record)) continue;
     let candidate; try { candidate = metadataOf(record); } catch { continue; }
     if (title !== metadataNormal(recordingTitle(candidate.title)) || !Number.isFinite(candidate.duration) ||
-      !(Math.abs(duration - candidate.duration) <= 2) || !sameArtists(referenceArtists,candidate.artists,singer)) continue;
+      !(Math.abs(duration - candidate.duration) <= 2) || !sourceArtistsMatch(meta,candidate.artists,singer)) continue;
     if (album && albumKey === metadataNormal(candidate.album)) exact.push(record);
     else if (canRelax && Math.abs(duration - candidate.duration) <= 1 && !alternateVersion(candidate.album)) equivalent.push(record);
   }
@@ -1222,7 +1257,8 @@ function sourceSearch(meta, compact = false) {
   // all credited performers. Broaden only the query; matching still uses every
   // original title/version, artist, album and duration field below.
   const original = recordingTitle(meta.title), title = compact ? original.replace(/\s+[-–—]\s+.*$|[（(].*$|-《.*$/u, "").trim() || original : original;
-  const singer = compact ? sourceArtistName(meta.artists[0]) : meta.artists.map(sourceArtistName).join(" ");
+  const names = sourceArtistCredits(meta);
+  const singer = compact ? names[0] : names.join(" ");
   return foldHan(title + " " + singer);
 }
 function lyricBase64(value) {
@@ -1252,7 +1288,7 @@ async function kugouCandidates(ctx, meta, state) {
   const groups = new Map(), title = metadataNormal(recordingTitle(meta.title)), singer = JSON.stringify(artists(referenceArtists));
   for (const r of data.candidates) {
     if (!goodObject(r) || !/^[0-9]{1,20}$/.test(String(r.id)) || !/^[A-Za-z0-9_-]{1,128}$/.test(str(r.accesskey)) ||
-      title !== metadataNormal(recordingTitle(r.song)) || !sameArtists(referenceArtists,[r.singer],singer) ||
+      title !== metadataNormal(recordingTitle(r.song)) || !sourceArtistsMatch(meta,[r.singer],singer) ||
       !Number.isFinite(r.duration) || Math.abs(meta.duration - r.duration / 1000) > 1) continue;
     // Multiple uploads with the same recording duration are not multiple songs.
     // Distinct matching durations stay ambiguous because this API has no album.
@@ -1292,7 +1328,7 @@ async function kuwoLyrics(ctx, meta, state) {
     // already checked against catalog metadata. Validate extra identity if sent.
     if (info != null && (!goodObject(info) || String(info.id) !== id ||
       (clean(info.songName) && metadataNormal(recordingTitle(info.songName)) !== metadataNormal(recordingTitle(meta.title))) ||
-      (clean(info.artist) && !sameArtists(meta.artists,[info.artist])) ||
+      (clean(info.artist) && !sourceArtistsMatch(meta,[info.artist])) ||
       (Number(info.duration) > 0 && Math.abs(Number(info.duration) - meta.duration) > 2))) continue;
     const lines = [];
     for (const row of rows) {
@@ -1306,7 +1342,8 @@ async function kuwoLyrics(ctx, meta, state) {
   return null;
 }
 async function ovhCandidate(ctx, meta, state, options) {
-  const data = await json(ctx, "https://api.lyrics.ovh/suggest/" + encodeURIComponent(meta.title + " " + meta.artists.join(" ")), state, options);
+  const artist = meta.catalog ? meta.catalog.names.join(" ") : meta.artists.join(" ");
+  const data = await json(ctx, "https://api.lyrics.ovh/suggest/" + encodeURIComponent(meta.title + " " + artist), state, options);
   if (!Array.isArray(data.data)) throw new Error("lyricsovh-format");
   const songs = sourceCandidates(meta, data.data, s => ({title:s.title,artists:[s.artist?.name],album:s.album?.title,duration:s.duration}));
   if (!songs.length) return null;
@@ -1464,7 +1501,7 @@ async function sourceLyrics(ctx, provider, meta, state) {
 
     const headers = {"User-Agent":"VerseLyrics/" + VERSION + " (https://github.com/hhhoratioxu/Proxy)"};
     const details = {track_name:recordingTitle(meta.title),artist_name:meta.artists.join(" ")};
-    const localCredit = meta.artists.map(sourceArtistName).join(" ");
+    const localCredit = sourceArtistCredits(meta).join(" ");
     // Keep the exact signature query. Reuse the existing list query for a
     // catalog with a different published spelling of the same artist.
     let plain = null, search = localCredit === details.artist_name ? details : {...details,artist_name:localCredit};
@@ -1586,6 +1623,73 @@ function sourceOrder(meta, state) {
   if (order.includes(hint) && hint !== "lyricsovh") return [hint, ...order.filter(p => p !== hint)];
   return order;
 }
+function linkedSpotifyRecording(recording, id) {
+  if (!Array.isArray(recording.relations) || recording.relations.length > 128) return false;
+  const link = "https://open.spotify.com/track/" + id;
+  return recording.relations.some(relation => relation?.["target-type"] === "url" &&
+    relation.ended !== true && relation.url?.resource === link);
+}
+function verifiedRecordingCredits(catalog, meta, isrc) {
+  if (catalogISRC(catalog?.isrc) !== isrc || !Array.isArray(catalog.recordings) ||
+      !catalog.recordings.length || catalog.recordings.length > 8) return null;
+  const title = metadataNormal(recordingTitle(meta.title));
+  const candidates = catalog.recordings.filter(recording =>
+    goodObject(recording) && title === metadataNormal(recordingTitle(recording.title)) &&
+    Number.isInteger(recording.length) && recording.length > 0 &&
+    Math.abs(meta.duration - recording.length / 1000) <= 2 &&
+    (!alternateVersion(recording.disambiguation) || alternateVersion(meta.title + " " + meta.album)));
+  const linked = candidates.filter(recording => linkedSpotifyRecording(recording,meta.id));
+  const selected = linked.length ? linked : candidates;
+  if (selected.length !== 1) return null;
+  const original = bilingualArtistNames(meta.artists,false), credits = selected[0]["artist-credit"];
+  if (!original?.length || !Array.isArray(credits) || credits.length !== original.length || credits.length > 8) return null;
+
+  const names = [], groups = [], artistIds = new Set();
+  const prefersHan = /\p{Script=Han}/u.test(meta.title) && !/[\p{Script=Hiragana}\p{Script=Katakana}]/u.test(meta.title);
+  for (const credit of credits) {
+    const artist = credit?.artist;
+    if (!/^[a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12}$/i.test(str(artist?.id)) || artistIds.has(artist.id)) return null;
+    artistIds.add(artist.id);
+    const labels = [], keys = [];
+    function include(value) {
+      const label = clean(value);
+      if (!label || label.length > 128 || /[\u0000-\u001f]/.test(label)) return;
+      const key = metadataArtist(label);
+      if (key && !keys.includes(key)) { keys.push(key); labels.push(label); }
+    }
+    include(credit.name);
+    include(artist.name);
+    if (Array.isArray(artist.aliases)) for (let i = 0; i < Math.min(32,artist.aliases.length) && keys.length < 12; i++) {
+      const alias = artist.aliases[i];
+      if (alias && alias.ended !== true && (alias.type === "Artist name" || alias.type == null)) include(alias.name);
+    }
+    if (!labels.length || groups.some(previous => previous.some(key => keys.includes(key)))) return null;
+    groups.push(keys);
+    const localName = prefersHan && labels.find(label => asianArtistName(label) && /\p{Script=Han}/u.test(label));
+    names.push(sourceArtistName(localName || labels[0]));
+  }
+  // An exact link to the Spotify track also joins records whose display
+  // credits do not overlap. Otherwise every Spotify credit must be proven
+  // by the catalog, in addition to the ISRC, title and duration.
+  if (!linked.length && !sameCreditGroups(original,groups)) return null;
+  return {names,groups};
+}
+async function recordingCredits(ctx, meta, state, lookupDeadline, sourceBudget) {
+  const isrc = catalogISRC(meta.isrc);
+  if (!isrc || meta.artists.length > 8 || Date.now() + 900 >= lookupDeadline) return null;
+  const rateKey = "VerseLyrics.v1.recordingCatalogNext";
+  const now = Date.now(), next = ctx.storage.getJSON(rateKey);
+  if (Number.isFinite(next) && next > now && next <= now + 60000) return null;
+  // The helper action shares this advisory throttle. No queues or timers in
+  // the lyric path. These requests carry only a public recording identifier.
+  ctx.storage.setJSON(rateKey,now + 1100);
+  const response = await http(ctx,"https://musicbrainz.org/ws/2/isrc/" + isrc + "?inc=artist-credits+aliases+url-rels&fmt=json",
+    {...state,sourceBudget,deadline:Math.min(lookupDeadline,now + 1200)}, {
+      text:true,maxBytes:32768,headers:{Accept:"application/json","User-Agent":"SpotifyLyrics/3.2.2 (https://github.com/hhhoratioxu/Spotify-Plugin)"}
+    },true);
+  if (response.status !== 200) return null;
+  return verifiedRecordingCredits(serviceJSON(response.text,"https://musicbrainz.org/",state),meta,isrc);
+}
 async function backup(ctx, meta, state, timedOnly = false) {
   if (state.settings.provider === "off" || timedOnly && state.settings.provider === "lyricsovh") return null;
   const key = "lyrics:" + state.settings.provider + ":" + meta.id;
@@ -1605,7 +1709,8 @@ async function backup(ctx, meta, state, timedOnly = false) {
   }
   const sourceBudget = {requests:0,bytes:0}; state.sourceUsage = sourceBudget;
   const lookupDeadline = Math.min(state.deadline - 1200,Date.now() + 7000);
-  let plain = null;
+  let plain = null, searchMeta = meta, lookedUpCredits = false;
+  const canResolveCredits = Boolean(catalogISRC(meta.isrc)) && meta.artists.length <= 8;
   for (let i = 0; i < eligible.length; i++) {
     const provider = eligible[i];
     try {
@@ -1613,7 +1718,28 @@ async function backup(ctx, meta, state, timedOnly = false) {
       // consume the entire request deadline before the remaining sources run.
       const budget = Math.min(2500, Math.max(i === 0 ? 1600 : 250, (lookupDeadline - Date.now()) / (eligible.length - i)));
       const limit = Math.max(1,Math.min(3,SOURCE_REQUEST_LIMIT - sourceBudget.requests - (eligible.length - i - 1)));
-      const doc = await sourceLyrics(ctx, provider, meta, {...state, timedOnly, fastFallback:fast, sourceBudget, lookupDeadline, attemptBudget:{requests:0,limit}, deadline:Math.min(lookupDeadline, Date.now() + budget)});
+      const options = {...state,timedOnly,fastFallback:fast,sourceBudget,lookupDeadline,attemptBudget:{requests:0,limit},deadline:Math.min(lookupDeadline,Date.now() + budget)};
+      let doc = await sourceLyrics(ctx,provider,searchMeta,options);
+      const available = SOURCE_REQUEST_LIMIT - sourceBudget.requests - (eligible.length - i - 1);
+      if (!doc && canResolveCredits && !lookedUpCredits && available >= 3 && Date.now() + 1700 < lookupDeadline) {
+        lookedUpCredits = true;
+        let catalog;
+        try { catalog = await recordingCredits(ctx,meta,state,lookupDeadline,sourceBudget); }
+        catch (error) {
+          if (["network-busy","transport-pending","work-superseded"].includes(error.message)) throw error;
+        }
+        if (catalog) {
+          searchMeta = {...meta,catalog};
+          // Reuse the same total lookup limits, including the catalog request.
+          // Give the current provider a second search with verified credits.
+          const remaining = Math.min(3,SOURCE_REQUEST_LIMIT - sourceBudget.requests - (eligible.length - i - 1));
+          if (remaining >= 2 && Date.now() + 250 < lookupDeadline) {
+            doc = await sourceLyrics(ctx,provider,searchMeta,{
+              ...options,attemptBudget:{requests:0,limit:remaining},deadline:Math.min(lookupDeadline,Date.now() + budget)
+            });
+          }
+        }
+      }
       state.attempts.push({ provider, result: doc ? "matched" : "no-match" });
       if (!doc && rememberMisses) {
         const expires = Date.now() + 90000; missUntil = Math.min(missUntil,expires);
@@ -1670,7 +1796,7 @@ function spotifyHeaders(ctx, accept = "application/x-protobuf") {
 function cacheMetadata(state, parsed) {
   const key = "meta:" + parsed.meta.id, old = state.cache.get(key), next = parsed.meta;
   const same = old && old.id === next.id && old.title === next.title && old.album === next.album && old.duration === next.duration &&
-    Array.isArray(old.artists) && old.artists.length === next.artists.length && old.artists.every((name,i) => name === next.artists[i]);
+    (old.isrc === next.isrc || !next.isrc) && Array.isArray(old.artists) && old.artists.length === next.artists.length && old.artists.every((name,i) => name === next.artists[i]);
   if (!same) state.cache.put(key,next);
   const available = "availability:" + next.id;
   if (parsed.hasLyrics !== null && state.cache.get(available) !== parsed.hasLyrics) state.cache.put(available,parsed.hasLyrics,300000);
@@ -1707,6 +1833,8 @@ async function publicMetadata(ctx,id,state) {
   const entity = embedEntity(response.text,id);
   if (!entity || !Array.isArray(entity.artists) || !entity.artists.length || entity.artists.length>32 || typeof entity.duration !== "number") throw new Error("embed-metadata");
   const meta = {id,title:clean(entity.title||entity.name),album:"",artists:entity.artists.map(a=>clean(a?.name)),duration:entity.duration/1000};
+  const isrc = catalogISRC(entity.external_ids?.isrc ?? entity.isrc);
+  if (isrc) meta.isrc = isrc;
   if (!meta.title || meta.title.length>1024 || meta.artists.some(n=>!n||n.length>256) || !Number.isFinite(meta.duration) || meta.duration<=0 || meta.duration>86400) throw new Error("embed-metadata");
   // Embed supplies no album. The signature endpoint or bounded source search
   // must still match title/artist/duration/version; never guess the album.
