@@ -6,6 +6,7 @@ import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {sourceBuffer} from './source-snapshot.mjs';
 import {macDisplay} from '../Loon/Development/SpotifyMac20261114/mac-display.mjs';
+import {macMetadataRuntime,macLyricsRuntime} from './mac-runtime.mjs';
 
 const project=fileURLToPath(new URL('../',import.meta.url));
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
@@ -36,19 +37,21 @@ export function compileRuntime(root=project) {
       }
     }
     install(join(scratch,'runtime'));
-    // Preserve the established Mac transport/entry adapters; only its lyric
-    // core is rebuilt from the same maintained source used on the phone.
+    // Preserve the established Mac transport and entry core. Mac-only wrappers
+    // adapt the observed JSON identity, desktop output and preload concurrency.
     const previous='795c677b0d115cab5eb8e4f959424d905a98e3ff';
-    for (const name of ['SpotifyLyrics.Entry.Mac.js','SpotifyLyrics.Request.Mac.js']) save('Loon/script/'+name,sourceBuffer(previous,'Loon/script/'+name));
     const source=readFileSync(join(root,'src/spotify-lyrics.js'),'utf8');
+    save('Loon/script/SpotifyLyrics.Request.Mac.js',sourceBuffer(previous,'Loon/script/SpotifyLyrics.Request.Mac.js'));
+    save('Loon/script/SpotifyLyrics.Entry.Mac.js',Buffer.from(macMetadataRuntime(sourceBuffer(previous,'Loon/script/SpotifyLyrics.Entry.Mac.js').toString(),source)));
     const codec=['utf8Size','putUTF8','utf8','text'].map(name=>{
       const match=source.match(new RegExp('^function '+name+'\\([^]*?^}', 'm'));
       if(!match)throw Error('Missing shared Mac codec: '+name);return match[0];
     }).join('\n');
     const lyrics=readFileSync(join(stage,'runtime/Loon/script/SpotifyLyrics.js'),'utf8');
     const wrapped='(function(hostDone){\nconst LIMIT=262144;let TEXT_UNITS;\n'+codec+'\n'+macDisplay.toString()+'\nconst $done=output=>hostDone(macDisplay($response,output,typeof $argument==="undefined"?{}:$argument,{text,utf8}));\n'+lyrics+'\n})($done);\n';
-    save('Loon/script/SpotifyLyrics.Mac.js',Buffer.from(wrapped));
-    const manifest={schema:1,core:'3.2.2',patch:'non-chinese-translation',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
+    save('Loon/script/SpotifyLyrics.Mac.js',Buffer.from(macLyricsRuntime(wrapped)));
+    for(const path of ['src/mac-metadata.mjs','src/mac-network.mjs','tools/mac-runtime.mjs','tools/mac-metadata-cache.mjs','Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs','Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs','Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs'])inputs.push({path,sha256:sha(readFileSync(join(root,path)))});
+    const manifest={schema:1,core:'3.2.2',patch:'localized-artists-and-mac-lyrics',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
     mkdirSync(stage,{recursive:true});writeFileSync(join(stage,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
     return {stage,manifest};
   } finally {rmSync(scratch,{recursive:true,force:true});}

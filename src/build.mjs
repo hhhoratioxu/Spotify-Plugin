@@ -106,7 +106,7 @@ for(const name of ['LYRICS_SECTION','META_URL','EXTENDED_URL','SCROLL_URL'])lyri
 // responses do not instantiate dozens of unused source functions. No eval,
 // external JavaScript, background initialization or additional persistent data.
 const providerNames = ['conversionEqual','comparisonHan','hanTables','hanPlane0','hanPlane2','hanPlane3','hanVariant','foldHan','metadataNormal','base62Hex','hexBase62','parseMetadata','extendedIdentity',
-  'artistLabels','artists','metadataArtist','latinArtistName','asianArtistName','bilingualArtistNames','sameArtists','artistKey',
+  'artistLabels','artists','metadataArtist','latinArtistName','asianArtistName','bilingualArtistPair','bilingualArtistNames','sameArtists','artistKey','sourceArtistName',
   'recordingTitle','matches','sourceCandidates','alternateVersion','sourceSearch','lyricBase64',
   'kugouCandidates','kugouLyrics','kuwoCandidates','kuwoLyrics','ovhCandidate','ovhLyrics','entities','lrc',
   'fallbackDoc','withSourceTranslation','simplifiedSourceLine','matchedCandidate','qqCandidates','neteaseCandidates','sourceLyrics',

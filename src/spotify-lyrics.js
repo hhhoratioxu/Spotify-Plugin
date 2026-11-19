@@ -25,7 +25,7 @@ const EXTENDED_URL = new RegExp("^https://(" + HOST + ")(?::443)?/extended-metad
 const SCROLL_URL = new RegExp("^https://(" + HOST + ")(?::443)?/scrollsita/v1/scroll/spotify(?::|%3[aA])track(?::|%3[aA])([0-9A-Za-z]{22})/?(?:\\?.*)?$");
 const LANGUAGES = ["zh-CN", "zh-TW", "en", "ja", "ko", "fr", "de", "es", "pt", "it", "ru", "ar", "hi", "id", "vi", "th", "tr", "nl", "pl", "sv", "uk", "he", "fa", "ms", "el"];
 const SOURCES = { lrclib: "LRCLIB", qq: "QQ 音乐", netease: "网易云音乐", kugou: "酷狗音乐", kuwo: "酷我音乐", lyricsovh: "lyrics.ovh" };
-const SOURCE_REVISION = 8;
+const SOURCE_REVISION = 9;
 const SOURCE_REQUEST_LIMIT = 12;
 const SOURCE_BYTE_LIMIT = 256 * 1024;
 const NEW_SOURCE_LIMIT = 96 * 1024;
@@ -1115,6 +1115,14 @@ function latinArtistName(s) {
 function asianArtistName(s) {
   return /[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}]/u.test(s) && /^[\p{Script=Han}\p{Script=Hangul}\p{Script=Hiragana}\p{Script=Katakana}\p{M}\p{N}\s·・ー-]+$/u.test(s);
 }
+function bilingualArtistPair(value) {
+  const match = /^([^()]{1,256})\(([^()]{1,256})\)$/.exec(clean(value).normalize("NFKC"));
+  if (!match) return null;
+  const first = clean(match[1]), second = clean(match[2]);
+  if (latinArtistName(first) && asianArtistName(second)) return [first, second];
+  if (asianArtistName(first) && latinArtistName(second)) return [second, first];
+  return null;
+}
 function bilingualArtistNames(names) {
   const groups = [], keys = [];
   for (const value of artistLabels(names)) {
@@ -1125,11 +1133,8 @@ function bilingualArtistNames(names) {
     const group = [key];
     // Only an entire, single bilingual label exposes aliases. Nested brackets,
     // same-script qualifiers and membership/cover credits are not aliases.
-    const m = /^([^()]{1,256})\(([^()]{1,256})\)$/.exec(clean(value).normalize("NFKC"));
-    if (m) {
-      const a = clean(m[1]), b = clean(m[2]);
-      if (latinArtistName(a) && asianArtistName(b) || asianArtistName(a) && latinArtistName(b)) group.push(metadataArtist(a),metadataArtist(b));
-    }
+    const pair = bilingualArtistPair(value);
+    if (pair) group.push(metadataArtist(pair[0]),metadataArtist(pair[1]));
     if (groups.some(previous => previous.some(n => group.includes(n)))) return null;
     groups.push(group);
   }
@@ -1155,9 +1160,25 @@ function sameArtists(reference, candidate, expected = JSON.stringify(artists(ref
   return true;
 }
 function artistKey(key) {
-  // Exact published artist-name equivalence, not a partial-name heuristic.
-  // Applies to every recording by this artist. See SOURCE-EVIDENCE.md.
-  return key === "silencewang" ? "汪苏泷" : key;
+  // Exact full names verified against public artist credits. See
+  // docs/localized-artist-matching.md for the catalog references.
+  switch (key) {
+    case "silencewang": return "汪苏泷";
+    case "jaychou": return "周杰伦";
+    case "stefaniesun":
+    case "yanzisun": return "孙燕姿";
+    default: return key;
+  }
+}
+function sourceArtistName(value) {
+  const name = clean(value);
+  const key = normal(name), alias = artistKey(key);
+  if (alias !== key) return alias;
+  if (!/[（(]/.test(name)) return name;
+  const pair = bilingualArtistPair(name);
+  if (!pair) return name;
+  const published = metadataArtist(pair[0]);
+  return published === metadataNormal(pair[1]) ? published : name;
 }
 function recordingTitle(value) {
   // Remove only an explicit soundtrack marketing suffix. Keep live, remix,
@@ -1201,9 +1222,8 @@ function sourceSearch(meta, compact = false) {
   // all credited performers. Broaden only the query; matching still uses every
   // original title/version, artist, album and duration field below.
   const original = recordingTitle(meta.title), title = compact ? original.replace(/\s+[-–—]\s+.*$|[（(].*$|-《.*$/u, "").trim() || original : original;
-  const singer = compact ? meta.artists[0] : meta.artists.join(" ");
-  const value = title + " " + singer.replace(/\bsilence\s+wang\b/gi,"汪苏泷");
-  return foldHan(value);
+  const singer = compact ? sourceArtistName(meta.artists[0]) : meta.artists.map(sourceArtistName).join(" ");
+  return foldHan(title + " " + singer);
 }
 function lyricBase64(value) {
   // Decode only the small UTF-8 LRC format, never compressed KRC. No atob,
@@ -1444,7 +1464,10 @@ async function sourceLyrics(ctx, provider, meta, state) {
 
     const headers = {"User-Agent":"VerseLyrics/" + VERSION + " (https://github.com/hhhoratioxu/Proxy)"};
     const details = {track_name:recordingTitle(meta.title),artist_name:meta.artists.join(" ")};
-    let plain = null, search = details;
+    const localCredit = meta.artists.map(sourceArtistName).join(" ");
+    // Keep the exact signature query. Reuse the existing list query for a
+    // catalog with a different published spelling of the same artist.
+    let plain = null, search = localCredit === details.artist_name ? details : {...details,artist_name:localCredit};
     {
       const direct = await http(ctx, "https://lrclib.net/api/get?" + query({...details,...(clean(meta.album) ? {album_name:meta.album} : {}),duration:meta.duration}), state, {headers,text:true}, true);
       if (direct.status === 200) {
@@ -1545,14 +1568,14 @@ function cachedBackup(state, id, fast = false, timedOnly = false) {
 }
 function sourceHintKey(meta) {
   if (!Array.isArray(meta?.artists) || !meta.artists.length || meta.artists.length > 32) return null;
-  const names = meta.artists.map(metadataNormal).sort();
+  const names = meta.artists.map(metadataArtist).sort();
   if (names.some(n => !n)) return null;
   const key = "source-order:v1:" + JSON.stringify(names);
   return key.length <= 512 ? key : null;
 }
 function sourceOrder(meta, state) {
   if (state.settings.provider !== "auto") return [state.settings.provider];
-  const names = str(meta.title) + (meta.artists || []).join(" ");
+  const names = str(meta.title) + (meta.artists || []).map(sourceArtistName).join(" ");
   const chinese = /\p{Script=Han}/u.test(names) && !/[\p{Script=Hiragana}\p{Script=Katakana}]/u.test(names);
   const order = chinese ? ["qq", "netease", "kugou", "kuwo", "lrclib", "lyricsovh"] : ["lrclib", "qq", "netease", "kugou", "kuwo", "lyricsovh"];
   const preferred = state.settings.preferred;
