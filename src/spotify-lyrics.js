@@ -1185,11 +1185,12 @@ function sameCreditGroups(a, b) {
   }
   return true;
 }
-function sourceArtistsMatch(meta, candidate, expected) {
-  if (sameArtists(meta.artists,candidate,expected)) return true;
-  if (!meta.catalog) return false;
-  return sameCreditGroups(meta.catalog.groups,bilingualArtistNames(candidate,false)) ||
-    sameCreditGroups(meta.catalog.groups,bilingualArtistNames(candidate));
+function sourceArtistsMatch(meta, candidate, expected, reference = meta.artists) {
+  if (sameArtists(reference,candidate,expected)) return true;
+  const catalog = meta.catalog;
+  if (!catalog) return false;
+  return sameCreditGroups(catalog.groups,bilingualArtistNames(candidate,false)) ||
+    sameCreditGroups(catalog.groups,bilingualArtistNames(candidate));
 }
 function sourceArtistCredits(meta) {
   return meta.catalog?.names ?? meta.artists.map(sourceArtistName);
@@ -1238,7 +1239,7 @@ function sourceCandidates(meta, records, metadataOf, sameEvidence) {
     if (!goodObject(record)) continue;
     let candidate; try { candidate = metadataOf(record); } catch { continue; }
     if (title !== metadataNormal(recordingTitle(candidate.title)) || !Number.isFinite(candidate.duration) ||
-      !(Math.abs(duration - candidate.duration) <= 2) || !sourceArtistsMatch(meta,candidate.artists,singer)) continue;
+      !(Math.abs(duration - candidate.duration) <= 2) || !sourceArtistsMatch(meta,candidate.artists,singer,referenceArtists)) continue;
     if (album && albumKey === metadataNormal(candidate.album)) exact.push(record);
     else if (canRelax && Math.abs(duration - candidate.duration) <= 1 && !alternateVersion(candidate.album)) equivalent.push(record);
   }
