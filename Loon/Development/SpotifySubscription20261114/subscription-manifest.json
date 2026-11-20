@@ -1,16 +1,16 @@
 {
-  "configuration": "2026.11.19-dev",
-  "versionDate": "2026-11-19 09:17:39",
+  "configuration": "2026.11.20-dev",
+  "versionDate": "2026-11-20 22:05:15",
   "core": "3.2.2",
-  "patch": "recording-identity-and-version-lookup",
+  "patch": "ios-body-admission-and-track-json",
   "runtimeRepository": "hhhoratioxu/Spotify-Plugin",
-  "runtimeCommit": "997dcb3aad3fb988d41cbe9dcbd05b82128054b9",
+  "runtimeCommit": "3e9b871ff062095479de6b13700522f088102b55",
   "baseline": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "profile": {
     "path": "Loon/script/SpotifyLyrics.lpx",
-    "bytes": 13489,
-    "sha256": "d144de2dfdd8b1dccb0a8856f1cc901f0788fbcfa3172add2d03d0c38e95ed51"
+    "bytes": 16192,
+    "sha256": "e9b8ac8b518f9216931abd9a44e0a07873dfbd65ddc09321ca734d6da1f53ce5"
   },
   "mobileRuntimeChanged": true,
   "iosPeakAcceptance": "unverified",

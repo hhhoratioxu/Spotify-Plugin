@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T08:21:44.376Z",
+  "recordedAt": "2026-11-20T14:18:27.008Z",
   "scope": "Copy outside Proxy with no Git database and freshly installed locked dependencies; build and fixture tests only",
   "parentGitAvailable": false,
   "commands": [
@@ -13,8 +13,8 @@
         "--no-fund"
       ],
       "exitCode": 0,
-      "durationMs": 613,
-      "tail": "\nadded 11 packages in 482ms\n\n"
+      "durationMs": 1086,
+      "tail": "\nadded 11 packages in 931ms\n\n"
     },
     {
       "label": "build",
@@ -23,8 +23,8 @@
         "tools/build.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 5856,
-      "tail": "{\"built\":18,\"core\":\"3.2.2\",\"patch\":\"non-chinese-translation\",\"published\":false}\n\n"
+      "durationMs": 6523,
+      "tail": "{\"built\":19,\"core\":\"3.2.2\",\"patch\":\"ios-body-admission-and-track-json\",\"published\":false}\n\n"
     },
     {
       "label": "memory-fixture-build",
@@ -33,8 +33,8 @@
         "Loon/Development/SpotifyNativeMemory20261114/prepare.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 967,
-      "tail": "{\"path\":\"/verselyrics-native-f7eabfced9\",\"cases\":18,\"productionStorageAccessed\":false}\n\n"
+      "durationMs": 1013,
+      "tail": "{\"path\":\"/verselyrics-native-5dc4a77821\",\"cases\":18,\"productionStorageAccessed\":false}\n\n"
     },
     {
       "label": "memory-fixture-preflight",
@@ -43,7 +43,7 @@
         "Loon/Development/SpotifyNativeMemory20261114/preflight-offline.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 781,
+      "durationMs": 791,
       "tail": "{\"completed\":72,\"matched\":72,\"networkRequests\":0,\"nativeAcceptance\":false}\n\n"
     },
     {
@@ -53,7 +53,7 @@
         "tools/test.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 1488,
+      "durationMs": 1521,
       "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n......\n----------------------------------------------------------------------\nRan 6 tests in 0.000s\n\nOK\n...\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n"
     },
     {
@@ -63,8 +63,8 @@
         "tools/test-current-core.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 1121,
-      "tail": "{\"recordedAt\":\"2026-11-15T08:21:55.579Z\",\"scope\":\"Original core test files executed against the current maintained source and staged native runtimes in a temporary directory; history files unchanged\",\"tests\":1011,\"passed\":1011,\"failed\":0,\"skipped\":0,\"excludedByRequestedPolicy\":8,\"supersededAssertions\":8,\"replacementTests\":[\"tools/translation-policy.test.mjs\",\"tools/translation-native.test.mjs\"],\"success\":true}\n\n"
+      "durationMs": 1130,
+      "tail": "{\"recordedAt\":\"2026-11-20T14:18:39.653Z\",\"scope\":\"Original core test files executed against the current maintained source and staged native runtimes in a temporary directory; history files unchanged\",\"tests\":1011,\"passed\":1011,\"failed\":0,\"skipped\":0,\"excludedByRequestedPolicy\":8,\"supersededAssertions\":8,\"replacementTests\":[\"tools/translation-policy.test.mjs\",\"tools/translation-native.test.mjs\"],\"success\":true}\n\n"
     },
     {
       "label": "baseline",
@@ -73,17 +73,17 @@
         "tools/test-baseline.mjs"
       ],
       "exitCode": 0,
-      "durationMs": 7472,
-      "tail": "1..2248\n# tests 2248\n# suites 0\n# pass 2248\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 4460.62275\n\n\n"
+      "durationMs": 7470,
+      "tail": "1..2248\n# tests 2248\n# suites 0\n# pass 2248\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 4441.550167\n\n\n"
     }
   ],
   "success": true,
   "nativeAcceptance": false,
   "regression": {
-    "recordedAt": "2026-11-15T08:21:54.184Z",
+    "recordedAt": "2026-11-20T14:18:38.223Z",
     "node": {
-      "tests": 747,
-      "passed": 747,
+      "tests": 754,
+      "passed": 754,
       "failed": 0,
       "skipped": 0,
       "cancelled": 0
@@ -113,7 +113,7 @@
     "scope": "Offline VM/fixtures and Python unit tests; packaged client modules use mocks; no native Loon or Spotify actions"
   },
   "baseline": {
-    "recordedAt": "2026-11-15T08:22:03.040Z",
+    "recordedAt": "2026-11-20T14:18:47.115Z",
     "sourceCommit": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
     "restoredFiles": 125,
     "tests": 2248,
@@ -122,7 +122,7 @@
     "scope": "Historical source in a temporary directory; synthetic transport; not native Spotify acceptance"
   },
   "currentCore": {
-    "recordedAt": "2026-11-15T08:21:55.579Z",
+    "recordedAt": "2026-11-20T14:18:39.653Z",
     "scope": "Original core test files executed against the current maintained source and staged native runtimes in a temporary directory; history files unchanged",
     "tests": 1011,
     "passed": 1011,
@@ -147,12 +147,12 @@
   },
   "build": {
     "core": "3.2.2",
-    "patch": "non-chinese-translation",
+    "patch": "ios-body-admission-and-track-json",
     "displayName": "SpotifyLyrics",
     "inputs": "maintained src/build.mjs and shared core; local source snapshots for historical diagnostics; no parent Git lookup",
     "network": "none",
-    "runtimeRepository": "hhhoratioxu/SpotifyLyrics",
-    "runtimeCommit": "ac49618d52711d5f9340d9f0c16ab94d3bf7c33c",
+    "runtimeRepository": "hhhoratioxu/Spotify-Plugin",
+    "runtimeCommit": "3e9b871ff062095479de6b13700522f088102b55",
     "subscriptionURLsChanged": true,
     "artifacts": [
       {
@@ -162,8 +162,8 @@
       },
       {
         "path": "Egern/script/SpotifyLyrics/spotify-lyrics-entry.js",
-        "bytes": 27971,
-        "sha256": "9bb1f09188e24dfe81f928d9ca10de5eda6033072a611d8a5992b1e9e32c5d49"
+        "bytes": 28537,
+        "sha256": "da7707e0e914eddc84e1a848f0a0b97765efc59d79cb4b563a090e6b1e20a991"
       },
       {
         "path": "Egern/script/SpotifyLyrics/spotify-lyrics-request.js",
@@ -172,28 +172,28 @@
       },
       {
         "path": "Egern/script/SpotifyLyrics/spotify-lyrics.js",
-        "bytes": 90038,
-        "sha256": "abbb1c426e902404d18196038ca5a13d969fb7562581863e71e881136f63bc1c"
+        "bytes": 93896,
+        "sha256": "01534733940c6a17cf78002356be04e115cdc5f6b67cb27d82a797ecb763e9d9"
       },
       {
         "path": "Loon/script/SpotifyLyrics.Entry.js",
-        "bytes": 30546,
-        "sha256": "8708ecabbcd98bd25a5f89a797b51a0de758cdabc9f88fc89ceb7f683544e76a"
+        "bytes": 36295,
+        "sha256": "bba414545be559aeb51046052e339607796b4fd7378c22f7412a276e8bd397ee"
       },
       {
         "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",
-        "bytes": 29698,
-        "sha256": "82c63d549cb90a014d043b89fec9421cd57d8bf85fa34ab8b722b465e9a25e5f"
+        "bytes": 56452,
+        "sha256": "5bae7339cfdba4cd4b4c696c614454c65bd38ba4006a6a50b94e5537d24ec270"
       },
       {
         "path": "Loon/script/SpotifyLyrics.js",
-        "bytes": 99908,
-        "sha256": "003fa946018471d0b246b7e19d733c18fc5ff0c0dad62562600fe9df64d36acb"
+        "bytes": 103934,
+        "sha256": "23dff7f68712f48c6ee198f39686c791a4177e98b686f6784f1244e79752acbc"
       },
       {
         "path": "Loon/script/SpotifyLyrics.Mac.js",
-        "bytes": 105924,
-        "sha256": "9f01d39a364b7a6ad426b3289fad81a33d50583cb1745c29f16cb2734598eff8"
+        "bytes": 123383,
+        "sha256": "178ef45a6776a520b48d004b03e15dbd0452ef85e6508a7f81b8c3b61e853401"
       },
       {
         "path": "Loon/script/SpotifyLyrics.Request.Mac.js",
@@ -201,14 +201,19 @@
         "sha256": "3585ce6c6fed44a65f7efa091932e509cd6426388d06da55e08da7cd24b738a2"
       },
       {
+        "path": "Loon/script/SpotifyLyrics.Versions.js",
+        "bytes": 5712,
+        "sha256": "1574157f899b1467fca464313fd929754daa1d8c3d540d306078b174078ef8f6"
+      },
+      {
         "path": "QuantumultX/script/SpotifyLyrics.Entry.js",
-        "bytes": 31178,
-        "sha256": "634561e940a13b33ca55ae83fcda0580b84e5da6b1314700244d8c900a373807"
+        "bytes": 31744,
+        "sha256": "d8e545f3c4a7df8e5de00ad2b8695b1f609063bb4d4337aae93587ef43f47f3e"
       },
       {
         "path": "QuantumultX/script/SpotifyLyrics.js",
-        "bytes": 100835,
-        "sha256": "88bdf771c2dc12e0b7d11dfb8fadc45b8785b181181c775db94f97b6921250e0"
+        "bytes": 104695,
+        "sha256": "ae374d483b89774931c3bf9b216e7a7f69776e4cb9babec313067a4b62b6780a"
       },
       {
         "path": "QuantumultX/script/SpotifyLyrics.Request.js",
@@ -217,13 +222,13 @@
       },
       {
         "path": "Shadowrocket/script/SpotifyLyrics.Entry.js",
-        "bytes": 30554,
-        "sha256": "9e2db986e0c01dcfae7bb77d26eb3fb7335e71205047fda146b0a917892fb198"
+        "bytes": 31120,
+        "sha256": "f3550e3bf81214151f0a6a11f17eb4893fa286a9717d0712cb1d175113cb3843"
       },
       {
         "path": "Shadowrocket/script/SpotifyLyrics.js",
-        "bytes": 99888,
-        "sha256": "c3cbee183c0c2f2d7953d21ae3754504f3b784a913c7710898330be7322a34e9"
+        "bytes": 103748,
+        "sha256": "75af9a14655b5c51aa8daa855ad774af1951f8fe6efda7b7cd2749bd2e6244d4"
       },
       {
         "path": "Shadowrocket/script/SpotifyLyrics.Request.js",
@@ -232,13 +237,13 @@
       },
       {
         "path": "Surge/script/SpotifyLyrics.Entry.js",
-        "bytes": 30547,
-        "sha256": "7c3f7cd6ee499855f20ad2c208493a8a9ace221cec9cb549c1dcc868dc6a7e97"
+        "bytes": 31113,
+        "sha256": "dfd5b3da07e120c66f4c8e1b9af3f105cfcbde008c7a30a0ff4f25ac0dbfe672"
       },
       {
         "path": "Surge/script/SpotifyLyrics.js",
-        "bytes": 99881,
-        "sha256": "283d82352f6c9f0224bc21ea2f86fbf60df29cb8d6f0067201f3b35d0c52660a"
+        "bytes": 103741,
+        "sha256": "6fe4e77fbfe586bb68c32f727c7e4fbd345361df77338ec6d4137c0343f98877"
       },
       {
         "path": "Surge/script/SpotifyLyrics.Request.js",
@@ -249,11 +254,11 @@
     "sourceInputs": [
       {
         "path": "src/build.mjs",
-        "sha256": "5f40f20d85806df41b3490d7e908ecc61d097ee2214ab77ec654b7c14554fe6b"
+        "sha256": "f40a09f009debbda097a32ca18506d6656a565ca1c96f1db05f0621cac12e6ae"
       },
       {
         "path": "src/spotify-lyrics.js",
-        "sha256": "1ab5ec854e54669dde360ab1c5ffb299d2917057ade8d3daf139af8b83ca70c3"
+        "sha256": "469c05fea2663f3f2957e1c822fdd64c2072f064ceb437080f214d13f9963367"
       },
       {
         "path": "src/native-adapter.js",
@@ -266,6 +271,38 @@
       {
         "path": "src/NOTICE-UNICODE.txt",
         "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+      },
+      {
+        "path": "src/mac-metadata.mjs",
+        "sha256": "c5b2373e6bd76cdcca48522ae0e7f05fcbdee6728f111d86de4266a3e42916fd"
+      },
+      {
+        "path": "Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs",
+        "sha256": "6976763f3040d6deb6d006961d7ded7402665d6a4fba08cb8b5c50dd306658ae"
+      },
+      {
+        "path": "src/spotify-versions.js",
+        "sha256": "3d99a3038d3865b6763a7f69752721531b3560085fbcf69a8d8020a0f47679ab"
+      },
+      {
+        "path": "src/mac-network.mjs",
+        "sha256": "8f442d75f0116209f25b196b7440f7899ddb034f58f1dec8b1efcdf524ccac8c"
+      },
+      {
+        "path": "tools/mac-runtime.mjs",
+        "sha256": "22f374faa207a23574d5c33730486edb33d7831171813183cfbdd3d379c61ab1"
+      },
+      {
+        "path": "tools/mac-metadata-cache.mjs",
+        "sha256": "e7f1f210e4e8402ddad22341d5a15f3491ff7d96115251a513b5c1a7e51bbbff"
+      },
+      {
+        "path": "Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs",
+        "sha256": "1a02627153739c30cf923dd0578f2bea2b4a8c1e66c880e1275a29c8a26992c4"
+      },
+      {
+        "path": "Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs",
+        "sha256": "932311750f826f2fe187aaa60b9d6fcc7162182dc7dfab5fbbb6d9b287107541"
       }
     ]
   },

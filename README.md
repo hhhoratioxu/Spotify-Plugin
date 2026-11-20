@@ -1,6 +1,6 @@
 # Spotify-Plugin
 
-> **Dev 版本 2026-11-19 09:17:39（UTC+8）**。SpotifyLyrics 会用录音 ISRC 核对公开署名和艺人别名。Loon 新增手动查找同录音 Spotify 发行版。设备验证待补。[Dev 说明](docs/localized-artist-matching.md)
+> **Dev 版本 2026-11-20 22:05:15（UTC+8）** 修复 iPhone 的单曲 JSON 补词入口，并减少开播时交给 Loon 脚本的响应正文。补词、跨语言艺人名和翻译通过离线回放。整个 iPhone VPN 扩展低于 40 MB 仍待实机量测。[iPhone 修复与验证](docs/ios-startup-2026-11-20.md)
 
 作者：Horatio / [hhhoratioxu](https://github.com/hhhoratioxu)。从原 [Proxy](https://github.com/hhhoratioxu/Proxy) 项目完整迁出的 Spotify 歌词补全与翻译插件，保留已有 **3.2.2** 核心、来源、匹配、时间轴、缓存和各客户端原生适配。
 
@@ -18,7 +18,7 @@
 | Quantumult X | [SpotifyLyrics.conf](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/dev/QuantumultX/script/SpotifyLyrics.conf) | Quantumult X 重写 |
 | Shadowrocket | [SpotifyLyrics.sgmodule](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/dev/Shadowrocket/script/SpotifyLyrics.sgmodule) | Shadowrocket 模块 |
 
-使用 Dev 时，将现有 SpotifyLyrics 的订阅改用上表地址，并保持只启用一份 SpotifyLyrics。Loon 详情中的 Version Date 为 `2026-11-19 09:17:39`。[正式版安装入口](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/main/Loon/script/SpotifyLyrics.lpx)
+使用 Dev 时，刷新上表中的 SpotifyLyrics 订阅，并保持只启用一份 SpotifyLyrics。Loon 详情中的 Version Date 为 `2026-11-20 22:05:15`。[正式版安装入口](https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/main/Loon/script/SpotifyLyrics.lpx)
 
 Loon 的插件名称与编号功能描述保持现有 WeatherKit 风格。五个入口的运行脚本均固定到新仓库的完整 Git 提交，哈希见 [runtime-release.json](provenance/runtime-release.json)，不再向旧 Proxy 下载运行脚本。
 

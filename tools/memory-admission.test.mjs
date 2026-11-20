@@ -5,7 +5,7 @@ import {nativeTranslation} from './translation-host.mjs';
 import {fileURLToPath} from 'node:url';
 
 const id='0000000000000000000001',other='0000000000000000000002';
-const slot='VerseLyrics.v1.network',key='VerseLyrics.v1.cache';
+const slot='VerseLyrics.v1.network',macSlot='VerseLyrics.v1.network.mac',key='VerseLyrics.v1.cache';
 const words=['The paper lantern lights the sea.','I walk beside the quiet shore.'];
 const doc={lyrics:{syncType:'LINE_SYNCED',provider:'lrclib',providerDisplayName:'Synthetic LRCLIB',language:'en',lines:words.map((words,i)=>({words,startTimeMs:String(1000+i*2000),endTimeMs:'0',syllables:[]})),alternatives:[{language:'zh-CN',lines:['官方甲','官方乙']}]},colors:{background:-10985626,text:-16777216,highlightText:-1}};
 function setup({format='json',status=200,env={},owner=id,expired=false}={}){
@@ -89,13 +89,14 @@ for(const path of ['metadata/4/track/'+'0'.repeat(32),'extended-metadata/v0/exte
 
 const stage=fileURLToPath(new URL('../build/current-runtime/',import.meta.url));
 for(const client of ['Loon','Surge','Shadowrocket','QuantumultX','Egern','Mac'])for(const format of ['json','protobuf'])test(`${client} ${format}: staged native busy response preserves original lyrics, official translations and HTTP status`,async()=>{
-  const body=Buffer.from(encodeDocument(doc,format)),store=new Map([[slot,JSON.stringify([{owner:'existing',track:id,expires:Date.now()+10000}])]]);
+  const body=Buffer.from(encodeDocument(doc,format)),store=new Map([[client==='Mac'?macSlot:slot,JSON.stringify([{owner:'existing',track:id,expires:Date.now()+10000}])]]);
   const output=await nativeTranslation(client,{stage,body,format,store,sourceReply:()=>{throw Error('Busy response must not request anything');}});
   assert.deepEqual(output.bytes,body);assert.equal(output.done,1);assert.equal(output.calls.length,0);assert.equal(output.active,0);assert.equal(output.timers.length,0);assert.equal(output.result?.status,undefined);
   assert.equal(store.has(key),false);
 });
-for(const client of ['Loon','Surge','Mac'])for(const format of ['json','protobuf'])for(const sameTrack of [true,false])test(`${client} ${format}: overlapping ${sameTrack?'same':'different'} track settles its original callback and recovers on retry`,async()=>{
+for(const client of ['Loon','Surge','Mac'])for(const format of ['json','protobuf'])for(const sameTrack of client==='Mac'?[true]:[true,false])test(`${client} ${format}: overlapping ${sameTrack?'same':'different'} track settles its original callback and recovers on retry`,async()=>{
   const body=Buffer.from(encodeDocument(doc,format)),store=new Map();
+  const ownerKey=client==='Mac'?macSlot:slot;
   let settle,started,finished=false;
   const ready=new Promise(resolve=>started=resolve);
   const first=nativeTranslation(client,{stage,body,format,store,sourceReply:()=>new Promise(resolve=>{settle=resolve;started();})}).then(value=>{finished=true;return value;});
@@ -104,11 +105,30 @@ for(const client of ['Loon','Surge','Mac'])for(const format of ['json','protobuf
   try {
     second=await nativeTranslation(client,{stage,body,format,store,track:sameTrack?id:other,sourceReply:()=>{throw Error('Duplicate pending transport');}});
     assert.equal(finished,false);assert.deepEqual(second.bytes,body);assert.equal(second.calls.length,0);assert.equal(second.done,1);
-    const owners=JSON.parse(store.get(slot));assert.equal(owners.length,1);assert.equal(owners[0].retired===true,!sameTrack);
+    const owners=JSON.parse(store.get(ownerKey));assert.equal(owners.length,1);assert.equal(owners[0].retired===true,!sameTrack);
   }finally{settle({body:JSON.stringify(['紙燈照亮海面。','沿著安靜的岸邊走。'])});}
   const original=await first;
   assert.equal(original.calls.length,1);assert.equal(original.active,0);assert.equal(original.done,1);
-  assert.deepEqual(JSON.parse(store.get(slot)),[]);
+  assert.deepEqual(JSON.parse(store.get(ownerKey)),[]);
   const retry=await nativeTranslation(client,{stage,body,format,store,track:sameTrack?id:other,sourceReply:async()=>({body:JSON.stringify(['紙燈照亮海面。','沿著安靜的岸邊走。'])})});
   assert.equal(retry.done,1);assert.equal(retry.calls.length,sameTrack?0:1);assert.ok(retry.bytes.includes(Buffer.from('紙燈照亮海面。')));
+});
+for(const format of ['json','protobuf'])test(`Mac ${format}: another song can translate without retiring a pending track`,async()=>{
+  const body=Buffer.from(encodeDocument(doc,format)),store=new Map();
+  const translation={body:JSON.stringify(['紙燈照亮海面。','沿著安靜的岸邊走。'])};
+  let started,settle;
+  const ready=new Promise(resolve=>started=resolve);
+  const first=nativeTranslation('Mac',{stage,body,format,store,sourceReply:()=>new Promise(resolve=>{settle=resolve;started();})});
+  await ready;
+  try {
+    const second=await nativeTranslation('Mac',{stage,body,format,store,track:other,sourceReply:()=>translation});
+    assert.equal(second.calls.length,1);assert.equal(second.done,1);
+    assert.ok(second.bytes.includes(Buffer.from('紙燈照亮海面。')));
+    const owners=JSON.parse(store.get(macSlot));assert.deepEqual(owners.map(owner=>owner.track),[id]);
+    assert.equal(owners[0].retired,undefined);
+  }finally{settle(translation);}
+  const original=await first;
+  assert.equal(original.done,1);assert.equal(original.calls.length,1);
+  assert.ok(original.bytes.includes(Buffer.from('紙燈照亮海面。')));
+  assert.deepEqual(JSON.parse(store.get(macSlot)),[]);
 });

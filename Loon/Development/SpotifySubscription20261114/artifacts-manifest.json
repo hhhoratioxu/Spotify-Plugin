@@ -1,13 +1,13 @@
 {
   "macSource": "9f7399dda1279689d2436e981a547b1ea45513b3",
   "baseline": "10049053ce86bd992e3ebb6511ffb28312ba86fb",
-  "runtimeCommit": "997dcb3aad3fb988d41cbe9dcbd05b82128054b9",
+  "runtimeCommit": "3e9b871ff062095479de6b13700522f088102b55",
   "artifacts": [
     {
       "path": "Loon/script/SpotifyLyrics.Mac.js",
       "source": "src/spotify-lyrics.js + mac-display.mjs + mac-runtime.mjs",
-      "bytes": 123208,
-      "sha256": "ee33e3b5254de8848a877280c339a17373465654f2934d1f9bce986360f3f2da"
+      "bytes": 123383,
+      "sha256": "178ef45a6776a520b48d004b03e15dbd0452ef85e6508a7f81b8c3b61e853401"
     },
     {
       "path": "Loon/script/SpotifyLyrics.Entry.Mac.js",

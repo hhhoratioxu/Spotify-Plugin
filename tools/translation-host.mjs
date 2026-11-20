@@ -5,7 +5,7 @@ import {join} from 'node:path';
 
 // A native API fixture, not a running proxy or Spotify client. Code is read
 // from the complete staged build; replies never use the real network.
-export async function nativeTranslation(client,{stage,body,format='json',sourceReply,store=new Map(),track='0000000000000000000001',status=200,env={}}) {
+export async function nativeTranslation(client,{stage,body,format='json',sourceReply,store=new Map(),track='0000000000000000000001',status=200,headerOnly=false,env={}}) {
   const type=format==='json'?'application/json':'application/x-protobuf';
   const calls=[],timers=[];let active=0,maxActive=0,done=0,result;
   const config={FALLBACK_PROVIDER:'off',TARGET_LANGUAGE:'zh-CN',TRANSLATION_ENABLED:true,...env};
@@ -29,6 +29,7 @@ export async function nativeTranslation(client,{stage,body,format='json',sourceR
       $response:qx?{statusCode:status,headers:{'Content-Type':type},bodyBytes:bytes.buffer}:{status,headers:{'Content-Type':type},body:bytes},
       setTimeout:(fn,ms)=>{timers.push({fn,ms});return timers.length;},
       $done:value=>{done++;result=value;finish();}};
+    if (headerOnly) delete context.$response.body;
     if(qx) {
       context.$environment={variables:config};context.$prefs={valueForKey:k=>store.get(k),setValueForKey:(v,k)=>store.set(k,v)};
       context.$task={fetch:async o=>{const r=await request(o.url,o);return {statusCode:r.status??200,headers:r.headers||{},bodyBytes:new Uint8Array(Buffer.from(r.body)).buffer};}};

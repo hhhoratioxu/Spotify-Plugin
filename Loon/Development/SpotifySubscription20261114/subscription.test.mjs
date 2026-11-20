@@ -1,41 +1,23 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import {selectLoonRules as select} from './routing-fixture.mjs';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {join} from 'node:path';
-import {baseline,macSource,versionDate,filterEntryJSON,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
+import {macSource,versionDate,mobileResponses,repo,git,files,section,rules,createProfile} from './build-subscription.mjs';
 import {relocateProfile,runtimeRelease,runtimeURL} from '../../../tools/runtime-release.mjs';
 import {setTranslationDescription} from '../../../tools/translation-description.mjs';
 const profile=readFileSync(join(repo,'Loon/script/SpotifyLyrics.lpx'),'utf8');
 const manifest=JSON.parse(readFileSync(new URL('./subscription-manifest.json',import.meta.url),'utf8'));
 const old=git(macSource,'Loon/script/SpotifyLyrics.lpx').toString();
 const mac=git(macSource,'Loon/Development/SpotifyMac20261114/DisplayMac.lpx').toString();
-// Reuse the baseline's independent interpreter for the documented conditional
-// subset. This is not a claim to run Loon's native configuration parser.
-const fixture=git(baseline,'Surge/Development/VerseLyrics322/loon-rewrite.test.mjs').toString();
-const interpreter=fixture.slice(fixture.indexOf('function condition('),fixture.indexOf('function values('));
-assert.ok(interpreter.includes('function condition('));
-const condition=vm.runInNewContext(interpreter+'\ncondition',{assert});
 const unGate=line=>line.replace(/^(request|response) if \$\{CLIENT_PLATFORM\} == "(?:mobile|macOS)" && /,'$1 if ');
 const paths=['color-lyrics/v2/track/'+'0'.repeat(21)+'1','metadata/4/track/'+'0'.repeat(32),'extended-metadata/v0/extended-metadata','scrollsita/v1/scroll/spotify:track:'+'0'.repeat(21)+'1','user-customization-service/v1/customize','bootstrap/v1/bootstrap','context-resolve/v1/spotify:playlist:test','connect-state/v1/devices/abcdefghijklmnop'];
-const defaults={CLIENT_PLATFORM:'mobile',TRANSLATION_ENABLED:true,TARGET_LANGUAGE:'zh-CN',FALLBACK_PROVIDER:'auto',DISCOVER_MISSING:true};
 test('the standalone display name is SpotifyLyrics and survives the real subscription builder',()=>{
   assert.equal(profile.split('\n')[0],'#!name = SpotifyLyrics');
   assert.equal(createProfile(manifest.runtimeCommit).split('\n')[0],'#!name = SpotifyLyrics');
 });
-function select(lines,{mode='mobile',url='https://spclient.wg.spotify.com/'+paths[0],method='GET',status=200,length='20',internal=null,contentType=null,marker=null,env={}}={}){
-  const values=k=>{
-    if(k==='url')return url;if(k==='request.method')return method;if(k==='response.status')return status;
-    if(k==="request.header['x-verselyrics-internal']")return internal;
-    if(k==="response.header['Content-Length']")return length;
-    if(k==="response.header['Content-Type']")return contentType;
-    if(k==="response.header['x-verselyrics']")return marker;
-    if(k.startsWith('request.header[')||k.startsWith('response.header['))return null;
-    assert.ok(Object.hasOwn(defaults,k));return k==='CLIENT_PLATFORM'?mode:Object.hasOwn(env,k)?env[k]:defaults[k];
-  };
-  return lines.filter(line=>condition(line.slice(line.indexOf(' if ')+4,line.indexOf(' then ')),values));
-}
 test('the actual public entry has a reproducible build and a numbered WeatherKit-style description',()=>{
   assert.equal(createProfile(manifest.runtimeCommit),profile);
   assert.match(profile,/^#!date = \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/m);
@@ -56,12 +38,17 @@ test('existing settings are preserved and the optional version lookup has no def
   assert.match(args,/^VERSION_TRACK = input,"",type=string/m);
   assert.ok(section(profile,'Script').includes('generic then script("'+runtimeURL('Loon/script/SpotifyLyrics.Versions.js')));
 });
-test('mobile retains the original rewrites and scripts with a known no-op JSON startup filter',()=>{
-  assert.deepEqual(rules(profile,'Rewrite').map(unGate),rules(old,'Rewrite'));
-  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(filterEntryJSON(relocateProfile(old)),'Script'));
+test('mobile keeps lyric requests and dedicated startup rewrites; player state keeps the upstream request headers',()=>{
+  const rewrites=rules(profile,'Rewrite');
+  for(const path of paths) {
+    const options={url:'https://spclient.wg.spotify.com/'+path};
+    const count=select(rules(old,'Rewrite'),options).length;
+    assert.equal(select(rewrites,options).length,[paths[6],paths[7]].includes(path)?0:count);
+  }
+  assert.deepEqual(rules(profile,'Script').filter(l=>l.includes('CLIENT_PLATFORM} == "mobile"')).map(unGate),rules(mobileResponses(relocateProfile(old)),'Script'));
 });
 for(const contentType of ['application/json','APPLICATION/JSON; charset=UTF-8','application/problem+json'])test(`mobile startup ${contentType}: unsupported JSON metadata/configuration selects no body script`,()=>{
-  const noOps=['metadata/4/track/'+'0'.repeat(32),'extended-metadata/v0/extended-metadata','bootstrap/v1/bootstrap','user-customization-service/v1/customize','v1/customize'];
+  const noOps=['extended-metadata/v0/extended-metadata','bootstrap/v1/bootstrap','user-customization-service/v1/customize','v1/customize'];
   for(const path of noOps)for(const host of ['spclient.wg.spotify.com','gew1-spclient.spotify.com','gae2-spclient.spotify.com:443']){
     const options={url:'https://'+host+'/'+path+'?fixture=1',contentType};
     assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).length,0);
@@ -71,8 +58,8 @@ for(const contentType of ['application/json','APPLICATION/JSON; charset=UTF-8','
 for(const contentType of [null,'application/x-protobuf','application/octet-stream'])test(`mobile startup ${contentType}: native binary and unknown content types retain the original routes`,()=>{
   for(const path of paths){const options={url:'https://spclient.wg.spotify.com/'+path,contentType};assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).length,1);}
 });
-test('supported scroll/player JSON and the actual lyric response still select one mobile script',()=>{
-  for(const path of [paths[0],paths[3],paths[6],paths[7]])assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{url:'https://spclient.wg.spotify.com/'+path,contentType:'application/json'}).length,1);
+test('supported track/scroll/player JSON and lyric responses select one mobile script',()=>{
+  for(const path of [paths[0],paths[1],paths[3],paths[6],paths[7]])assert.equal(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),{url:'https://spclient.wg.spotify.com/'+path,contentType:'application/json'}).length,1);
 });
 test('mobile discovery disabled selects no entry body VM while normal lyric translation remains available',()=>{
   const responses=rules(profile,'Script').filter(l=>l.startsWith('response ')),env={DISCOVER_MISSING:false};
@@ -102,10 +89,41 @@ test('phone never starts the new Mac request script or loads a Mac runtime',()=>
     assert.equal(chosen.length,1);assert.ok(chosen.every(l=>!l.includes('.Mac.js')));
   }
 });
-test('native response routing preserves original status and size guards for phones',()=>{
-  for(const path of paths)for(const status of [200,404,304,401,403,429,500])for(const length of [null,'20','131073','262145']){
-    const options={url:'https://spclient.wg.spotify.com/'+path,status,length};
-    assert.deepEqual(select(rules(profile,'Script').filter(l=>l.startsWith('response ')),options).map(unGate),select(rules(filterEntryJSON(relocateProfile(old)),'Script'),options));
+test('mobile batch startup and player state require a small declared identity body',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response '));
+  for(const path of [paths[2],...paths.slice(4)]) {
+    const url='https://spclient.wg.spotify.com/'+path;
+    assert.equal(select(responses,{url,length:'32000',encoding:'IDENTITY'}).length,1);
+    for(const length of [null,'','32001','120000','-2','1e3','20, 20']) assert.equal(select(responses,{url,length}).length,0);
+    for(const headers of [{encoding:'gzip'},{encoding:'br'},{transfer:'chunked'},{contentType:'audio/ogg'},{contentType:'text/html'}]) {
+      assert.equal(select(responses,{url,...headers}).length,0);
+    }
+  }
+});
+test('mobile exact track, card and lyric routes retain small or lengthless HTTP/2 identity bodies',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response '));
+  for(const path of [paths[0],paths[1],paths[3]]) {
+    const url='https://spclient.wg.spotify.com/'+path;
+    for(const length of [null,'20','32000','64000']) assert.equal(select(responses,{url,length}).length,1);
+    for(const length of ['64001','262145','123abc']) assert.equal(select(responses,{url,length}).length,0);
+    assert.equal(select(responses,{url,encoding:'gzip'}).length,0);
+    assert.equal(select(responses,{url,transfer:'chunked'}).length,0);
+  }
+});
+test('mobile lyric 404 takes the header-only path; auth and service errors never enter',()=>{
+  const responses=rules(profile,'Script').filter(l=>l.startsWith('response '));
+  for(const path of paths) {
+    const url='https://spclient.wg.spotify.com/'+path;
+    for(const status of [304,401,403,429,500]) assert.equal(select(responses,{url,status}).length,0);
+    const missing=select(responses,{url,status:404,length:null});
+    if(path!==paths[0]) assert.deepEqual(missing,[]);
+    else {
+      assert.equal(missing.length,1);
+      assert.match(missing[0],/requires_body=false$/);
+      assert.equal(select(responses,{url,status:404,env:{FALLBACK_PROVIDER:'off'}}).length,0);
+      assert.equal(select(responses,{url,status:404,method:'HEAD'}).length,0);
+      assert.match(select(responses,{url,status:200})[0],/requires_body=true, binary_body_mode=true$/);
+    }
   }
 });
 test('Mac selects its own request and exactly one response while native rewrites stay inactive',()=>{
@@ -140,7 +158,7 @@ test('each real runtime matches its immutable pin and the established Mac transp
 });
 test('the public install chain contains only immutable public URLs and no local diagnostics',()=>{
   assert.doesNotMatch(profile,/127\.0\.0\.1|localhost|18765|CacheProbe|Debug|observe/);
-  for(const line of rules(profile,'Script'))assert.match(line,/script\("https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/SpotifyLyrics\/[0-9a-f]{40}\/Loon\/script\/[^"/]+\.js"/);
+  for(const line of rules(profile,'Script'))assert.match(line,/script\("https:\/\/raw\.githubusercontent\.com\/hhhoratioxu\/Spotify-Plugin\/[0-9a-f]{40}\/Loon\/script\/[^"/]+\.js"/);
   for(const item of files)assert.doesNotMatch(readFileSync(join(repo,'Loon/script/'+item.name),'utf8'),/127\.0\.0\.1:18765|phase:"|cache-probe|\/events/);
 });
 test('the published profile hash and honest acceptance state match its manifest',()=>{

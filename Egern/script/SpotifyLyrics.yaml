@@ -137,7 +137,7 @@ mitm:
   - "*-spclient.spotify.com"
 scriptings:
 - http_request:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics-request.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/3e9b871ff062095479de6b13700522f088102b55/Egern/script/SpotifyLyrics/spotify-lyrics-request.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN
@@ -157,7 +157,7 @@ scriptings:
     body_required: false
     timeout: 3
 - http_response:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/3e9b871ff062095479de6b13700522f088102b55/Egern/script/SpotifyLyrics/spotify-lyrics.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN
@@ -179,7 +179,7 @@ scriptings:
     max_size: 262144
     timeout: 12
 - http_response:
-    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/997dcb3aad3fb988d41cbe9dcbd05b82128054b9/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js?v=3.2.2
+    script_url: https://raw.githubusercontent.com/hhhoratioxu/Spotify-Plugin/3e9b871ff062095479de6b13700522f088102b55/Egern/script/SpotifyLyrics/spotify-lyrics-entry.js?v=3.2.2
     env:
       TRANSLATION_ENABLED: 'true'
       TARGET_LANGUAGE: zh-CN

@@ -22,7 +22,23 @@ const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const scratch=mkdtempSync(join(tmpdir(),'spotifylyrics-current-core-'));
 try {
   cpSync(join(root,'history/3.2.2/core'),join(scratch,'core'),{recursive:true});
-  writeFileSync(join(scratch,'core/spotify-lyrics.js'),readFileSync(join(root,'src/spotify-lyrics.js')));
+  const source=readFileSync(join(root,'src/spotify-lyrics.js'),'utf8');
+  writeFileSync(join(scratch,'core/spotify-lyrics.js'),source);
+  // The archived tests remain byte-identical. In the current-core copy,
+  // current negatives use the maintained revision and legacy negatives
+  // retain their original revision. The captured track now includes its ISRC.
+  const currentRevision=source.match(/^const SOURCE_REVISION = (\d+);$/m)?.[1];
+  if (!currentRevision) throw Error('Missing current lyrics source revision');
+  function adaptFixture(name,from,to) {
+    const path=join(scratch,'core/test',name),fixture=readFileSync(path,'utf8');
+    if (fixture.split(from).length!==2) throw Error('Unexpected compatibility fixture: '+name);
+    writeFileSync(path,fixture.replace(from,to));
+  }
+  for (const name of ['bilingual-artists','cache-latency','static-source-repair']) {
+    adaptFixture(name+'.test.mjs','sourceRevision:8','sourceRevision:'+currentRevision);
+  }
+  adaptFixture('spotify-lyrics.test.mjs','duration:targetFixture.expected.duration});',
+    'duration:targetFixture.expected.duration,isrc:"HKD012995812"});');
   writeFileSync(join(scratch,'package.json'),'{"type":"module"}');
   cpSync(join(root,'build/current-runtime/runtime'),join(scratch,'runtime'),{recursive:true});
   writeFileSync(join(scratch,'request-core.js'),readFileSync(join(root,'build/current-runtime/request-core.js')));

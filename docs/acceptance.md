@@ -1,5 +1,7 @@
 # 验收状态
 
+2026-11-20 Dev 针对 iPhone 开播时 Loon VPN 断开及补词失败调整。Loon 根据原始响应头选择小批量启动正文，逐曲处理已识别的 JSON 元数据，歌词 404 可直接按响应头进入原有补词。离线回放和独立构建通过。断线及整扩展低于 40 MB 待 iPhone 复测。[修复与回放记录](ios-startup-2026-11-20.md)
+
 2026-11-19 Spotify-Plugin Dev 增加通用录音署名核对和 Loon 手动查找同录音发行版。按用户要求仅构建与校验发布文件，回归、设备显示和实际曲目可播性待后续验收。[Dev 说明](localized-artist-matching.md)
 
 2026-11-19 Dev：加入艺人名跨语言匹配及 Loon Mac 元数据、补词显示与翻译预载适配。本轮按用户要求直接构建和发布，未执行回归或实机测试。Mac 验收以歌词功能为准，iPhone 的当前目标为整个 Loon VPN 扩展峰值低于 40,000,000 字节。[Dev 版本说明](localized-artist-matching.md)

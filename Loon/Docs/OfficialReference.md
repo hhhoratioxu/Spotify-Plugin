@@ -1,5 +1,7 @@
 # Loon 官方文档适配记录
 
+2026-11-20 复核 [总览](https://nsloon.app/docs/intro/)、[Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/)、[Rewrite](https://nsloon.app/docs/Rewrite/rewrite_v2/) 与[插件](https://nsloon.app/docs/Plugin/)。手机批量正文先以原始响应头和固定 URL 条件筛选，原生 Header 是字符串或 null。歌词 404 的 Response Script 在响应头阶段执行，生成有效补词时用 `$done` 提交状态、响应头和 Uint8Array。同步元数据和异步歌词均只完成一次。沿用 3.5.1(983) 及已声明的插件设置。[实机验收边界与回放](../../docs/ios-startup-2026-11-20.md)
+
 2026-11-19 Spotify-Plugin Dev 核对官方 [Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/) 和 [Plugin](https://nsloon.app/docs/Plugin/)。同录音查询使用手动 Generic、字符串输入对象、HTTP 毫秒超时以及通知的 `openUrl`。异步工作完成后调用一次 `$done`。歌词匹配继续共用现有串行请求预算、存储、路由与最低版本。
 
 2026-11-19 SpotifyLyrics Dev 核对 [Script](https://nsloon.app/docs/Script/script_v2/)、[Script API](https://nsloon.app/docs/Script/script_api/) 与[插件](https://nsloon.app/docs/Plugin/)。艺人名匹配共用既有查询与缓存。Mac JSON 元数据复用原生响应及同步缓存接口，按曲目区分网络名额，完成后调用一次 `$done`。继续使用已发布的 Loon 规则语法、参数与最低版本。iPhone 的 40 MB 目标待实机验收。

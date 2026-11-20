@@ -1,0 +1,828 @@
+{
+  "recordedAt": "2026-11-20T14:18:41.040Z",
+  "host": {
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "runnerSHA256": "e62f3bd8bf926b548c2d2b7b51a77de3488b161fb5771011373fe3103a82d47c",
+  "scope": "Synthetic startup responses selected by the installed profile rules; actual Entry bundles in owned macOS JavaScriptCore processes; completed contexts held until each wave ends",
+  "nativeIOSAcceptance": false,
+  "iosTargetBytesExclusive": 40000000,
+  "limitations": [
+    "Rule interpreter models the documented subset of Loon conditions",
+    "No iPhone, native HTTP/TLS buffers or other VPN plugins",
+    "Repeated waves use identical fixtures; they are not observations of actual Spotify requests"
+  ],
+  "builds": {
+    "before": {
+      "revision": "997dcb3aad3fb988d41cbe9dcbd05b82128054b9",
+      "profileSHA256": "d144de2dfdd8b1dccb0a8856f1cc901f0788fbcfa3172add2d03d0c38e95ed51",
+      "runtimeSHA256": "2127bfc42a2cbfa893149a351c352be54765e0d7658d391cd7cfdd66dcadf234"
+    },
+    "after": {
+      "revision": "3e9b871ff062095479de6b13700522f088102b55",
+      "profileSHA256": "e9b8ac8b518f9216931abd9a44e0a07873dfbd65ddc09321ca734d6da1f53ce5",
+      "runtimeSHA256": "bba414545be559aeb51046052e339607796b4fd7378c22f7412a276e8bd397ee"
+    }
+  },
+  "summary": {
+    "before": {
+      "bodyScripts": 20,
+      "bodyBytes": 1394354,
+      "maxFootprintBytes": 33047080,
+      "maxResidentBytes": 40730624
+    },
+    "after": {
+      "bodyScripts": 9,
+      "bodyBytes": 72970,
+      "maxFootprintBytes": 22282744,
+      "maxResidentBytes": 29376512
+    }
+  },
+  "rows": [
+    {
+      "kind": "metadata",
+      "bodyBytes": 8071,
+      "contentLength": "8071",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8071,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 7242232,
+            "residentBytes": 9846784
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 13795832,
+            "residentBytes": 17547264
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20857336,
+            "residentBytes": 28180480
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8071,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 7307768,
+            "residentBytes": 9912320
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 13828624,
+            "residentBytes": 17596416
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 22282744,
+            "residentBytes": 28246016
+          }
+        ]
+      }
+    },
+    {
+      "kind": "extended",
+      "bodyBytes": 8167,
+      "contentLength": "8167",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8167,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 7422456,
+            "residentBytes": 10027008
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14434832,
+            "residentBytes": 18104320
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23314984,
+            "residentBytes": 29360128
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8167,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 7471608,
+            "residentBytes": 10076160
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14549496,
+            "residentBytes": 18186240
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 22200824,
+            "residentBytes": 29376512
+          }
+        ]
+      }
+    },
+    {
+      "kind": "bootstrap",
+      "bodyBytes": 8113,
+      "contentLength": "8113",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8113,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6668792,
+            "residentBytes": 9273344
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 11977232,
+            "residentBytes": 16662528
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 19890680,
+            "residentBytes": 26902528
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8113,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6685176,
+            "residentBytes": 9289728
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12911096,
+            "residentBytes": 16695296
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 21103144,
+            "residentBytes": 27049984
+          }
+        ]
+      }
+    },
+    {
+      "kind": "customize",
+      "bodyBytes": 8095,
+      "contentLength": "8095",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8095,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6537720,
+            "residentBytes": 9142272
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12812792,
+            "residentBytes": 16433152
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20398584,
+            "residentBytes": 26345472
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8095,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6636048,
+            "residentBytes": 9224192
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12878352,
+            "residentBytes": 16449536
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20775440,
+            "residentBytes": 26460160
+          }
+        ]
+      }
+    },
+    {
+      "kind": "scroll",
+      "bodyBytes": 8046,
+      "contentLength": "8046",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8046,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6603256,
+            "residentBytes": 9207808
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12894712,
+            "residentBytes": 16482304
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20496912,
+            "residentBytes": 26574848
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8046,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6619664,
+            "residentBytes": 9207808
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 13025808,
+            "residentBytes": 16547840
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20644344,
+            "residentBytes": 26673152
+          }
+        ]
+      }
+    },
+    {
+      "kind": "context-json",
+      "bodyBytes": 8165,
+      "contentLength": "8165",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8165,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6488568,
+            "residentBytes": 9093120
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12567032,
+            "residentBytes": 16121856
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 19890704,
+            "residentBytes": 25673728
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8165,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6619640,
+            "residentBytes": 9224192
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12763664,
+            "residentBytes": 16220160
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20054520,
+            "residentBytes": 25804800
+          }
+        ]
+      }
+    },
+    {
+      "kind": "connect-json",
+      "bodyBytes": 8134,
+      "contentLength": "8134",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8134,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6521360,
+            "residentBytes": 9109504
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12583440,
+            "residentBytes": 16121856
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 19857936,
+            "residentBytes": 25657344
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8134,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6603280,
+            "residentBytes": 9191424
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12681720,
+            "residentBytes": 16171008
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20054544,
+            "residentBytes": 25804800
+          }
+        ]
+      }
+    },
+    {
+      "kind": "context-protobuf",
+      "bodyBytes": 8110,
+      "contentLength": "8110",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8110,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6586872,
+            "residentBytes": 9191424
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12878352,
+            "residentBytes": 16416768
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20382200,
+            "residentBytes": 26263552
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8110,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6652408,
+            "residentBytes": 9256960
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12861944,
+            "residentBytes": 16482304
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20496888,
+            "residentBytes": 26558464
+          }
+        ]
+      }
+    },
+    {
+      "kind": "connect-protobuf",
+      "bodyBytes": 8069,
+      "contentLength": "8069",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 8069,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6603280,
+            "residentBytes": 9191424
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12894736,
+            "residentBytes": 16449536
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 19202552,
+            "residentBytes": 26279936
+          }
+        ]
+      },
+      "after": {
+        "selected": true,
+        "bodyBytes": 8069,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 6652408,
+            "residentBytes": 9256960
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 12861944,
+            "residentBytes": 16515072
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 20513296,
+            "residentBytes": 26574848
+          }
+        ]
+      }
+    },
+    {
+      "kind": "extended",
+      "bodyBytes": 120172,
+      "contentLength": "120172",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120172,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 9961976,
+            "residentBytes": 13156352
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 19497512,
+            "residentBytes": 24969216
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 33047056,
+            "residentBytes": 40566784
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "extended",
+      "bodyBytes": 120172,
+      "contentLength": null,
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120172,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 10076688,
+            "residentBytes": 13271040
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 19595816,
+            "residentBytes": 25067520
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 33047080,
+            "residentBytes": 40730624
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "bootstrap",
+      "bodyBytes": 120120,
+      "contentLength": "120120",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120120,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8929808,
+            "residentBytes": 12107776
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 15696400,
+            "residentBytes": 21463040
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 26051088,
+            "residentBytes": 34504704
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "bootstrap",
+      "bodyBytes": 120120,
+      "contentLength": null,
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120120,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8929808,
+            "residentBytes": 12107776
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 15696424,
+            "residentBytes": 21446656
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 25985552,
+            "residentBytes": 34373632
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "customize",
+      "bodyBytes": 120096,
+      "contentLength": "120096",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120096,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8372728,
+            "residentBytes": 11567104
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14025232,
+            "residentBytes": 19660800
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23101968,
+            "residentBytes": 30621696
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "customize",
+      "bodyBytes": 120096,
+      "contentLength": null,
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120096,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8389136,
+            "residentBytes": 11567104
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14025232,
+            "residentBytes": 19628032
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23200248,
+            "residentBytes": 30572544
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "context-json",
+      "bodyBytes": 120165,
+      "contentLength": "120165",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120165,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8716816,
+            "residentBytes": 11894784
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14697000,
+            "residentBytes": 21004288
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23233016,
+            "residentBytes": 32849920
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "context-json",
+      "bodyBytes": 120165,
+      "contentLength": null,
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120165,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8733176,
+            "residentBytes": 11927552
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14680592,
+            "residentBytes": 20938752
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 22807032,
+            "residentBytes": 32833536
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "connect-protobuf",
+      "bodyBytes": 120072,
+      "contentLength": "120072",
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120072,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8929808,
+            "residentBytes": 12107776
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14909968,
+            "residentBytes": 20660224
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23822912,
+            "residentBytes": 32145408
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "connect-protobuf",
+      "bodyBytes": 120072,
+      "contentLength": null,
+      "contentEncoding": null,
+      "before": {
+        "selected": true,
+        "bodyBytes": 120072,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8241656,
+            "residentBytes": 12075008
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14828048,
+            "residentBytes": 20545536
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23953960,
+            "residentBytes": 32260096
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    },
+    {
+      "kind": "connect-json",
+      "bodyBytes": 120134,
+      "contentLength": "12000",
+      "contentEncoding": "gzip",
+      "before": {
+        "selected": true,
+        "bodyBytes": 120134,
+        "peaks": [
+          {
+            "contexts": 1,
+            "footprintBytes": 8585744,
+            "residentBytes": 11763712
+          },
+          {
+            "contexts": 4,
+            "footprintBytes": 14680616,
+            "residentBytes": 20807680
+          },
+          {
+            "contexts": 8,
+            "footprintBytes": 23626280,
+            "residentBytes": 32751616
+          }
+        ]
+      },
+      "after": {
+        "selected": false,
+        "bodyBytes": 0,
+        "peaks": []
+      }
+    }
+  ]
+}

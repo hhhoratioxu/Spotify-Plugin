@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-11-15T08:21:55.579Z",
+  "recordedAt": "2026-11-20T14:18:39.653Z",
   "scope": "Original core test files executed against the current maintained source and staged native runtimes in a temporary directory; history files unchanged",
   "tests": 1011,
   "passed": 1011,
