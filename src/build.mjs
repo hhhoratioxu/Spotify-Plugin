@@ -2,6 +2,8 @@ import {minify} from 'terser';
 import {localUntilIO,runner,extractFunctions} from './native-flow.mjs';
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {macMetadataEntry} from './mac-metadata.mjs';
+import {boundedJSON} from './bounded-json.mjs';
 const read=p=>readFileSync(new URL(p,import.meta.url),'utf8');
 const core=read('./core/spotify-lyrics.js'),notice=read('./core/NOTICE-UNICODE.txt'),adapter=read('./native-adapter.js');
 const gitSHA=s=>createHash('sha1').update(`blob ${Buffer.byteLength(s)}\0`).update(s).digest('hex');
@@ -78,6 +80,30 @@ const nativeEntryAdapter = entryAdapter
   .replace('async function nativeMain()','function nativeMain()')
   .replace('const result = await verseLyricsCore(ctx);','const result = verseLyricsCore(ctx);')
   .replace('nativeMain().catch(() => nativeDone({}));','try { nativeMain(); } catch { nativeDone({}); }');
+// Reuse the validated track JSON format from the desktop adapter and write
+// only the checked catalog identity into the existing shared cache.
+const loonEntryAdapter = nativeEntryAdapter.replace('const result = verseLyricsCore(ctx);', `
+  if (ctx.response?.status === 200) {
+    const track = META_URL.test(ctx.request.url);
+    const direct = track || SCROLL_URL.test(ctx.request.url);
+    const body = readNativeEntryBody(ctx.response,direct ? 64000 : 32000);
+    if (track && /json/i.test(header(ctx.response.headers,"Content-Type"))) {
+      if (header(ctx.response.headers, MARKER)) return nativeDone({});
+      const patched = macMetadataEntry($request,{status:ctx.response.status,headers:$response.headers,body},ctx.env,{
+        settings,utf8Size,utf8,text,scanJSON:boundedJSON,catalogISRC,
+        remember({gid,title,album,artists,duration,isrc}) {
+          const cache=loadCache(ctx,{metadata:true});
+          const meta={id:hexBase62(gid),title,album,artists,duration};
+          if (isrc) meta.isrc=isrc;
+          cacheMetadata({cache},{meta,hasLyrics:false});
+          cache.save();
+        }
+      });
+      return nativeDone(patched);
+    }
+  }
+  const result = verseLyricsCore(ctx);
+`);
 // The lyric hook does not need bootstrap/card/context entry rewriting. Keep
 // metadata decoders used by fallback lookups, and preserve the exact lyric path.
 let lyrics = clean.slice(0,clean.indexOf('// Original, narrowly scoped iOS lyric-entry'));
@@ -123,6 +149,16 @@ const flowAdapter=adapter.replace('nativeMain().catch(() => nativeDone({}));',
   'try { const pending = nativeMain(); if (pending && typeof pending.then === "function") pending.then(undefined,() => nativeDone({})); } catch { nativeDone({}); }')
   .replace('boundedBytes,\n    boundedText','boundedBytes,\n    boundedText')
   .replace(',\n    arrayBuffer: async () => nativeBuffer(boundedBytes())','');
+// A header-only 404 may generate a replacement body. If fallback fails,
+// leave the upstream body in Loon's control.
+const loonLyricsAdapter = flowAdapter
+  .replace('nativeDeadline = Date.now() + 12000;', `
+  if (ctx.response?.status === 200 && typeof $argument === "object" && $argument?.CLIENT_PLATFORM === "mobile") {
+    ctx.response.boundedBytes(64000);
+  }
+  nativeDeadline = Date.now() + 12000;`)
+  .replace('if (result.body !== undefined && ctx.response) {',
+    'if (result.body !== undefined && ctx.response && ($response.body !== undefined || result.status === 200)) {');
 const syncRequest=strip(request).replace('async function verseLyricsCore','function verseLyricsCore');
 const syncRequestAdapter=requestNativeAdapter.replace('else Promise.resolve(verseLyricsCore({request:{url:$request.url,headers:new NativeHeaders($request.headers)},env:nativeArguments()}))\n    .then(r=>nativeDone(r?.headers?{headers:r.headers.native()}:{}),()=>nativeDone({}));',
   'else { const r=verseLyricsCore({request:{url:$request.url,headers:new NativeHeaders($request.headers)},env:nativeArguments()}); nativeDone(r?.headers?{headers:r.headers.native()}:{}); }');
@@ -185,8 +221,11 @@ async function save(path,body){
   manifest.push({path,bytes:Buffer.byteLength(body),originalBytes,sha:gitSHA(body),sha256:createHash('sha256').update(body).digest('hex')});
 }
 for(const client of ['Surge','Loon','Shadowrocket','QuantumultX']){
-  await save(client+'/script/SpotifyLyrics.js',`/* VerseLyrics ${client} adapter 18; core 3.2.2.\n * Original host bridge. No external JavaScript runtime.\n */\n/*\n${notice}*/\n(() => {\n"use strict";\n${runner}\n${localUntilIO(nativeLyrics,["verseLyricsCore","translate","fallbackPalette"])}\n${localUntilIO(flowAdapter.replace('__CLIENT__',client),["nativeMain"])}\n})();\n`);
-  await save(client+'/script/SpotifyLyrics.Entry.js',`/* VerseLyrics ${client} lightweight entry 3.2.2. */\n(() => {\n"use strict";\n${strip(nativeEntry)}\n${nativeEntryAdapter.replace('__CLIENT__',client)}\n})();\n`);
+  const lyricsAdapter = client === 'Loon' ? loonLyricsAdapter : flowAdapter;
+  const responseAdapter = client === 'Loon' ? loonEntryAdapter : nativeEntryAdapter;
+  const entryCodec = client === 'Loon' ? macMetadataEntry.toString()+'\n'+boundedJSON.toString() : '';
+  await save(client+'/script/SpotifyLyrics.js',`/* VerseLyrics ${client} adapter 18; core 3.2.2.\n * Original host bridge. No external JavaScript runtime.\n */\n/*\n${notice}*/\n(() => {\n"use strict";\n${runner}\n${localUntilIO(nativeLyrics,["verseLyricsCore","translate","fallbackPalette"])}\n${localUntilIO(lyricsAdapter.replace('__CLIENT__',client),["nativeMain"])}\n})();\n`);
+  await save(client+'/script/SpotifyLyrics.Entry.js',`/* VerseLyrics ${client} lightweight entry 3.2.2. */\n(() => {\n"use strict";\n${strip(nativeEntry)}${entryCodec ? '\n'+entryCodec : ''}\n${responseAdapter.replace('__CLIENT__',client)}\n})();\n`);
   if(client !== 'Loon') await save(client+'/script/SpotifyLyrics.Request.js',`(() => {\n"use strict";\n${syncRequest}\n${syncRequestAdapter.replace('__CLIENT__',client)}\n})();\n`);
 }
 await save('Egern/script/SpotifyLyrics/spotify-lyrics.js',`/* VerseLyrics 3.2.2 — Egern native ctx module. */\n/*\n${notice}*/\n${lyrics}`);

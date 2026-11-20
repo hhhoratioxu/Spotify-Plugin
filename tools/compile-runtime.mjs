@@ -18,9 +18,17 @@ export function compileRuntime(root=project) {
   const stage=join(root,'build/current-runtime');
   const inputs=[];
   try {
-    for (const [name,dest] of Object.entries({'build.mjs':'build.mjs','spotify-lyrics.js':'core/spotify-lyrics.js','native-adapter.js':'native-adapter.js','native-flow.mjs':'native-flow.mjs','NOTICE-UNICODE.txt':'core/NOTICE-UNICODE.txt'})) {
-      const bytes=readFileSync(join(root,'src',name)),path=join(scratch,dest);
-      mkdirSync(dirname(path),{recursive:true});writeFileSync(path,bytes);inputs.push({path:'src/'+name,sha256:sha(bytes)});
+    for (const [name,dest] of Object.entries({
+      'src/build.mjs':'build.mjs',
+      'src/spotify-lyrics.js':'core/spotify-lyrics.js',
+      'src/native-adapter.js':'native-adapter.js',
+      'src/native-flow.mjs':'native-flow.mjs',
+      'src/NOTICE-UNICODE.txt':'core/NOTICE-UNICODE.txt',
+      'src/mac-metadata.mjs':'mac-metadata.mjs',
+      'Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs':'bounded-json.mjs',
+    })) {
+      const bytes=readFileSync(join(root,name)),path=join(scratch,dest);
+      mkdirSync(dirname(path),{recursive:true});writeFileSync(path,bytes);inputs.push({path:name,sha256:sha(bytes)});
     }
     symlinkSync(join(root,'node_modules'),join(scratch,'node_modules'),'dir');
     execFileSync(process.execPath,['build.mjs'],{cwd:scratch,stdio:'pipe',maxBuffer:1024*1024});
@@ -54,8 +62,8 @@ export function compileRuntime(root=project) {
     const isrcParser = source.match(/^function catalogISRC\([^]*?^}/m);
     if (!isrcParser) throw Error('Missing recording identifier parser');
     save('Loon/script/SpotifyLyrics.Versions.js',Buffer.from(isrcParser[0]+'\n'+readFileSync(join(root,versionAction),'utf8')));
-    for(const path of [versionAction,'src/mac-metadata.mjs','src/mac-network.mjs','tools/mac-runtime.mjs','tools/mac-metadata-cache.mjs','Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs','Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs','Loon/Development/SpotifyMacMetadata20261114/bounded-json.mjs'])inputs.push({path,sha256:sha(readFileSync(join(root,path)))});
-    const manifest={schema:1,core:'3.2.2',patch:'recording-identity-and-version-lookup',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
+    for(const path of [versionAction,'src/mac-network.mjs','tools/mac-runtime.mjs','tools/mac-metadata-cache.mjs','Loon/Development/SpotifyMacMetadata20261114/mac-fallback-compat.mjs','Loon/Development/SpotifyMacMetadata20261114/candidate-codec.mjs'])inputs.push({path,sha256:sha(readFileSync(join(root,path)))});
+    const manifest={schema:1,core:'3.2.2',patch:'ios-body-admission-and-track-json',inputs,macPresentationSHA256:sha(Buffer.from(macDisplay.toString())),artifacts:artifacts.sort((a,b)=>a.path.localeCompare(b.path))};
     mkdirSync(stage,{recursive:true});writeFileSync(join(stage,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
     return {stage,manifest};
   } finally {rmSync(scratch,{recursive:true,force:true});}
